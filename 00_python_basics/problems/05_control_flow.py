@@ -30,15 +30,35 @@ def fizzbuzz(n: int) -> list[str]:
 
 
 def is_prime(n: int) -> bool:
-    raise NotImplementedError
+    if n < 2:
+        return False
+    for d in range(2 , int(n**0.5) + 1):
+        if n % d == 0:
+            return False
+    return True
 
 
 def multiplication_table(n: int) -> list[list[int]]:
-    raise NotImplementedError
+    result = []
+    for i in range(1, n + 1):
+        row = []
+        for j in range(1, n + 1):
+            row.append(i * j)
+        result.append(row)
+    return result    
+    
 
 
 def collatz_steps(n: int) -> int:
-    raise NotImplementedError
+    steps = 0
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            3 * n + 1
+        steps += 1
+    return steps    
+
 
 
 if __name__ == "__main__":
