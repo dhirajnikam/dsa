@@ -1,0 +1,10 @@
+def coin_change(coins, amount):
+    # O(amount * len(coins)) time, O(amount) space
+    # dp[a] = min over coins c <= a of dp[a - c] + 1; dp[0] = 0.
+    INF = float("inf")
+    dp = [0] + [INF] * amount
+    for a in range(1, amount + 1):
+        for c in coins:
+            if c <= a and dp[a - c] + 1 < dp[a]:
+                dp[a] = dp[a - c] + 1
+    return dp[amount] if dp[amount] < INF else -1
