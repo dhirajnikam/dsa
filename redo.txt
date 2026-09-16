@@ -1,0 +1,2 @@
+# Problems you needed the solution for. Format: YYYY-MM-DD  chapter/function
+# Redo after 3 days, then 7. Remove a line when you solve it cold twice.

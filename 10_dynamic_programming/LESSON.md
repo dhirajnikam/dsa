@@ -1,0 +1,371 @@
+# 10 · Dynamic Programming
+
+> Dynamic programming is not a new kind of thinking. It is recursion plus a notebook. You write
+> the honest brute-force recursion, notice you keep answering the same question, and start
+> writing the answers down. Everything else in this chapter is bookkeeping.
+
+**Interview frequency:** high at Google, medium at Amazon. Google asks DP as a second problem
+after a warm-up, usually a 1-D or two-sequence variant. Amazon leans on the easier families
+(climbing stairs, house robber, coin change, LCS). Both love to hear you say "memoize" before
+you say "table."
+
+## 1. The core idea
+
+Every DP problem is a recursion with **overlapping subproblems**: the same smaller question
+gets asked many times. Plain recursion answers it every time. DP answers it once and remembers.
+
+The five stages, in the order you should do them in an interview:
+
+```
+1. Brute-force recursion      "the answer for n is built from answers for n-1 and n-2"
+2. Spot the repeats            draw the tree; the same node appears many times
+3. Memoize                     @lru_cache or a dict keyed by the state -> O(#states)
+4. Bottom-up table (optional)  fill dp[] from base cases toward the answer, no recursion
+5. Compress space (optional)   if dp[i] depends only on the last k rows, keep k variables
+```
+
+Stages 1 to 3 get full marks at almost every company. Stages 4 and 5 are the follow-up
+questions. Here is the whole idea on Climbing Stairs, `n = 5`:
+
+```
+brute-force tree for ways(5)                       memoized
+                 ways(5)                           ways(5)
+              /          \                          /     \
+        ways(4)          ways(3)*               ways(4)   [3: cached]
+       /      \          /     \                /     \
+   ways(3)*  ways(2)#  ways(2)# ways(1)     ways(3)  [2: cached]
+   /    \    ...        ...                 /    \
+ways(2)# ways(1)                        ways(2) ways(1)
+ ...                                     /   \
+                                     ways(1) ways(0)
+* ways(3) computed 2 times    # ways(2) computed 3 times
+15 calls                                           9 calls; n=40 -> 2.6 billion vs 81
+```
+
+Every `*` and `#` subtree in the left tree is identical work. The right tree does each once.
+The number of distinct states is `n + 1`, so the memoized version is O(n).
+
+**The four questions you answer for every DP.** Write them down before you code.
+
+| Question | Climbing Stairs answer |
+|----------|------------------------|
+| **State.** What does `dp[i]` mean, in one sentence? | `dp[i]` = number of ways to reach step `i`. |
+| **Transition.** How is `dp[i]` built from smaller states? | `dp[i] = dp[i-1] + dp[i-2]` (last move was 1 or 2 steps). |
+| **Base case.** Where does the recursion stop? | `dp[0] = 1` (one way to stand still), `dp[1] = 1`. |
+| **Answer.** Which cell holds the result? | `dp[n]`. |
+
+If you cannot say the state in one sentence, you do not have a DP yet. Keep looking.
+
+## 2. Anchor problem: Climbing Stairs, fully worked
+
+**Problem.** You climb a staircase with `n` steps. Each move goes up 1 or 2 steps. How many
+distinct sequences of moves reach the top?
+
+**Understand.** Order matters (`1,2` and `2,1` are different). `n >= 1`. Answer for `n = 1` is 1,
+for `n = 2` is 2 (`1+1`, `2`). Can `n` be large? Yes, so exponential is out.
+
+**Examples.** `2 → 2`. `3 → 3` (`1+1+1`, `1+2`, `2+1`). `5 → 8`.
+
+**Brute force (stage 1).** The last move was either 1 step from `n-1` or 2 steps from `n-2`.
+So `ways(n) = ways(n-1) + ways(n-2)`. Base: `ways(0) = 1`, `ways(1) = 1`.
+
+```python
+def ways(n):
+    if n <= 1:
+        return 1
+    return ways(n - 1) + ways(n - 2)
+```
+
+O(2ⁿ) time. Say it, then say why: "the tree above re-solves `ways(3)` twice and `ways(2)` three
+times, and it gets exponentially worse."
+
+**Insight (stage 2).** The only thing that identifies a subproblem is `n`. There are `n + 1`
+possible values. If I never solve the same `n` twice, I do O(n) work.
+
+**Code (stage 3, memoized).**
+
+```python
+from functools import lru_cache
+
+def climbing_stairs(n):
+    @lru_cache(maxsize=None)
+    def ways(i):
+        if i <= 1:
+            return 1
+        return ways(i - 1) + ways(i - 2)
+    return ways(n)
+```
+
+**Code (stage 4, bottom-up).** Same transition, filled from the base cases upward.
+
+```python
+def climbing_stairs(n):
+    dp = [0] * (n + 1)
+    dp[0] = dp[1] = 1
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]
+```
+
+**Code (stage 5, compressed).** `dp[i]` only looks back two cells, so keep two variables.
+
+```python
+def climbing_stairs(n):
+    a, b = 1, 1                     # ways(i-2), ways(i-1)
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
+```
+
+**Test trace** (compressed, `n = 5`): start `a=1, b=1`. i=2: `a=1, b=2`. i=3: `a=2, b=3`.
+i=4: `a=3, b=5`. i=5: `a=5, b=8`. Return 8. ✓ That is Fibonacci shifted by one, which is
+worth saying out loud because the interviewer will be waiting for it.
+
+**Complexity.** O(n) time. Space: O(n) memoized or tabulated, O(1) compressed.
+
+**What to say out loud.** "The last move is 1 or 2 steps, so ways(n) = ways(n-1) + ways(n-2).
+Naively that is exponential because subproblems repeat. There are only n+1 distinct
+subproblems, so memoizing makes it O(n). Bottom-up it is a loop, and since each cell depends
+on the previous two I can keep two variables for O(1) space."
+
+## 3. Patterns and templates in this chapter
+
+### The memoization template
+
+Write this every time, then decide whether to convert it. Nested function so the cache is
+per call, and `maxsize=None` so nothing gets evicted.
+
+```python
+from functools import lru_cache
+
+def solve(inputs):
+    @lru_cache(maxsize=None)
+    def f(state):                  # state must be hashable: ints, tuples, strings
+        if base_case(state):
+            return base_value
+        return combine(f(smaller_state) for smaller_state in choices(state))
+    return f(start_state)
+```
+
+Python's recursion limit is 1000 by default. If a state can be 10⁴ deep, either convert to
+bottom-up or say `sys.setrecursionlimit(10**6)` and mention it.
+
+### 1-D linear: "take or skip"
+
+House Robber. `dp[i]` = best using houses `0..i`. Either skip house `i` or take it and add
+the best up to `i-2`.
+
+```python
+def rob(nums):
+    prev2 = prev1 = 0               # best up to i-2, best up to i-1
+    for x in nums:
+        prev2, prev1 = prev1, max(prev1, prev2 + x)
+    return prev1
+```
+
+Circular variant: the first and last house cannot both be taken, so answer is
+`max(rob(nums[1:]), rob(nums[:-1]))`.
+
+### 0/1 knapsack: "can I make this sum using each item at most once?"
+
+Subset sum / Partition Equal Subset Sum. `dp[s]` = can I make sum `s`. Iterate items on the
+outside; iterate sums **downward** on the inside so each item is used once.
+
+```python
+def can_make(nums, target):
+    dp = [False] * (target + 1)
+    dp[0] = True
+    for x in nums:
+        for s in range(target, x - 1, -1):   # downward: dp[s - x] is still "before x"
+            dp[s] = dp[s] or dp[s - x]
+    return dp[target]
+```
+
+### Unbounded knapsack: "each item any number of times"
+
+Coin Change. Same shape, but iterate sums **upward** so an item can be reused.
+
+```python
+def coin_change(coins, amount):                 # fewest coins
+    INF = float("inf")
+    dp = [0] + [INF] * amount                   # dp[a] = fewest coins making a
+    for a in range(1, amount + 1):
+        for c in coins:
+            if c <= a:
+                dp[a] = min(dp[a], dp[a - c] + 1)
+    return dp[amount] if dp[amount] != INF else -1
+
+def coin_change_ii(coins, amount):              # number of combinations
+    dp = [1] + [0] * amount                     # dp[a] = ways to make a
+    for c in coins:                             # coins OUTSIDE: counts combinations
+        for a in range(c, amount + 1):          # upward: reuse allowed
+            dp[a] += dp[a - c]
+    return dp[amount]
+```
+
+Coins outside, amounts inside counts each *set* of coins once (`1+2` and `2+1` are the same).
+Swap the loops and you count *sequences* instead. Interviewers ask about this on purpose.
+
+### 2-D grid: "paths through a grid"
+
+Unique Paths. `dp[r][c]` = ways to reach cell `(r, c)` = from above + from the left. One row
+suffices because each row depends only on the row above.
+
+```python
+def unique_paths(m, n):
+    row = [1] * n
+    for _ in range(1, m):
+        for c in range(1, n):
+            row[c] += row[c - 1]        # row[c] is still "from above"; row[c-1] is updated "from left"
+    return row[-1]
+```
+
+### Two sequences: "align s and t"
+
+LCS, Edit Distance. `dp[i][j]` = answer for prefixes `s[:i]` and `t[:j]`. Row 0 and column 0
+are the base cases (one string empty). The transition asks: do the last characters match?
+
+```python
+def lcs(s, t):
+    m, n = len(s), len(t)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if s[i - 1] == t[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+    return dp[m][n]
+```
+
+Edit distance is the same table with three options on mismatch: `1 + min(delete, insert,
+replace)` = `1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`.
+
+### Strings: "can I break the prefix?"
+
+Word Break, Decode Ways. `dp[i]` = the prefix `s[:i]` is valid. Look back over every possible
+last piece.
+
+```python
+def word_break(s, words):
+    ws = set(words)
+    dp = [True] + [False] * len(s)              # dp[i]: s[:i] can be segmented
+    for i in range(1, len(s) + 1):
+        for j in range(i):
+            if dp[j] and s[j:i] in ws:
+                dp[i] = True
+                break
+    return dp[-1]
+```
+
+### Palindromes: expand from the center, or fill a 2-D table
+
+Longest Palindromic Substring. Each of the `2n - 1` centers (a letter, or a gap between two
+letters) expands outward while the ends match. O(n²) time, O(1) space, and easier to write
+correctly than the table.
+
+```python
+def expand(s, lo, hi):
+    while lo >= 0 and hi < len(s) and s[lo] == s[hi]:
+        lo -= 1; hi += 1
+    return lo + 1, hi                    # the palindrome is s[lo+1:hi]
+```
+
+### Interval DP: "the last thing to happen"
+
+Burst Balloons. The trick is to think about which balloon pops **last** in the range
+`(l, r)`, because then its neighbors are fixed. `dp[l][r]` = best score for the open interval.
+Fill by increasing interval length. O(n³).
+
+### LIS: O(n²) then O(n log n)
+
+`dp[i]` = length of the longest increasing subsequence ending at `i`:
+`dp[i] = 1 + max(dp[j] for j < i if nums[j] < nums[i])`. O(n²). Every interviewer will then
+ask for `O(n log n)`:
+
+```python
+from bisect import bisect_left
+
+def length_of_lis(nums):
+    tails = []                          # tails[k] = smallest tail of an increasing subseq of length k+1
+    for x in nums:
+        k = bisect_left(tails, x)       # first tail >= x
+        if k == len(tails):
+            tails.append(x)             # x extends the longest subsequence
+        else:
+            tails[k] = x                # x is a better (smaller) tail for length k+1
+    return len(tails)
+```
+
+`tails` is not the subsequence, only its length is meaningful. Say that before they ask.
+
+### State machines: "what mode am I in?"
+
+Stock with Cooldown. When one variable is not enough, carry several: `hold` (best while
+owning stock), `sold` (just sold), `rest` (no stock, free to buy). Each day, each state moves
+to the next by one rule.
+
+## 4. Recognition cues
+
+| You see | Think |
+|---------|-------|
+| "number of ways", "minimum cost", "maximum value", "is it possible" | DP candidate; write the recursion first |
+| "can pick each item once", "subset with sum" | 0/1 knapsack; sums downward |
+| "unlimited coins / items", "fewest coins" | unbounded knapsack; sums upward |
+| "combinations" vs "sequences / permutations" | items outside vs amounts outside |
+| "two strings", "subsequence", "edit", "align" | 2-D table over prefixes `(i, j)` |
+| "grid, move right or down" | `dp[r][c] = dp[r-1][c] + dp[r][c-1]` |
+| "partition a string into words / digits" | `dp[i]` over prefixes, look back over last piece |
+| "palindrome" | expand around centers, or `dp[i][j]` over substrings |
+| "longest increasing subsequence" | O(n²) DP, then `bisect` on tails |
+| "range, remove last / burst / merge" | interval DP, iterate by length |
+| "buy / sell / cooldown / at most k transactions" | state machine, one variable per state |
+| "adjacent cannot both be chosen" | house robber |
+
+## 5. Pitfalls
+
+- **Starting with the table.** Start with the recursion. The table is a transcription of it.
+  Interviewers see through tables that were memorized without the recursion behind them.
+- **Vague state.** "dp[i] is the answer so far" is not a definition. Say what `i` indexes and
+  what the cell contains, in one sentence.
+- **Wrong loop direction in knapsack.** Downward for 0/1, upward for unbounded. Trace one item
+  to check.
+- **Off-by-one in two-sequence tables.** `dp[i][j]` covers `s[:i]`, so the character compared
+  is `s[i-1]`. Size the table `(m+1) × (n+1)`.
+- **Forgetting the empty base case.** `dp[0] = 1` for "ways to make 0" and `dp[0] = True` for
+  "empty prefix is valid." Missing it zeros the whole table.
+- **Mutable or huge cache keys.** `lru_cache` needs hashable arguments; pass indices, not
+  slices. Slicing inside the recursion also silently adds an O(n) factor.
+- **Recursion depth.** Python defaults to 1000. Convert to bottom-up when the state can be
+  deeper, or raise the limit and say so.
+- **Product DP with negatives.** Max Product Subarray needs both the running max and the
+  running min, because a negative flips them.
+- **Circular house robber.** Two runs, not one. Also handle `len(nums) == 1` before slicing.
+
+## 6. Exercises
+
+| # | Function | Difficulty | Asked at | One hint |
+|---|----------|-----------|----------|----------|
+| 1 | `climbing_stairs` | Easy | Amazon, Google | The anchor. All five stages, then keep the two-variable one. |
+| 2 | `min_cost_climbing_stairs` | Easy | Amazon | `dp[i]` = cheapest way to stand on step `i`. Answer is `min` of the last two. |
+| 3 | `house_robber` | Medium | Amazon, Google | Take `x + prev2` or skip and keep `prev1`. |
+| 4 | `house_robber_ii` | Medium | Amazon, Google | Circular: rob `nums[1:]` and `nums[:-1]`, take the max. |
+| 5 | `longest_palindromic_substring` | Medium | Amazon, Google | Expand around each of the `2n-1` centers. |
+| 6 | `count_palindromic_substrings` | Medium | Google | Same expansion; count every successful step outward. |
+| 7 | `decode_ways` | Medium | Google, Amazon | `dp[i]` over prefixes. One digit if not '0'; two digits if `10..26`. |
+| 8 | `coin_change` | Medium | Amazon, Google | Unbounded knapsack, `min`. Fill amounts upward. |
+| 9 | `coin_change_ii` | Medium | Amazon, Google | Coins outside, amounts inside, `+=`. |
+| 10 | `max_product_subarray` | Medium | Amazon, Google | Track running max and running min; a negative swaps them. |
+| 11 | `word_break` | Medium | Amazon, Google | `dp[i]`: prefix of length `i` is breakable. Look back over all `j < i`. |
+| 12 | `length_of_lis` | Medium | Google, Amazon | Write O(n²) first, then `bisect_left` on the tails array. |
+| 13 | `can_partition` | Medium | Amazon, Google | Odd total is `False`. Then 0/1 subset sum for `total // 2`, sums downward. |
+| 14 | `unique_paths` | Medium | Amazon, Google | `row[c] += row[c-1]`, once per row. |
+| 15 | `longest_common_subsequence` | Medium | Google, Amazon | `(m+1) × (n+1)` table; match → diagonal + 1, else max of up and left. |
+| 16 | `edit_distance` | Medium | Google, Amazon | Same table; row 0 and column 0 are `i` and `j`; mismatch → `1 + min` of three. |
+| 17 | `max_profit_with_cooldown` | Medium | Google, Amazon | Three states: `hold`, `sold`, `rest`. Write the three transitions before coding. |
+| 18 | `target_sum_ways` | Medium | Google | Plus-set `P` satisfies `2P = target + total`. Count subsets summing to `P`. |
+| 19 | `interleaving_string` | Medium-Hard | Google | `dp[i][j]`: `s1[:i]` and `s2[:j]` interleave into `s3[:i+j]`. |
+| 20 | `burst_balloons` | Hard | Google | Pad with 1s. `dp[l][r]` over open intervals, choose the balloon that pops last. |
+| 21 | `regex_match` | Hard | Google, Amazon | `dp[i][j]` over prefixes. On `*`, either use zero of the preceding char or consume one from `s`. |
+
+Solve 1–11 in order, then 12–18. 19–21 are the stretch set; do them when 1–18 pass cold.
