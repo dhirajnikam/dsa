@@ -61,11 +61,11 @@ def _reordered(values: list) -> list:
 
 
 if __name__ == "__main__":
-    assert _reordered([1, 2, 3, 4]) == [1, 4, 2, 3]
-    assert _reordered([1, 2, 3, 4, 5]) == [1, 5, 2, 4, 3]
-    assert _reordered([1]) == [1]
-    assert _reordered([1, 2]) == [1, 2]
-    assert _reordered([1, 2, 3]) == [1, 3, 2]
-    assert _reordered(list(range(1, 9))) == [1, 8, 2, 7, 3, 6, 4, 5]
-    assert reorder_list(None) is None
+    assert _reordered([1, 2, 3, 4]) == [1, 4, 2, 3], 'Check: _reordered([1, 2, 3, 4]) == [1, 4, 2, 3]'
+    assert _reordered([1, 2, 3, 4, 5]) == [1, 5, 2, 4, 3], 'Check: _reordered([1, 2, 3, 4, 5]) == [1, 5, 2, 4, 3]'
+    assert _reordered([1]) == [1], 'Check: _reordered([1]) == [1]'
+    assert _reordered([1, 2]) == [1, 2], 'Check: _reordered([1, 2]) == [1, 2]'
+    assert _reordered([1, 2, 3]) == [1, 3, 2], 'Check: _reordered([1, 2, 3]) == [1, 3, 2]'
+    assert _reordered(list(range(1, 9))) == [1, 8, 2, 7, 3, 6, 4, 5], 'Check: _reordered(list(range(1, 9))) == [1, 8, 2, 7, 3, 6, 4, 5]'
+    assert reorder_list(None) is None, 'Check: reorder_list(None) is None'
     print("ok")

@@ -30,14 +30,14 @@ def longest_palindrome(s: str) -> str:
 
 
 if __name__ == "__main__":
-    assert longest_palindrome("babad") == "bab"
-    assert longest_palindrome("cbbd") == "bb"
-    assert longest_palindrome("a") == "a"
-    assert longest_palindrome("ac") == "a"
-    assert longest_palindrome("aaaa") == "aaaa"
-    assert longest_palindrome("racecar") == "racecar"
-    assert longest_palindrome("forgeeksskeegfor") == "geeksskeeg"
-    assert longest_palindrome("abcda") == "a"
-    assert longest_palindrome("abb") == "bb"
-    assert longest_palindrome("a" * 1000) == "a" * 1000
+    assert longest_palindrome("babad") == "bab", 'Check: longest_palindrome("babad") == "bab"'
+    assert longest_palindrome("cbbd") == "bb", 'Check: longest_palindrome("cbbd") == "bb"'
+    assert longest_palindrome("a") == "a", 'Check: longest_palindrome("a") == "a"'
+    assert longest_palindrome("ac") == "a", 'Check: longest_palindrome("ac") == "a"'
+    assert longest_palindrome("aaaa") == "aaaa", 'Check: longest_palindrome("aaaa") == "aaaa"'
+    assert longest_palindrome("racecar") == "racecar", 'Check: longest_palindrome("racecar") == "racecar"'
+    assert longest_palindrome("forgeeksskeegfor") == "geeksskeeg", 'Check: longest_palindrome("forgeeksskeegfor") == "geeksskeeg"'
+    assert longest_palindrome("abcda") == "a", 'Check: longest_palindrome("abcda") == "a"'
+    assert longest_palindrome("abb") == "bb", 'Check: longest_palindrome("abb") == "bb"'
+    assert longest_palindrome("a" * 1000) == "a" * 1000, 'Check: longest_palindrome("a" * 1000) == "a" * 1000'
     print("ok")

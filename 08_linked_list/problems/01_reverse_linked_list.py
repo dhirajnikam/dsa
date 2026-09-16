@@ -59,12 +59,18 @@ def reverse_list_recursive(head: ListNode | None) -> ListNode | None:
 
 if __name__ == "__main__":
     for f in (reverse_list, reverse_list_recursive):
-        assert to_list(f(from_list([1, 2, 3, 4, 5]))) == [5, 4, 3, 2, 1]
-        assert to_list(f(from_list([1, 2]))) == [2, 1]
-        assert to_list(f(from_list([1]))) == [1]
-        assert f(None) is None
-        assert to_list(f(from_list([-1, 0, 1]))) == [1, 0, -1]
+        assert to_list(f(from_list([1, 2, 3, 4, 5]))) == [5, 4, 3, 2, 1], 'Check: to_list(f(from_list([1, 2, 3, 4, 5]))) == [5, 4, 3, 2, 1]'
+        assert to_list(f(from_list([1, 2]))) == [2, 1], 'Check: to_list(f(from_list([1, 2]))) == [2, 1]'
+        assert to_list(f(from_list([1]))) == [1], 'Check: to_list(f(from_list([1]))) == [1]'
+        assert f(None) is None, 'Check: f(None) is None'
+        assert to_list(f(from_list([-1, 0, 1]))) == [1, 0, -1], 'Check: to_list(f(from_list([-1, 0, 1]))) == [1, 0, -1]'
     # old head must become the tail (no cycle)
     h = reverse_list(from_list([1, 2, 3]))
-    assert h.next.next.next is None
+    assert h.next.next.next is None, 'Check: h.next.next.next is None'
+    # Boundary and misconception checks: predict each result before running.
+    for reverse in (reverse_list, reverse_list_recursive):
+        first = from_list([5, 5])
+        second = first.next
+        result = reverse(first)
+        assert result is second and result.next is first and first.next is None, 'Check: result is second and result.next is first and first.next is None'
     print("ok")

@@ -30,11 +30,14 @@ def find_kth_largest(nums: list[int], k: int) -> int:
 
 
 if __name__ == "__main__":
-    assert find_kth_largest([3, 2, 1, 5, 6, 4], 2) == 5
-    assert find_kth_largest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4
-    assert find_kth_largest([1], 1) == 1
-    assert find_kth_largest([2, 1], 2) == 1
-    assert find_kth_largest([5, 5, 5], 2) == 5
-    assert find_kth_largest([-1, -2, -3], 1) == -1
-    assert find_kth_largest(list(range(100)), 100) == 0
+    assert find_kth_largest([3, 2, 1, 5, 6, 4], 2) == 5, 'Check: find_kth_largest([3, 2, 1, 5, 6, 4], 2) == 5'
+    assert find_kth_largest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4, 'Check: find_kth_largest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4) == 4'
+    assert find_kth_largest([1], 1) == 1, 'Check: find_kth_largest([1], 1) == 1'
+    assert find_kth_largest([2, 1], 2) == 1, 'Check: find_kth_largest([2, 1], 2) == 1'
+    assert find_kth_largest([5, 5, 5], 2) == 5, 'Check: find_kth_largest([5, 5, 5], 2) == 5'
+    assert find_kth_largest([-1, -2, -3], 1) == -1, 'Check: find_kth_largest([-1, -2, -3], 1) == -1'
+    assert find_kth_largest(list(range(100)), 100) == 0, 'Check: find_kth_largest(list(range(100)), 100) == 0'
+    # Boundary and misconception checks: predict each result before running.
+    assert find_kth_largest([9, 9, 2], 2) == 9, 'Check: find_kth_largest([9, 9, 2], 2) == 9'
+    assert find_kth_largest([-5, -2, -9], 3) == -9, 'Check: find_kth_largest([-5, -2, -9], 3) == -9'
     print("ok")

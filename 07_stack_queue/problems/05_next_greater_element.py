@@ -31,11 +31,11 @@ def next_greater_element(nums1: list[int], nums2: list[int]) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert next_greater_element([4, 1, 2], [1, 3, 4, 2]) == [-1, 3, -1]
-    assert next_greater_element([2, 4], [1, 2, 3, 4]) == [3, -1]
-    assert next_greater_element([5], [5]) == [-1]
-    assert next_greater_element([1, 2, 3], [3, 2, 1]) == [-1, -1, -1]
-    assert next_greater_element([1, 2, 3], [1, 2, 3]) == [2, 3, -1]
-    assert next_greater_element([3], [1, 3, 2, 5]) == [5]
-    assert next_greater_element([2, 1], [1, 2]) == [-1, 2]
+    assert next_greater_element([4, 1, 2], [1, 3, 4, 2]) == [-1, 3, -1], 'Check: next_greater_element([4, 1, 2], [1, 3, 4, 2]) == [-1, 3, -1]'
+    assert next_greater_element([2, 4], [1, 2, 3, 4]) == [3, -1], 'Check: next_greater_element([2, 4], [1, 2, 3, 4]) == [3, -1]'
+    assert next_greater_element([5], [5]) == [-1], 'Check: next_greater_element([5], [5]) == [-1]'
+    assert next_greater_element([1, 2, 3], [3, 2, 1]) == [-1, -1, -1], 'Check: next_greater_element([1, 2, 3], [3, 2, 1]) == [-1, -1, -1]'
+    assert next_greater_element([1, 2, 3], [1, 2, 3]) == [2, 3, -1], 'Check: next_greater_element([1, 2, 3], [1, 2, 3]) == [2, 3, -1]'
+    assert next_greater_element([3], [1, 3, 2, 5]) == [5], 'Check: next_greater_element([3], [1, 3, 2, 5]) == [5]'
+    assert next_greater_element([2, 1], [1, 2]) == [-1, 2], 'Check: next_greater_element([2, 1], [1, 2]) == [-1, 2]'
     print("ok")

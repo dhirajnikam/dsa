@@ -33,12 +33,15 @@ def num_islands(grid: list[list[str]]) -> int:
 
 if __name__ == "__main__":
     g = lambda rows: [list(r) for r in rows]
-    assert num_islands(g(["110", "100", "001"])) == 2
-    assert num_islands(g(["0"])) == 0
-    assert num_islands(g(["1"])) == 1
-    assert num_islands(g(["11110", "11010", "11000", "00000"])) == 1
-    assert num_islands(g(["11000", "11000", "00100", "00011"])) == 3
-    assert num_islands(g(["101", "010", "101"])) == 5
-    assert num_islands(g(["000", "000"])) == 0
-    assert num_islands([["1"] * 50 for _ in range(50)]) == 1
+    assert num_islands(g(["110", "100", "001"])) == 2, 'Check: num_islands(g(["110", "100", "001"])) == 2'
+    assert num_islands(g(["0"])) == 0, 'Check: num_islands(g(["0"])) == 0'
+    assert num_islands(g(["1"])) == 1, 'Check: num_islands(g(["1"])) == 1'
+    assert num_islands(g(["11110", "11010", "11000", "00000"])) == 1, 'Check: num_islands(g(["11110", "11010", "11000", "00000"])) == 1'
+    assert num_islands(g(["11000", "11000", "00100", "00011"])) == 3, 'Check: num_islands(g(["11000", "11000", "00100", "00011"])) == 3'
+    assert num_islands(g(["101", "010", "101"])) == 5, 'Check: num_islands(g(["101", "010", "101"])) == 5'
+    assert num_islands(g(["000", "000"])) == 0, 'Check: num_islands(g(["000", "000"])) == 0'
+    assert num_islands([["1"] * 50 for _ in range(50)]) == 1, 'Check: num_islands([["1"] * 50 for _ in range(50)]) == 1'
+    # Boundary and misconception checks: predict each result before running.
+    assert num_islands(g(["10101"])) == 3, 'Check: num_islands(g(["10101"])) == 3'
+    assert num_islands(g(["1", "0", "1"])) == 2, 'Check: num_islands(g(["1", "0", "1"])) == 2'
     print("ok")

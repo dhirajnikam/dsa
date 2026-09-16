@@ -73,12 +73,12 @@ def _with_cycle(values: list, pos: int) -> ListNode:
 
 
 if __name__ == "__main__":
-    assert has_cycle(_with_cycle([3, 2, 0, -4], 1)) is True
-    assert has_cycle(_with_cycle([1, 2], 0)) is True
-    assert has_cycle(_with_cycle([1], -1)) is False
-    assert has_cycle(None) is False
-    assert has_cycle(_with_cycle([1], 0)) is True  # self-loop
-    assert has_cycle(_with_cycle([1, 1, 1, 1], -1)) is False  # equal values, no cycle
-    assert has_cycle(_with_cycle(list(range(1000)), 999)) is True
-    assert has_cycle(_with_cycle(list(range(1000)), -1)) is False
+    assert has_cycle(_with_cycle([3, 2, 0, -4], 1)) is True, 'Check: has_cycle(_with_cycle([3, 2, 0, -4], 1)) is True'
+    assert has_cycle(_with_cycle([1, 2], 0)) is True, 'Check: has_cycle(_with_cycle([1, 2], 0)) is True'
+    assert has_cycle(_with_cycle([1], -1)) is False, 'Check: has_cycle(_with_cycle([1], -1)) is False'
+    assert has_cycle(None) is False, 'Check: has_cycle(None) is False'
+    assert has_cycle(_with_cycle([1], 0)) is True, 'Check: has_cycle(_with_cycle([1], 0)) is True'  # self-loop
+    assert has_cycle(_with_cycle([1, 1, 1, 1], -1)) is False, 'Check: has_cycle(_with_cycle([1, 1, 1, 1], -1)) is False'  # equal values, no cycle
+    assert has_cycle(_with_cycle(list(range(1000)), 999)) is True, 'Check: has_cycle(_with_cycle(list(range(1000)), 999)) is True'
+    assert has_cycle(_with_cycle(list(range(1000)), -1)) is False, 'Check: has_cycle(_with_cycle(list(range(1000)), -1)) is False'
     print("ok")

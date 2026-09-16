@@ -28,11 +28,11 @@ def count_components(n: int, edges: list[list[int]]) -> int:
 
 
 if __name__ == "__main__":
-    assert count_components(5, [[0, 1], [1, 2], [3, 4]]) == 2
-    assert count_components(5, [[0, 1], [1, 2], [2, 3], [3, 4]]) == 1
-    assert count_components(1, []) == 1
-    assert count_components(4, []) == 4
-    assert count_components(3, [[0, 1], [1, 2], [0, 2]]) == 1
-    assert count_components(6, [[0, 1], [2, 3], [4, 5]]) == 3
-    assert count_components(6, [[0, 1], [2, 3], [4, 5], [1, 2], [3, 4]]) == 1
+    assert count_components(5, [[0, 1], [1, 2], [3, 4]]) == 2, 'Check: count_components(5, [[0, 1], [1, 2], [3, 4]]) == 2'
+    assert count_components(5, [[0, 1], [1, 2], [2, 3], [3, 4]]) == 1, 'Check: count_components(5, [[0, 1], [1, 2], [2, 3], [3, 4]]) == 1'
+    assert count_components(1, []) == 1, 'Check: count_components(1, []) == 1'
+    assert count_components(4, []) == 4, 'Check: count_components(4, []) == 4'
+    assert count_components(3, [[0, 1], [1, 2], [0, 2]]) == 1, 'Check: count_components(3, [[0, 1], [1, 2], [0, 2]]) == 1'
+    assert count_components(6, [[0, 1], [2, 3], [4, 5]]) == 3, 'Check: count_components(6, [[0, 1], [2, 3], [4, 5]]) == 3'
+    assert count_components(6, [[0, 1], [2, 3], [4, 5], [1, 2], [3, 4]]) == 1, 'Check: count_components(6, [[0, 1], [2, 3], [4, 5], [1, 2], [3, 4]]) == 1'
     print("ok")

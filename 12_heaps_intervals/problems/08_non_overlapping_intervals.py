@@ -32,11 +32,11 @@ def erase_overlap_intervals(intervals: list[list[int]]) -> int:
 
 
 if __name__ == "__main__":
-    assert erase_overlap_intervals([[1, 2], [2, 3], [3, 4], [1, 3]]) == 1
-    assert erase_overlap_intervals([[1, 2], [1, 2], [1, 2]]) == 2
-    assert erase_overlap_intervals([[1, 2], [2, 3]]) == 0
-    assert erase_overlap_intervals([[1, 100]]) == 0
-    assert erase_overlap_intervals([[1, 100], [11, 22], [1, 11], [2, 12]]) == 2
-    assert erase_overlap_intervals([[0, 2], [1, 3], [2, 4], [3, 5], [4, 6]]) == 2
-    assert erase_overlap_intervals([[-5, -1], [-3, 0], [0, 2]]) == 1
+    assert erase_overlap_intervals([[1, 2], [2, 3], [3, 4], [1, 3]]) == 1, 'Check: erase_overlap_intervals([[1, 2], [2, 3], [3, 4], [1, 3]]) == 1'
+    assert erase_overlap_intervals([[1, 2], [1, 2], [1, 2]]) == 2, 'Check: erase_overlap_intervals([[1, 2], [1, 2], [1, 2]]) == 2'
+    assert erase_overlap_intervals([[1, 2], [2, 3]]) == 0, 'Check: erase_overlap_intervals([[1, 2], [2, 3]]) == 0'
+    assert erase_overlap_intervals([[1, 100]]) == 0, 'Check: erase_overlap_intervals([[1, 100]]) == 0'
+    assert erase_overlap_intervals([[1, 100], [11, 22], [1, 11], [2, 12]]) == 2, 'Check: erase_overlap_intervals([[1, 100], [11, 22], [1, 11], [2, 12]]) == 2'
+    assert erase_overlap_intervals([[0, 2], [1, 3], [2, 4], [3, 5], [4, 6]]) == 2, 'Check: erase_overlap_intervals([[0, 2], [1, 3], [2, 4], [3, 5], [4, 6]]) == 2'
+    assert erase_overlap_intervals([[-5, -1], [-3, 0], [0, 2]]) == 1, 'Check: erase_overlap_intervals([[-5, -1], [-3, 0], [0, 2]]) == 1'
     print("ok")

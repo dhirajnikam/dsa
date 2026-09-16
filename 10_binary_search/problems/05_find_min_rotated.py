@@ -37,14 +37,14 @@ def find_min(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert find_min([3, 4, 5, 1, 2]) == 1
-    assert find_min([4, 5, 6, 7, 0, 1, 2]) == 0
-    assert find_min([11, 13, 15, 17]) == 11
-    assert find_min([1]) == 1
-    assert find_min([2, 1]) == 1
-    assert find_min([1, 2]) == 1
-    assert find_min([5, 1, 2, 3, 4]) == 1
-    assert find_min([2, 3, 4, 5, 1]) == 1
+    assert find_min([3, 4, 5, 1, 2]) == 1, 'Check: find_min([3, 4, 5, 1, 2]) == 1'
+    assert find_min([4, 5, 6, 7, 0, 1, 2]) == 0, 'Check: find_min([4, 5, 6, 7, 0, 1, 2]) == 0'
+    assert find_min([11, 13, 15, 17]) == 11, 'Check: find_min([11, 13, 15, 17]) == 11'
+    assert find_min([1]) == 1, 'Check: find_min([1]) == 1'
+    assert find_min([2, 1]) == 1, 'Check: find_min([2, 1]) == 1'
+    assert find_min([1, 2]) == 1, 'Check: find_min([1, 2]) == 1'
+    assert find_min([5, 1, 2, 3, 4]) == 1, 'Check: find_min([5, 1, 2, 3, 4]) == 1'
+    assert find_min([2, 3, 4, 5, 1]) == 1, 'Check: find_min([2, 3, 4, 5, 1]) == 1'
     base = list(range(-10, 10))
-    assert all(find_min(base[k:] + base[:k]) == -10 for k in range(20))
+    assert all(find_min(base[k:] + base[:k]) == -10 for k in range(20)), 'Check: all(find_min(base[k:] + base[:k]) == -10 for k in range(20))'
     print("ok")

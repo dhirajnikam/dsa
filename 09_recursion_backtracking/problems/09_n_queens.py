@@ -45,12 +45,12 @@ def _no_attacks(board: list[str]) -> bool:
 
 
 if __name__ == "__main__":
-    assert sorted(solve_n_queens(4)) == sorted([[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]])
-    assert solve_n_queens(1) == [["Q"]]
-    assert solve_n_queens(2) == []
-    assert solve_n_queens(3) == []
+    assert sorted(solve_n_queens(4)) == sorted([[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]]), 'Check: sorted(solve_n_queens(4)) == sorted([[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]])'
+    assert solve_n_queens(1) == [["Q"]], 'Check: solve_n_queens(1) == [["Q"]]'
+    assert solve_n_queens(2) == [], 'Check: solve_n_queens(2) == []'
+    assert solve_n_queens(3) == [], 'Check: solve_n_queens(3) == []'
     out = solve_n_queens(6)
-    assert len(out) == 4 and all(_no_attacks(b) for b in out)
-    assert len(set(map(tuple, out))) == 4
-    assert len(solve_n_queens(8)) == 92
+    assert len(out) == 4 and all(_no_attacks(b) for b in out), 'Check: len(out) == 4 and all(_no_attacks(b) for b in out)'
+    assert len(set(map(tuple, out))) == 4, 'Check: len(set(map(tuple, out))) == 4'
+    assert len(solve_n_queens(8)) == 92, 'Check: len(solve_n_queens(8)) == 92'
     print("ok")

@@ -76,27 +76,27 @@ class Vector:
 
 if __name__ == "__main__":
     v, w = Vector(1, 2, 3), Vector(4, 5, 6)
-    assert len(v) == 3 and v[0] == 1 and v[-1] == 3 and list(v) == [1, 2, 3]
-    assert v + w == Vector(5, 7, 9) and w - v == Vector(3, 3, 3)
-    assert v * 2 == Vector(2, 4, 6) and 2 * v == Vector(2, 4, 6)
-    assert v @ w == 32
-    assert -v == Vector(-1, -2, -3)
-    assert abs(Vector(3, 4)) == 5.0
-    assert v != w and v == Vector(1, 2, 3) and v != (1, 2, 3)
-    assert len({v, Vector(1, 2, 3), w}) == 2
-    assert Vector(1, 1) < Vector(3, 4) and not Vector(3, 4) < Vector(1, 1)
-    assert abs(Vector(0, 5)) == abs(Vector(3, 4)) and Vector(0, 5) < Vector(3, 4)  # tie broken by components
-    assert sorted([Vector(3, 4), Vector(0, 1), Vector(0, 5)]) == [Vector(0, 1), Vector(0, 5), Vector(3, 4)]
-    assert repr(v) == "Vector(1, 2, 3)" and repr(Vector()) == "Vector()"
-    assert not Vector() and Vector(0)
+    assert len(v) == 3 and v[0] == 1 and v[-1] == 3 and list(v) == [1, 2, 3], 'Check: len(v) == 3 and v[0] == 1 and v[-1] == 3 and list(v) == [1, 2, 3]'
+    assert v + w == Vector(5, 7, 9) and w - v == Vector(3, 3, 3), 'Check: v + w == Vector(5, 7, 9) and w - v == Vector(3, 3, 3)'
+    assert v * 2 == Vector(2, 4, 6) and 2 * v == Vector(2, 4, 6), 'Check: v * 2 == Vector(2, 4, 6) and 2 * v == Vector(2, 4, 6)'
+    assert v @ w == 32, 'Check: v @ w == 32'
+    assert -v == Vector(-1, -2, -3), 'Check: -v == Vector(-1, -2, -3)'
+    assert abs(Vector(3, 4)) == 5.0, 'Check: abs(Vector(3, 4)) == 5.0'
+    assert v != w and v == Vector(1, 2, 3) and v != (1, 2, 3), 'Check: v != w and v == Vector(1, 2, 3) and v != (1, 2, 3)'
+    assert len({v, Vector(1, 2, 3), w}) == 2, 'Check: len({v, Vector(1, 2, 3), w}) == 2'
+    assert Vector(1, 1) < Vector(3, 4) and not Vector(3, 4) < Vector(1, 1), 'Check: Vector(1, 1) < Vector(3, 4) and not Vector(3, 4) < Vector(1, 1)'
+    assert abs(Vector(0, 5)) == abs(Vector(3, 4)) and Vector(0, 5) < Vector(3, 4), 'Check: abs(Vector(0, 5)) == abs(Vector(3, 4)) and Vector(0, 5) < Vector(3, 4)'  # tie broken by components
+    assert sorted([Vector(3, 4), Vector(0, 1), Vector(0, 5)]) == [Vector(0, 1), Vector(0, 5), Vector(3, 4)], 'Check: sorted([Vector(3, 4), Vector(0, 1), Vector(0, 5)]) == [Vector(0, 1), Vector(0, 5), Vector(3, 4)]'
+    assert repr(v) == "Vector(1, 2, 3)" and repr(Vector()) == "Vector()", 'Check: repr(v) == "Vector(1, 2, 3)" and repr(Vector()) == "Vector()"'
+    assert not Vector() and Vector(0), 'Check: not Vector() and Vector(0)'
     try:
         v + Vector(1, 2)
-        assert False
+        assert False, 'Check: False'
     except ValueError:
         pass
     try:
         v[3]
-        assert False
+        assert False, 'Check: False'
     except IndexError:
         pass
     print("ok")

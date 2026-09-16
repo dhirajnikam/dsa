@@ -1,49 +1,49 @@
-# Phase 08: Linked Lists
+# Linked lists: preserve the next connection
 
-**Goal:** move `.next` pointers around without losing half the list.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-A linked list is a chain of nodes. Each node holds a value and a pointer to the next node.
-There is no index, so you walk from the head one step at a time.
-Two tricks solve most problems: a dummy node in front, and a fast pointer that moves twice as quickly as a slow one.
+**Before this lesson:** Object references and classes from chapter 01; loops and hashing.
 
-## Cheat sheet
-```python
-class ListNode:
-    def __init__(self, val=0, next=None): self.val, self.next = val, next
-prev, cur = None, head                 # reverse in place
-while cur:
-    nxt = cur.next                     # save first, or the rest is lost
-    cur.next = prev
-    prev, cur = cur, nxt
-return prev
-slow = fast = head                     # fast/slow: middle of list
-while fast and fast.next:
-    slow, fast = slow.next, fast.next.next
-dummy = ListNode(0, head)              # dummy head: the real head may change
-prev = dummy                           # edit prev.next freely, then
-return dummy.next
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
+
+## The theory
+
+A **node** holds a value and a reference to the next node. A linked list begins at a head reference and ends at None. Unlike an array, finding the kth node requires following links, so access is O(n). Insertion beside a known node can be constant time, but finding that node is a separate cost.
+
+Changing a link can make the rest of a list unreachable. Before rewiring, name the parts you still need. A dummy/sentinel node can make changes at the head follow the same rule as changes in the middle.
+
+Two traversal references can move at different speeds or keep a fixed gap. In a cycle, neither reaches None. State which middle to return for an even-length list and how n is counted from the end.
+
+Merging and reordering operate on node identity as well as values. Digit lists require handling carry after both inputs finish. An LRU cache combines a dictionary for lookup and an ordered linked structure for recency; “recently used” includes operations specified by the contract.
+
+## Walk through a small example
+
+Suppose head references node P, whose next is Q, whose next is R. If P.next is replaced before Q is saved anywhere, traversal from P can lose access to Q and R. Draw the three nodes and give the old next reference a temporary name before moving any connection.
+
+## Watch for
+
+Losing the rest of the list while rewiring; dereferencing None; comparing values when node identity matters; ignoring changes to the head.
+
+## Your next small step
+
+Open [reverse linked list](problems/01_reverse_linked_list.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 08/01
 ```
 
-## When you see... use...
-- "the head might be removed or replaced" -> dummy head
-- "middle / cycle / k-th from end in one pass" -> fast and slow pointers
-- "reverse / reorder / swap" -> the reverse loop as a building block
-- "merge two sorted lists" -> dummy head + pick the smaller node each step
-- "O(1) get and put with eviction" -> dict + doubly linked list
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- Overwriting `cur.next` before saving it. The rest of the list is gone.
-- Forgetting to cut the tail after splitting: `slow.next = None`.
-- Writing `while fast.next and fast` in the wrong order. `None.next` crashes.
-- Comparing nodes with `==` when you mean the same node. Use `is`.
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_reverse_linked_list.py` — the reverse loop
-- `02_middle_of_list.py` — fast and slow pointers
-- `03_merge_two_sorted_lists.py` — dummy head, pick the smaller
-- `04_linked_list_cycle.py` — fast meets slow means a cycle
-- `05_remove_nth_from_end.py` — move fast n steps ahead, then walk both
-- `06_reorder_list.py` — middle + reverse second half + interleave
-- `07_add_two_numbers.py` — digit by digit with a carry
-- `08_lru_cache.py` — dict + doubly linked list
+- [Reverse Linked List](problems/01_reverse_linked_list.py)
+- [Middle of the Linked List](problems/02_middle_of_list.py)
+- [Merge Two Sorted Lists](problems/03_merge_two_sorted_lists.py)
+- [Linked List Cycle](problems/04_linked_list_cycle.py)
+- [Remove Nth Node From End of List](problems/05_remove_nth_from_end.py)
+- [Reorder List](problems/06_reorder_list.py)
+- [Add Two Numbers](problems/07_add_two_numbers.py)
+- [LRU Cache](problems/08_lru_cache.py)
+
+</details>

@@ -1,55 +1,59 @@
-# Phase 14: Dynamic Programming
+# Dynamic programming: name the smaller question
 
-**Goal:** turn a slow recursion into a fast one by remembering answers you already computed.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-Every DP problem is a recursion that solves the same small subproblem many times.
-Write the brute-force recursion first, then cache it (top-down) or fill a table (bottom-up).
-To find the recursion, ask: "what is the last choice I make, and what does the rest look like?"
+**Before this lesson:** Recursion, arrays, and operation counting. Start with one-dimensional state.
 
-## Cheat sheet
-```python
-from functools import lru_cache
-@lru_cache(maxsize=None)          # top-down: recursion + cache, easiest to write
-def f(i):
-    if i < 2: return i            # base case
-    return f(i - 1) + f(i - 2)    # recurrence
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
 
-dp = [0, 1] + [0] * (n - 1)       # bottom-up 1D: dp[i] = answer for first i items
-for i in range(2, n + 1): dp[i] = dp[i - 1] + dp[i - 2]
+## The theory
 
-for x in nums:                    # 0/1 knapsack (each item once): right to left
-    for c in range(target, x - 1, -1): dp[c] = dp[c] or dp[c - x]
-for coin in coins:                # unbounded knapsack (reuse items): left to right
-    for a in range(coin, amount + 1): dp[a] += dp[a - coin]
+**Dynamic programming (DP)** saves answers to overlapping subproblems. It works when a larger answer can be built from suitably chosen smaller answers. Do not start by guessing a memorized formula; define what one state means in a complete sentence.
+
+Write four things: the state, base cases, transitions, and evaluation order. Top-down recursion with memoization computes states on demand. Bottom-up iteration evaluates prerequisites before dependent states. Estimate time as number of states times work per state, and include the table and active call stack in memory.
+
+Different questions require different combinations: count ways adds counts; minimum cost takes a minimum; reachability combines booleans. Impossible states need an appropriate marker rather than accidentally looking like a zero-cost answer.
+
+Order matters in coin problems: counting ordered sequences is different from counting combinations. A subsequence may skip positions; a substring cannot. Two-sequence problems often track one boundary in each sequence. Space compression is a later step that is safe only when overwritten states will never be needed again.
+
+Some chapters’ advanced tasks need intervals or tree states. Finish the one-dimensional reasoning first, then add dimensions when the smaller question truly requires them.
+
+## Walk through a small example
+
+A delivery service may finish a route with either a short or a long final segment. Before calculating anything, label a state “best cost to reach stop i.” Then ask which earlier stops can precede i, what finishing from each costs, and what represents an unreachable stop. The state sentence determines the table meaning.
+
+## Watch for
+
+Memorizing a recurrence without state meaning; wrong base cases; confusing combinations with ordered sequences; overwriting a value before its last use.
+
+## Your next small step
+
+Open [climbing stairs](problems/01_climbing_stairs.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 14/01
 ```
 
-## When you see... use...
-- "count the ways to reach n" or "min cost to reach the end" -> 1D dp[i]
-- "subset with sum / pick items at most once" -> 0/1 knapsack, loop right to left
-- "coins reusable / min count / count combinations" -> unbounded knapsack, left to right
-- "two strings, common / transform" -> 2D table dp[i][j] over prefixes a[:i], b[:j]
-- "best over subarray i..j, order of removal matters" -> interval DP, fill by length
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- `[[0] * m] * n` shares one row. Use a list comprehension.
-- Off-by-one in string DP. Table size `(n+1) x (m+1)`, read chars as `a[i-1]`.
-- Wrong knapsack loop direction. 0/1 right to left, unbounded left to right.
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_climbing_stairs.py` — dp[i] = dp[i-1] + dp[i-2]
-- `02_house_robber.py` — skip or take, no adjacent
-- `03_house_robber_ii.py` — circular, run robber twice
-- `04_coin_change.py` — unbounded knapsack, min count
-- `05_coin_change_ii.py` — count combinations, coins outer loop
-- `06_longest_increasing_subsequence.py` — dp[i] ending at i, then bisect
-- `07_partition_equal_subset_sum.py` — boolean 0/1 knapsack
-- `08_unique_paths.py` — grid, count paths from top and left
-- `09_min_path_sum.py` — grid, min of top and left
-- `10_longest_common_subsequence.py` — 2D two strings
-- `11_edit_distance.py` — 2D, insert / delete / replace
-- `12_word_break.py` — 1D over string positions
-- `13_decode_ways.py` — 1D, one or two digit steps
-- `14_longest_palindromic_substring.py` — expand around center
-- `15_burst_balloons.py` — interval DP, pick last balloon
-- `16_house_robber_iii_tree_dp.py` — (rob, skip) per subtree
+- [Climbing Stairs](problems/01_climbing_stairs.py)
+- [House Robber](problems/02_house_robber.py)
+- [House Robber II](problems/03_house_robber_ii.py)
+- [Coin Change](problems/04_coin_change.py)
+- [Coin Change II](problems/05_coin_change_ii.py)
+- [Longest Increasing Subsequence](problems/06_longest_increasing_subsequence.py)
+- [Partition Equal Subset Sum](problems/07_partition_equal_subset_sum.py)
+- [Unique Paths](problems/08_unique_paths.py)
+- [Minimum Path Sum](problems/09_min_path_sum.py)
+- [Longest Common Subsequence](problems/10_longest_common_subsequence.py)
+- [Edit Distance](problems/11_edit_distance.py)
+- [Word Break](problems/12_word_break.py)
+- [Decode Ways](problems/13_decode_ways.py)
+- [Longest Palindromic Substring](problems/14_longest_palindromic_substring.py)
+- [Burst Balloons](problems/15_burst_balloons.py)
+- [House Robber III](problems/16_house_robber_iii_tree_dp.py)
+
+</details>

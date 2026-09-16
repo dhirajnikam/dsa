@@ -44,27 +44,27 @@ class TimeMap:
 if __name__ == "__main__":
     m = TimeMap()
     m.set("foo", "bar", 1)
-    assert m.get("foo", 1) == "bar"
-    assert m.get("foo", 3) == "bar"
+    assert m.get("foo", 1) == "bar", 'Check: m.get("foo", 1) == "bar"'
+    assert m.get("foo", 3) == "bar", 'Check: m.get("foo", 3) == "bar"'
     m.set("foo", "bar2", 4)
-    assert m.get("foo", 4) == "bar2"
-    assert m.get("foo", 5) == "bar2"
-    assert m.get("foo", 3) == "bar"
-    assert m.get("foo", 0) == ""
-    assert m.get("missing", 10) == ""
+    assert m.get("foo", 4) == "bar2", 'Check: m.get("foo", 4) == "bar2"'
+    assert m.get("foo", 5) == "bar2", 'Check: m.get("foo", 5) == "bar2"'
+    assert m.get("foo", 3) == "bar", 'Check: m.get("foo", 3) == "bar"'
+    assert m.get("foo", 0) == "", 'Check: m.get("foo", 0) == ""'
+    assert m.get("missing", 10) == "", 'Check: m.get("missing", 10) == ""'
 
     t = TimeMap()
     t.set("a", "1", 10)
     t.set("a", "2", 20)
     t.set("a", "3", 30)
     t.set("b", "x", 25)
-    assert t.get("a", 9) == ""
-    assert t.get("a", 10) == "1"
-    assert t.get("a", 19) == "1"
-    assert t.get("a", 20) == "2"
-    assert t.get("a", 29) == "2"
-    assert t.get("a", 30) == "3"
-    assert t.get("a", 1000) == "3"
-    assert t.get("b", 24) == ""
-    assert t.get("b", 25) == "x"
+    assert t.get("a", 9) == "", 'Check: t.get("a", 9) == ""'
+    assert t.get("a", 10) == "1", 'Check: t.get("a", 10) == "1"'
+    assert t.get("a", 19) == "1", 'Check: t.get("a", 19) == "1"'
+    assert t.get("a", 20) == "2", 'Check: t.get("a", 20) == "2"'
+    assert t.get("a", 29) == "2", 'Check: t.get("a", 29) == "2"'
+    assert t.get("a", 30) == "3", 'Check: t.get("a", 30) == "3"'
+    assert t.get("a", 1000) == "3", 'Check: t.get("a", 1000) == "3"'
+    assert t.get("b", 24) == "", 'Check: t.get("b", 24) == ""'
+    assert t.get("b", 25) == "x", 'Check: t.get("b", 25) == "x"'
     print("ok")

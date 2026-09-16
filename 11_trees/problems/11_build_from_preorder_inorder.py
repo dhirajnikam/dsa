@@ -80,12 +80,12 @@ def build_tree(preorder: list[int], inorder: list[int]) -> TreeNode | None:
 
 
 if __name__ == "__main__":
-    assert to_level(build_tree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])) == [3, 9, 20, None, None, 15, 7]
-    assert to_level(build_tree([-1], [-1])) == [-1]
-    assert build_tree([], []) is None
-    assert to_level(build_tree([1, 2], [2, 1])) == [1, 2]
-    assert to_level(build_tree([1, 2], [1, 2])) == [1, None, 2]
-    assert to_level(build_tree([1, 2, 3, 4], [4, 3, 2, 1])) == [1, 2, None, 3, None, 4]      # left-skewed
-    assert to_level(build_tree([1, 2, 3, 4], [1, 2, 3, 4])) == [1, None, 2, None, 3, None, 4]  # right-skewed
-    assert to_level(build_tree([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7])) == [1, 2, 3, 4, 5, 6, 7]
+    assert to_level(build_tree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])) == [3, 9, 20, None, None, 15, 7], 'Check: to_level(build_tree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])) == [3, 9, 20, None, None, 15, 7]'
+    assert to_level(build_tree([-1], [-1])) == [-1], 'Check: to_level(build_tree([-1], [-1])) == [-1]'
+    assert build_tree([], []) is None, 'Check: build_tree([], []) is None'
+    assert to_level(build_tree([1, 2], [2, 1])) == [1, 2], 'Check: to_level(build_tree([1, 2], [2, 1])) == [1, 2]'
+    assert to_level(build_tree([1, 2], [1, 2])) == [1, None, 2], 'Check: to_level(build_tree([1, 2], [1, 2])) == [1, None, 2]'
+    assert to_level(build_tree([1, 2, 3, 4], [4, 3, 2, 1])) == [1, 2, None, 3, None, 4], 'Check: to_level(build_tree([1, 2, 3, 4], [4, 3, 2, 1])) == [1, 2, None, 3, None, 4]'      # left-skewed
+    assert to_level(build_tree([1, 2, 3, 4], [1, 2, 3, 4])) == [1, None, 2, None, 3, None, 4], 'Check: to_level(build_tree([1, 2, 3, 4], [1, 2, 3, 4])) == [1, None, 2, None, 3, None, 4]'  # right-skewed
+    assert to_level(build_tree([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7])) == [1, 2, 3, 4, 5, 6, 7], 'Check: to_level(build_tree([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7])) == [1, 2, 3, 4, 5, 6, 7]'
     print("ok")

@@ -58,12 +58,12 @@ def merge_k_lists(lists: list[Optional[ListNode]]) -> Optional[ListNode]:
 
 if __name__ == "__main__":
     mk = lambda ls: merge_k_lists([from_list(l) for l in ls])
-    assert to_list(mk([[1, 4, 5], [1, 3, 4], [2, 6]])) == [1, 1, 2, 3, 4, 4, 5, 6]
-    assert to_list(mk([])) == []
-    assert to_list(mk([[]])) == []
-    assert to_list(mk([[], [], []])) == []
-    assert to_list(mk([[1]])) == [1]
-    assert to_list(mk([[5], [1], [3]])) == [1, 3, 5]
-    assert to_list(mk([[1, 1], [1], [1, 1, 1]])) == [1, 1, 1, 1, 1, 1]
-    assert to_list(mk([[-2, 0], [-3, 4], []])) == [-3, -2, 0, 4]
+    assert to_list(mk([[1, 4, 5], [1, 3, 4], [2, 6]])) == [1, 1, 2, 3, 4, 4, 5, 6], 'Check: to_list(mk([[1, 4, 5], [1, 3, 4], [2, 6]])) == [1, 1, 2, 3, 4, 4, 5, 6]'
+    assert to_list(mk([])) == [], 'Check: to_list(mk([])) == []'
+    assert to_list(mk([[]])) == [], 'Check: to_list(mk([[]])) == []'
+    assert to_list(mk([[], [], []])) == [], 'Check: to_list(mk([[], [], []])) == []'
+    assert to_list(mk([[1]])) == [1], 'Check: to_list(mk([[1]])) == [1]'
+    assert to_list(mk([[5], [1], [3]])) == [1, 3, 5], 'Check: to_list(mk([[5], [1], [3]])) == [1, 3, 5]'
+    assert to_list(mk([[1, 1], [1], [1, 1, 1]])) == [1, 1, 1, 1, 1, 1], 'Check: to_list(mk([[1, 1], [1], [1, 1, 1]])) == [1, 1, 1, 1, 1, 1]'
+    assert to_list(mk([[-2, 0], [-3, 4], []])) == [-3, -2, 0, 4], 'Check: to_list(mk([[-2, 0], [-3, 4], []])) == [-3, -2, 0, 4]'
     print("ok")

@@ -1,42 +1,49 @@
-# Phase 17: Interview Mastery
+# Interview practice: explain, implement, check
 
-**Goal:** solve a medium problem in 45 minutes while talking, the way a real interview runs.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## The 6 steps (every question)
-1. **Clarify.** Restate the problem. Ask about input size, duplicates, empty input, and what to return when there is no answer. Write one example.
-2. **Brute force out loud.** State the obvious approach and its complexity, even if you will not code it.
-3. **Name the pattern.** "This is sliding window / two heaps / BFS because..." Use the table below.
-4. **Confirm.** "I plan to do X in O(n log n) time and O(n) space. Should I go ahead?"
-5. **Code while talking.** Skeleton first, then helpers. Never go silent for more than a minute.
-6. **Test by hand.** Trace the smallest example line by line, then the edge cases from step 1. State time and space.
+**Before this lesson:** Comfort with the first lap and relevant chapter checkpoints. Timing is optional until the ideas feel familiar.
 
-## Pattern cheat sheet
-| If the problem says... | Try... |
-|---|---|
-| sorted array, find a pair or target | two pointers or binary search |
-| longest / shortest subarray with a rule | sliding window |
-| k-th largest, top k, running median | heap |
-| next greater element, valid brackets | stack |
-| count or group things | hash map |
-| linked list cycle or middle | fast and slow pointers |
-| grid or graph, shortest path in steps | BFS |
-| all paths, connected regions, tree walk | DFS |
-| tasks with prerequisites, ordering | topological sort |
-| groups that merge, "connected" accounts | union-find |
-| count ways, min cost, longest subsequence | dynamic programming |
-| all combinations / permutations / subsets | backtracking |
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
 
-## Behavioral
-- Answer in STAR format: Situation, Task, Action, Result. Keep it under two minutes.
-- Prepare 5 stories: a conflict, a failure, a hard technical problem, leading without authority, a tight deadline.
-- Every story ends with a number or a concrete outcome, then one thing you learned.
-- Ask the interviewer two real questions at the end.
+## The theory
 
-## Problems
-Set a 45-minute timer, speak out loud, and ask your clarifying questions before reading the hints.
-- `01_mock_encode_decode_strings.py` — length prefix, then the string
-- `02_mock_kth_largest_in_stream.py` — min-heap of size k
-- `03_mock_valid_sudoku.py` — sets for rows, cols, boxes
-- `04_mock_time_based_key_value_store.py` — dict of lists, binary search on time
-- `05_mock_min_cost_climbing_stairs.py` — 1D DP, two variables
-- `06_mock_accounts_merge.py` — union-find on emails
+An interview task measures how you turn an ambiguous request into a correct, explainable program. Start by restating inputs, outputs, constraints, and assumptions. Make an example, including a boundary case, before coding.
+
+Describe a straightforward approach first. Count its work. Then identify which repeated work or missing summary a better structure could remove. Name a pattern only after explaining why its assumptions fit. A familiar keyword is not proof that a pattern applies.
+
+Before implementation, state an invariant or state definition. While coding, explain decisions instead of narrating punctuation. When stuck, shrink the example and describe the unknown precisely. Testing should cover ordinary input, boundaries, and a case designed to break your chosen assumption.
+
+A practice session can be 5 minutes of clarification, 10 of reasoning, 20 of coding, and 10 of checking. These are adjustable practice budgets, not scoring rules. Start untimed if time pressure blocks learning. Afterward write one thing to retain and one thing to revisit.
+
+For behavioral questions, use Situation, Task, Action, Result, with your own contribution and an honest concrete outcome. Preparation supports clarity; it should not turn experiences into invented numbers.
+
+## Walk through a small example
+
+Suppose a prompt asks to group duplicate records. Ask whether identity means matching names, IDs, or shared email addresses. Records with matching names but different IDs expose the ambiguity. Clarifying that rule before choosing a dictionary or union-find can prevent an otherwise tidy wrong answer.
+
+## Watch for
+
+Coding before clarifying the contract; naming a pattern without justification; treating time pressure as a prerequisite; rehearsing a solution instead of reasoning about changed assumptions.
+
+## Your next small step
+
+Open [mock encode decode strings](problems/01_mock_encode_decode_strings.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 17/01
+```
+
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
+
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
+
+- [Mock interview 1 - Encode and Decode Strings](problems/01_mock_encode_decode_strings.py)
+- [Mock interview 2 - Kth Largest Element in a Stream](problems/02_mock_kth_largest_in_stream.py)
+- [Mock interview 3 - Valid Sudoku](problems/03_mock_valid_sudoku.py)
+- [Mock interview 4 - Time Based Key-Value Store](problems/04_mock_time_based_key_value_store.py)
+- [Mock interview 5 - Min Cost Climbing Stairs](problems/05_mock_min_cost_climbing_stairs.py)
+- [Mock interview 6 - Accounts Merge](problems/06_mock_accounts_merge.py)
+
+</details>

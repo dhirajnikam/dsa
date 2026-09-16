@@ -32,13 +32,13 @@ def oranges_rotting(grid: list[list[int]]) -> int:
 
 
 if __name__ == "__main__":
-    assert oranges_rotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]]) == 4
-    assert oranges_rotting([[2, 1, 1], [0, 1, 1], [1, 0, 1]]) == -1
-    assert oranges_rotting([[0, 2]]) == 0
-    assert oranges_rotting([[0]]) == 0
-    assert oranges_rotting([[1]]) == -1
-    assert oranges_rotting([[2]]) == 0
-    assert oranges_rotting([[2, 1, 1, 1, 2]]) == 2
-    assert oranges_rotting([[2, 0, 1], [0, 0, 0], [1, 0, 2]]) == -1
-    assert oranges_rotting([[1, 2], [2, 1]]) == 1
+    assert oranges_rotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]]) == 4, 'Check: oranges_rotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]]) == 4'
+    assert oranges_rotting([[2, 1, 1], [0, 1, 1], [1, 0, 1]]) == -1, 'Check: oranges_rotting([[2, 1, 1], [0, 1, 1], [1, 0, 1]]) == -1'
+    assert oranges_rotting([[0, 2]]) == 0, 'Check: oranges_rotting([[0, 2]]) == 0'
+    assert oranges_rotting([[0]]) == 0, 'Check: oranges_rotting([[0]]) == 0'
+    assert oranges_rotting([[1]]) == -1, 'Check: oranges_rotting([[1]]) == -1'
+    assert oranges_rotting([[2]]) == 0, 'Check: oranges_rotting([[2]]) == 0'
+    assert oranges_rotting([[2, 1, 1, 1, 2]]) == 2, 'Check: oranges_rotting([[2, 1, 1, 1, 2]]) == 2'
+    assert oranges_rotting([[2, 0, 1], [0, 0, 0], [1, 0, 2]]) == -1, 'Check: oranges_rotting([[2, 0, 1], [0, 0, 0], [1, 0, 2]]) == -1'
+    assert oranges_rotting([[1, 2], [2, 1]]) == 1, 'Check: oranges_rotting([[1, 2], [2, 1]]) == 1'
     print("ok")

@@ -32,10 +32,10 @@ def top_k_frequent(nums: list[int], k: int) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert sorted(top_k_frequent([1, 1, 1, 2, 2, 3], 2)) == [1, 2]
-    assert top_k_frequent([1], 1) == [1]
-    assert sorted(top_k_frequent([4, 4, 4, 5, 5, 6, 7], 1)) == [4]
-    assert sorted(top_k_frequent([1, 2, 3, 4], 4)) == [1, 2, 3, 4]
-    assert sorted(top_k_frequent([-1, -1, 2, 2, 2], 2)) == [-1, 2]
-    assert sorted(top_k_frequent([3, 0, 1, 0], 1)) == [0]
+    assert sorted(top_k_frequent([1, 1, 1, 2, 2, 3], 2)) == [1, 2], 'Check: sorted(top_k_frequent([1, 1, 1, 2, 2, 3], 2)) == [1, 2]'
+    assert top_k_frequent([1], 1) == [1], 'Check: top_k_frequent([1], 1) == [1]'
+    assert sorted(top_k_frequent([4, 4, 4, 5, 5, 6, 7], 1)) == [4], 'Check: sorted(top_k_frequent([4, 4, 4, 5, 5, 6, 7], 1)) == [4]'
+    assert sorted(top_k_frequent([1, 2, 3, 4], 4)) == [1, 2, 3, 4], 'Check: sorted(top_k_frequent([1, 2, 3, 4], 4)) == [1, 2, 3, 4]'
+    assert sorted(top_k_frequent([-1, -1, 2, 2, 2], 2)) == [-1, 2], 'Check: sorted(top_k_frequent([-1, -1, 2, 2, 2], 2)) == [-1, 2]'
+    assert sorted(top_k_frequent([3, 0, 1, 0], 1)) == [0], 'Check: sorted(top_k_frequent([3, 0, 1, 0], 1)) == [0]'
     print("ok")

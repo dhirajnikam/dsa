@@ -33,11 +33,13 @@ def two_sum_sorted(numbers: list[int], target: int) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert two_sum_sorted([2, 7, 11, 15], 9) == [1, 2]
-    assert two_sum_sorted([2, 3, 4], 6) == [1, 3]
-    assert two_sum_sorted([-1, 0], -1) == [1, 2]
-    assert two_sum_sorted([1, 2], 3) == [1, 2]
-    assert two_sum_sorted([-5, -3, 0, 2, 8], 5) == [2, 5]
-    assert two_sum_sorted([1, 1, 1, 1], 2) == [1, 4]
-    assert two_sum_sorted([0, 0, 3, 4], 0) == [1, 2]
+    assert two_sum_sorted([2, 7, 11, 15], 9) == [1, 2], 'Check: two_sum_sorted([2, 7, 11, 15], 9) == [1, 2]'
+    assert two_sum_sorted([2, 3, 4], 6) == [1, 3], 'Check: two_sum_sorted([2, 3, 4], 6) == [1, 3]'
+    assert two_sum_sorted([-1, 0], -1) == [1, 2], 'Check: two_sum_sorted([-1, 0], -1) == [1, 2]'
+    assert two_sum_sorted([1, 2], 3) == [1, 2], 'Check: two_sum_sorted([1, 2], 3) == [1, 2]'
+    assert two_sum_sorted([-5, -3, 0, 2, 8], 5) == [2, 5], 'Check: two_sum_sorted([-5, -3, 0, 2, 8], 5) == [2, 5]'
+    assert two_sum_sorted([0, 0, 3, 4], 0) == [1, 2], 'Check: two_sum_sorted([0, 0, 3, 4], 0) == [1, 2]'
+    # Boundary and misconception checks: predict each result before running.
+    assert two_sum_sorted([1, 1], 2) == [1, 2], 'Check: two_sum_sorted([1, 1], 2) == [1, 2]'
+    assert two_sum_sorted([-8, -2, 1, 4, 9], 2) == [2, 4], 'Check: two_sum_sorted([-8, -2, 1, 4, 9], 2) == [2, 4]'
     print("ok")

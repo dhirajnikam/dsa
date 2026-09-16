@@ -62,13 +62,13 @@ def max_path_sum(root: TreeNode) -> int:
 
 
 if __name__ == "__main__":
-    assert max_path_sum(build([1, 2, 3])) == 6
-    assert max_path_sum(build([-10, 9, 20, None, None, 15, 7])) == 42
-    assert max_path_sum(build([-3])) == -3                       # single negative node
-    assert max_path_sum(build([-2, -1, -3])) == -1               # all negative: pick the best single node
-    assert max_path_sum(build([2, -1, -2])) == 2
-    assert max_path_sum(build([1, -2, 3])) == 4
-    assert max_path_sum(build([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1])) == 48
-    assert max_path_sum(build([1, 2, None, 3, None, 4])) == 10   # skewed: whole chain
-    assert max_path_sum(build([-1, -2, 10, -6, None, -3, -6])) == 10
+    assert max_path_sum(build([1, 2, 3])) == 6, 'Check: max_path_sum(build([1, 2, 3])) == 6'
+    assert max_path_sum(build([-10, 9, 20, None, None, 15, 7])) == 42, 'Check: max_path_sum(build([-10, 9, 20, None, None, 15, 7])) == 42'
+    assert max_path_sum(build([-3])) == -3, 'Check: max_path_sum(build([-3])) == -3'                       # single negative node
+    assert max_path_sum(build([-2, -1, -3])) == -1, 'Check: max_path_sum(build([-2, -1, -3])) == -1'               # all negative: pick the best single node
+    assert max_path_sum(build([2, -1, -2])) == 2, 'Check: max_path_sum(build([2, -1, -2])) == 2'
+    assert max_path_sum(build([1, -2, 3])) == 4, 'Check: max_path_sum(build([1, -2, 3])) == 4'
+    assert max_path_sum(build([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1])) == 48, 'Check: max_path_sum(build([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1])) == 48'
+    assert max_path_sum(build([1, 2, None, 3, None, 4])) == 10, 'Check: max_path_sum(build([1, 2, None, 3, None, 4])) == 10'   # skewed: whole chain
+    assert max_path_sum(build([-1, -2, 10, -6, None, -3, -6])) == 10, 'Check: max_path_sum(build([-1, -2, 10, -6, None, -3, -6])) == 10'
     print("ok")

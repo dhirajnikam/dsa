@@ -36,11 +36,11 @@ def permute(nums: list[int]) -> list[list[int]]:
 
 
 if __name__ == "__main__":
-    assert sorted(permute([1, 2, 3])) == [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-    assert sorted(permute([0, 1])) == [[0, 1], [1, 0]]
-    assert permute([1]) == [[1]]
-    assert permute([]) == [[]]
+    assert sorted(permute([1, 2, 3])) == [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]], 'Check: sorted(permute([1, 2, 3])) == [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]'
+    assert sorted(permute([0, 1])) == [[0, 1], [1, 0]], 'Check: sorted(permute([0, 1])) == [[0, 1], [1, 0]]'
+    assert permute([1]) == [[1]], 'Check: permute([1]) == [[1]]'
+    assert permute([]) == [[]], 'Check: permute([]) == [[]]'
     out = permute([1, 2, 3, 4])
-    assert len(out) == 24 and len(set(map(tuple, out))) == 24
-    assert all(sorted(p) == [1, 2, 3, 4] for p in out)
+    assert len(out) == 24 and len(set(map(tuple, out))) == 24, 'Check: len(out) == 24 and len(set(map(tuple, out))) == 24'
+    assert all(sorted(p) == [1, 2, 3, 4] for p in out), 'Check: all(sorted(p) == [1, 2, 3, 4] for p in out)'
     print("ok")

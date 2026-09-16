@@ -36,11 +36,11 @@ if __name__ == "__main__":
     def norm(groups):
         return sorted(sorted(g) for g in groups)
 
-    assert norm(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"])) == [["ate", "eat", "tea"], ["bat"], ["nat", "tan"]]
-    assert norm(group_anagrams([""])) == [[""]]
-    assert norm(group_anagrams(["a"])) == [["a"]]
-    assert norm(group_anagrams(["", ""])) == [["", ""]]
-    assert norm(group_anagrams(["ab", "ba", "abc"])) == [["ab", "ba"], ["abc"]]
-    assert norm(group_anagrams(["x", "y", "z"])) == [["x"], ["y"], ["z"]]
-    assert norm(group_anagrams(["aa", "aa", "a"])) == [["a"], ["aa", "aa"]]
+    assert norm(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"])) == [["ate", "eat", "tea"], ["bat"], ["nat", "tan"]], 'Check: norm(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"])) == [["ate", "eat", "tea"], ["bat"], ["nat", "tan"]]'
+    assert norm(group_anagrams([""])) == [[""]], 'Check: norm(group_anagrams([""])) == [[""]]'
+    assert norm(group_anagrams(["a"])) == [["a"]], 'Check: norm(group_anagrams(["a"])) == [["a"]]'
+    assert norm(group_anagrams(["", ""])) == [["", ""]], 'Check: norm(group_anagrams(["", ""])) == [["", ""]]'
+    assert norm(group_anagrams(["ab", "ba", "abc"])) == [["ab", "ba"], ["abc"]], 'Check: norm(group_anagrams(["ab", "ba", "abc"])) == [["ab", "ba"], ["abc"]]'
+    assert norm(group_anagrams(["x", "y", "z"])) == [["x"], ["y"], ["z"]], 'Check: norm(group_anagrams(["x", "y", "z"])) == [["x"], ["y"], ["z"]]'
+    assert norm(group_anagrams(["aa", "aa", "a"])) == [["a"], ["aa", "aa"]], 'Check: norm(group_anagrams(["aa", "aa", "a"])) == [["a"], ["aa", "aa"]]'
     print("ok")

@@ -61,12 +61,12 @@ def kth_smallest(root: TreeNode, k: int) -> int:
 
 
 if __name__ == "__main__":
-    assert kth_smallest(build([3, 1, 4, None, 2]), 1) == 1
-    assert kth_smallest(build([5, 3, 6, 2, 4, None, None, 1]), 3) == 3
-    assert kth_smallest(build([1]), 1) == 1
-    assert kth_smallest(build([2, 1]), 2) == 2
-    assert kth_smallest(build([1, None, 2, None, 3, None, 4]), 4) == 4     # right-skewed
-    assert kth_smallest(build([4, 3, None, 2, None, 1]), 1) == 1            # left-skewed
+    assert kth_smallest(build([3, 1, 4, None, 2]), 1) == 1, 'Check: kth_smallest(build([3, 1, 4, None, 2]), 1) == 1'
+    assert kth_smallest(build([5, 3, 6, 2, 4, None, None, 1]), 3) == 3, 'Check: kth_smallest(build([5, 3, 6, 2, 4, None, None, 1]), 3) == 3'
+    assert kth_smallest(build([1]), 1) == 1, 'Check: kth_smallest(build([1]), 1) == 1'
+    assert kth_smallest(build([2, 1]), 2) == 2, 'Check: kth_smallest(build([2, 1]), 2) == 2'
+    assert kth_smallest(build([1, None, 2, None, 3, None, 4]), 4) == 4, 'Check: kth_smallest(build([1, None, 2, None, 3, None, 4]), 4) == 4'     # right-skewed
+    assert kth_smallest(build([4, 3, None, 2, None, 1]), 1) == 1, 'Check: kth_smallest(build([4, 3, None, 2, None, 1]), 1) == 1'            # left-skewed
     t = build([5, 3, 6, 2, 4, None, None, 1])
-    assert [kth_smallest(t, k) for k in range(1, 7)] == [1, 2, 3, 4, 5, 6]
+    assert [kth_smallest(t, k) for k in range(1, 7)] == [1, 2, 3, 4, 5, 6], 'Check: [kth_smallest(t, k) for k in range(1, 7)] == [1, 2, 3, 4, 5, 6]'
     print("ok")

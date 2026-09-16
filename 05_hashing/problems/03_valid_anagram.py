@@ -29,12 +29,12 @@ def is_anagram(s: str, t: str) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_anagram("anagram", "nagaram") is True
-    assert is_anagram("rat", "car") is False
-    assert is_anagram("", "") is True
-    assert is_anagram("a", "a") is True
-    assert is_anagram("a", "ab") is False
-    assert is_anagram("aab", "abb") is False
-    assert is_anagram("listen", "silent") is True
-    assert is_anagram("aaaa", "aaaa") is True
+    assert is_anagram("anagram", "nagaram") is True, 'Check: is_anagram("anagram", "nagaram") is True'
+    assert is_anagram("rat", "car") is False, 'Check: is_anagram("rat", "car") is False'
+    assert is_anagram("", "") is True, 'Check: is_anagram("", "") is True'
+    assert is_anagram("a", "a") is True, 'Check: is_anagram("a", "a") is True'
+    assert is_anagram("a", "ab") is False, 'Check: is_anagram("a", "ab") is False'
+    assert is_anagram("aab", "abb") is False, 'Check: is_anagram("aab", "abb") is False'
+    assert is_anagram("listen", "silent") is True, 'Check: is_anagram("listen", "silent") is True'
+    assert is_anagram("aaaa", "aaaa") is True, 'Check: is_anagram("aaaa", "aaaa") is True'
     print("ok")

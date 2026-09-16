@@ -33,12 +33,12 @@ def network_delay_time(times: list[list[int]], n: int, k: int) -> int:
 
 
 if __name__ == "__main__":
-    assert network_delay_time([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2) == 2
-    assert network_delay_time([[1, 2, 1]], 2, 1) == 1
-    assert network_delay_time([[1, 2, 1]], 2, 2) == -1
-    assert network_delay_time([], 1, 1) == 0
-    assert network_delay_time([[1, 2, 1], [2, 3, 2], [1, 3, 4]], 3, 1) == 3
-    assert network_delay_time([[1, 2, 1], [2, 3, 7], [1, 3, 4], [2, 1, 2]], 3, 2) == 6
-    assert network_delay_time([[1, 2, 0], [2, 3, 0]], 3, 1) == 0
-    assert network_delay_time([[1, 2, 5], [1, 3, 5], [2, 4, 1], [3, 4, 10]], 4, 1) == 6
+    assert network_delay_time([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2) == 2, 'Check: network_delay_time([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2) == 2'
+    assert network_delay_time([[1, 2, 1]], 2, 1) == 1, 'Check: network_delay_time([[1, 2, 1]], 2, 1) == 1'
+    assert network_delay_time([[1, 2, 1]], 2, 2) == -1, 'Check: network_delay_time([[1, 2, 1]], 2, 2) == -1'
+    assert network_delay_time([], 1, 1) == 0, 'Check: network_delay_time([], 1, 1) == 0'
+    assert network_delay_time([[1, 2, 1], [2, 3, 2], [1, 3, 4]], 3, 1) == 3, 'Check: network_delay_time([[1, 2, 1], [2, 3, 2], [1, 3, 4]], 3, 1) == 3'
+    assert network_delay_time([[1, 2, 1], [2, 3, 7], [1, 3, 4], [2, 1, 2]], 3, 2) == 6, 'Check: network_delay_time([[1, 2, 1], [2, 3, 7], [1, 3, 4], [2, 1, 2]], 3, 2) == 6'
+    assert network_delay_time([[1, 2, 0], [2, 3, 0]], 3, 1) == 0, 'Check: network_delay_time([[1, 2, 0], [2, 3, 0]], 3, 1) == 0'
+    assert network_delay_time([[1, 2, 5], [1, 3, 5], [2, 4, 1], [3, 4, 10]], 4, 1) == 6, 'Check: network_delay_time([[1, 2, 5], [1, 3, 5], [2, 4, 1], [3, 4, 10]], 4, 1) == 6'
     print("ok")

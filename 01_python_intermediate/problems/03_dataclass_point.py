@@ -46,21 +46,21 @@ def unique_sorted(points: list[Point]) -> list[Point]:
 
 if __name__ == "__main__":
     p = Point(3, 4)
-    assert p.x == 3 and p.y == 4 and Point(1).y == 0.0
-    assert p.distance_to(Point(0, 0)) == 5.0
-    assert p + Point(1, 1) == Point(4, 5)
-    assert Point(0, 0).midpoint(Point(2, 4)) == Point(1, 2)
-    assert repr(Point(1, 2)) == "Point(x=1, y=2)"
-    assert Point(1, 2) < Point(1, 3) < Point(2, 0)
-    assert len({Point(1, 1), Point(1, 1), Point(2, 2)}) == 2
+    assert p.x == 3 and p.y == 4 and Point(1).y == 0.0, 'Check: p.x == 3 and p.y == 4 and Point(1).y == 0.0'
+    assert p.distance_to(Point(0, 0)) == 5.0, 'Check: p.distance_to(Point(0, 0)) == 5.0'
+    assert p + Point(1, 1) == Point(4, 5), 'Check: p + Point(1, 1) == Point(4, 5)'
+    assert Point(0, 0).midpoint(Point(2, 4)) == Point(1, 2), 'Check: Point(0, 0).midpoint(Point(2, 4)) == Point(1, 2)'
+    assert repr(Point(1, 2)) == "Point(x=1, y=2)", 'Check: repr(Point(1, 2)) == "Point(x=1, y=2)"'
+    assert Point(1, 2) < Point(1, 3) < Point(2, 0), 'Check: Point(1, 2) < Point(1, 3) < Point(2, 0)'
+    assert len({Point(1, 1), Point(1, 1), Point(2, 2)}) == 2, 'Check: len({Point(1, 1), Point(1, 1), Point(2, 2)}) == 2'
     try:
         p.x = 10
-        assert False
+        assert False, 'Check: False'
     except Exception:
         pass
-    assert closest_to_origin([Point(3, 4), Point(1, 1), Point(-1, 1)]) == Point(-1, 1)
-    assert closest_to_origin([Point(5, 0)]) == Point(5, 0)
+    assert closest_to_origin([Point(3, 4), Point(1, 1), Point(-1, 1)]) == Point(-1, 1), 'Check: closest_to_origin([Point(3, 4), Point(1, 1), Point(-1, 1)]) == Point(-1, 1)'
+    assert closest_to_origin([Point(5, 0)]) == Point(5, 0), 'Check: closest_to_origin([Point(5, 0)]) == Point(5, 0)'
     assert unique_sorted([Point(2, 1), Point(1, 5), Point(2, 1), Point(1, 2)]) == [
-        Point(1, 2), Point(1, 5), Point(2, 1)]
-    assert unique_sorted([]) == []
+        Point(1, 2), Point(1, 5), Point(2, 1)], 'Check: unique_sorted([Point(2, 1), Point(1, 5), Point(2, 1), Point(1, 2)]) == [ Point(1, 2), Point(1, 5), Point(2, 1)]'
+    assert unique_sorted([]) == [], 'Check: unique_sorted([]) == []'
     print("ok")

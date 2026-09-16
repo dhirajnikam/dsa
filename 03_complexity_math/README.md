@@ -1,46 +1,51 @@
-# Phase 03: Complexity & Math
+# How much work does an algorithm do?
 
-**Goal:** look at code and say how its running time grows, and know the few math tools interviews assume.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-Big-O says how work grows as input size n grows. Drop constants and smaller terms: `3n² + 100n` is O(n²).
-Loops one after another add. Loops inside loops multiply. A loop that halves each time is O(log n).
-Order: O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ). If n can be 10⁵, O(n²) is too slow.
+**Before this lesson:** Loops and functions from chapter 00. Start with operation counting; maths extras can wait.
 
-## Cheat sheet
-```python
-for i in range(n):            # n
-    for j in range(n): ...    # x n  -> O(n^2)
-while i > 1: i //= 2          # halves -> O(log n)
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
 
-def gcd(a, b):                # Euclid
-    while b: a, b = b, a % b
-    return a
+## The theory
 
-MOD = 10**9 + 7
-(a * b) % MOD                 # take % at every step
-pow(a, k, MOD)                # fast power, built in
+**Time complexity** describes how the number of operations grows with input size n. **Auxiliary space** counts additional storage, including recursive calls. Big-O is an upper growth bound, not a stopwatch reading or an interview readiness score.
 
-x & 1                         # odd?
-x & (x - 1)                   # clears lowest 1 bit; 0 means power of two (x > 0)
-bin(x).count("1")             # number of 1 bits
+One lookup by list index is O(1). Visiting all n items is O(n). Checking every pair can be O(n²). Repeatedly halving a positive search range takes O(log n) steps. Consecutive loops add their costs; nested loops require counting how often the inner work actually happens. Two nested loops are not automatically quadratic.
 
-def fact(n):                  # recursion: base case + smaller call
-    return 1 if n <= 1 else n * fact(n - 1)
+For two independent input sizes n and m, keep both: O(n+m) or O(nm). A copied slice takes time and space proportional to its length. A recursive algorithm has active calls in memory even when you never create a list.
+
+**Recursion** solves a problem using smaller instances, with a base case that stops. Memoization saves repeated results. Iteration can often keep only the recent results.
+
+For the optional maths exercises: GCD is the greatest shared divisor; LCM is the smallest shared positive multiple (zero requires a separate case). Remainders let Euclid repeatedly shrink the divisor problem. Exponentiation by squaring halves the exponent. A sieve marks multiples to find primes. Bits are base-two digits; AND tests shared bits, OR sets bits, and XOR cancels equal bit values. Modular inverses exist only under the relevant coprimality conditions; the prime-modulus shortcut has additional assumptions.
+
+## Walk through a small example
+
+If a list grows from 10 to 20 items, a scan roughly doubles its visits. Checking all unordered pairs grows from 45 to 190 comparisons. A halving search only needs roughly one additional decision. Count work first; do not infer it from indentation alone.
+
+## Watch for
+
+Ignoring slices or membership scans inside loops; dropping a second input size; forgetting call-stack space; treating a machine-dependent runtime threshold as a theorem.
+
+## Your next small step
+
+Open [count operations](problems/01_count_operations.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 03/01
 ```
 
-## Common mistakes
-- `x in list` inside a loop is a hidden O(n). Use a set.
-- `s += ch` in a loop copies the string every time. Collect and `"".join`.
-- Recursion depth counts as memory. Python stops around 1000 deep.
-- Taking `% MOD` only at the end makes huge slow numbers.
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Problems
-- `01_count_operations.py` — count exact loop iterations
-- `02_gcd_lcm.py` — Euclid, lcm, reduce fractions
-- `03_fast_power_mod.py` — power by squaring, modular inverse
-- `04_sieve_primes.py` — primality test, sieve, factorization
-- `05_bit_tricks.py` — popcount, XOR single, get/set bits
-- `06_recursion_basics.py` — factorial, digit sum, reverse string
-- `07_fibonacci_three_ways.py` — naive vs memo vs loop
-- `08_complexity_quiz.py` — name the Big-O of ten snippets
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
+
+- [Count the operations](problems/01_count_operations.py)
+- [gcd and lcm](problems/02_gcd_lcm.py)
+- [Fast exponentiation and modular arithmetic](problems/03_fast_power_mod.py)
+- [Primes](problems/04_sieve_primes.py)
+- [Bit tricks](problems/05_bit_tricks.py)
+- [Recursion basics](problems/06_recursion_basics.py)
+- [Fibonacci three ways](problems/07_fibonacci_three_ways.py)
+- [Complexity quiz](problems/08_complexity_quiz.py)
+
+</details>

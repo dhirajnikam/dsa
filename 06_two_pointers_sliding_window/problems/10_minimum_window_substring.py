@@ -34,14 +34,14 @@ def min_window(s: str, t: str) -> str:
 
 
 if __name__ == "__main__":
-    assert min_window("ADOBECODEBANC", "ABC") == "BANC"
-    assert min_window("a", "a") == "a"
-    assert min_window("a", "aa") == ""
-    assert min_window("ab", "b") == "b"
-    assert min_window("aa", "aa") == "aa"
-    assert min_window("abc", "cba") == "abc"
-    assert min_window("xyz", "q") == ""
-    assert min_window("aaflslflsldkalskaaa", "aaa") == "aaa"
-    assert min_window("bba", "ab") == "ba"
-    assert min_window("cabwefgewcwaefgcf", "cae") == "cwae"
+    assert min_window("ADOBECODEBANC", "ABC") == "BANC", 'Check: min_window("ADOBECODEBANC", "ABC") == "BANC"'
+    assert min_window("a", "a") == "a", 'Check: min_window("a", "a") == "a"'
+    assert min_window("a", "aa") == "", 'Check: min_window("a", "aa") == ""'
+    assert min_window("ab", "b") == "b", 'Check: min_window("ab", "b") == "b"'
+    assert min_window("aa", "aa") == "aa", 'Check: min_window("aa", "aa") == "aa"'
+    assert min_window("abc", "cba") == "abc", 'Check: min_window("abc", "cba") == "abc"'
+    assert min_window("xyz", "q") == "", 'Check: min_window("xyz", "q") == ""'
+    assert min_window("aaflslflsldkalskaaa", "aaa") == "aaa", 'Check: min_window("aaflslflsldkalskaaa", "aaa") == "aaa"'
+    assert min_window("bba", "ab") == "ba", 'Check: min_window("bba", "ab") == "ba"'
+    assert min_window("cabwefgewcwaefgcf", "cae") == "cwae", 'Check: min_window("cabwefgewcwaefgcf", "cae") == "cwae"'
     print("ok")

@@ -38,17 +38,17 @@ def search(nums: list[int], target: int) -> int:
 
 
 if __name__ == "__main__":
-    assert search([4, 5, 6, 7, 0, 1, 2], 0) == 4
-    assert search([4, 5, 6, 7, 0, 1, 2], 3) == -1
-    assert search([1], 0) == -1
-    assert search([1], 1) == 0
-    assert search([], 5) == -1
-    assert search([3, 1], 1) == 1 and search([3, 1], 3) == 0
-    assert search([1, 2, 3, 4, 5], 4) == 3   # rotation by 0
-    assert search([5, 1, 2, 3, 4], 5) == 0
-    assert search([2, 3, 4, 5, 1], 1) == 4
+    assert search([4, 5, 6, 7, 0, 1, 2], 0) == 4, 'Check: search([4, 5, 6, 7, 0, 1, 2], 0) == 4'
+    assert search([4, 5, 6, 7, 0, 1, 2], 3) == -1, 'Check: search([4, 5, 6, 7, 0, 1, 2], 3) == -1'
+    assert search([1], 0) == -1, 'Check: search([1], 0) == -1'
+    assert search([1], 1) == 0, 'Check: search([1], 1) == 0'
+    assert search([], 5) == -1, 'Check: search([], 5) == -1'
+    assert search([3, 1], 1) == 1 and search([3, 1], 3) == 0, 'Check: search([3, 1], 1) == 1 and search([3, 1], 3) == 0'
+    assert search([1, 2, 3, 4, 5], 4) == 3, 'Check: search([1, 2, 3, 4, 5], 4) == 3'   # rotation by 0
+    assert search([5, 1, 2, 3, 4], 5) == 0, 'Check: search([5, 1, 2, 3, 4], 5) == 0'
+    assert search([2, 3, 4, 5, 1], 1) == 4, 'Check: search([2, 3, 4, 5, 1], 1) == 4'
     base = list(range(20))
     for k in range(20):
         rot = base[k:] + base[:k]
-        assert all(search(rot, t) == rot.index(t) for t in base)
+        assert all(search(rot, t) == rot.index(t) for t in base), 'Check: all(search(rot, t) == rot.index(t) for t in base)'
     print("ok")

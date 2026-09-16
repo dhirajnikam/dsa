@@ -1,50 +1,51 @@
-# Phase 06: Two Pointers & Sliding Window
+# Two pointers and windows
 
-**Goal:** replace nested loops over pairs or substrings with two indices that only move forward.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-Two pointers are two indices into the same array. Each moves at most n times, so the whole thing is O(n).
-Opposite pointers start at both ends and walk inward (sorted input or symmetry checks).
-A sliding window is two same-direction pointers: the right one grows the window, the left one shrinks it.
+**Before this lesson:** Array indexing, hashing, and Big-O.
 
-## Cheat sheet
-```python
-l, r = 0, len(a) - 1                   # opposite pointers on sorted input
-while l < r:
-    s = a[l] + a[r]
-    if s == target: return [l, r]
-    if s < target: l += 1              # need bigger
-    else: r -= 1                       # need smaller
-w = 0                                  # read/write: keep some items in place
-for x in a:
-    if keep(x): a[w] = x; w += 1
-l = best = 0                           # variable window: longest valid
-for r, ch in enumerate(s):
-    add(ch)                            # grow
-    while not valid(): remove(s[l]); l += 1   # shrink until valid again
-    best = max(best, r - l + 1)
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
+
+## The theory
+
+A **pointer** here is an index. Two pointers can move inward from opposite ends or travel forward at different rates. The key is proving why discarded positions cannot contain a needed answer. Sorted input often provides that proof; unsorted input may not.
+
+A **window** is a contiguous range with a summary such as a sum or character counts. In a fixed-size window, adding a new item and removing the outgoing item avoids recomputing the whole range. In a variable-size window, grow one boundary and shrink the other until the required condition holds.
+
+Write the **invariant**: a sentence that must remain true, such as “the current window contains no repeated characters.” A repair may require several removals, not just one. Inclusive boundaries have length right − left + 1.
+
+Total pointer movement determines complexity. If each moves forward at most n times and updates are constant time, nested-looking loops can still total O(n). Sum-threshold shrinking commonly requires positive numbers; negative values break its monotonic reasoning. That warning does not apply to every window algorithm—fixed-size rolling sums still work with negatives.
+
+## Walk through a small example
+
+For readings [5, 2, 6, 1] and a window of size 2, the first sum is 7. Shift once: remove 5 and add 6 to get 8. Shift again: remove 2 and add 1 to get 7. Three windows require visiting each entering/leaving value only once.
+
+## Watch for
+
+Shrinking once when several removals are needed; applying a positive-sum argument to negative input; assuming every two-pointer algorithm is linear without counting resets.
+
+## Your next small step
+
+Open [valid palindrome two pointers](problems/01_valid_palindrome_two_pointers.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 06/01
 ```
 
-## When you see... use...
-- "sorted array, pair with sum" or "palindrome" -> opposite pointers
-- "remove / compress in place, return new length" -> read/write pointers
-- "subarray of size k" -> fixed window: add one, drop one
-- "longest substring such that ..." -> grow, shrink while invalid, record
-- "shortest subarray such that ..." -> grow, record and shrink while valid
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- Window length is `r - l + 1`, not `r - l`.
-- Shrinking with `if` instead of `while`. One removal is often not enough.
-- Negatives in the array break the window trick. Use prefix sum + dict (Phase 05).
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_valid_palindrome_two_pointers.py` — opposite pointers, skip non-letters
-- `02_two_sum_sorted.py` — opposite pointers on sorted input
-- `03_three_sum.py` — sort, fix one, two-pointer the rest
-- `04_container_most_water.py` — move the shorter side inward
-- `05_remove_duplicates_sorted.py` — read/write pointers
-- `06_max_sum_subarray_size_k.py` — fixed-size window
-- `07_longest_substring_no_repeat.py` — grow, shrink while a repeat exists
-- `08_min_size_subarray_sum.py` — grow, shrink while sum still big enough
-- `09_longest_repeating_char_replacement.py` — window valid if len - max_count <= k
-- `10_minimum_window_substring.py` — hard: window with need/have counters
+- [Valid Palindrome](problems/01_valid_palindrome_two_pointers.py)
+- [Two Sum II - Input Array Is Sorted](problems/02_two_sum_sorted.py)
+- [3Sum](problems/03_three_sum.py)
+- [Container With Most Water](problems/04_container_most_water.py)
+- [Remove Duplicates from Sorted Array](problems/05_remove_duplicates_sorted.py)
+- [Maximum Sum Subarray of Size K](problems/06_max_sum_subarray_size_k.py)
+- [Longest Substring Without Repeating Characters](problems/07_longest_substring_no_repeat.py)
+- [Minimum Size Subarray Sum](problems/08_min_size_subarray_sum.py)
+- [Longest Repeating Character Replacement](problems/09_longest_repeating_char_replacement.py)
+- [Minimum Window Substring](problems/10_minimum_window_substring.py)
+
+</details>

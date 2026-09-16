@@ -26,12 +26,12 @@ def candy(ratings: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert candy([1, 0, 2]) == 5
-    assert candy([1, 2, 2]) == 4
-    assert candy([1]) == 1
-    assert candy([2, 2, 2, 2]) == 4
-    assert candy([1, 2, 3, 4]) == 10
-    assert candy([4, 3, 2, 1]) == 10
-    assert candy([1, 3, 2, 2, 1]) == 7
-    assert candy([1, 2, 87, 87, 87, 2, 1]) == 13
+    assert candy([1, 0, 2]) == 5, 'Check: candy([1, 0, 2]) == 5'
+    assert candy([1, 2, 2]) == 4, 'Check: candy([1, 2, 2]) == 4'
+    assert candy([1]) == 1, 'Check: candy([1]) == 1'
+    assert candy([2, 2, 2, 2]) == 4, 'Check: candy([2, 2, 2, 2]) == 4'
+    assert candy([1, 2, 3, 4]) == 10, 'Check: candy([1, 2, 3, 4]) == 10'
+    assert candy([4, 3, 2, 1]) == 10, 'Check: candy([4, 3, 2, 1]) == 10'
+    assert candy([1, 3, 2, 2, 1]) == 7, 'Check: candy([1, 3, 2, 2, 1]) == 7'
+    assert candy([1, 2, 87, 87, 87, 2, 1]) == 13, 'Check: candy([1, 2, 87, 87, 87, 2, 1]) == 13'
     print("ok")

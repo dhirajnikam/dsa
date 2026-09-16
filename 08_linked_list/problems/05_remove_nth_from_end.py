@@ -58,10 +58,10 @@ def remove_nth_from_end(head: ListNode | None, n: int) -> ListNode | None:
 
 
 if __name__ == "__main__":
-    assert to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 2)) == [1, 2, 3, 5]
-    assert remove_nth_from_end(from_list([1]), 1) is None
-    assert to_list(remove_nth_from_end(from_list([1, 2]), 1)) == [1]
-    assert to_list(remove_nth_from_end(from_list([1, 2]), 2)) == [2]
-    assert to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 5)) == [2, 3, 4, 5]
-    assert to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 1)) == [1, 2, 3, 4]
+    assert to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 2)) == [1, 2, 3, 5], 'Check: to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 2)) == [1, 2, 3, 5]'
+    assert remove_nth_from_end(from_list([1]), 1) is None, 'Check: remove_nth_from_end(from_list([1]), 1) is None'
+    assert to_list(remove_nth_from_end(from_list([1, 2]), 1)) == [1], 'Check: to_list(remove_nth_from_end(from_list([1, 2]), 1)) == [1]'
+    assert to_list(remove_nth_from_end(from_list([1, 2]), 2)) == [2], 'Check: to_list(remove_nth_from_end(from_list([1, 2]), 2)) == [2]'
+    assert to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 5)) == [2, 3, 4, 5], 'Check: to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 5)) == [2, 3, 4, 5]'
+    assert to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 1)) == [1, 2, 3, 4], 'Check: to_list(remove_nth_from_end(from_list([1, 2, 3, 4, 5]), 1)) == [1, 2, 3, 4]'
     print("ok")

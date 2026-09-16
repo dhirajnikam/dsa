@@ -5,3 +5,5 @@ venv/
 .vscode/
 .idea/
 .DS_Store
+.learning-progress.json
+.learning-progress.tmp

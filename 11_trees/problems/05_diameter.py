@@ -61,12 +61,12 @@ def diameter_of_binary_tree(root: TreeNode | None) -> int:
 
 
 if __name__ == "__main__":
-    assert diameter_of_binary_tree(build([1, 2, 3, 4, 5])) == 3
-    assert diameter_of_binary_tree(build([1, 2])) == 1
-    assert diameter_of_binary_tree(build([1])) == 0
-    assert diameter_of_binary_tree(None) == 0
-    assert diameter_of_binary_tree(build([1, 2, None, 3, None, 4])) == 3     # skewed: diameter = height
+    assert diameter_of_binary_tree(build([1, 2, 3, 4, 5])) == 3, 'Check: diameter_of_binary_tree(build([1, 2, 3, 4, 5])) == 3'
+    assert diameter_of_binary_tree(build([1, 2])) == 1, 'Check: diameter_of_binary_tree(build([1, 2])) == 1'
+    assert diameter_of_binary_tree(build([1])) == 0, 'Check: diameter_of_binary_tree(build([1])) == 0'
+    assert diameter_of_binary_tree(None) == 0, 'Check: diameter_of_binary_tree(None) == 0'
+    assert diameter_of_binary_tree(build([1, 2, None, 3, None, 4])) == 3, 'Check: diameter_of_binary_tree(build([1, 2, None, 3, None, 4])) == 3'     # skewed: diameter = height
     # longest path 5-3-2-4-6 (4 edges) does not pass through the root
-    assert diameter_of_binary_tree(build([1, 2, None, 3, 4, 5, None, None, None, 6])) == 4
-    assert diameter_of_binary_tree(build([1, 2, 3, 4, 5, 6, 7])) == 4
+    assert diameter_of_binary_tree(build([1, 2, None, 3, 4, 5, None, None, None, 6])) == 4, 'Check: diameter_of_binary_tree(build([1, 2, None, 3, 4, 5, None, None, None, 6])) == 4'
+    assert diameter_of_binary_tree(build([1, 2, 3, 4, 5, 6, 7])) == 4, 'Check: diameter_of_binary_tree(build([1, 2, 3, 4, 5, 6, 7])) == 4'
     print("ok")

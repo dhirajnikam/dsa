@@ -36,14 +36,14 @@ if __name__ == "__main__":
     def roundtrip(strs):
         return decode(encode(strs)) == strs
 
-    assert roundtrip(["hello", "world"])
-    assert roundtrip([])
-    assert roundtrip([""])
-    assert roundtrip(["", "", ""])
-    assert roundtrip(["a#b", "#", "12#34"])
-    assert roundtrip(["3#abc", "0#"])
-    assert roundtrip(["multi\nline", "tab\there", "unicode: é中"])
-    assert roundtrip(["x" * 200] * 200)
-    assert isinstance(encode(["a"]), str)
-    assert decode(encode(["only"])) == ["only"]
+    assert roundtrip(["hello", "world"]), 'Check: roundtrip(["hello", "world"])'
+    assert roundtrip([]), 'Check: roundtrip([])'
+    assert roundtrip([""]), 'Check: roundtrip([""])'
+    assert roundtrip(["", "", ""]), 'Check: roundtrip(["", "", ""])'
+    assert roundtrip(["a#b", "#", "12#34"]), 'Check: roundtrip(["a#b", "#", "12#34"])'
+    assert roundtrip(["3#abc", "0#"]), 'Check: roundtrip(["3#abc", "0#"])'
+    assert roundtrip(["multi\nline", "tab\there", "unicode: é中"]), 'Check: roundtrip(["multi\\nline", "tab\\there", "unicode: é中"])'
+    assert roundtrip(["x" * 200] * 200), 'Check: roundtrip(["x" * 200] * 200)'
+    assert isinstance(encode(["a"]), str), 'Check: isinstance(encode(["a"]), str)'
+    assert decode(encode(["only"])) == ["only"], 'Check: decode(encode(["only"])) == ["only"]'
     print("ok")

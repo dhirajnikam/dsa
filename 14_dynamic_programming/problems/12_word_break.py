@@ -31,14 +31,14 @@ def word_break(s: str, word_dict: list[str]) -> bool:
 
 
 if __name__ == "__main__":
-    assert word_break("leetcode", ["leet", "code"]) is True
-    assert word_break("applepenapple", ["apple", "pen"]) is True
-    assert word_break("catsandog", ["cats", "dog", "sand", "and", "cat"]) is False
-    assert word_break("a", ["a"]) is True
-    assert word_break("a", ["b"]) is False
-    assert word_break("aaaaaaa", ["aaaa", "aaa"]) is True
-    assert word_break("aaaaaaa", ["aaaa", "aa"]) is False
-    assert word_break("cars", ["car", "ca", "rs"]) is True
-    assert word_break("a" * 300, ["a" * 20, "b"]) is True
-    assert word_break("a" * 299, ["a" * 20, "a" * 30]) is False
+    assert word_break("leetcode", ["leet", "code"]) is True, 'Check: word_break("leetcode", ["leet", "code"]) is True'
+    assert word_break("applepenapple", ["apple", "pen"]) is True, 'Check: word_break("applepenapple", ["apple", "pen"]) is True'
+    assert word_break("catsandog", ["cats", "dog", "sand", "and", "cat"]) is False, 'Check: word_break("catsandog", ["cats", "dog", "sand", "and", "cat"]) is False'
+    assert word_break("a", ["a"]) is True, 'Check: word_break("a", ["a"]) is True'
+    assert word_break("a", ["b"]) is False, 'Check: word_break("a", ["b"]) is False'
+    assert word_break("aaaaaaa", ["aaaa", "aaa"]) is True, 'Check: word_break("aaaaaaa", ["aaaa", "aaa"]) is True'
+    assert word_break("aaaaaaa", ["aaaa", "aa"]) is False, 'Check: word_break("aaaaaaa", ["aaaa", "aa"]) is False'
+    assert word_break("cars", ["car", "ca", "rs"]) is True, 'Check: word_break("cars", ["car", "ca", "rs"]) is True'
+    assert word_break("a" * 300, ["a" * 20, "b"]) is True, 'Check: word_break("a" * 300, ["a" * 20, "b"]) is True'
+    assert word_break("a" * 299, ["a" * 20, "a" * 30]) is False, 'Check: word_break("a" * 299, ["a" * 20, "a" * 30]) is False'
     print("ok")

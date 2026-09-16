@@ -31,13 +31,13 @@ def longest_common_subsequence(text1: str, text2: str) -> int:
 
 
 if __name__ == "__main__":
-    assert longest_common_subsequence("abcde", "ace") == 3
-    assert longest_common_subsequence("abc", "abc") == 3
-    assert longest_common_subsequence("abc", "def") == 0
-    assert longest_common_subsequence("a", "a") == 1
-    assert longest_common_subsequence("a", "b") == 0
-    assert longest_common_subsequence("bl", "yby") == 1
-    assert longest_common_subsequence("ezupkr", "ubmrapg") == 2
-    assert longest_common_subsequence("oxcpqrsvwf", "shmtulqrypy") == 2
-    assert longest_common_subsequence("a" * 1000, "a" * 1000) == 1000
+    assert longest_common_subsequence("abcde", "ace") == 3, 'Check: longest_common_subsequence("abcde", "ace") == 3'
+    assert longest_common_subsequence("abc", "abc") == 3, 'Check: longest_common_subsequence("abc", "abc") == 3'
+    assert longest_common_subsequence("abc", "def") == 0, 'Check: longest_common_subsequence("abc", "def") == 0'
+    assert longest_common_subsequence("a", "a") == 1, 'Check: longest_common_subsequence("a", "a") == 1'
+    assert longest_common_subsequence("a", "b") == 0, 'Check: longest_common_subsequence("a", "b") == 0'
+    assert longest_common_subsequence("bl", "yby") == 1, 'Check: longest_common_subsequence("bl", "yby") == 1'
+    assert longest_common_subsequence("ezupkr", "ubmrapg") == 2, 'Check: longest_common_subsequence("ezupkr", "ubmrapg") == 2'
+    assert longest_common_subsequence("oxcpqrsvwf", "shmtulqrypy") == 2, 'Check: longest_common_subsequence("oxcpqrsvwf", "shmtulqrypy") == 2'
+    assert longest_common_subsequence("a" * 1000, "a" * 1000) == 1000, 'Check: longest_common_subsequence("a" * 1000, "a" * 1000) == 1000'
     print("ok")

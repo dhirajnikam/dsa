@@ -33,13 +33,13 @@ def decode_string(s: str) -> str:
 
 
 if __name__ == "__main__":
-    assert decode_string("3[a]2[bc]") == "aaabcbc"
-    assert decode_string("3[a2[c]]") == "accaccacc"
-    assert decode_string("2[abc]3[cd]ef") == "abcabccdcdcdef"
-    assert decode_string("abc") == "abc"
-    assert decode_string("1[x]") == "x"
-    assert decode_string("10[a]") == "a" * 10
-    assert decode_string("2[2[2[z]]]") == "z" * 8
-    assert decode_string("a2[b3[c]d]e") == "abcccdbcccde"
-    assert decode_string("0[a]b") == "b"
+    assert decode_string("3[a]2[bc]") == "aaabcbc", 'Check: decode_string("3[a]2[bc]") == "aaabcbc"'
+    assert decode_string("3[a2[c]]") == "accaccacc", 'Check: decode_string("3[a2[c]]") == "accaccacc"'
+    assert decode_string("2[abc]3[cd]ef") == "abcabccdcdcdef", 'Check: decode_string("2[abc]3[cd]ef") == "abcabccdcdcdef"'
+    assert decode_string("abc") == "abc", 'Check: decode_string("abc") == "abc"'
+    assert decode_string("1[x]") == "x", 'Check: decode_string("1[x]") == "x"'
+    assert decode_string("10[a]") == "a" * 10, 'Check: decode_string("10[a]") == "a" * 10'
+    assert decode_string("2[2[2[z]]]") == "z" * 8, 'Check: decode_string("2[2[2[z]]]") == "z" * 8'
+    assert decode_string("a2[b3[c]d]e") == "abcccdbcccde", 'Check: decode_string("a2[b3[c]d]e") == "abcccdbcccde"'
+    assert decode_string("0[a]b") == "b", 'Check: decode_string("0[a]b") == "b"'
     print("ok")

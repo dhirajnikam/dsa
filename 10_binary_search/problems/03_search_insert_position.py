@@ -38,13 +38,13 @@ def search_insert(nums: list[int], target: int) -> int:
 
 
 if __name__ == "__main__":
-    assert search_insert([1, 3, 5, 6], 5) == 2
-    assert search_insert([1, 3, 5, 6], 2) == 1
-    assert search_insert([1, 3, 5, 6], 7) == 4
-    assert search_insert([1, 3, 5, 6], 0) == 0
-    assert search_insert([1], 0) == 0 and search_insert([1], 1) == 0 and search_insert([1], 2) == 1
-    assert search_insert([], 3) == 0
+    assert search_insert([1, 3, 5, 6], 5) == 2, 'Check: search_insert([1, 3, 5, 6], 5) == 2'
+    assert search_insert([1, 3, 5, 6], 2) == 1, 'Check: search_insert([1, 3, 5, 6], 2) == 1'
+    assert search_insert([1, 3, 5, 6], 7) == 4, 'Check: search_insert([1, 3, 5, 6], 7) == 4'
+    assert search_insert([1, 3, 5, 6], 0) == 0, 'Check: search_insert([1, 3, 5, 6], 0) == 0'
+    assert search_insert([1], 0) == 0 and search_insert([1], 1) == 0 and search_insert([1], 2) == 1, 'Check: search_insert([1], 0) == 0 and search_insert([1], 1) == 0 and search_insert([1], 2) == 1'
+    assert search_insert([], 3) == 0, 'Check: search_insert([], 3) == 0'
     from bisect import bisect_left
     a = list(range(0, 100, 3))
-    assert all(search_insert(a, t) == bisect_left(a, t) for t in range(-2, 105))
+    assert all(search_insert(a, t) == bisect_left(a, t) for t in range(-2, 105)), 'Check: all(search_insert(a, t) == bisect_left(a, t) for t in range(-2, 105))'
     print("ok")

@@ -46,16 +46,16 @@ def nth_prime(k: int) -> int:
 
 
 if __name__ == "__main__":
-    assert [n for n in range(-2, 30) if is_prime(n)] == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    assert is_prime(10**9 + 7) and not is_prime(10**9 + 8)
-    assert is_prime(999983) and not is_prime(999983 * 3)
-    assert sieve(1) == [] and sieve(2) == [2] and sieve(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    assert [n for n in range(-2, 30) if is_prime(n)] == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29], 'Check: [n for n in range(-2, 30) if is_prime(n)] == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]'
+    assert is_prime(10**9 + 7) and not is_prime(10**9 + 8), 'Check: is_prime(10**9 + 7) and not is_prime(10**9 + 8)'
+    assert is_prime(999983) and not is_prime(999983 * 3), 'Check: is_prime(999983) and not is_prime(999983 * 3)'
+    assert sieve(1) == [] and sieve(2) == [2] and sieve(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29], 'Check: sieve(1) == [] and sieve(2) == [2] and sieve(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]'
     primes = sieve(10**6)
-    assert len(primes) == 78498 and primes[-1] == 999983
-    assert count_primes(10) == 4 and count_primes(0) == 0 and count_primes(2) == 0 and count_primes(3) == 1
-    assert count_primes(10**6) == 78498
-    assert prime_factors(360) == [2, 2, 2, 3, 3, 5] and prime_factors(2) == [2] and prime_factors(97) == [97]
-    assert prime_factors(2**20) == [2] * 20 and prime_factors(999983 * 999983) == [999983, 999983]
-    assert distinct_prime_factor_count(360) == 3 and distinct_prime_factor_count(1) == 0 and distinct_prime_factor_count(64) == 1
-    assert nth_prime(1) == 2 and nth_prime(6) == 13 and nth_prime(100) == 541 and nth_prime(10001) == 104743
+    assert len(primes) == 78498 and primes[-1] == 999983, 'Check: len(primes) == 78498 and primes[-1] == 999983'
+    assert count_primes(10) == 4 and count_primes(0) == 0 and count_primes(2) == 0 and count_primes(3) == 1, 'Check: count_primes(10) == 4 and count_primes(0) == 0 and count_primes(2) == 0 and count_primes(3) == 1'
+    assert count_primes(10**6) == 78498, 'Check: count_primes(10**6) == 78498'
+    assert prime_factors(360) == [2, 2, 2, 3, 3, 5] and prime_factors(2) == [2] and prime_factors(97) == [97], 'Check: prime_factors(360) == [2, 2, 2, 3, 3, 5] and prime_factors(2) == [2] and prime_factors(97) == [97]'
+    assert prime_factors(2**20) == [2] * 20 and prime_factors(999983 * 999983) == [999983, 999983], 'Check: prime_factors(2**20) == [2] * 20 and prime_factors(999983 * 999983) == [999983, 999983]'
+    assert distinct_prime_factor_count(360) == 3 and distinct_prime_factor_count(1) == 0 and distinct_prime_factor_count(64) == 1, 'Check: distinct_prime_factor_count(360) == 3 and distinct_prime_factor_count(1) == 0 and distinct_prime_factor_count(64) == 1'
+    assert nth_prime(1) == 2 and nth_prime(6) == 13 and nth_prime(100) == 541 and nth_prime(10001) == 104743, 'Check: nth_prime(1) == 2 and nth_prime(6) == 13 and nth_prime(100) == 541 and nth_prime(10001) == 104743'
     print("ok")

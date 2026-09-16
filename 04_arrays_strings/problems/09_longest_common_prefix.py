@@ -30,12 +30,12 @@ def longest_common_prefix(strs: list[str]) -> str:
 
 
 if __name__ == "__main__":
-    assert longest_common_prefix(["flower", "flow", "flight"]) == "fl"
-    assert longest_common_prefix(["dog", "racecar", "car"]) == ""
-    assert longest_common_prefix(["alone"]) == "alone"
-    assert longest_common_prefix(["same", "same", "same"]) == "same"
-    assert longest_common_prefix(["", "abc"]) == ""
-    assert longest_common_prefix(["abc", "ab", "a"]) == "a"
-    assert longest_common_prefix(["ab", "abc", "abcd"]) == "ab"
-    assert longest_common_prefix([""]) == ""
+    assert longest_common_prefix(["flower", "flow", "flight"]) == "fl", 'Check: longest_common_prefix(["flower", "flow", "flight"]) == "fl"'
+    assert longest_common_prefix(["dog", "racecar", "car"]) == "", 'Check: longest_common_prefix(["dog", "racecar", "car"]) == ""'
+    assert longest_common_prefix(["alone"]) == "alone", 'Check: longest_common_prefix(["alone"]) == "alone"'
+    assert longest_common_prefix(["same", "same", "same"]) == "same", 'Check: longest_common_prefix(["same", "same", "same"]) == "same"'
+    assert longest_common_prefix(["", "abc"]) == "", 'Check: longest_common_prefix(["", "abc"]) == ""'
+    assert longest_common_prefix(["abc", "ab", "a"]) == "a", 'Check: longest_common_prefix(["abc", "ab", "a"]) == "a"'
+    assert longest_common_prefix(["ab", "abc", "abcd"]) == "ab", 'Check: longest_common_prefix(["ab", "abc", "abcd"]) == "ab"'
+    assert longest_common_prefix([""]) == "", 'Check: longest_common_prefix([""]) == ""'
     print("ok")

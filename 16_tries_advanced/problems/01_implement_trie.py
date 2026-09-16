@@ -40,17 +40,17 @@ class Trie:
 if __name__ == "__main__":
     t = Trie()
     t.insert("apple")
-    assert t.search("apple") is True
-    assert t.search("app") is False
-    assert t.starts_with("app") is True
+    assert t.search("apple") is True, 'Check: t.search("apple") is True'
+    assert t.search("app") is False, 'Check: t.search("app") is False'
+    assert t.starts_with("app") is True, 'Check: t.starts_with("app") is True'
     t.insert("app")
-    assert t.search("app") is True
-    assert t.search("appl") is False
-    assert t.starts_with("b") is False
-    assert t.starts_with("") is True
-    assert t.search("") is False
+    assert t.search("app") is True, 'Check: t.search("app") is True'
+    assert t.search("appl") is False, 'Check: t.search("appl") is False'
+    assert t.starts_with("b") is False, 'Check: t.starts_with("b") is False'
+    assert t.starts_with("") is True, 'Check: t.starts_with("") is True'
+    assert t.search("") is False, 'Check: t.search("") is False'
     t.insert("")
-    assert t.search("") is True
+    assert t.search("") is True, 'Check: t.search("") is True'
     t.insert("apple")
-    assert t.search("apple") is True
+    assert t.search("apple") is True, 'Check: t.search("apple") is True'
     print("ok")

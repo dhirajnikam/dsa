@@ -32,12 +32,12 @@ def combine(n: int, k: int) -> list[list[int]]:
 
 
 if __name__ == "__main__":
-    assert sorted(combine(4, 2)) == [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-    assert combine(1, 1) == [[1]]
-    assert sorted(combine(3, 3)) == [[1, 2, 3]]
-    assert sorted(combine(3, 1)) == [[1], [2], [3]]
+    assert sorted(combine(4, 2)) == [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]], 'Check: sorted(combine(4, 2)) == [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]'
+    assert combine(1, 1) == [[1]], 'Check: combine(1, 1) == [[1]]'
+    assert sorted(combine(3, 3)) == [[1, 2, 3]], 'Check: sorted(combine(3, 3)) == [[1, 2, 3]]'
+    assert sorted(combine(3, 1)) == [[1], [2], [3]], 'Check: sorted(combine(3, 1)) == [[1], [2], [3]]'
     out = combine(10, 5)
-    assert len(out) == 252 and len(set(map(tuple, out))) == 252
-    assert all(len(c) == 5 and c == sorted(c) for c in out)
-    assert len(combine(20, 1)) == 20
+    assert len(out) == 252 and len(set(map(tuple, out))) == 252, 'Check: len(out) == 252 and len(set(map(tuple, out))) == 252'
+    assert all(len(c) == 5 and c == sorted(c) for c in out), 'Check: all(len(c) == 5 and c == sorted(c) for c in out)'
+    assert len(combine(20, 1)) == 20, 'Check: len(combine(20, 1)) == 20'
     print("ok")

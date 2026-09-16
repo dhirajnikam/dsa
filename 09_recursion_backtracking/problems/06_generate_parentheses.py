@@ -30,11 +30,11 @@ def generate_parenthesis(n: int) -> list[str]:
 
 
 if __name__ == "__main__":
-    assert sorted(generate_parenthesis(3)) == ["((()))", "(()())", "(())()", "()(())", "()()()"]
-    assert generate_parenthesis(1) == ["()"]
-    assert sorted(generate_parenthesis(2)) == ["(())", "()()"]
-    assert generate_parenthesis(0) == [""]
+    assert sorted(generate_parenthesis(3)) == ["((()))", "(()())", "(())()", "()(())", "()()()"], 'Check: sorted(generate_parenthesis(3)) == ["((()))", "(()())", "(())()", "()(())", "()()()"]'
+    assert generate_parenthesis(1) == ["()"], 'Check: generate_parenthesis(1) == ["()"]'
+    assert sorted(generate_parenthesis(2)) == ["(())", "()()"], 'Check: sorted(generate_parenthesis(2)) == ["(())", "()()"]'
+    assert generate_parenthesis(0) == [""], 'Check: generate_parenthesis(0) == [""]'
     out = generate_parenthesis(5)
-    assert len(out) == 42 and len(set(out)) == 42   # Catalan(5)
-    assert len(generate_parenthesis(8)) == 1430
+    assert len(out) == 42 and len(set(out)) == 42, 'Check: len(out) == 42 and len(set(out)) == 42'   # Catalan(5)
+    assert len(generate_parenthesis(8)) == 1430, 'Check: len(generate_parenthesis(8)) == 1430'
     print("ok")

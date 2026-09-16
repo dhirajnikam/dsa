@@ -30,12 +30,12 @@ def longest_consecutive(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert longest_consecutive([100, 4, 200, 1, 3, 2]) == 4
-    assert longest_consecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]) == 9
-    assert longest_consecutive([]) == 0
-    assert longest_consecutive([1]) == 1
-    assert longest_consecutive([2, 2, 2]) == 1
-    assert longest_consecutive([-2, -1, 0, 1]) == 4
-    assert longest_consecutive([10, 5, 6, 12, 11]) == 3
-    assert longest_consecutive([1, 3, 5, 7]) == 1
+    assert longest_consecutive([100, 4, 200, 1, 3, 2]) == 4, 'Check: longest_consecutive([100, 4, 200, 1, 3, 2]) == 4'
+    assert longest_consecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]) == 9, 'Check: longest_consecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]) == 9'
+    assert longest_consecutive([]) == 0, 'Check: longest_consecutive([]) == 0'
+    assert longest_consecutive([1]) == 1, 'Check: longest_consecutive([1]) == 1'
+    assert longest_consecutive([2, 2, 2]) == 1, 'Check: longest_consecutive([2, 2, 2]) == 1'
+    assert longest_consecutive([-2, -1, 0, 1]) == 4, 'Check: longest_consecutive([-2, -1, 0, 1]) == 4'
+    assert longest_consecutive([10, 5, 6, 12, 11]) == 3, 'Check: longest_consecutive([10, 5, 6, 12, 11]) == 3'
+    assert longest_consecutive([1, 3, 5, 7]) == 1, 'Check: longest_consecutive([1, 3, 5, 7]) == 1'
     print("ok")

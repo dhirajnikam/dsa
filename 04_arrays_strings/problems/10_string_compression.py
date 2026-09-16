@@ -35,20 +35,20 @@ def compress(chars: list[str]) -> int:
 if __name__ == "__main__":
     c = ["a", "a", "b", "b", "c", "c", "c"]
     k = compress(c)
-    assert k == 6 and c[:k] == ["a", "2", "b", "2", "c", "3"]
+    assert k == 6 and c[:k] == ["a", "2", "b", "2", "c", "3"], 'Check: k == 6 and c[:k] == ["a", "2", "b", "2", "c", "3"]'
     c = ["a"]
     k = compress(c)
-    assert k == 1 and c[:k] == ["a"]
+    assert k == 1 and c[:k] == ["a"], 'Check: k == 1 and c[:k] == ["a"]'
     c = ["a"] + ["b"] * 12
     k = compress(c)
-    assert k == 4 and c[:k] == ["a", "b", "1", "2"]
+    assert k == 4 and c[:k] == ["a", "b", "1", "2"], 'Check: k == 4 and c[:k] == ["a", "b", "1", "2"]'
     c = ["a", "b", "c"]
     k = compress(c)
-    assert k == 3 and c[:k] == ["a", "b", "c"]
+    assert k == 3 and c[:k] == ["a", "b", "c"], 'Check: k == 3 and c[:k] == ["a", "b", "c"]'
     c = ["z"] * 100
     k = compress(c)
-    assert k == 4 and c[:k] == ["z", "1", "0", "0"]
+    assert k == 4 and c[:k] == ["z", "1", "0", "0"], 'Check: k == 4 and c[:k] == ["z", "1", "0", "0"]'
     c = ["a", "a", "a", "b", "a"]
     k = compress(c)
-    assert k == 4 and c[:k] == ["a", "3", "b", "a"]
+    assert k == 4 and c[:k] == ["a", "3", "b", "a"], 'Check: k == 4 and c[:k] == ["a", "3", "b", "a"]'
     print("ok")

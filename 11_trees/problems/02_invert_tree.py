@@ -82,11 +82,11 @@ def invert_tree(root: TreeNode | None) -> TreeNode | None:
 
 
 if __name__ == "__main__":
-    assert to_level(invert_tree(build([4, 2, 7, 1, 3, 6, 9]))) == [4, 7, 2, 9, 6, 3, 1]
-    assert to_level(invert_tree(build([2, 1, 3]))) == [2, 3, 1]
-    assert invert_tree(None) is None
-    assert to_level(invert_tree(build([1]))) == [1]
-    assert to_level(invert_tree(build([1, 2]))) == [1, None, 2]
-    assert to_level(invert_tree(build([1, None, 2, None, 3]))) == [1, 2, None, 3]
-    assert to_level(invert_tree(invert_tree(build([1, 2, 3, 4, None, None, 5])))) == [1, 2, 3, 4, None, None, 5]
+    assert to_level(invert_tree(build([4, 2, 7, 1, 3, 6, 9]))) == [4, 7, 2, 9, 6, 3, 1], 'Check: to_level(invert_tree(build([4, 2, 7, 1, 3, 6, 9]))) == [4, 7, 2, 9, 6, 3, 1]'
+    assert to_level(invert_tree(build([2, 1, 3]))) == [2, 3, 1], 'Check: to_level(invert_tree(build([2, 1, 3]))) == [2, 3, 1]'
+    assert invert_tree(None) is None, 'Check: invert_tree(None) is None'
+    assert to_level(invert_tree(build([1]))) == [1], 'Check: to_level(invert_tree(build([1]))) == [1]'
+    assert to_level(invert_tree(build([1, 2]))) == [1, None, 2], 'Check: to_level(invert_tree(build([1, 2]))) == [1, None, 2]'
+    assert to_level(invert_tree(build([1, None, 2, None, 3]))) == [1, 2, None, 3], 'Check: to_level(invert_tree(build([1, None, 2, None, 3]))) == [1, 2, None, 3]'
+    assert to_level(invert_tree(invert_tree(build([1, 2, 3, 4, None, None, 5])))) == [1, 2, 3, 4, None, None, 5], 'Check: to_level(invert_tree(invert_tree(build([1, 2, 3, 4, None, None, 5])))) == [1, 2, 3, 4, None, None, 5]'
     print("ok")

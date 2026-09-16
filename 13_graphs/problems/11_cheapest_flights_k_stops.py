@@ -34,16 +34,16 @@ def find_cheapest_price(n: int, flights: list[list[int]], src: int, dst: int, k:
 
 if __name__ == "__main__":
     f = [[0, 1, 100], [1, 2, 100], [2, 0, 100], [1, 3, 600], [2, 3, 200]]
-    assert find_cheapest_price(4, f, 0, 3, 1) == 700
+    assert find_cheapest_price(4, f, 0, 3, 1) == 700, 'Check: find_cheapest_price(4, f, 0, 3, 1) == 700'
     f = [[0, 1, 100], [1, 2, 100], [0, 2, 500]]
-    assert find_cheapest_price(3, f, 0, 2, 1) == 200
-    assert find_cheapest_price(3, f, 0, 2, 0) == 500
-    assert find_cheapest_price(3, f, 2, 0, 2) == -1
-    assert find_cheapest_price(1, [], 0, 0, 0) == 0
-    assert find_cheapest_price(2, [[0, 1, 5]], 0, 1, 0) == 5
+    assert find_cheapest_price(3, f, 0, 2, 1) == 200, 'Check: find_cheapest_price(3, f, 0, 2, 1) == 200'
+    assert find_cheapest_price(3, f, 0, 2, 0) == 500, 'Check: find_cheapest_price(3, f, 0, 2, 0) == 500'
+    assert find_cheapest_price(3, f, 2, 0, 2) == -1, 'Check: find_cheapest_price(3, f, 2, 0, 2) == -1'
+    assert find_cheapest_price(1, [], 0, 0, 0) == 0, 'Check: find_cheapest_price(1, [], 0, 0, 0) == 0'
+    assert find_cheapest_price(2, [[0, 1, 5]], 0, 1, 0) == 5, 'Check: find_cheapest_price(2, [[0, 1, 5]], 0, 1, 0) == 5'
     f = [[0, 1, 1], [1, 2, 1], [2, 3, 1], [0, 3, 10]]
-    assert find_cheapest_price(4, f, 0, 3, 2) == 3
-    assert find_cheapest_price(4, f, 0, 3, 1) == 10
+    assert find_cheapest_price(4, f, 0, 3, 2) == 3, 'Check: find_cheapest_price(4, f, 0, 3, 2) == 3'
+    assert find_cheapest_price(4, f, 0, 3, 1) == 10, 'Check: find_cheapest_price(4, f, 0, 3, 1) == 10'
     f = [[0, 1, 2], [1, 2, 1], [2, 0, 10], [1, 3, 4], [2, 3, 1]]
-    assert find_cheapest_price(4, f, 0, 3, 2) == 4
+    assert find_cheapest_price(4, f, 0, 3, 2) == 4, 'Check: find_cheapest_price(4, f, 0, 3, 2) == 4'
     print("ok")

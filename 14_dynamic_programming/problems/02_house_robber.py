@@ -29,12 +29,12 @@ def rob(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert rob([1, 2, 3, 1]) == 4
-    assert rob([2, 7, 9, 3, 1]) == 12
-    assert rob([5]) == 5
-    assert rob([2, 1]) == 2
-    assert rob([1, 2]) == 2
-    assert rob([0, 0, 0]) == 0
-    assert rob([2, 1, 1, 2]) == 4
-    assert rob([100, 1, 1, 100, 1, 1, 100]) == 300
+    assert rob([1, 2, 3, 1]) == 4, 'Check: rob([1, 2, 3, 1]) == 4'
+    assert rob([2, 7, 9, 3, 1]) == 12, 'Check: rob([2, 7, 9, 3, 1]) == 12'
+    assert rob([5]) == 5, 'Check: rob([5]) == 5'
+    assert rob([2, 1]) == 2, 'Check: rob([2, 1]) == 2'
+    assert rob([1, 2]) == 2, 'Check: rob([1, 2]) == 2'
+    assert rob([0, 0, 0]) == 0, 'Check: rob([0, 0, 0]) == 0'
+    assert rob([2, 1, 1, 2]) == 4, 'Check: rob([2, 1, 1, 2]) == 4'
+    assert rob([100, 1, 1, 100, 1, 1, 100]) == 300, 'Check: rob([100, 1, 1, 100, 1, 1, 100]) == 300'
     print("ok")

@@ -54,10 +54,10 @@ def middle_node(head: ListNode) -> ListNode:
 
 
 if __name__ == "__main__":
-    assert to_list(middle_node(from_list([1, 2, 3, 4, 5]))) == [3, 4, 5]
-    assert to_list(middle_node(from_list([1, 2, 3, 4, 5, 6]))) == [4, 5, 6]
-    assert to_list(middle_node(from_list([1]))) == [1]
-    assert to_list(middle_node(from_list([1, 2]))) == [2]
-    assert to_list(middle_node(from_list([1, 2, 3]))) == [2, 3]
-    assert middle_node(from_list([7, 7, 7, 7])).val == 7
+    assert to_list(middle_node(from_list([1, 2, 3, 4, 5]))) == [3, 4, 5], 'Check: to_list(middle_node(from_list([1, 2, 3, 4, 5]))) == [3, 4, 5]'
+    assert to_list(middle_node(from_list([1, 2, 3, 4, 5, 6]))) == [4, 5, 6], 'Check: to_list(middle_node(from_list([1, 2, 3, 4, 5, 6]))) == [4, 5, 6]'
+    assert to_list(middle_node(from_list([1]))) == [1], 'Check: to_list(middle_node(from_list([1]))) == [1]'
+    assert to_list(middle_node(from_list([1, 2]))) == [2], 'Check: to_list(middle_node(from_list([1, 2]))) == [2]'
+    assert to_list(middle_node(from_list([1, 2, 3]))) == [2, 3], 'Check: to_list(middle_node(from_list([1, 2, 3]))) == [2, 3]'
+    assert middle_node(from_list([7, 7, 7, 7])).val == 7, 'Check: middle_node(from_list([7, 7, 7, 7])).val == 7'
     print("ok")

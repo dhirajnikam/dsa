@@ -33,11 +33,11 @@ def change(amount: int, coins: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert change(5, [1, 2, 5]) == 4
-    assert change(3, [2]) == 0
-    assert change(10, [10]) == 1
-    assert change(0, [1, 2]) == 1
-    assert change(4, [1, 2]) == 3
-    assert change(3, [1, 2, 3]) == 3
-    assert change(500, [3, 5, 7, 8, 9, 10, 11]) == 35502874
+    assert change(5, [1, 2, 5]) == 4, 'Check: change(5, [1, 2, 5]) == 4'
+    assert change(3, [2]) == 0, 'Check: change(3, [2]) == 0'
+    assert change(10, [10]) == 1, 'Check: change(10, [10]) == 1'
+    assert change(0, [1, 2]) == 1, 'Check: change(0, [1, 2]) == 1'
+    assert change(4, [1, 2]) == 3, 'Check: change(4, [1, 2]) == 3'
+    assert change(3, [1, 2, 3]) == 3, 'Check: change(3, [1, 2, 3]) == 3'
+    assert change(500, [3, 5, 7, 8, 9, 10, 11]) == 35502874, 'Check: change(500, [3, 5, 7, 8, 9, 10, 11]) == 35502874'
     print("ok")

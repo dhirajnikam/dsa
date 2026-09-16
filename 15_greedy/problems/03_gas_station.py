@@ -27,11 +27,11 @@ def can_complete_circuit(gas: list[int], cost: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert can_complete_circuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]) == 3
-    assert can_complete_circuit([2, 3, 4], [3, 4, 3]) == -1
-    assert can_complete_circuit([5], [4]) == 0
-    assert can_complete_circuit([1], [2]) == -1
-    assert can_complete_circuit([3, 3], [3, 3]) == 0
-    assert can_complete_circuit([5, 1, 2, 3, 4], [4, 4, 1, 5, 1]) == 4
-    assert can_complete_circuit([0, 0, 10], [1, 1, 1]) == 2
+    assert can_complete_circuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]) == 3, 'Check: can_complete_circuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2]) == 3'
+    assert can_complete_circuit([2, 3, 4], [3, 4, 3]) == -1, 'Check: can_complete_circuit([2, 3, 4], [3, 4, 3]) == -1'
+    assert can_complete_circuit([5], [4]) == 0, 'Check: can_complete_circuit([5], [4]) == 0'
+    assert can_complete_circuit([1], [2]) == -1, 'Check: can_complete_circuit([1], [2]) == -1'
+    assert can_complete_circuit([3, 3], [3, 3]) == 0, 'Check: can_complete_circuit([3, 3], [3, 3]) == 0'
+    assert can_complete_circuit([5, 1, 2, 3, 4], [4, 4, 1, 5, 1]) == 4, 'Check: can_complete_circuit([5, 1, 2, 3, 4], [4, 4, 1, 5, 1]) == 4'
+    assert can_complete_circuit([0, 0, 10], [1, 1, 1]) == 2, 'Check: can_complete_circuit([0, 0, 10], [1, 1, 1]) == 2'
     print("ok")

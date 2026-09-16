@@ -31,12 +31,12 @@ def can_finish(num_courses: int, prerequisites: list[list[int]]) -> bool:
 
 
 if __name__ == "__main__":
-    assert can_finish(2, [[1, 0]]) is True
-    assert can_finish(2, [[1, 0], [0, 1]]) is False
-    assert can_finish(1, []) is True
-    assert can_finish(3, []) is True
-    assert can_finish(4, [[1, 0], [2, 1], [3, 2]]) is True
-    assert can_finish(3, [[0, 1], [1, 2], [2, 0]]) is False
-    assert can_finish(5, [[1, 0], [2, 0], [3, 1], [3, 2], [4, 3]]) is True
-    assert can_finish(4, [[0, 1], [2, 3], [3, 2]]) is False
+    assert can_finish(2, [[1, 0]]) is True, 'Check: can_finish(2, [[1, 0]]) is True'
+    assert can_finish(2, [[1, 0], [0, 1]]) is False, 'Check: can_finish(2, [[1, 0], [0, 1]]) is False'
+    assert can_finish(1, []) is True, 'Check: can_finish(1, []) is True'
+    assert can_finish(3, []) is True, 'Check: can_finish(3, []) is True'
+    assert can_finish(4, [[1, 0], [2, 1], [3, 2]]) is True, 'Check: can_finish(4, [[1, 0], [2, 1], [3, 2]]) is True'
+    assert can_finish(3, [[0, 1], [1, 2], [2, 0]]) is False, 'Check: can_finish(3, [[0, 1], [1, 2], [2, 0]]) is False'
+    assert can_finish(5, [[1, 0], [2, 0], [3, 1], [3, 2], [4, 3]]) is True, 'Check: can_finish(5, [[1, 0], [2, 0], [3, 1], [3, 2], [4, 3]]) is True'
+    assert can_finish(4, [[0, 1], [2, 3], [3, 2]]) is False, 'Check: can_finish(4, [[0, 1], [2, 3], [3, 2]]) is False'
     print("ok")

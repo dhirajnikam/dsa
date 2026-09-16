@@ -37,10 +37,10 @@ def _norm(res: list[list[int]]) -> list[list[int]]:
 
 
 if __name__ == "__main__":
-    assert _norm(subsets([1, 2, 3])) == _norm([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
-    assert _norm(subsets([0])) == [[], [0]]
-    assert _norm(subsets([])) == [[]]
-    assert len(subsets([1, 2, 3, 4, 5])) == 32
-    assert len(set(map(tuple, map(sorted, subsets([1, 2, 3, 4]))))) == 16
-    assert _norm(subsets([-1, 2])) == _norm([[], [-1], [2], [-1, 2]])
+    assert _norm(subsets([1, 2, 3])) == _norm([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]), 'Check: _norm(subsets([1, 2, 3])) == _norm([[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])'
+    assert _norm(subsets([0])) == [[], [0]], 'Check: _norm(subsets([0])) == [[], [0]]'
+    assert _norm(subsets([])) == [[]], 'Check: _norm(subsets([])) == [[]]'
+    assert len(subsets([1, 2, 3, 4, 5])) == 32, 'Check: len(subsets([1, 2, 3, 4, 5])) == 32'
+    assert len(set(map(tuple, map(sorted, subsets([1, 2, 3, 4]))))) == 16, 'Check: len(set(map(tuple, map(sorted, subsets([1, 2, 3, 4]))))) == 16'
+    assert _norm(subsets([-1, 2])) == _norm([[], [-1], [2], [-1, 2]]), 'Check: _norm(subsets([-1, 2])) == _norm([[], [-1], [2], [-1, 2]])'
     print("ok")

@@ -40,14 +40,14 @@ def transpose(matrix: list[list]) -> list[list]:
 
 
 if __name__ == "__main__":
-    assert squares_of_evens([1, 2, 3, 4]) == [4, 16]
-    assert squares_of_evens([]) == []
-    assert squares_of_evens([-2, 0]) == [4, 0]
-    assert word_lengths(["hi", "hey"]) == {"hi": 2, "hey": 3}
-    assert word_lengths([]) == {}
-    assert first_letters(["Apple", "avocado", "", "Bean"]) == {"a", "b"}
-    assert flatten([[1, 2], [3], []]) == [1, 2, 3]
-    assert flatten([]) == []
-    assert transpose([[1, 2, 3], [4, 5, 6]]) == [[1, 4], [2, 5], [3, 6]]
-    assert transpose([[7]]) == [[7]]
+    assert squares_of_evens([1, 2, 3, 4]) == [4, 16], 'Check: squares_of_evens([1, 2, 3, 4]) == [4, 16]'
+    assert squares_of_evens([]) == [], 'Check: squares_of_evens([]) == []'
+    assert squares_of_evens([-2, 0]) == [4, 0], 'Check: squares_of_evens([-2, 0]) == [4, 0]'
+    assert word_lengths(["hi", "hey"]) == {"hi": 2, "hey": 3}, 'Check: word_lengths(["hi", "hey"]) == {"hi": 2, "hey": 3}'
+    assert word_lengths([]) == {}, 'Check: word_lengths([]) == {}'
+    assert first_letters(["Apple", "avocado", "", "Bean"]) == {"a", "b"}, 'Check: first_letters(["Apple", "avocado", "", "Bean"]) == {"a", "b"}'
+    assert flatten([[1, 2], [3], []]) == [1, 2, 3], 'Check: flatten([[1, 2], [3], []]) == [1, 2, 3]'
+    assert flatten([]) == [], 'Check: flatten([]) == []'
+    assert transpose([[1, 2, 3], [4, 5, 6]]) == [[1, 4], [2, 5], [3, 6]], 'Check: transpose([[1, 2, 3], [4, 5, 6]]) == [[1, 4], [2, 5], [3, 6]]'
+    assert transpose([[7]]) == [[7]], 'Check: transpose([[7]]) == [[7]]'
     print("ok")

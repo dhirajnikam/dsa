@@ -45,20 +45,20 @@ if __name__ == "__main__":
         ["John", "johnnybravo@mail.com"],
         ["Mary", "mary@mail.com"],
     ]
-    assert norm(accounts_merge(accounts)) == norm(expected)
+    assert norm(accounts_merge(accounts)) == norm(expected), 'Check: norm(accounts_merge(accounts)) == norm(expected)'
 
-    assert accounts_merge([]) == []
-    assert accounts_merge([["A", "a@x.com"]]) == [["A", "a@x.com"]]
+    assert accounts_merge([]) == [], 'Check: accounts_merge([]) == []'
+    assert accounts_merge([["A", "a@x.com"]]) == [["A", "a@x.com"]], 'Check: accounts_merge([["A", "a@x.com"]]) == [["A", "a@x.com"]]'
 
     chain = [["G", "a@x", "b@x"], ["G", "c@x", "d@x"], ["G", "b@x", "c@x"]]
-    assert accounts_merge(chain) == [["G", "a@x", "b@x", "c@x", "d@x"]]
+    assert accounts_merge(chain) == [["G", "a@x", "b@x", "c@x", "d@x"]], 'Check: accounts_merge(chain) == [["G", "a@x", "b@x", "c@x", "d@x"]]'
 
     same_name_different_people = [["Ann", "a1@x"], ["Ann", "a2@x"]]
-    assert norm(accounts_merge(same_name_different_people)) == [["Ann", "a1@x"], ["Ann", "a2@x"]]
+    assert norm(accounts_merge(same_name_different_people)) == [["Ann", "a1@x"], ["Ann", "a2@x"]], 'Check: norm(accounts_merge(same_name_different_people)) == [["Ann", "a1@x"], ["Ann", "a2@x"]]'
 
     dup_within = [["Bo", "b@x", "b@x", "c@x"]]
-    assert accounts_merge(dup_within) == [["Bo", "b@x", "c@x"]]
+    assert accounts_merge(dup_within) == [["Bo", "b@x", "c@x"]], 'Check: accounts_merge(dup_within) == [["Bo", "b@x", "c@x"]]'
 
     star = [["S", "hub@x"], ["S", "hub@x", "l1@x"], ["S", "hub@x", "l2@x"], ["S", "l3@x", "hub@x"]]
-    assert accounts_merge(star) == [["S", "hub@x", "l1@x", "l2@x", "l3@x"]]
+    assert accounts_merge(star) == [["S", "hub@x", "l1@x", "l2@x", "l3@x"]], 'Check: accounts_merge(star) == [["S", "hub@x", "l1@x", "l2@x", "l3@x"]]'
     print("ok")

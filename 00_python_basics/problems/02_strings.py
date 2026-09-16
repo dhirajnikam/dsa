@@ -10,6 +10,11 @@ Difficulty: Warm-up | Topic: slicing, methods, immutability
 4. capitalize_words("hello big world") -> "Hello Big World"
    Do not use str.title() (it breaks on apostrophes); use split/join.
 
+Contract details:
+Vowels are the English letters a/e/i/o/u, case-insensitive. capitalize_words
+uppercases only the first character of each whitespace-delimited token and keeps
+the remaining characters unchanged; empty/whitespace-only input returns "".
+
 Hints:
 1. split() with no argument handles multiple spaces and strips ends.
 2. Build a cleaned string with a list comprehension and str.isalnum(), then compare with its reverse.
@@ -51,13 +56,19 @@ def capitalize_words(s: str) -> str:
 
 
 if __name__ == "__main__":
-    assert reverse_words("the sky is blue") == "blue is sky the"
-    assert reverse_words("  hello   world  ") == "world hello"
-    assert is_palindrome("A man, a plan, a canal: Panama")
-    assert not is_palindrome("race a car")
-    assert is_palindrome(" ")
-    assert count_vowels("Hello World") == 3
-    assert count_vowels("xyz") == 0
-    assert capitalize_words("hello big world") == "Hello Big World"
-    assert capitalize_words("don't stop") == "Don't Stop"
+    assert reverse_words("the sky is blue") == "blue is sky the", 'Check: reverse_words("the sky is blue") == "blue is sky the"'
+    assert reverse_words("  hello   world  ") == "world hello", 'Check: reverse_words(" hello world ") == "world hello"'
+    assert is_palindrome("A man, a plan, a canal: Panama"), 'Check: is_palindrome("A man, a plan, a canal: Panama")'
+    assert not is_palindrome("race a car"), 'Check: not is_palindrome("race a car")'
+    assert is_palindrome(" "), 'Check: is_palindrome(" ")'
+    assert count_vowels("Hello World") == 3, 'Check: count_vowels("Hello World") == 3'
+    assert count_vowels("xyz") == 0, 'Check: count_vowels("xyz") == 0'
+    assert capitalize_words("hello big world") == "Hello Big World", 'Check: capitalize_words("hello big world") == "Hello Big World"'
+    assert capitalize_words("don't stop") == "Don't Stop", 'Check: capitalize_words("don\'t stop") == "Don\'t Stop"'
+    # Boundary and misconception checks: predict each result before running.
+    assert reverse_words("") == "", 'Check: reverse_words("") == ""'
+    assert reverse_words("one\ttwo\nthree") == "three two one", 'Check: reverse_words("one\\ttwo\\nthree") == "three two one"'
+    assert is_palindrome("0P") is False, 'Check: is_palindrome("0P") is False'
+    assert count_vowels("") == 0, 'Check: count_vowels("") == 0'
+    assert capitalize_words("  don't   STOP  ") == "Don't STOP", 'Check: capitalize_words(" don\'t STOP ") == "Don\'t STOP"'
     print("ok")

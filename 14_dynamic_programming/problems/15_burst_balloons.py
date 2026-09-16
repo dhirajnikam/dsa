@@ -34,12 +34,12 @@ def max_coins(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert max_coins([3, 1, 5, 8]) == 167
-    assert max_coins([1, 5]) == 10
-    assert max_coins([7]) == 7
-    assert max_coins([0]) == 0
-    assert max_coins([1, 1, 1]) == 3
-    assert max_coins([9, 76, 64, 21]) == 116718
-    assert max_coins([3, 1, 5, 8, 2, 4]) == 315
-    assert max_coins([1, 2, 3, 4, 5]) == 110
+    assert max_coins([3, 1, 5, 8]) == 167, 'Check: max_coins([3, 1, 5, 8]) == 167'
+    assert max_coins([1, 5]) == 10, 'Check: max_coins([1, 5]) == 10'
+    assert max_coins([7]) == 7, 'Check: max_coins([7]) == 7'
+    assert max_coins([0]) == 0, 'Check: max_coins([0]) == 0'
+    assert max_coins([1, 1, 1]) == 3, 'Check: max_coins([1, 1, 1]) == 3'
+    assert max_coins([9, 76, 64, 21]) == 116718, 'Check: max_coins([9, 76, 64, 21]) == 116718'
+    assert max_coins([3, 1, 5, 8, 2, 4]) == 315, 'Check: max_coins([3, 1, 5, 8, 2, 4]) == 315'
+    assert max_coins([1, 2, 3, 4, 5]) == 110, 'Check: max_coins([1, 2, 3, 4, 5]) == 110'
     print("ok")

@@ -28,11 +28,13 @@ def climb_stairs(n: int) -> int:
 
 
 if __name__ == "__main__":
-    assert climb_stairs(1) == 1
-    assert climb_stairs(2) == 2
-    assert climb_stairs(3) == 3
-    assert climb_stairs(4) == 5
-    assert climb_stairs(5) == 8
-    assert climb_stairs(10) == 89
-    assert climb_stairs(45) == 1836311903
+    assert climb_stairs(1) == 1, 'Check: climb_stairs(1) == 1'
+    assert climb_stairs(2) == 2, 'Check: climb_stairs(2) == 2'
+    assert climb_stairs(3) == 3, 'Check: climb_stairs(3) == 3'
+    assert climb_stairs(4) == 5, 'Check: climb_stairs(4) == 5'
+    assert climb_stairs(5) == 8, 'Check: climb_stairs(5) == 8'
+    assert climb_stairs(10) == 89, 'Check: climb_stairs(10) == 89'
+    assert climb_stairs(45) == 1836311903, 'Check: climb_stairs(45) == 1836311903'
+    # Boundary and misconception checks: predict each result before running.
+    assert climb_stairs(6) == 13, 'Check: climb_stairs(6) == 13'
     print("ok")

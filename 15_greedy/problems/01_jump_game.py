@@ -24,12 +24,15 @@ def can_jump(nums: list[int]) -> bool:
 
 
 if __name__ == "__main__":
-    assert can_jump([2, 3, 1, 1, 4]) is True
-    assert can_jump([3, 2, 1, 0, 4]) is False
-    assert can_jump([0]) is True
-    assert can_jump([1, 0]) is True
-    assert can_jump([0, 1]) is False
-    assert can_jump([2, 0, 0]) is True
-    assert can_jump([1, 1, 1, 0]) is True
-    assert can_jump([5, 0, 0, 0, 0, 0]) is True
+    assert can_jump([2, 3, 1, 1, 4]) is True, 'Check: can_jump([2, 3, 1, 1, 4]) is True'
+    assert can_jump([3, 2, 1, 0, 4]) is False, 'Check: can_jump([3, 2, 1, 0, 4]) is False'
+    assert can_jump([0]) is True, 'Check: can_jump([0]) is True'
+    assert can_jump([1, 0]) is True, 'Check: can_jump([1, 0]) is True'
+    assert can_jump([0, 1]) is False, 'Check: can_jump([0, 1]) is False'
+    assert can_jump([2, 0, 0]) is True, 'Check: can_jump([2, 0, 0]) is True'
+    assert can_jump([1, 1, 1, 0]) is True, 'Check: can_jump([1, 1, 1, 0]) is True'
+    assert can_jump([5, 0, 0, 0, 0, 0]) is True, 'Check: can_jump([5, 0, 0, 0, 0, 0]) is True'
+    # Boundary and misconception checks: predict each result before running.
+    assert can_jump([2, 0, 1, 0]) is True, 'Check: can_jump([2, 0, 1, 0]) is True'
+    assert can_jump([1, 0, 2]) is False, 'Check: can_jump([1, 0, 2]) is False'
     print("ok")

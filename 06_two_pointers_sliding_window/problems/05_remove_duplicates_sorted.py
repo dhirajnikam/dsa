@@ -33,22 +33,22 @@ def remove_duplicates(nums: list[int]) -> int:
 if __name__ == "__main__":
     a = [1, 1, 2]
     k = remove_duplicates(a)
-    assert k == 2 and a[:k] == [1, 2]
+    assert k == 2 and a[:k] == [1, 2], 'Check: k == 2 and a[:k] == [1, 2]'
     a = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
     k = remove_duplicates(a)
-    assert k == 5 and a[:k] == [0, 1, 2, 3, 4]
+    assert k == 5 and a[:k] == [0, 1, 2, 3, 4], 'Check: k == 5 and a[:k] == [0, 1, 2, 3, 4]'
     a = [7]
     k = remove_duplicates(a)
-    assert k == 1 and a[:k] == [7]
+    assert k == 1 and a[:k] == [7], 'Check: k == 1 and a[:k] == [7]'
     a = [2, 2, 2, 2]
     k = remove_duplicates(a)
-    assert k == 1 and a[:k] == [2]
+    assert k == 1 and a[:k] == [2], 'Check: k == 1 and a[:k] == [2]'
     a = [1, 2, 3]
     k = remove_duplicates(a)
-    assert k == 3 and a[:k] == [1, 2, 3]
+    assert k == 3 and a[:k] == [1, 2, 3], 'Check: k == 3 and a[:k] == [1, 2, 3]'
     a = [-3, -3, -1, 0, 0]
     k = remove_duplicates(a)
-    assert k == 3 and a[:k] == [-3, -1, 0]
+    assert k == 3 and a[:k] == [-3, -1, 0], 'Check: k == 3 and a[:k] == [-3, -1, 0]'
     a = []
-    assert remove_duplicates(a) == 0
+    assert remove_duplicates(a) == 0, 'Check: remove_duplicates(a) == 0'
     print("ok")

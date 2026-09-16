@@ -58,17 +58,17 @@ if __name__ == "__main__":
         return True
 
     w = ["wrt", "wrf", "er", "ett", "rftt"]
-    assert alien_order(w) == "wertf"
-    assert alien_order(["z", "x"]) == "zx"
-    assert alien_order(["z", "x", "z"]) == ""
-    assert alien_order(["abc", "ab"]) == ""
-    assert alien_order(["ab", "abc"]) in ("abc", "acb", "bac", "bca", "cab", "cba")
-    assert valid(alien_order(["ab", "abc"]), ["ab", "abc"])
-    assert alien_order(["a"]) == "a"
-    assert alien_order(["a", "a"]) == "a"
+    assert alien_order(w) == "wertf", 'Check: alien_order(w) == "wertf"'
+    assert alien_order(["z", "x"]) == "zx", 'Check: alien_order(["z", "x"]) == "zx"'
+    assert alien_order(["z", "x", "z"]) == "", 'Check: alien_order(["z", "x", "z"]) == ""'
+    assert alien_order(["abc", "ab"]) == "", 'Check: alien_order(["abc", "ab"]) == ""'
+    assert alien_order(["ab", "abc"]) in ("abc", "acb", "bac", "bca", "cab", "cba"), 'Check: alien_order(["ab", "abc"]) in ("abc", "acb", "bac", "bca", "cab", "cba")'
+    assert valid(alien_order(["ab", "abc"]), ["ab", "abc"]), 'Check: valid(alien_order(["ab", "abc"]), ["ab", "abc"])'
+    assert alien_order(["a"]) == "a", 'Check: alien_order(["a"]) == "a"'
+    assert alien_order(["a", "a"]) == "a", 'Check: alien_order(["a", "a"]) == "a"'
     w = ["ac", "ab", "zc", "zb"]
-    assert valid(alien_order(w), w)
+    assert valid(alien_order(w), w), 'Check: valid(alien_order(w), w)'
     w = ["ba", "bc", "ac", "cab"]
-    assert valid(alien_order(w), w)
-    assert alien_order(["z", "z", "x", "z"]) == ""
+    assert valid(alien_order(w), w), 'Check: valid(alien_order(w), w)'
+    assert alien_order(["z", "z", "x", "z"]) == "", 'Check: alien_order(["z", "z", "x", "z"]) == ""'
     print("ok")

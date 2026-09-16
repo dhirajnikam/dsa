@@ -32,13 +32,13 @@ def min_subarray_len(target: int, nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert min_subarray_len(7, [2, 3, 1, 2, 4, 3]) == 2
-    assert min_subarray_len(4, [1, 4, 4]) == 1
-    assert min_subarray_len(11, [1, 1, 1, 1, 1, 1, 1, 1]) == 0
-    assert min_subarray_len(5, [5]) == 1
-    assert min_subarray_len(6, [5]) == 0
-    assert min_subarray_len(15, [1, 2, 3, 4, 5]) == 5
-    assert min_subarray_len(3, [1, 1, 1, 1]) == 3
-    assert min_subarray_len(8, [2, 2, 2, 2, 2, 2]) == 4
-    assert min_subarray_len(1, [10, 10]) == 1
+    assert min_subarray_len(7, [2, 3, 1, 2, 4, 3]) == 2, 'Check: min_subarray_len(7, [2, 3, 1, 2, 4, 3]) == 2'
+    assert min_subarray_len(4, [1, 4, 4]) == 1, 'Check: min_subarray_len(4, [1, 4, 4]) == 1'
+    assert min_subarray_len(11, [1, 1, 1, 1, 1, 1, 1, 1]) == 0, 'Check: min_subarray_len(11, [1, 1, 1, 1, 1, 1, 1, 1]) == 0'
+    assert min_subarray_len(5, [5]) == 1, 'Check: min_subarray_len(5, [5]) == 1'
+    assert min_subarray_len(6, [5]) == 0, 'Check: min_subarray_len(6, [5]) == 0'
+    assert min_subarray_len(15, [1, 2, 3, 4, 5]) == 5, 'Check: min_subarray_len(15, [1, 2, 3, 4, 5]) == 5'
+    assert min_subarray_len(3, [1, 1, 1, 1]) == 3, 'Check: min_subarray_len(3, [1, 1, 1, 1]) == 3'
+    assert min_subarray_len(8, [2, 2, 2, 2, 2, 2]) == 4, 'Check: min_subarray_len(8, [2, 2, 2, 2, 2, 2]) == 4'
+    assert min_subarray_len(1, [10, 10]) == 1, 'Check: min_subarray_len(1, [10, 10]) == 1'
     print("ok")

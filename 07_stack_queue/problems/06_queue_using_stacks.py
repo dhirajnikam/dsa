@@ -53,25 +53,25 @@ class MyQueue:
 
 if __name__ == "__main__":
     q = MyQueue()
-    assert q.empty() is True
+    assert q.empty() is True, 'Check: q.empty() is True'
     q.push(1); q.push(2)
-    assert q.peek() == 1
-    assert q.pop() == 1
-    assert q.empty() is False
-    assert q.pop() == 2
-    assert q.empty() is True
+    assert q.peek() == 1, 'Check: q.peek() == 1'
+    assert q.pop() == 1, 'Check: q.pop() == 1'
+    assert q.empty() is False, 'Check: q.empty() is False'
+    assert q.pop() == 2, 'Check: q.pop() == 2'
+    assert q.empty() is True, 'Check: q.empty() is True'
     q = MyQueue()
     q.push(1); q.push(2); q.push(3)
-    assert q.pop() == 1
+    assert q.pop() == 1, 'Check: q.pop() == 1'
     q.push(4)
-    assert q.pop() == 2 and q.pop() == 3 and q.pop() == 4
-    assert q.empty() is True
+    assert q.pop() == 2 and q.pop() == 3 and q.pop() == 4, 'Check: q.pop() == 2 and q.pop() == 3 and q.pop() == 4'
+    assert q.empty() is True, 'Check: q.empty() is True'
     q = MyQueue()
     q.push(7)
-    assert q.peek() == 7 and q.peek() == 7
-    assert q.pop() == 7
+    assert q.peek() == 7 and q.peek() == 7, 'Check: q.peek() == 7 and q.peek() == 7'
+    assert q.pop() == 7, 'Check: q.pop() == 7'
     q.push(8); q.push(9)
-    assert q.peek() == 8
+    assert q.peek() == 8, 'Check: q.peek() == 8'
     q.push(1)
-    assert q.pop() == 8 and q.pop() == 9 and q.pop() == 1
+    assert q.pop() == 8 and q.pop() == 9 and q.pop() == 1, 'Check: q.pop() == 8 and q.pop() == 9 and q.pop() == 1'
     print("ok")

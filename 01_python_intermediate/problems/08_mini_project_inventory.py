@@ -61,33 +61,33 @@ class Inventory:
 
 if __name__ == "__main__":
     inv = Inventory()
-    assert len(inv) == 0 and inv.report() == f"{'TOTAL':<15}{0:>10.2f}"
+    assert len(inv) == 0 and inv.report() == f"{'TOTAL':<15}{0:>10.2f}", 'Check: len(inv) == 0 and inv.report() == f"{\'TOTAL\':<15}{0:>10.2f}"'
     inv.add("bolt", 100, 0.25)
     inv.add("nut", 3, 0.10)
-    assert len(inv) == 2 and "nut" in inv and "screw" not in inv
-    assert abs(inv.total_value() - 25.30) < 1e-9
-    assert inv.report() == "bolt        100      0.25\nnut           3      0.10\nTOTAL               25.30"
+    assert len(inv) == 2 and "nut" in inv and "screw" not in inv, 'Check: len(inv) == 2 and "nut" in inv and "screw" not in inv'
+    assert abs(inv.total_value() - 25.30) < 1e-9, 'Check: abs(inv.total_value() - 25.30) < 1e-9'
+    assert inv.report() == "bolt        100      0.25\nnut           3      0.10\nTOTAL               25.30", 'Check: inv.report() == "bolt 100 0.25\\nnut 3 0.10\\nTOTAL 25.30"'
     inv.add("nut", 2, 0.20)  # qty accumulates, price replaced
-    assert abs(inv.total_value() - 26.0) < 1e-9
-    assert inv.remove("nut", 4) == 1
+    assert abs(inv.total_value() - 26.0) < 1e-9, 'Check: abs(inv.total_value() - 26.0) < 1e-9'
+    assert inv.remove("nut", 4) == 1, 'Check: inv.remove("nut", 4) == 1'
     try:
         inv.remove("nut", 5)
-        assert False
+        assert False, 'Check: False'
     except OutOfStock as e:
-        assert e.name == "nut" and e.available == 1
+        assert e.name == "nut" and e.available == 1, 'Check: e.name == "nut" and e.available == 1'
     try:
         inv.remove("screw", 1)
-        assert False
+        assert False, 'Check: False'
     except KeyError:
         pass
     try:
         inv.add("x", 0, 1.0)
-        assert False
+        assert False, 'Check: False'
     except ValueError:
         pass
     inv.add("washer", 1, 0.05)
-    assert inv.remove("washer", 1) == 0 and "washer" in inv
-    assert inv.low_stock(1) == ["washer", "nut"]
-    assert inv.low_stock(0) == ["washer"]
-    assert inv.low_stock(1000) == ["washer", "nut", "bolt"]
+    assert inv.remove("washer", 1) == 0 and "washer" in inv, 'Check: inv.remove("washer", 1) == 0 and "washer" in inv'
+    assert inv.low_stock(1) == ["washer", "nut"], 'Check: inv.low_stock(1) == ["washer", "nut"]'
+    assert inv.low_stock(0) == ["washer"], 'Check: inv.low_stock(0) == ["washer"]'
+    assert inv.low_stock(1000) == ["washer", "nut", "bolt"], 'Check: inv.low_stock(1000) == ["washer", "nut", "bolt"]'
     print("ok")

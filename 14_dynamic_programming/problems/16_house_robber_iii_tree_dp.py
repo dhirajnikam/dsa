@@ -60,14 +60,14 @@ def rob(root: Optional[TreeNode]) -> int:
 
 
 if __name__ == "__main__":
-    assert rob(build([3, 2, 3, None, 3, None, 1])) == 7
-    assert rob(build([3, 4, 5, 1, 3, None, 1])) == 9
-    assert rob(build([5])) == 5
-    assert rob(build([])) == 0
-    assert rob(build([1, 2])) == 2
-    assert rob(build([2, 1, 3, None, 4])) == 7
-    assert rob(build([4, 1, None, 2, None, 3])) == 7
-    assert rob(build([0, 0, 0])) == 0
+    assert rob(build([3, 2, 3, None, 3, None, 1])) == 7, 'Check: rob(build([3, 2, 3, None, 3, None, 1])) == 7'
+    assert rob(build([3, 4, 5, 1, 3, None, 1])) == 9, 'Check: rob(build([3, 4, 5, 1, 3, None, 1])) == 9'
+    assert rob(build([5])) == 5, 'Check: rob(build([5])) == 5'
+    assert rob(build([])) == 0, 'Check: rob(build([])) == 0'
+    assert rob(build([1, 2])) == 2, 'Check: rob(build([1, 2])) == 2'
+    assert rob(build([2, 1, 3, None, 4])) == 7, 'Check: rob(build([2, 1, 3, None, 4])) == 7'
+    assert rob(build([4, 1, None, 2, None, 3])) == 7, 'Check: rob(build([4, 1, None, 2, None, 3])) == 7'
+    assert rob(build([0, 0, 0])) == 0, 'Check: rob(build([0, 0, 0])) == 0'
     chain = build([1] + [i % 2 for i in range(1, 30)])  # small deep-ish tree
-    assert rob(chain) >= 1
+    assert rob(chain) >= 1, 'Check: rob(chain) >= 1'
     print("ok")

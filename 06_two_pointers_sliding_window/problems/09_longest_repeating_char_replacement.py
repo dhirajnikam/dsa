@@ -32,13 +32,13 @@ def character_replacement(s: str, k: int) -> int:
 
 
 if __name__ == "__main__":
-    assert character_replacement("ABAB", 2) == 4
-    assert character_replacement("AABABBA", 1) == 4
-    assert character_replacement("A", 0) == 1
-    assert character_replacement("AAAA", 0) == 4
-    assert character_replacement("ABCD", 0) == 1
-    assert character_replacement("ABCD", 3) == 4
-    assert character_replacement("ABBB", 2) == 4
-    assert character_replacement("BAAAB", 2) == 5
-    assert character_replacement("ABCDE", 1) == 2
+    assert character_replacement("ABAB", 2) == 4, 'Check: character_replacement("ABAB", 2) == 4'
+    assert character_replacement("AABABBA", 1) == 4, 'Check: character_replacement("AABABBA", 1) == 4'
+    assert character_replacement("A", 0) == 1, 'Check: character_replacement("A", 0) == 1'
+    assert character_replacement("AAAA", 0) == 4, 'Check: character_replacement("AAAA", 0) == 4'
+    assert character_replacement("ABCD", 0) == 1, 'Check: character_replacement("ABCD", 0) == 1'
+    assert character_replacement("ABCD", 3) == 4, 'Check: character_replacement("ABCD", 3) == 4'
+    assert character_replacement("ABBB", 2) == 4, 'Check: character_replacement("ABBB", 2) == 4'
+    assert character_replacement("BAAAB", 2) == 5, 'Check: character_replacement("BAAAB", 2) == 5'
+    assert character_replacement("ABCDE", 1) == 2, 'Check: character_replacement("ABCDE", 1) == 2'
     print("ok")

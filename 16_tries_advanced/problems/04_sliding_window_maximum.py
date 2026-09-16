@@ -25,12 +25,12 @@ def max_sliding_window(nums: list[int], k: int) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert max_sliding_window([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7]
-    assert max_sliding_window([1], 1) == [1]
-    assert max_sliding_window([1, -1], 1) == [1, -1]
-    assert max_sliding_window([9, 8, 7, 6], 2) == [9, 8, 7]
-    assert max_sliding_window([1, 2, 3, 4], 2) == [2, 3, 4]
-    assert max_sliding_window([4, 4, 4], 2) == [4, 4]
-    assert max_sliding_window([5, 3, 1, 2, 8], 5) == [8]
-    assert max_sliding_window([1, 3, 1, 2, 0, 5], 3) == [3, 3, 2, 5]
+    assert max_sliding_window([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7], 'Check: max_sliding_window([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7]'
+    assert max_sliding_window([1], 1) == [1], 'Check: max_sliding_window([1], 1) == [1]'
+    assert max_sliding_window([1, -1], 1) == [1, -1], 'Check: max_sliding_window([1, -1], 1) == [1, -1]'
+    assert max_sliding_window([9, 8, 7, 6], 2) == [9, 8, 7], 'Check: max_sliding_window([9, 8, 7, 6], 2) == [9, 8, 7]'
+    assert max_sliding_window([1, 2, 3, 4], 2) == [2, 3, 4], 'Check: max_sliding_window([1, 2, 3, 4], 2) == [2, 3, 4]'
+    assert max_sliding_window([4, 4, 4], 2) == [4, 4], 'Check: max_sliding_window([4, 4, 4], 2) == [4, 4]'
+    assert max_sliding_window([5, 3, 1, 2, 8], 5) == [8], 'Check: max_sliding_window([5, 3, 1, 2, 8], 5) == [8]'
+    assert max_sliding_window([1, 3, 1, 2, 0, 5], 3) == [3, 3, 2, 5], 'Check: max_sliding_window([1, 3, 1, 2, 0, 5], 3) == [3, 3, 2, 5]'
     print("ok")

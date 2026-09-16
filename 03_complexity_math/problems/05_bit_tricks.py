@@ -69,22 +69,22 @@ def subsets_by_mask(items: list) -> list[list]:
 
 
 if __name__ == "__main__":
-    assert count_bits(0) == 0 and count_bits(1) == 1 and count_bits(0b1011) == 3 and count_bits(2**64 - 1) == 64
-    assert all(count_bits(x) == bin(x).count("1") for x in range(1000))
-    assert [x for x in range(-2, 70) if is_power_of_two(x)] == [1, 2, 4, 8, 16, 32, 64]
-    assert is_power_of_two(2**100) and not is_power_of_two(0)
-    assert lowest_set_bit(0b11000) == 8 and lowest_set_bit(7) == 1 and lowest_set_bit(0) == 0 and lowest_set_bit(2**40) == 2**40
-    assert single_number([4, 1, 2, 1, 2]) == 4 and single_number([7]) == 7 and single_number([-3, 5, 5]) == -3
-    assert missing_number([3, 0, 1]) == 2 and missing_number([0]) == 1 and missing_number([1]) == 0
-    assert missing_number([9, 6, 4, 2, 3, 5, 7, 0, 1]) == 8
+    assert count_bits(0) == 0 and count_bits(1) == 1 and count_bits(0b1011) == 3 and count_bits(2**64 - 1) == 64, 'Check: count_bits(0) == 0 and count_bits(1) == 1 and count_bits(0b1011) == 3 and count_bits(2**64 - 1) == 64'
+    assert all(count_bits(x) == bin(x).count("1") for x in range(1000)), 'Check: all(count_bits(x) == bin(x).count("1") for x in range(1000))'
+    assert [x for x in range(-2, 70) if is_power_of_two(x)] == [1, 2, 4, 8, 16, 32, 64], 'Check: [x for x in range(-2, 70) if is_power_of_two(x)] == [1, 2, 4, 8, 16, 32, 64]'
+    assert is_power_of_two(2**100) and not is_power_of_two(0), 'Check: is_power_of_two(2**100) and not is_power_of_two(0)'
+    assert lowest_set_bit(0b11000) == 8 and lowest_set_bit(7) == 1 and lowest_set_bit(0) == 0 and lowest_set_bit(2**40) == 2**40, 'Check: lowest_set_bit(0b11000) == 8 and lowest_set_bit(7) == 1 and lowest_set_bit(0) == 0 and lowest_set_bit(2**40) == 2**40'
+    assert single_number([4, 1, 2, 1, 2]) == 4 and single_number([7]) == 7 and single_number([-3, 5, 5]) == -3, 'Check: single_number([4, 1, 2, 1, 2]) == 4 and single_number([7]) == 7 and single_number([-3, 5, 5]) == -3'
+    assert missing_number([3, 0, 1]) == 2 and missing_number([0]) == 1 and missing_number([1]) == 0, 'Check: missing_number([3, 0, 1]) == 2 and missing_number([0]) == 1 and missing_number([1]) == 0'
+    assert missing_number([9, 6, 4, 2, 3, 5, 7, 0, 1]) == 8, 'Check: missing_number([9, 6, 4, 2, 3, 5, 7, 0, 1]) == 8'
     x = 0b1010
-    assert get_bit(x, 1) == 1 and get_bit(x, 0) == 0
-    assert set_bit(x, 0) == 0b1011 and set_bit(x, 1) == x
-    assert clear_bit(x, 1) == 0b1000 and clear_bit(x, 0) == x
-    assert toggle_bit(x, 0) == 0b1011 and toggle_bit(x, 3) == 0b0010
-    assert count_bits_upto(5) == [0, 1, 1, 2, 1, 2] and count_bits_upto(0) == [0]
-    assert count_bits_upto(1000) == [bin(i).count("1") for i in range(1001)]
-    assert subsets_by_mask(["a", "b"]) == [[], ["a"], ["b"], ["a", "b"]]
-    assert subsets_by_mask([]) == [[]] and len(subsets_by_mask(list(range(10)))) == 1024
-    assert subsets_by_mask([1, 2, 3])[5] == [1, 3]
+    assert get_bit(x, 1) == 1 and get_bit(x, 0) == 0, 'Check: get_bit(x, 1) == 1 and get_bit(x, 0) == 0'
+    assert set_bit(x, 0) == 0b1011 and set_bit(x, 1) == x, 'Check: set_bit(x, 0) == 0b1011 and set_bit(x, 1) == x'
+    assert clear_bit(x, 1) == 0b1000 and clear_bit(x, 0) == x, 'Check: clear_bit(x, 1) == 0b1000 and clear_bit(x, 0) == x'
+    assert toggle_bit(x, 0) == 0b1011 and toggle_bit(x, 3) == 0b0010, 'Check: toggle_bit(x, 0) == 0b1011 and toggle_bit(x, 3) == 0b0010'
+    assert count_bits_upto(5) == [0, 1, 1, 2, 1, 2] and count_bits_upto(0) == [0], 'Check: count_bits_upto(5) == [0, 1, 1, 2, 1, 2] and count_bits_upto(0) == [0]'
+    assert count_bits_upto(1000) == [bin(i).count("1") for i in range(1001)], 'Check: count_bits_upto(1000) == [bin(i).count("1") for i in range(1001)]'
+    assert subsets_by_mask(["a", "b"]) == [[], ["a"], ["b"], ["a", "b"]], 'Check: subsets_by_mask(["a", "b"]) == [[], ["a"], ["b"], ["a", "b"]]'
+    assert subsets_by_mask([]) == [[]] and len(subsets_by_mask(list(range(10)))) == 1024, 'Check: subsets_by_mask([]) == [[]] and len(subsets_by_mask(list(range(10)))) == 1024'
+    assert subsets_by_mask([1, 2, 3])[5] == [1, 3], 'Check: subsets_by_mask([1, 2, 3])[5] == [1, 3]'
     print("ok")

@@ -31,12 +31,12 @@ def min_path_sum(grid: list[list[int]]) -> int:
 
 
 if __name__ == "__main__":
-    assert min_path_sum([[1, 3, 1], [1, 5, 1], [4, 2, 1]]) == 7
-    assert min_path_sum([[1, 2, 3], [4, 5, 6]]) == 12
-    assert min_path_sum([[5]]) == 5
-    assert min_path_sum([[1, 2, 3]]) == 6
-    assert min_path_sum([[1], [2], [3]]) == 6
-    assert min_path_sum([[0, 0], [0, 0]]) == 0
-    assert min_path_sum([[9, 1, 1], [1, 9, 1], [1, 1, 1]]) == 13
-    assert min_path_sum([[1, 100, 1], [1, 100, 1], [1, 1, 1]]) == 5
+    assert min_path_sum([[1, 3, 1], [1, 5, 1], [4, 2, 1]]) == 7, 'Check: min_path_sum([[1, 3, 1], [1, 5, 1], [4, 2, 1]]) == 7'
+    assert min_path_sum([[1, 2, 3], [4, 5, 6]]) == 12, 'Check: min_path_sum([[1, 2, 3], [4, 5, 6]]) == 12'
+    assert min_path_sum([[5]]) == 5, 'Check: min_path_sum([[5]]) == 5'
+    assert min_path_sum([[1, 2, 3]]) == 6, 'Check: min_path_sum([[1, 2, 3]]) == 6'
+    assert min_path_sum([[1], [2], [3]]) == 6, 'Check: min_path_sum([[1], [2], [3]]) == 6'
+    assert min_path_sum([[0, 0], [0, 0]]) == 0, 'Check: min_path_sum([[0, 0], [0, 0]]) == 0'
+    assert min_path_sum([[9, 1, 1], [1, 9, 1], [1, 1, 1]]) == 13, 'Check: min_path_sum([[9, 1, 1], [1, 9, 1], [1, 1, 1]]) == 13'
+    assert min_path_sum([[1, 100, 1], [1, 100, 1], [1, 1, 1]]) == 5, 'Check: min_path_sum([[1, 100, 1], [1, 100, 1], [1, 1, 1]]) == 5'
     print("ok")

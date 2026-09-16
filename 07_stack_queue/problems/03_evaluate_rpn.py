@@ -32,13 +32,13 @@ def eval_rpn(tokens: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    assert eval_rpn(["2", "1", "+", "3", "*"]) == 9
-    assert eval_rpn(["4", "13", "5", "/", "+"]) == 6
-    assert eval_rpn(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]) == 22
-    assert eval_rpn(["18"]) == 18
-    assert eval_rpn(["-7", "2", "/"]) == -3
-    assert eval_rpn(["7", "-2", "/"]) == -3
-    assert eval_rpn(["3", "4", "-"]) == -1
-    assert eval_rpn(["0", "5", "*"]) == 0
-    assert eval_rpn(["-3", "-4", "*"]) == 12
+    assert eval_rpn(["2", "1", "+", "3", "*"]) == 9, 'Check: eval_rpn(["2", "1", "+", "3", "*"]) == 9'
+    assert eval_rpn(["4", "13", "5", "/", "+"]) == 6, 'Check: eval_rpn(["4", "13", "5", "/", "+"]) == 6'
+    assert eval_rpn(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]) == 22, 'Check: eval_rpn(["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]) == 22'
+    assert eval_rpn(["18"]) == 18, 'Check: eval_rpn(["18"]) == 18'
+    assert eval_rpn(["-7", "2", "/"]) == -3, 'Check: eval_rpn(["-7", "2", "/"]) == -3'
+    assert eval_rpn(["7", "-2", "/"]) == -3, 'Check: eval_rpn(["7", "-2", "/"]) == -3'
+    assert eval_rpn(["3", "4", "-"]) == -1, 'Check: eval_rpn(["3", "4", "-"]) == -1'
+    assert eval_rpn(["0", "5", "*"]) == 0, 'Check: eval_rpn(["0", "5", "*"]) == 0'
+    assert eval_rpn(["-3", "-4", "*"]) == 12, 'Check: eval_rpn(["-3", "-4", "*"]) == 12'
     print("ok")

@@ -38,15 +38,20 @@ class NumArray:
 
 if __name__ == "__main__":
     na = NumArray([-2, 0, 3, -5, 2, -1])
-    assert na.sum_range(0, 2) == 1
-    assert na.sum_range(2, 5) == -1
-    assert na.sum_range(0, 5) == -3
-    assert na.sum_range(3, 3) == -5
+    assert na.sum_range(0, 2) == 1, 'Check: na.sum_range(0, 2) == 1'
+    assert na.sum_range(2, 5) == -1, 'Check: na.sum_range(2, 5) == -1'
+    assert na.sum_range(0, 5) == -3, 'Check: na.sum_range(0, 5) == -3'
+    assert na.sum_range(3, 3) == -5, 'Check: na.sum_range(3, 3) == -5'
     single = NumArray([7])
-    assert single.sum_range(0, 0) == 7
+    assert single.sum_range(0, 0) == 7, 'Check: single.sum_range(0, 0) == 7'
     same = NumArray([2, 2, 2, 2])
-    assert same.sum_range(1, 2) == 4
-    assert same.sum_range(0, 3) == 8
+    assert same.sum_range(1, 2) == 4, 'Check: same.sum_range(1, 2) == 4'
+    assert same.sum_range(0, 3) == 8, 'Check: same.sum_range(0, 3) == 8'
     neg = NumArray([-1, -1, -1])
-    assert neg.sum_range(0, 2) == -3
+    assert neg.sum_range(0, 2) == -3, 'Check: neg.sum_range(0, 2) == -3'
+    # Boundary and misconception checks: predict each result before running.
+    mixed = NumArray([0, -4, 4, 0])
+    assert mixed.sum_range(0, 0) == 0, 'Check: mixed.sum_range(0, 0) == 0'
+    assert mixed.sum_range(1, 2) == 0, 'Check: mixed.sum_range(1, 2) == 0'
+    assert mixed.sum_range(3, 3) == 0, 'Check: mixed.sum_range(3, 3) == 0'
     print("ok")

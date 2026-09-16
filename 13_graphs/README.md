@@ -1,55 +1,53 @@
-# Phase 13: Graphs
+# Graphs: track both connections and visits
 
-**Goal:** spot a graph hiding in a grid or a prerequisite list, then pick BFS, DFS, topo sort, union-find, or Dijkstra and type it from memory.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-A graph is nodes plus edges, stored as `graph[node] = [neighbors]`. A grid is already a graph: a cell's neighbors are the 4 cells around it. BFS explores in layers, so the first visit is the shortest path.
-DFS is the tree recursion from Phase 11: mark `seen`, recurse into unseen neighbors. Use it for regions.
+**Before this lesson:** Queues, recursion, sets, and heaps for weighted paths.
 
-## Cheat sheet
-```python
-from collections import deque, defaultdict
-graph = defaultdict(list)            # for u, v in edges: graph[u].append(v); graph[v].append(u)
-q, seen = deque([start]), {start}                             # BFS: shortest path
-while q:
-    for _ in range(len(q)):                                   # one layer = one step
-        for nxt in graph[q.popleft()]:
-            if nxt not in seen: seen.add(nxt); q.append(nxt)  # mark when adding
-q, order = deque(n for n in range(N) if indeg[n] == 0), []    # topo sort (Kahn)
-while q:
-    node = q.popleft(); order.append(node)
-    for nxt in graph[node]:
-        indeg[nxt] -= 1
-        if indeg[nxt] == 0: q.append(nxt)                     # len(order) < N: cycle
-parent = list(range(N))                                       # union-find
-def find(x): return x if parent[x] == x else find(parent[x])
-def union(a, b):                                              # False = already joined = cycle
-    ra, rb = find(a), find(b); parent[rb] = ra; return ra != rb
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
+
+## The theory
+
+A **graph** has vertices and edges. Edges may be directed or undirected and may carry weights. An adjacency list records neighbors. A grid can be a graph too: cells are vertices and legal moves are edges.
+
+DFS explores deeply; BFS explores in layers. A visited set prevents repeating vertices and cycling forever. Marking a vertex when scheduled avoids repeatedly adding it to the frontier. Traversal with adjacency lists takes O(V+E) over the visited graph. Disconnected graphs require starting again from unvisited vertices.
+
+BFS gives shortest paths in number of edges when edges have equal cost. Dijkstra handles non-negative edge weights; it does not support arbitrary negative weights. Some route tasks constrain stops, so the state may need both location and remaining budget rather than location alone.
+
+**Topological ordering** puts prerequisites before dependents in a directed acyclic graph. Failure to process every vertex reveals a cycle. **Union-find** tracks merged components using representatives; path compression and rank/size heuristics keep operations efficient. Cloning a graph needs a map from each original node to its new node so shared neighbors stay shared.
+
+## Walk through a small example
+
+Roads connect A–B, A–C, and B–D, each one step. BFS from A visits layer 0 {A}, layer 1 {B, C}, then layer 2 {D}. If B–D costs 100 while A–C–D costs 3 in total, fewest roads and cheapest journey are different goals.
+
+## Watch for
+
+No visited tracking; forgetting disconnected components; using ordinary BFS for unequal weighted cost; collapsing different stop budgets into the same state.
+
+## Your next small step
+
+Open [number of islands](problems/01_number_of_islands.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 13/01
 ```
 
-## When you see... use...
-- "shortest path / fewest steps / minutes until" -> BFS (seed all sources at once if many)
-- "count islands / regions / reachable cells" -> DFS from each unseen cell
-- "prerequisites / order to take courses" -> topo sort; leftover nodes mean a cycle
-- "connect these two / count groups / redundant edge" -> union-find
-- "shortest path with weights" -> Dijkstra: heap of `(dist, node)`, skip stale entries
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- Marking `seen` when popping instead of when pushing. You get duplicates in the queue.
-- Adding both edge directions for a directed graph.
-- Deep recursion on big grids hits Python's 1000 limit. Go iterative or raise it.
-- Clone graph: store the copy in the map *before* recursing, or cycles loop forever.
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_number_of_islands.py` — DFS flood fill, count starts
-- `02_max_area_island.py` — DFS returns region size
-- `03_clone_graph.py` — original-to-copy map
-- `04_rotting_oranges.py` — multi-source BFS, layers are minutes
-- `05_pacific_atlantic_water_flow.py` — search backwards from both oceans
-- `06_course_schedule.py` — cycle check with Kahn
-- `07_course_schedule_ii.py` — Kahn, return the order
-- `08_number_of_connected_components.py` — union-find count
-- `09_redundant_connection.py` — first edge whose union fails
-- `10_network_delay_time.py` — Dijkstra, answer is max distance
-- `11_cheapest_flights_k_stops.py` — Bellman-Ford, k+1 rounds
-- `12_alien_dictionary.py` — edges from adjacent words, topo sort
+- [Number of Islands](problems/01_number_of_islands.py)
+- [Max Area of Island](problems/02_max_area_island.py)
+- [Clone Graph](problems/03_clone_graph.py)
+- [Rotting Oranges](problems/04_rotting_oranges.py)
+- [Pacific Atlantic Water Flow](problems/05_pacific_atlantic_water_flow.py)
+- [Course Schedule](problems/06_course_schedule.py)
+- [Course Schedule II](problems/07_course_schedule_ii.py)
+- [Number of Connected Components in an Undirected Graph](problems/08_number_of_connected_components.py)
+- [Redundant Connection](problems/09_redundant_connection.py)
+- [Network Delay Time](problems/10_network_delay_time.py)
+- [Cheapest Flights Within K Stops](problems/11_cheapest_flights_k_stops.py)
+- [Alien Dictionary](problems/12_alien_dictionary.py)
+
+</details>

@@ -36,13 +36,13 @@ if __name__ == "__main__":
     def norm(triplets):
         return sorted(sorted(t) for t in triplets)
 
-    assert norm(three_sum([-1, 0, 1, 2, -1, -4])) == [[-1, -1, 2], [-1, 0, 1]]
-    assert norm(three_sum([0, 1, 1])) == []
-    assert norm(three_sum([0, 0, 0])) == [[0, 0, 0]]
-    assert norm(three_sum([0, 0, 0, 0])) == [[0, 0, 0]]
-    assert norm(three_sum([1, 2, 3])) == []
-    assert norm(three_sum([-2, 0, 1, 1, 2])) == [[-2, 0, 2], [-2, 1, 1]]
-    assert norm(three_sum([-1, -1, -1, 2, 2])) == [[-1, -1, 2]]
-    assert norm(three_sum([3, -2, 1, 0])) == []
-    assert norm(three_sum([-4, -2, -2, 0, 0, 2, 2, 4])) == [[-4, 0, 4], [-4, 2, 2], [-2, -2, 4], [-2, 0, 2]]
+    assert norm(three_sum([-1, 0, 1, 2, -1, -4])) == [[-1, -1, 2], [-1, 0, 1]], 'Check: norm(three_sum([-1, 0, 1, 2, -1, -4])) == [[-1, -1, 2], [-1, 0, 1]]'
+    assert norm(three_sum([0, 1, 1])) == [], 'Check: norm(three_sum([0, 1, 1])) == []'
+    assert norm(three_sum([0, 0, 0])) == [[0, 0, 0]], 'Check: norm(three_sum([0, 0, 0])) == [[0, 0, 0]]'
+    assert norm(three_sum([0, 0, 0, 0])) == [[0, 0, 0]], 'Check: norm(three_sum([0, 0, 0, 0])) == [[0, 0, 0]]'
+    assert norm(three_sum([1, 2, 3])) == [], 'Check: norm(three_sum([1, 2, 3])) == []'
+    assert norm(three_sum([-2, 0, 1, 1, 2])) == [[-2, 0, 2], [-2, 1, 1]], 'Check: norm(three_sum([-2, 0, 1, 1, 2])) == [[-2, 0, 2], [-2, 1, 1]]'
+    assert norm(three_sum([-1, -1, -1, 2, 2])) == [[-1, -1, 2]], 'Check: norm(three_sum([-1, -1, -1, 2, 2])) == [[-1, -1, 2]]'
+    assert norm(three_sum([3, -2, 1, 0])) == [], 'Check: norm(three_sum([3, -2, 1, 0])) == []'
+    assert norm(three_sum([-4, -2, -2, 0, 0, 2, 2, 4])) == [[-4, 0, 4], [-4, 2, 2], [-2, -2, 4], [-2, 0, 2]], 'Check: norm(three_sum([-4, -2, -2, 0, 0, 2, 2, 4])) == [[-4, 0, 4], [-4, 2, 2], [-2, -2, 4], [-2, 0, 2]]'
     print("ok")

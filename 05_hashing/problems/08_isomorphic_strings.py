@@ -35,13 +35,13 @@ def is_isomorphic(s: str, t: str) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_isomorphic("egg", "add") is True
-    assert is_isomorphic("foo", "bar") is False
-    assert is_isomorphic("paper", "title") is True
-    assert is_isomorphic("badc", "baba") is False
-    assert is_isomorphic("a", "a") is True
-    assert is_isomorphic("a", "b") is True
-    assert is_isomorphic("ab", "aa") is False
-    assert is_isomorphic("aa", "ab") is False
-    assert is_isomorphic("abcabc", "xyzxyz") is True
+    assert is_isomorphic("egg", "add") is True, 'Check: is_isomorphic("egg", "add") is True'
+    assert is_isomorphic("foo", "bar") is False, 'Check: is_isomorphic("foo", "bar") is False'
+    assert is_isomorphic("paper", "title") is True, 'Check: is_isomorphic("paper", "title") is True'
+    assert is_isomorphic("badc", "baba") is False, 'Check: is_isomorphic("badc", "baba") is False'
+    assert is_isomorphic("a", "a") is True, 'Check: is_isomorphic("a", "a") is True'
+    assert is_isomorphic("a", "b") is True, 'Check: is_isomorphic("a", "b") is True'
+    assert is_isomorphic("ab", "aa") is False, 'Check: is_isomorphic("ab", "aa") is False'
+    assert is_isomorphic("aa", "ab") is False, 'Check: is_isomorphic("aa", "ab") is False'
+    assert is_isomorphic("abcabc", "xyzxyz") is True, 'Check: is_isomorphic("abcabc", "xyzxyz") is True'
     print("ok")
