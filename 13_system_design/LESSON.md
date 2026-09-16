@@ -1,7 +1,5 @@
 # 13 · System Design
 
-*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
-
 > A system design interview is not a test of whether you know Kafka. It is a test of whether
 > you can turn "build Twitter" into a set of numbers, a handful of boxes, and a defended
 > choice between two reasonable options. The candidate who says "it depends, and here is what
@@ -13,7 +11,174 @@ system design at all. If you are a new grad, read sections 1, 3, and 5, skim the
 spend the time on chapters 14 and 15. If you are L4+ or SDE2+, this round can fail your loop
 by itself. Give it the full week.
 
-## 0. Why this matters, and how it works in one picture
+## Part 1 · From zero
+
+*Read this if the chapter title means little to you yet. It explains the idea in plain
+language before any code. If it already makes sense, skip to Part 2.*
+
+### In one sentence
+
+System design is arranging a handful of standard building blocks so that a service stays
+fast and stays up while the number of people using it grows from ten to ten million.
+
+### Start with something you already do
+
+You open a lemonade stand. One table, one jug, you. A customer walks up, you take the order,
+squeeze the lemons, take the money. Ten customers an hour. Life is good.
+
+Word spreads. Now there is a line, and the line is the whole problem. Watch each fix:
+
+1. **You hire a cashier and become the maker.** Taking money and squeezing lemons are now two
+   jobs done by two people at the same time. In software these are two *services*, each doing
+   one thing.
+2. **You open a second stand next door.** Same menu, same recipe, twice the customers. That is
+   *horizontal scaling*: more copies, not a bigger copy. (Buying a bigger jug is *vertical
+   scaling*. Cheaper, but there is a biggest jug you can lift.)
+3. **You hire a greeter** who points each arriving customer to the shorter line. That is a
+   *load balancer*. If one stand runs out of cups, the greeter stops sending people there.
+4. **You put a fridge of pre-made lemonade** at the front. Most people order plain lemonade, so
+   you pour from the fridge in two seconds instead of squeezing for ten. That is a *cache*. The
+   catch: fridge lemonade was made an hour ago. If you change the recipe, the fridge is stale
+   until you refill it.
+5. **Both stands need the same recipe book.** You photocopy it. That is *replication*. Now the
+   hard part: when you change the recipe, the copy next door is wrong until someone walks over.
+   For a few minutes the two stands disagree. That is a *consistency* problem, and "they will
+   agree eventually" is called *eventual consistency*.
+6. **The book of customer tabs gets too fat for one binder.** You split it: names A to M in one
+   binder, N to Z in another. That is *sharding*. If half your customers are named Smith, the
+   N to Z binder is swamped: a *hotspot*.
+7. **Custom orders take twenty minutes.** Instead of holding up the line, you write them on a
+   pad and the maker works through the pad. That pad is a *message queue*. The customer gets
+   a ticket now and the drink later.
+
+Every building block in the lesson is one of these moves. The recipe never changed. The
+plumbing did.
+
+### Now the same thing with numbers
+
+The lesson calls this *back-of-envelope estimation*. Here is the whole skill on a lemonade
+stand: 1,000 customers a day, 10 seconds each, open 10 hours. How many stands?
+
+| Question | Arithmetic | Answer |
+|----------|------------|--------|
+| Seconds open per day | 10 × 3,600 | 36,000 |
+| Customers per second, on average | 1,000 ÷ 36,000 | one every 36 seconds |
+| At the lunch peak, roughly 3× average | 36 ÷ 3 | one every 12 seconds |
+| Work per customer | | 10 seconds |
+| Stands needed at peak | 10 ÷ 12 | less than one: a single stand, short line |
+
+The number just made a decision for you: do not open a second stand. Interviewers care far
+more that a number changed a decision than that it was exact. Being off by 3× is fine.
+
+Pause and predict: your stand goes viral and gets 10,000 customers a day. How many stands at
+the lunch peak? And which move from the story is cheaper than building that many?
+
+<details><summary>Answer</summary>
+Average: 10,000 ÷ 36,000 ≈ one every 3.6 seconds. Peak: one every 1.2 seconds. Each takes 10
+seconds, so 10 ÷ 1.2 ≈ 8.3, call it 9 stands. Cheaper: the fridge. If pouring pre-made
+lemonade takes 2 seconds, you need 2 ÷ 1.2 ≈ 2 stands. That is why the lesson says "caching is
+not an optimization; it is the design."
+</details>
+
+### The words people use
+
+- **Client.** The thing asking: a phone, a browser. The customer.
+- **Server.** The machine answering. A stand.
+- **Request / response.** One order and the drink that comes back.
+- **API.** The menu: the fixed list of things a client may ask for and the shape of each answer.
+- **Latency.** How long one customer waits for their drink. Measured in milliseconds.
+- **Throughput.** How many drinks per second the whole operation produces.
+- **QPS.** Queries per second. Requests arriving per second. The number you estimate first.
+- **Database.** The binders: where data lives permanently. *SQL* databases keep strict tables
+  and can join them; *NoSQL* ones trade that for easier spreading across machines.
+- **Cache.** The fridge. A fast copy of data you read often. *Hit*: it was there. *Miss*: it
+  was not, go to the database. *TTL*: how long before a fridge item is thrown out.
+- **Load balancer.** The greeter. Spreads requests over identical servers and skips dead ones.
+- **Horizontal / vertical scaling.** More stands / a bigger stand.
+- **Stateless.** A stand that keeps no memory of past customers, so any stand can serve anyone.
+- **Replication.** Photocopying the recipe book onto several machines. One *leader* takes
+  writes; *replicas* serve reads.
+- **Consistency.** Do all copies agree right now? *Strong*: yes. *Eventual*: soon.
+- **Availability.** What fraction of the time you can serve at all. 99.9% is 8.7 hours down a
+  year; 99.99% is 52 minutes.
+- **CAP.** When copies cannot talk to each other, you pick: serve possibly-stale data, or
+  refuse until they agree. You cannot have both.
+- **Sharding / partitioning.** Splitting one huge binder by some key across machines.
+- **Hotspot / hot key.** One shard or one item getting most of the traffic.
+- **Consistent hashing.** A way to assign items to machines so adding a machine moves only a
+  small fraction of items.
+- **Message queue.** The order pad. Take the request now, do the work later.
+- **CDN.** Fridges placed in every city so a faraway customer gets a nearby pour.
+- **Blob storage.** A warehouse for big files (photos, video). The database keeps only the shelf label.
+- **Rate limiting.** "Ten drinks per person per hour." Protects you from one greedy client.
+- **Idempotent.** Placing the same order twice charges you once. Needed because networks retry.
+- **Single point of failure.** The one stand, jug, or greeter that takes everything down when it breaks.
+- **Trade-off.** Every choice above costs something. Saying the cost out loud is the round.
+
+### Why this matters more than it looks
+
+The concrete cost of a wrong design is an outage, and outages have numbers. A single database
+serves perhaps 10,000 simple reads a second. Put a fridge in front and it serves 100,000. Now
+the fridge dies at lunch: all 100,000 requests a second hit a database built for 10,000, and
+the site is down until someone restocks. That is a real postmortem shape, and the fix (a
+second fridge, warming the fridge before opening) is a design decision, not a code fix.
+
+The interview cost is simpler. The lesson names three things that fail candidates at both
+companies: drawing boxes before asking questions, never writing a number, and never saying
+"alternatively." All three are habits, and all three are fixable in a week of practice.
+
+### Try it in your head
+
+1. Your stand tracks "cups sold today" on a whiteboard. You open a second stand. What goes
+   wrong, and which building block is the fix?
+
+<details><summary>Answer</summary>
+Two whiteboards disagree. Either one shared board that both stands write to (a single
+database, with a queue for the lunch rush) or accept eventual consistency and add the two
+boards at closing. Say which and why: a cup count can be a little stale; a cash total cannot.
+</details>
+
+2. A service gets 4,000 reads a second and 40 writes a second. Where does the design effort go?
+
+<details><summary>Answer</summary>
+Reads. The ratio is 100:1. A cache in front of the database handles most reads; the writes fit
+on one machine untouched. This is the URL shortener in the lesson.
+</details>
+
+3. You shard customer tabs by the first letter of the last name. Which shard becomes the
+   hotspot, and what would you split by instead?
+
+<details><summary>Answer</summary>
+S, M, and a few others carry far more names than Q or X. Split by a hash of the customer ID so
+names spread evenly.
+</details>
+
+### Common confusions, cleared
+
+- **"Isn't there a right answer I should memorize?"** No. Two reasonable designs with the costs
+  stated beat one recited architecture. "It depends, and here is what it depends on" is the
+  winning sentence.
+- **"Do I need to know Kafka, Redis, Cassandra by name?"** You need to know what the block does:
+  queue, cache, wide-column database. Brand names are a convenience, not a requirement.
+- **"More boxes means a better design."** The opposite. Under 1,000 QPS and 1 TB, one database
+  with a replica is the right answer, and saying so is graded as good judgment.
+- **"Isn't a cache just a faster database?"** It is a copy that may be stale and may vanish.
+  Speed is what you buy; freshness and durability are what you pay.
+
+### What to do next
+
+Open Part 2 below and read Part 2 §2, the 45-minute protocol, then Part 2 §3, the building blocks. Next to
+each block, write the lemonade move in the margin. Then a 20-minute first task: take "design a
+URL shortener," set a timer for 20 minutes, and do only minutes 0 to 10 of the protocol on
+paper, out loud: the clarifying questions and the estimate. Compare against Part 2 §2.2. If your
+numbers are within 3× and you reached a decision, you are ready for the rest of the lesson.
+
+## Part 2 · The reference
+
+*The worked anchor problem, the templates to memorize, recognition cues, and pitfalls.
+This is the part you come back to.*
+
+### 0. Why this matters, and how it works in one picture
 
 **Where it lives in the real world.** This round is the closest thing in the loop to the actual
 day job of a senior engineer at Amazon or Google. They are asked "the order history page is
@@ -48,7 +213,7 @@ a choice for you, the round stops being a performance and becomes a conversation
 **You will know you have it when** someone says "design X" and your first words are a question
 about scale, not the name of a component.
 
-## 1. What the round is and how it is graded
+### 1. What the round is and how it is graded
 
 You get one vague prompt ("design a URL shortener", "design the Amazon order history page")
 and 45 to 60 minutes. There is no single right answer. The interviewer writes notes on roughly
@@ -77,7 +242,7 @@ disapproval. Keep going, but check in every few minutes.
 Both companies fail candidates for the same three reasons: drawing before asking, never
 producing a number, and never saying the word "alternatively."
 
-## 2. The 45-minute protocol
+### 2. The 45-minute protocol
 
 Use the same shape every time so you never have to think about what comes next.
 
@@ -93,7 +258,7 @@ Use the same shape every time so you never have to think about what comes next.
 
 If the interviewer pulls you into a deep dive early, go. The budget is a default, not a law.
 
-### 2.1 Clarifying questions (minutes 0–5)
+#### 2.1 Clarifying questions (minutes 0–5)
 
 Say: "Before I draw anything, let me pin down what we are building and for whom." Then ask,
 in this order:
@@ -117,7 +282,7 @@ Then say the scope back: "So: shorten, redirect, 100M new links a month, reads 1
 redirect under 100 ms, we can tolerate a few seconds of staleness. Analytics out of scope."
 Write that on the board. You will refer to it.
 
-### 2.2 Back-of-envelope estimation (minutes 5–10)
+#### 2.2 Back-of-envelope estimation (minutes 5–10)
 
 Interviewers do not care if you are off by 3x. They care that you can get within an order of
 magnitude in two minutes and that the number then changes a decision ("that fits on one
@@ -181,7 +346,7 @@ Cache:   80/20 rule. 20% of daily reads = 0.2 × 4,000 × 86,400 × 500 B ≈ 35
 Say the conclusion out loud: "Writes are tiny; reads matter. The whole hot set fits in a
 cache. The design is a read-through cache in front of a key-value store."
 
-### 2.3 API sketch (minutes 10–12)
+#### 2.3 API sketch (minutes 10–12)
 
 Three to five endpoints. REST is fine unless the interviewer wants gRPC. Include the shape of
 the request and response and note what is idempotent.
@@ -195,7 +360,7 @@ DELETE /v1/links/{code} (auth required)
 Mention: pagination on list endpoints, auth headers, rate limits, and that redirects should be
 302 (not cached by browsers) if you want analytics, 301 if you want to shed load.
 
-### 2.4 Data model (minutes 12–15)
+#### 2.4 Data model (minutes 12–15)
 
 Write the main entity as a table or a key-value shape. Name the primary key and the one or two
 indexes you need.
@@ -209,7 +374,7 @@ Then say which store. "This is a key lookup by short_code with no joins. A key-v
 (DynamoDB, Cassandra) or Postgres both work. I will pick DynamoDB for horizontal scaling; if
 the interviewer prefers relational, Postgres with a single index is fine at this scale."
 
-### 2.5 High-level diagram (minutes 15–25)
+#### 2.5 High-level diagram (minutes 15–25)
 
 Draw left to right. Label every arrow with the protocol or purpose. Start simple, then add
 components one at a time, saying why each one exists.
@@ -232,7 +397,7 @@ components one at a time, saying why each one exists.
 Talk through one request path end to end: "A GET hits the LB, an API node checks Redis, on a
 miss reads the DB, writes back to Redis with a TTL, and returns a 302."
 
-### 2.6 Deep dive (minutes 25–38)
+#### 2.6 Deep dive (minutes 25–38)
 
 The interviewer picks, or you offer: "The two interesting parts are ID generation and the
 cache. Which would you like me to go deeper on?" Then go two levels down:
@@ -242,14 +407,14 @@ cache. Which would you like me to go deeper on?" Then go two levels down:
 - Scaling. What changes at 10x and 100x?
 - Consistency. Where can two users see different answers, and is that acceptable?
 
-### 2.7 Trade-offs and wrap (minutes 38–45)
+#### 2.7 Trade-offs and wrap (minutes 38–45)
 
 For every major choice, one sentence of "alternatively": "I chose fan-out on write for the
 feed; alternatively, fan-out on read avoids the celebrity problem at the cost of slower reads.
 A hybrid is what production systems do." Then: bottlenecks, single points of failure,
 monitoring, and what you would build first if you had two weeks.
 
-## 3. Building blocks
+### 3. Building blocks
 
 Each block below is three to six lines: what it is, when to reach for it, and the sentence to
 say in the room.
@@ -367,12 +532,12 @@ holding only the URL. Serve through a CDN. Upload directly from the client with 
 URL so the API tier never touches the bytes. Say: "Metadata in the DB, bytes in S3, delivery
 via CDN."
 
-## 4. Five walked designs
+### 4. Five walked designs
 
 Each design below is a compressed version of what you would say in 45 minutes. Practice
 reproducing the diagram and the trade-off from memory before you read the next one.
 
-### 4.1 URL shortener
+#### 4.1 URL shortener
 
 **Scope.** Create short link, redirect. 100M links/month, 100:1 read ratio, redirect under
 100 ms, links live 5 years.
@@ -401,7 +566,7 @@ beyond that, replicate the key to several cache nodes or add an in-process LRU o
 node with a 1-second TTL. Also: "How do you expire links?" A background job scanning by
 `expires_at` index, or a DynamoDB TTL attribute.
 
-### 4.2 Rate limiter
+#### 4.2 Rate limiter
 
 **Scope.** Limit each client to N requests per time window across a fleet of API servers.
 Return 429 with a Retry-After header. Must add under 5 ms of latency. Slight over-admission
@@ -434,7 +599,7 @@ fail closed for expensive internal ones.
 two API nodes at once?" The Lua script makes the Redis operation atomic. "What if Redis is
 sharded?" Hash the client key to a shard; each client's bucket lives on exactly one node.
 
-### 4.3 News feed / timeline
+#### 4.3 News feed / timeline
 
 **Scope.** Users follow users, post short items, and read a reverse-chronological feed of
 people they follow. 10M daily active users, each reads the feed 10 times a day, posts twice.
@@ -469,7 +634,7 @@ Also expect: "How do you rank instead of sort by time?" (a separate ranking serv
 candidate set) and "What if a user has been inactive for a year?" (do not fan out to inactive
 users; rebuild their feed with pull on next login).
 
-### 4.4 Chat system
+#### 4.4 Chat system
 
 **Scope.** One-to-one and small group chat. Messages delivered in real time when the recipient
 is online, stored for later if not. Sent, delivered, and read receipts. Message order within a
@@ -512,7 +677,7 @@ the server sends the gap. Multi-device means receipts are per device, but read s
 user (the max across devices). Also: "How do group messages scale?" For groups under ~500,
 fan out on write to each member's inbox; for larger channels, members pull from the channel.
 
-### 4.5 Key-value store (Dynamo-style)
+#### 4.5 Key-value store (Dynamo-style)
 
 **Scope.** `put(key, value)`, `get(key)`. Values under 10 KB. Horizontally scalable to
 petabytes, highly available (always accept writes), tunable consistency, no single point of
@@ -558,7 +723,7 @@ can hit a replica that never saw the write and return stale data. "What if a coo
 mid-write after 1 of 2 acks?" The client times out and retries (writes must be idempotent by
 key); the one replica that has it will spread it via read repair or anti-entropy.
 
-## 5. Amazon's Low-Level / Object-Oriented Design round
+### 5. Amazon's Low-Level / Object-Oriented Design round
 
 Amazon runs a separate round, usually for SDE1 and SDE2, where you design the classes for a
 small system: parking lot, elevator, vending machine, LRU cache, library, movie ticket booking,
@@ -702,7 +867,7 @@ The same shape works for the other classics. Elevator: `ElevatorSystem` → `Ele
 doubly linked list, which you already built in chapter 04; here you present it as a class
 with `get` and `put` and talk about thread safety.
 
-## 6. Trade-off vocabulary
+### 6. Trade-off vocabulary
 
 Use these pairs by name. Each row is a sentence you can say in the room.
 
@@ -717,7 +882,7 @@ Use these pairs by name. Each row is a sentence you can say in the room.
 | **SQL vs NoSQL** | Joins, transactions, ad-hoc queries, under a few TB | Key access, huge write volume, flexible schema | "Postgres now, with a plan to shard by tenant if we pass 10k writes/s." |
 | **Stateful vs stateless** | Long-lived connections (WebSockets), in-memory session affinity | Everything else | "Stateless API nodes; the connection servers are the one stateful tier." |
 
-## 7. Practice
+### 7. Practice
 
 **Ten prompts to design on paper**, 45 minutes each, out loud, with the protocol from section 2.
 After each, compare against a reference design and write down what you missed.

@@ -1,7 +1,5 @@
 # 15 · Mock Interviews & the Plan
 
-*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
-
 > Nobody plays their first real match at the tournament. Every problem in this repo was
 > practice; this chapter is the scrimmage. You will be uncomfortable, timed, and talking to
 > a wall. That discomfort is the point. The room feels easy after this.
@@ -10,7 +8,176 @@
 timeline on every problem you solve. Come back for the mock sets from week 4 onward, one
 per weekend. Sections 6 to 9 are for the last two weeks before your interviews.
 
-## 0. Why this matters, and how it works in one picture
+## Part 1 · From zero
+
+*Read this if the chapter title means little to you yet. It explains the idea in plain
+language before any code. If it already makes sense, skip to Part 2.*
+
+### In one sentence
+
+A mock interview is a full-length rehearsal of a real interview with the timer, the talking,
+and the being-watched all switched on, so that none of those three is new on the day.
+
+### Start with something you already do
+
+You learn to drive. You read the handbook, pass the written test, know every rule. Then you
+sit in the car with an examiner in the passenger seat, pull up to the first traffic light, and
+stall. Twice.
+
+You did not forget how a clutch works. Three new loads landed at once: someone is watching,
+the light is about to change, and the examiner just asked you to say out loud what you are
+checking in your mirrors. Each one eats a slice of attention, and attention is the thing you
+were using to drive.
+
+The fix is not more handbook. It is the empty parking lot on a Sunday, where you practice
+until the clutch and the mirrors cost no thought, then add a passenger, then a stopwatch. Mocks
+are the empty parking lot. Every problem in chapters 1 to 12 was learning the rules. This
+chapter is driving with a person in the seat.
+
+An interview asks four things at once: solve the problem, talk while you do it, watch the
+clock, and be observed. Mocks make the last three automatic so that all your attention goes
+back to the first.
+
+### Now the same thing with numbers
+
+A real coding round is 45 minutes. Here is a 5-minute version of the same shape, using Two
+Sum from chapter 01, so you can see where each minute goes:
+
+| Time | Phase | What you say or do |
+|------|-------|--------------------|
+| 0:00 to 0:40 | Clarify | Restate the problem. Ask about size, duplicates, empty input. Write one example. |
+| 0:40 to 1:20 | Brute force | "Check every pair, O(n²). The repeated work is re-scanning for each number's partner." |
+| 1:20 to 2:00 | Optimize, get buy-in | "A dict of what I have seen makes each check one step: O(n). Does that look right to you?" |
+| 2:00 to 3:40 | Code | Write it, narrating decisions, not keystrokes. |
+| 3:40 to 4:30 | Test | Trace `[8, 3, 15, 7]`, target 10, with the dict written out. Then the empty list. |
+| 4:30 to 5:00 | Wrap | "O(n) time, O(n) space. If this ran a million times on one array, I would precompute." |
+
+Now the phrase "think out loud," which people take to mean "read your code aloud." It does
+not. It means narrating decisions. Here are five lines of it, the ones you would say between
+0:40 and 2:00:
+
+```
+"Brute force is every pair, so n squared. Fine for 100, too slow for a hundred thousand."
+"The repeated work is scanning the list again to find each number's partner."
+"If I write down the numbers I have already seen, the check for a partner is one step."
+"A set would do for yes or no, but I need the index back, so a dict from value to index."
+"Before I code it: does that approach look right to you?"
+```
+
+Every line is a decision or a question. None is "now I type a for loop."
+
+Why a timer changes everything: at your desk, a medium problem takes however long it takes.
+In the room, 40 usable minutes is the whole budget, and the first mock shows most people
+spending 20 of them designing and reaching the end with half a function. The timeline exists
+so you never have to decide which phase you are in, and the timer is what teaches you the
+phases are real.
+
+Pause and predict: at minute 12 you go silent for 90 seconds, staring at the screen and
+thinking hard. What does the interviewer write down?
+
+<details><summary>Answer</summary>
+"Long silence; unclear whether stuck or thinking." Ninety seconds of good thinking scores the
+same as ninety seconds of panic if none of it is spoken. The fix is one sentence: "I am
+thinking about how to handle duplicates." Now the silence has a label.
+</details>
+
+### The words people use
+
+- **Mock interview.** A timed, out-loud rehearsal, with a friend or a camera, graded afterward.
+- **Think out loud.** Narrate your decisions and questions as you make them, not your keystrokes.
+- **Phone screen.** The first live interview, 45 to 60 minutes, one engineer, a shared text
+  editor. Its job is to decide whether to fly you in.
+- **Onsite / loop.** Four or five interviews back to back, in person or on video. The main event.
+- **Online Assessment (OA).** Amazon's automated first filter: two coding problems in a browser
+  plus a work-style questionnaire, no human present.
+- **Shared editor / Google Doc.** Where you type in the interview. No autocomplete, no running
+  code. Google literally uses a plain document.
+- **Clarifying questions.** What you ask before solving: size, duplicates, empty input, what to return.
+- **Brute force.** The obviously correct slow solution. You state it first so something is on the board.
+- **Buy-in.** The nod you get after "does this approach look right?" and before you write code.
+- **Trace / dry run.** Walking your code on one example by hand, writing each variable's value.
+- **Edge case.** Empty input, one element, all duplicates, the largest allowed size.
+- **Hint.** A nudge from the interviewer when you are stuck. Budgeted for; not a failure.
+- **Rubric.** The scoring sheet. Google uses four axes: algorithms, coding, communication,
+  problem solving. Amazon uses a coding bar plus Leadership Principles from chapter 14.
+- **Hiring committee / debrief.** The people who read the interviewers' notes and decide.
+- **Talk ratio.** How much of the time you are narrating. Silences over 30 seconds count against it.
+- **Redo list.** Problems you solved without recognizing the pattern. You do them again a week later.
+- **Recognition.** Naming the pattern in the first five minutes instead of finding it by trial.
+
+### Why this matters more than it looks
+
+The lesson names the single biggest reason prepared candidates fail: the gap between solving
+at your desk and solving while a stranger watches and a clock runs. Twelve weeks of
+preparation can be undone by a three-minute freeze in the first round.
+
+What the interviewer is scribbling makes the cost concrete. At Google, four axes each get a
+rating from Strong No Hire to Strong Hire, and two No Hire ratings across the loop usually
+end the packet. A silent, correct solution can score Hire on algorithms and No Hire on
+communication in the same 45 minutes. At Amazon, a coding round with no evidence for the
+assigned Leadership Principles is graded as incomplete even if the code passed.
+
+Hints have arithmetic too. One hint followed by a clean finish reads as "needed a nudge on X,
+then finished," which is a Hire in most rooms. The same hint needed twice, or a hint ignored
+because you were attached to your approach, is what costs the vote. The cost of a mock is 45
+minutes plus 10 minutes of grading. The lesson's minimum before a real loop is five with a
+human.
+
+### Try it in your head
+
+1. You solve the problem perfectly in 44 minutes but say nothing for the first 12 while you
+   think. What does the rubric give you?
+
+<details><summary>Answer</summary>
+A 1 on talk ratio and a 1 on getting buy-in before coding. Correct code with a No Hire on
+communication. Twelve silent minutes also means the interviewer could not hint, because they
+had nothing to hint at.
+</details>
+
+2. The interviewer says, "What if you sorted the input first?" What is the best next sentence?
+
+<details><summary>Answer</summary>
+Say what the hint changed: "Right, sorted means duplicates sit next to each other, so I can
+skip them with a while loop, and the whole thing becomes O(n log n)." A hint you can restate
+as a consequence is evidence you learn fast.
+</details>
+
+3. You have no friend available. Can you still run a mock?
+
+<details><summary>Answer</summary>
+Yes. A 45-minute timer, a phone camera pointed at your screen, and you talking to the camera,
+including "does this look right?" and answering as the interviewer would. Watch it back at
+1.5× speed and score the rubric. The recording is what makes it a mock.
+</details>
+
+### Common confusions, cleared
+
+- **"Mocks are for after I have finished learning."** The lesson has you using the timeline on
+  every problem from week 1 and running the first mock set in week 4. Talking and timing are
+  skills; they need reps alongside the material, not after it.
+- **"Talking will slow me down."** Narrating decisions costs a few seconds a minute and buys
+  you hints, because the interviewer can see where you are. Silence gets no hints.
+- **"Needing a hint means I failed."** One hint plus a clean finish and a sentence about what
+  it changed is a Hire. Needing the same hint twice is the problem.
+- **"The phone screen is the easy one."** Same 45-minute shape with less slack. Amazon's opens
+  with behavioral questions. Google's happens in a plain document with no autocomplete, and
+  the document is the only thing the interviewer sees, so examples go in writing.
+
+### What to do next
+
+Open Part 2 below and read Part 2 §1, the 45-minute table, and Part 2 §2, the out-loud script. Then a
+20-minute first task: set a 20-minute timer, start your phone recording, and solve `two_sum`
+from chapter 01 out loud using the script's sentences, including "does this look right to
+you?" answered by yourself. Watch the recording at 1.5× speed and count silences longer than
+30 seconds. That count is your starting number. Then read Part 2 §4 and score yourself with the
+rubric before the first real mock set in week 4.
+
+## Part 2 · The reference
+
+*The worked anchor problem, the templates to memorize, recognition cues, and pitfalls.
+This is the part you come back to.*
+
+### 0. Why this matters, and how it works in one picture
 
 **Where it lives in the real world.** The single biggest reason prepared candidates fail is
 the gap between solving a problem at your desk and solving the same problem while a stranger
@@ -46,7 +213,7 @@ instead of silence, the "what do I say now" freeze is gone. It does not come bac
 **You will know you have it when** a timer starting and a camera pointing at you changes
 nothing about how you solve the problem.
 
-## 1. The 45-minute coding interview, minute by minute
+### 1. The 45-minute coding interview, minute by minute
 
 Both companies give you one problem (sometimes a warm-up plus a main problem) in 45 minutes.
 The interviewer expects to spend the first few minutes on introductions and the last few on
@@ -68,7 +235,7 @@ O(n log n) solution beats an imagined O(n).
 The phone screen is the same shape with less slack: the warm-up, if there is one, should be
 done in 10 minutes.
 
-## 2. The out-loud script
+### 2. The out-loud script
 
 You do not need to improvise. Use these sentences. They sound natural because they are what
 good candidates actually say, and they hit the communication rubric on purpose.
@@ -126,11 +293,11 @@ good candidates actually say, and they hit the communication rubric on purpose.
   with the same array, I would precompute ___."
 - "Is there a follow-up you would like me to look at?"
 
-## 3. What the interviewer writes down
+### 3. What the interviewer writes down
 
 Knowing the rubric changes how you spend your minutes.
 
-### Google: four axes
+#### Google: four axes
 
 Every Google coding interviewer writes feedback under these four headings, each with a rating
 from Strong No Hire to Strong Hire, and a hiring committee reads them without meeting you.
@@ -146,7 +313,7 @@ The committee is looking for consistency across four or five interviewers. One "
 with strong others is fine. One "No Hire" needs to be outweighed by clear strength elsewhere.
 Two "No Hire" ratings and the packet usually does not pass.
 
-### Amazon: coding bar plus Leadership Principles
+#### Amazon: coding bar plus Leadership Principles
 
 Amazon interviewers rate whether your coding met the bar for the level and write a
 separate section on the two or three LPs they were assigned (see chapter 14). In the coding
@@ -163,9 +330,9 @@ portion they weight:
 At Amazon the coding bar is somewhat lower than Google's per problem, but the behavioral
 half is graded just as hard and a coding round with no LP evidence is an incomplete round.
 
-## 4. How to run a mock
+### 4. How to run a mock
 
-### With a friend
+#### With a friend
 
 Give them the problem and the solution the day before. Their job in the room: read the
 prompt once, answer clarifying questions honestly, give one hint if you are silent for two
@@ -174,7 +341,7 @@ react to your code with their face. Forty-five minutes on a timer, then 10 minut
 feedback using the table. Swap roles next time; interviewing someone teaches you what
 interviewers notice.
 
-### Alone
+#### Alone
 
 It works better than you expect. Set a 45-minute timer. Record yourself: phone camera
 pointed at your paper or screen, audio on. Talk to the camera as if it were a person,
@@ -183,7 +350,7 @@ at hints or solutions until the timer ends. Then watch the recording at 1.5x spe
 it with the rubric. The recording is the point. You will hear the silences, the "um, so,
 basically," and the moment you started coding before you had a plan.
 
-### The rubric
+#### The rubric
 
 Score each row 1 (missing), 2 (partial), 3 (solid). A hireable mock scores 24 or more out
 of 30 with no 1s.
@@ -204,7 +371,7 @@ of 30 with no 1s.
 Keep a log: date, problem, score, the two lowest rows. After five mocks the low rows are
 your pattern. Fix those, not everything.
 
-## 5. Six timed mock sets
+### 5. Six timed mock sets
 
 Three problems per set, 45 minutes each on a timer, out loud, in one sitting if you can
 (2 hours 15 minutes plus breaks) or one per day if not. Solve from the exercise file for
@@ -215,7 +382,7 @@ After the set, read the pattern column and check: did you *recognize* the patter
 first five minutes, or did you find it by trial? Recognition is the skill the mocks are
 training. A problem you solved without recognizing the pattern goes on your redo list.
 
-### Set 1 · Phone-screen shape, Amazon-flavored
+#### Set 1 · Phone-screen shape, Amazon-flavored
 
 | # | Chapter | Function | Pattern being tested |
 |---|---------|----------|----------------------|
@@ -223,7 +390,7 @@ training. A problem you solved without recognizing the pattern goes on your redo
 | 2 | `03_stack_queue` | `valid_parentheses` | Stack for matching; map closers to openers |
 | 3 | `05_binary_search` | `search_rotated` | Binary search with a modified invariant: which half is sorted? |
 
-### Set 2 · Phone-screen shape, Google-flavored
+#### Set 2 · Phone-screen shape, Google-flavored
 
 | # | Chapter | Function | Pattern being tested |
 |---|---------|----------|----------------------|
@@ -231,7 +398,7 @@ training. A problem you solved without recognizing the pattern goes on your redo
 | 2 | `02_two_pointers_sliding_window` | `longest_substring_no_repeat` | Variable-size sliding window with a set or last-index map |
 | 3 | `08_graphs` | `num_islands` | Grid as implicit graph; DFS or BFS flood fill; mark visited in place |
 
-### Set 3 · Onsite round, data structures
+#### Set 3 · Onsite round, data structures
 
 | # | Chapter | Function | Pattern being tested |
 |---|---------|----------|----------------------|
@@ -239,7 +406,7 @@ training. A problem you solved without recognizing the pattern goes on your redo
 | 2 | `03_stack_queue` | `daily_temperatures` | Monotonic stack for "next greater element" |
 | 3 | `04_linked_list` | `LRUCache` | Dict plus doubly linked list; O(1) get and put; Amazon's favorite |
 
-### Set 4 · Onsite round, recursion
+#### Set 4 · Onsite round, recursion
 
 | # | Chapter | Function | Pattern being tested |
 |---|---------|----------|----------------------|
@@ -247,7 +414,7 @@ training. A problem you solved without recognizing the pattern goes on your redo
 | 2 | `09_recursion_backtracking` | `subsets` | Choose / don't choose backtracking template |
 | 3 | `10_dynamic_programming` | `coin_change` | Unbounded knapsack; memoized recursion → bottom-up 1D table |
 
-### Set 5 · Onsite round, graphs and intervals
+#### Set 5 · Onsite round, graphs and intervals
 
 | # | Chapter | Function | Pattern being tested |
 |---|---------|----------|----------------------|
@@ -255,7 +422,7 @@ training. A problem you solved without recognizing the pattern goes on your redo
 | 2 | `08_graphs` | `rotting_oranges` | Multi-source BFS; level count is the answer |
 | 3 | `08_graphs` | `alien_dictionary` | Build a graph from adjacent-word comparisons, then topological sort; detect cycles |
 
-### Set 6 · Onsite round, hard-ish
+#### Set 6 · Onsite round, hard-ish
 
 | # | Chapter | Function | Pattern being tested |
 |---|---------|----------|----------------------|
@@ -263,7 +430,7 @@ training. A problem you solved without recognizing the pattern goes on your redo
 | 2 | `10_dynamic_programming` | `word_break` | DP over prefixes: `dp[i]` = can `s[:i]` be segmented |
 | 3 | `02_two_pointers_sliding_window` | `trapping_rain_water` | Two pointers moving from the lower max side; or prefix max arrays |
 
-### Swap-in pool
+#### Swap-in pool
 
 When you have done all six sets, build your own from this pool. Aim for one problem from each
 difficulty, different chapters, and at least one you have not seen for a week.
@@ -298,7 +465,7 @@ difficulty, different chapters, and at least one you have not seen for a week.
 | Hard | `10_dynamic_programming` | `edit_distance` | 2D table; three transitions |
 | Hard | `12_tries_unionfind_bits` | `find_words` | Trie plus grid DFS; prune found words |
 
-## 6. The 12-week calendar
+### 6. The 12-week calendar
 
 The README gives per-chapter durations that add up to about 14 weeks of content plus two for
 mocks. This calendar compresses that into 12 by pairing the half-week chapters and running
@@ -332,9 +499,9 @@ colleague, or a platform (Pramp is free and peer-to-peer; interviewing.io has pa
 with engineers from the target companies). Five human mocks before the real loop is the
 minimum. Alone-with-a-camera mocks are for the weekends in between.
 
-## 7. Phone screen vs onsite at Google and Amazon
+### 7. Phone screen vs onsite at Google and Amazon
 
-### Amazon
+#### Amazon
 
 **Online Assessment (OA).** Before any human contact, most SDE1 and many SDE2 candidates get
 an OA in a browser. Two coding questions, about 70 minutes total, usually a medium string or
@@ -357,7 +524,7 @@ one low-level / OOD round, and the Bar Raiser round which is mostly behavioral. 
 opens with 15 to 25 minutes of LP questions. One of the interviewers is the hiring manager.
 The debrief happens the same or next day; a recruiter calls within a week.
 
-### Google
+#### Google
 
 **Phone screen.** 45 minutes with one engineer in a shared Google Doc (no syntax highlighting,
 no autocomplete, tabs are your problem). One problem, sometimes with a warm-up. Medium to
@@ -372,7 +539,7 @@ more in style: some talk a lot, some say almost nothing. Interviewers write feed
 hiring committee that did not meet you reads the packet and decides. Then team matching, then
 a compensation committee. Expect two to six weeks between onsite and offer.
 
-### What to expect, side by side
+#### What to expect, side by side
 
 | | Amazon | Google |
 |-|--------|--------|
@@ -387,9 +554,9 @@ a compensation committee. Expect two to six weeks between onsite and offer.
 Practice in the tool you will use. For Google, write at least ten problems in a plain Google
 Doc before the phone screen. For Amazon, practice in any online editor with autocomplete off.
 
-## 8. Checklists
+### 8. Checklists
 
-### The week before
+#### The week before
 
 - [ ] Stop learning new patterns. Redo list only. Nothing new enters the list this week.
 - [ ] Do two full mocks with a human, one coding and one behavioral, on different days.
@@ -405,7 +572,7 @@ Doc before the phone screen. For Amazon, practice in any online editor with auto
 - [ ] Sleep on schedule for the full week. A rested candidate outscores a crammed one.
 - [ ] The day before: one easy problem in the morning to stay warm, then nothing. Walk.
 
-### Day of
+#### Day of
 
 - [ ] Eat something with protein. Water on the desk. Bathroom before each round.
 - [ ] Paper and two pens beside you even for virtual interviews (for drawing examples), unless
@@ -419,7 +586,7 @@ Doc before the phone screen. For Amazon, practice in any online editor with auto
 - [ ] After the last round: write down every question you got while you remember. It is the
       most valuable study material you will ever own, and it is useless in a week.
 
-## 9. When you get stuck in the real room
+### 9. When you get stuck in the real room
 
 You will get stuck. Interviewers expect it and often plan for it. What they grade is what you
 do in the next two minutes. Five moves, in the order to try them:

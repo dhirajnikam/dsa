@@ -1,7 +1,5 @@
 # 14 · Behavioral
 
-*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
-
 > Amazon does not hire the best coder in the loop. It hires the person every interviewer can
 > write a paragraph of evidence about. Your job in this chapter is to make that paragraph
 > easy to write.
@@ -10,7 +8,175 @@
 coding and design rounds. Google asks one dedicated round called Googleyness & Leadership.
 Nothing else in this course has a higher failure rate per minute of preparation skipped.
 
-## 0. Why this matters, and how it works in one picture
+## Part 1 · From zero
+
+*Read this if the chapter title means little to you yet. It explains the idea in plain
+language before any code. If it already makes sense, skip to Part 2.*
+
+### In one sentence
+
+A behavioral interview asks you to prove a quality about yourself with a true story that has
+a number in it, instead of claiming the quality with an adjective.
+
+### Start with something you already do
+
+A friend is planning a trip and asks, "Are you reliable?" Two ways to answer.
+
+The first: "Yes, very." You have just given an opinion about yourself. Your friend has no
+reason to believe it, and they have nothing to repeat to anyone else.
+
+The second: "Last month the caterer cancelled on my sister's wedding, four days out. I rang
+eleven places that afternoon and had a replacement signed by dinner, three hours after the
+call." You never said the word reliable. Your friend said it in their own head, and they can
+retell that story to someone else tonight. That is evidence, and it is the entire chapter.
+
+Look at what the second answer contains. A situation (the caterer cancelled). Your job in it
+(find a replacement). What you did (rang eleven places). How it ended (signed in three hours).
+That is STAR: Situation, Task, Action, Result. It is not a formula for sounding polished. It
+is the shape a story has to take before another person can believe it and write it down.
+
+Now the other phrase. A **Leadership Principle** is a named value a company uses to judge
+behavior. Amazon has sixteen and takes them literally: promotions are argued under those
+headings, and so is your interview. Three of them, in plain words:
+
+- **Ownership.** You fix things even when they are not your job. The build has been red for
+  two weeks and everyone ignores the email; you go find out why.
+- **Dive Deep.** You go look at the actual data instead of accepting a summary. Someone says
+  "nothing changed on our side"; you read their deploy history anyway.
+- **Customer Obsession.** You start from what the user needs, not what is easy to build. You
+  cut a feature you liked because support tickets said users wanted something else.
+
+Each interviewer is assigned two or three of these. Their job is to write a paragraph of
+specific evidence about you under each one. If they cannot, you fail, no matter how the
+coding went.
+
+### Now the same thing with numbers
+
+Here is a whole STAR answer in four sentences, for "Tell me about a time you took on
+something that was not your job" (Ownership):
+
+> **S:** In my internship, the team's nightly test run had been failing for two weeks and
+> everyone was ignoring the red email. **T:** Nobody owned it, and I decided to find out why
+> before the release. **A:** I read the log, found one test depended on a server that had been
+> shut down, rewrote it to use a local file, and posted the fix with a one-line explanation.
+> **R:** The run was green the next morning and stayed green through the release, and the
+> team lead asked me to add a "who owns this" line to the failure email.
+
+Count what the interviewer can copy into their notes: two weeks, one test, next morning, and
+four things that start with "I." That is a small story, sized for an intern, and it is a full
+pass on Ownership.
+
+The proportions matter as much as the content:
+
+| Part | Time | What it is for |
+|------|------|----------------|
+| Situation | 15 seconds | So they can picture it |
+| Task | 10 seconds | Your job, not the team's |
+| Action | 90 seconds | Three to five decisions, each starting with "I" |
+| Result | 20 seconds | A number, then one thing you changed afterward |
+
+Pause and predict: rewrite the Result sentence with no numbers in it. What did the
+interviewer lose?
+
+<details><summary>Answer</summary>
+"The tests started passing again and people were happy." Nothing to copy down. "Two weeks
+red, green the next morning, stayed green through release" is a fact they can quote at the
+debrief. Adjectives evaporate; numbers survive.
+</details>
+
+Now the "I" question, because it worries everyone. The interviewer is hiring you, not your
+team. Every "we decided" forces them to ask "what did *you* do?" and costs you a follow-up.
+"I" is not bragging when what follows it is a fact. "I brought the page load from 800 to 400
+milliseconds" is a measurement. Credit others by name, then say your part: "The team's goal
+was the migration; my piece was the data layer; I did these three things."
+
+### The words people use
+
+- **Behavioral interview.** Questions that start "Tell me about a time..." Graded, not chit-chat.
+- **STAR.** Situation, Task, Action, Result. The shape every answer takes.
+- **Leadership Principle (LP).** One of Amazon's sixteen named values. Each interviewer probes two or three.
+- **Evidence vs adjective.** "Found the config diff" is evidence. "Very thorough" is an adjective.
+- **Loop / onsite.** The day of four or five back-to-back interviews.
+- **Bar Raiser.** An Amazon interviewer from another team whose only job is to protect the
+  hiring standard. They can veto.
+- **Debrief.** The meeting after your loop where interviewers read each other's notes and argue.
+- **Probe / follow-up.** "What would you do differently?" "What was the metric?" The probes
+  decide the vote.
+- **Story bank.** Your eight prepared true stories, written one page each in STAR form.
+- **Story matrix.** A grid of stories against LPs so you know which story covers which principle.
+- **Googleyness & Leadership (G&L).** Google's one behavioral round. No LP list; they look for
+  collaboration, handling ambiguity, ownership, and judgment.
+- **Hiring committee.** At Google, people who never met you read all the notes and decide.
+- **Disagree and commit.** Push back with data, lose, then support the decision fully. Both halves are graded.
+- **Level / leveling.** SDE1, SDE2, L4, L5. Your stories must be the size of the level.
+- **Red flag.** Blame, "we" with no "I," no number, no conflict, vagueness under probing.
+- **p99.** The time the slowest 1 in 100 requests take. A common number in engineering stories.
+
+### Why this matters more than it looks
+
+At Amazon, every round opens with 15 to 25 minutes of this. Four or five rounds means 60 to
+125 minutes of behavioral in one loop, more than any single coding problem gets. The Bar
+Raiser typically spends their whole hour on it and can veto. If two interviewers write "no
+evidence of Ownership," a perfect coding round does not rescue you.
+
+The lesson calls this the highest failure rate per minute of preparation skipped in the
+course, and the arithmetic backs it up. The preparation is eight true stories, one page each,
+and 30 minutes a day for two weeks. Roughly seven hours to remove the most common reason
+strong coders get rejected.
+
+### Try it in your head
+
+1. Spot everything wrong with: "We had a really bad outage and worked hard to fix it."
+
+<details><summary>Answer</summary>
+No number ("really bad"). No "I" (who did what?). No action you can picture ("worked hard").
+No result. No follow-up change. Same events, told well: "The API was down 40 minutes; I found
+the expired certificate in the load balancer logs, rotated it, and added an expiry alert."
+</details>
+
+2. "Tell me about a time you disagreed with your manager." Which principle, and which half
+   do people forget?
+
+<details><summary>Answer</summary>
+Have Backbone; Disagree and Commit. People tell the disagreement and forget the commit: what
+you did after the decision went against you, and how it turned out.
+</details>
+
+3. You fixed a small bug in one day. Can that be a story? For which level is it too small?
+
+<details><summary>Answer</summary>
+Yes for Dive Deep if you show three layers of investigation and a number. Too small as a
+Deliver Results story for SDE2 and above, where they expect a service or a cross-team project.
+</details>
+
+### Common confusions, cleared
+
+- **"Isn't this the warm-up before the real interview?"** It is the interview. There is a
+  rubric, notes, and a vote per principle.
+- **"I don't have impressive stories."** Impressive is not the bar. Specific is. A two-week bug
+  with three "I" decisions and a number beats a vague "I led a migration." Size the story to
+  your level and pick ones where something went wrong.
+- **"Should every story end with me being right?"** No. One or two where you were wrong and
+  changed how you work make the others believable.
+- **"If I don't remember the exact number, can I round up a bit?"** Say "roughly" and give
+  what you remember. Interviewers spot invention because details get vaguer under probing, not
+  sharper.
+
+### What to do next
+
+Open Part 2 below and read Part 2 §3, "STAR done right," including the strong and weak versions of
+the same story. Then a 20-minute first task: pick one true thing from the last two years
+where something went wrong and you did something about it. Write it in four sentences labeled
+S, T, A, R, with a number in R and at least three "I" verbs in A. Read it aloud with a timer.
+If it is under two minutes and has the number, you have story one of eight. Then read Part 2 §4 to
+build the matrix.
+
+## Part 2 · The reference
+
+*The worked anchor problem, the templates to memorize, recognition cues, and pitfalls.
+This is the part you come back to.*
+
+### 0. Why this matters, and how it works in one picture
 
 **Where it lives in the real world.** Amazon's Leadership Principles are not interview
 decoration. They are how promotions and performance reviews are actually run inside the
@@ -49,7 +215,7 @@ realizing you sound like a colleague describing work, not a candidate selling.
 **You will know you have it when** an interviewer names any principle and a specific story,
 with its number, is in your mouth within five seconds.
 
-## 1. Why this decides Amazon loops
+### 1. Why this decides Amazon loops
 
 An Amazon onsite is four to five interviewers plus a **Bar Raiser**: a trained interviewer
 from an unrelated team whose only job is to protect the hiring bar. The Bar Raiser has veto
@@ -79,13 +245,13 @@ when nobody asked), and **ethics and judgment** (do you push back on the wrong t
 hiring committee reads the written feedback from every round, so the same "quotable
 specifics" rule applies. Section 6 covers the Google-specific angles.
 
-## 2. The 16 Amazon Leadership Principles
+### 2. The 16 Amazon Leadership Principles
 
 For each: what it means in plain English, two questions you will actually hear, and what a
 strong answer must contain. Learn the names. Interviewers rarely say "this is a Dive Deep
 question," but you should know which one you are answering so you can hit its marks.
 
-### Customer Obsession
+#### Customer Obsession
 **Meaning.** Start from what the customer needs, not from what is convenient to build.
 **Questions.** "Tell me about a time you went above and beyond for a customer." "Describe a
 time you had to balance customer needs against business or technical constraints."
@@ -93,7 +259,7 @@ time you had to balance customer needs against business or technical constraints
 that was not on your plan, what you gave up to serve it, and how you knew it worked (usage,
 feedback, a metric).
 
-### Ownership
+#### Ownership
 **Meaning.** You act on behalf of the whole company, not just your ticket. "That's not my
 job" is the anti-pattern.
 **Questions.** "Tell me about a time you took on something outside your responsibilities."
@@ -101,21 +267,21 @@ job" is the anti-pattern.
 **Strong answer contains.** The gap you noticed, why it was nobody's job, the moment you
 decided to own it, and the long-term fix (not a one-time patch).
 
-### Invent and Simplify
+#### Invent and Simplify
 **Meaning.** Find a simpler way; do not accept "this is how it has always been done."
 **Questions.** "Tell me about a time you simplified a process or system." "Describe the most
 innovative thing you have done."
 **Strong answer contains.** The before-state with a measure of its complexity (steps, lines,
 hours, services), the idea, why it was not obvious, and the after-state with the same measure.
 
-### Are Right, A Lot
+#### Are Right, A Lot
 **Meaning.** Good judgment, and the habit of seeking out views that might prove you wrong.
 **Questions.** "Tell me about a time you made a decision with incomplete information." "Tell
 me about a time you were wrong."
 **Strong answer contains.** What data you had, what you did not have, how you decided, the
 outcome, and (for the "wrong" version) what changed in how you decide now.
 
-### Learn and Be Curious
+#### Learn and Be Curious
 **Meaning.** You keep learning on your own and it shows up in your work.
 **Questions.** "Tell me about something you learned recently that made you better at your
 job." "Describe a time you had to learn a new technology quickly."
@@ -123,7 +289,7 @@ job." "Describe a time you had to learn a new technology quickly."
 codebase, an expert you cornered), and the concrete thing it let you do that you could not do
 before.
 
-### Hire and Develop the Best
+#### Hire and Develop the Best
 **Meaning.** You raise the bar for the people around you: mentoring, feedback, interviewing.
 **Questions.** "Tell me about a time you helped someone grow." "Describe how you have given
 difficult feedback."
@@ -131,21 +297,21 @@ difficult feedback."
 but what you actually said and set up), and where they ended up. For senior roles: how you
 changed a team's hiring or review process.
 
-### Insist on the Highest Standards
+#### Insist on the Highest Standards
 **Meaning.** You do not ship things you know are not good enough, even under pressure.
 **Questions.** "Tell me about a time you refused to compromise on quality." "Describe a time
 you were not satisfied with the status quo."
 **Strong answer contains.** The standard that was at risk, who was pushing to lower it and
 why (they had a reason), what you did instead, and the cost you paid for holding the line.
 
-### Think Big
+#### Think Big
 **Meaning.** You propose direction beyond the current quarter, and you make people see it.
 **Questions.** "Tell me about a time you proposed something bold." "Describe a time you
 influenced a strategy or roadmap."
 **Strong answer contains.** The small thing you were asked for, the bigger thing you saw, how
 you sold it, and what actually got built. If it did not get built, what you learned.
 
-### Bias for Action
+#### Bias for Action
 **Meaning.** Speed matters; most decisions are reversible; do not wait for perfect information.
 **Questions.** "Tell me about a time you had to make a quick decision." "Describe a time you
 took a calculated risk."
@@ -153,14 +319,14 @@ took a calculated risk."
 downside* (feature flag, rollback plan, small blast radius), and the result. Recklessness is
 the failure mode; "calculated" is the word.
 
-### Frugality
+#### Frugality
 **Meaning.** Do more with less; constraints breed invention.
 **Questions.** "Tell me about a time you delivered with limited resources." "Describe a time
 you saved money or effort."
 **Strong answer contains.** The resource you did not have (people, budget, time, compute),
 the cheaper path you found, and the cost you saved in a unit (dollars, hours, instances).
 
-### Earn Trust
+#### Earn Trust
 **Meaning.** Listen, speak candidly, own your mistakes publicly, treat others with respect.
 **Questions.** "Tell me about a time you had to earn the trust of a team." "Describe a time
 you received hard feedback."
@@ -168,7 +334,7 @@ you received hard feedback."
 over time (not one gesture), and how you knew trust had been restored. For feedback: what
 you were told, exactly, and what you changed.
 
-### Dive Deep
+#### Dive Deep
 **Meaning.** You go to the data and the code; you do not accept a summary when the detail
 matters.
 **Questions.** "Tell me about a time you found the root cause of a hard problem." "Describe a
@@ -176,7 +342,7 @@ time the data told you something different from what people believed."
 **Strong answer contains.** The symptom, at least three layers of investigation with the tool
 or query at each layer, the root cause, and the fix. This is where you may talk technically.
 
-### Have Backbone; Disagree and Commit
+#### Have Backbone; Disagree and Commit
 **Meaning.** Push back respectfully when you disagree, even with seniors; once decided,
 commit fully.
 **Questions.** "Tell me about a time you disagreed with your manager." "Describe a time you
@@ -186,21 +352,21 @@ right forum), the decision, and *how you committed* afterward, including the out
 halves are graded. A story where you won is fine; a story where you lost and committed
 gracefully is better.
 
-### Deliver Results
+#### Deliver Results
 **Meaning.** You ship, on time, at quality, despite setbacks.
 **Questions.** "Tell me about a time you delivered under a tight deadline." "Describe a
 project that hit obstacles. How did you get it over the line?"
 **Strong answer contains.** The commitment, the obstacle (specific), the trade-off you made
 (scope, not quality), and the shipped result with a date and a number.
 
-### Strive to be Earth's Best Employer
+#### Strive to be Earth's Best Employer
 **Meaning.** You make the workplace safer, more inclusive, and better for the people in it.
 **Questions.** "Tell me about a time you improved your team's working environment." "Describe
 a time you supported a colleague who was struggling."
 **Strong answer contains.** Something you did for others that was not required, why it
 mattered to them, and what changed. Empathy shown through actions, not stated as a trait.
 
-### Success and Scale Bring Broad Responsibility
+#### Success and Scale Bring Broad Responsibility
 **Meaning.** Your decisions affect people outside the room; consider them.
 **Questions.** "Tell me about a time you considered the wider impact of a technical decision."
 "Describe a decision where the right thing and the easy thing differed."
@@ -211,7 +377,7 @@ Priorities if your time is short: **Ownership, Dive Deep, Deliver Results, Custo
 Have Backbone, Earn Trust, Bias for Action, Invent and Simplify.** Those eight cover the
 overwhelming majority of Amazon questions. The other eight show up more at senior levels.
 
-## 3. STAR done right
+### 3. STAR done right
 
 STAR is Situation, Task, Action, Result. Everyone knows the acronym. Almost everyone gets the
 proportions wrong. The fix:
@@ -230,7 +396,7 @@ warning sign to the interviewer; a ninety-second answer with a number in it is a
 them to ask "what did *you* do?" and costs you a probe. Say "the team's goal was X; my part was
 Y; I did Z."
 
-### A strong answer (about 200 words)
+#### A strong answer (about 200 words)
 
 *Question: "Tell me about a time you found the root cause of a difficult problem."* (Dive Deep)
 
@@ -254,7 +420,7 @@ Y; I did Z."
 Why it works: a metric at the start and end, four "I" actions each of which is a decision, a
 disagreement handled with evidence, and a follow-up that changed the system.
 
-### The same story, weak version, annotated
+#### The same story, weak version, annotated
 
 > We had a latency problem in checkout that was really bad and affecting a lot of customers.
 > *[No number. "Really bad" is an adjective. Who were the customers?]*
@@ -271,13 +437,13 @@ disagreement handled with evidence, and a follow-up that changed the system.
 
 Same events. One gets a hire; the other gets "no evidence, candidate was vague."
 
-## 4. The story bank
+### 4. The story bank
 
 You need about eight stories. Each story should be strong for two or three LPs, so that
 every LP you are likely to be asked has at least two stories behind it and you never tell the
 same story twice to the same interviewer (they compare notes at the debrief).
 
-### Template
+#### Template
 
 Fill this in before you do anything else in this chapter. The X marks are an example of what a
 finished matrix looks like; yours will differ.
@@ -298,7 +464,7 @@ Bold X is the story's primary LP; plain X is a secondary LP the same story suppo
 Check the columns. Every LP in your priority eight should have at least two marks. If a column
 is empty, you need a story for it or you need to find that angle in an existing story.
 
-### Picking the eight
+#### Picking the eight
 
 Interviewers ask about the same eight situations over and over. Have one story for each:
 
@@ -325,7 +491,7 @@ Rules for choosing:
   tell each one in two minutes and answer probes on any detail. Do not memorize the words;
   memorize the beats.
 
-## 5. Follow-up probes and how to answer them
+### 5. Follow-up probes and how to answer them
 
 The first answer gets you on the board. The probes decide the vote. A good interviewer asks
 three to five follow-ups per story. Common ones:
@@ -348,7 +514,7 @@ a night and a page a week." If you did not do something, say so: "I did not foll
 the other team afterward; in hindsight I should have." That answer scores higher than a
 smooth fiction.
 
-## 6. Google-specific: Googleyness & Leadership
+### 6. Google-specific: Googleyness & Leadership
 
 Google's behavioral round is less structured than Amazon's and the interviewer has more
 freedom. They still write to a rubric, and the hiring committee reads it looking for the
@@ -387,7 +553,7 @@ team. For L5 they want evidence you led something: a design others implemented, 
 across teams, a decision you were accountable for. Pick stories sized to the level you are
 interviewing for.
 
-## 7. Red flags that fail candidates
+### 7. Red flags that fail candidates
 
 Interviewers write these down. Each one alone can produce a no-hire.
 
@@ -410,7 +576,7 @@ Interviewers write these down. Each one alone can produce a no-hire.
 - **Talking for five minutes without pausing.** The interviewer has probes to ask and a
   rubric to fill. Give them room.
 
-## 8. Questions to ask the interviewer
+### 8. Questions to ask the interviewer
 
 You usually get five minutes at the end. Interviewers do note what you ask. Pick two.
 
@@ -436,7 +602,7 @@ You usually get five minutes at the end. Interviewers do note what you ask. Pick
    this is the wrong room for it. Ask the recruiter, or ask a specific version: "What does a
    typical on-call week look like?"
 
-## 9. The 30-minute daily drill, two weeks
+### 9. The 30-minute daily drill, two weeks
 
 Do this alongside the coding practice. Out loud, standing up if you can, with a timer.
 

@@ -1,7 +1,5 @@
 # 05 · Binary Search
 
-*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
-
 > Binary search is not "find a number in a sorted list." It is "find the boundary where a
 > yes/no question flips." Once you see it that way, half the problems in this chapter stop
 > being about sorted arrays at all, and you stop writing off-by-one bugs.
@@ -10,7 +8,161 @@
 looks nothing like binary search until you notice the monotonicity. Amazon asks the rotated
 array and 2D matrix versions as phone screens.
 
-## 0. Why this matters, and how it works in one picture
+## Part 1 · From zero
+
+*Read this if the chapter title means little to you yet. It explains the idea in plain
+language before any code. If it already makes sense, skip to Part 2.*
+
+### In one sentence
+
+Binary search is "ask one yes/no question, throw away half of what is left, repeat," and it
+works on anything where the answers line up as a run of no's followed by a run of yes's.
+
+### Start with something you already do
+
+A friend picks a secret number between 1 and 100. You guess; they say "higher" or "lower."
+
+Nobody guesses 1, then 2, then 3. You guess 50. "Higher." The secret is now in 51 to 100, and
+you never think about 1 to 50 again. You guess 75. "Lower." Now it is 51 to 74. Every guess
+halves the range, so 100 numbers fall in seven guesses and a million would take twenty.
+
+Now the twist that makes the chapter click. Forget numbers. A shop is closed early in the day
+and open later, and once it opens it stays open. You want the first hour it is open. "Open at
+noon?" No. Then every hour before noon is also a no; throw them all away. "Open at 6 pm?" Yes.
+Then every later hour is also a yes; you do not need them. Keep halving between noon and 6 pm
+and you find the opening hour in three questions.
+
+The pattern is "no, no, no, yes, yes, yes" in a row, and you want the spot where no flips to
+yes. That is the whole chapter. "Which is the smallest truck that fits the load?" Same shape:
+small trucks fail, and once one fits, every bigger one fits too. Sorted arrays are just one
+place the shape shows up.
+
+### Now the same thing with numbers
+
+Sorted list `[1, 3, 5, 7, 9, 11]`, target `7`. Two markers: `lo` is the leftmost position that
+could still hold the answer, `hi` the rightmost. Positions start at 0.
+
+| Step | lo | hi | mid = (lo + hi) // 2 | value at mid | verdict | move |
+|------|----|----|----------------------|--------------|---------|------|
+| 1 | 0 | 5 | 2 | 5 | too small | lo = 3 |
+| 2 | 3 | 5 | 4 | 9 | too big | hi = 3 |
+| 3 | 3 | 3 | 3 | 7 | found | return 3 |
+
+Three looks for six numbers. When the middle was too small, `lo` jumped to `mid + 1`, not
+`mid`. The middle was already ruled out, so there is no reason to keep it.
+
+Pause and predict: same list, target `4`, which is not there. What are `lo` and `hi` when the
+loop stops, and why does it stop?
+
+<details><summary>Answer</summary>
+Step 1: mid 2, value 5, too big, hi = 1. Step 2: mid 0, value 1, too small, lo = 1. Step 3:
+mid 1, value 3, too small, lo = 2. Now lo = 2 is past hi = 1, the range is empty, the loop
+stops, return -1. Notice lo ended exactly where 4 would be inserted to keep the list sorted.
+That is not a coincidence; it is exercise 2.
+</details>
+
+### The words people use
+
+- **lo, hi.** The two markers. Everything outside them has been proven not to matter.
+- **mid.** The middle position between the markers, rounded down. The one item you look at.
+- **Predicate.** A yes/no question you ask about a position, such as "is this value at least
+  the target?" Written `pred(i)` in the lesson.
+- **Monotonic.** The predicate's answers go "no, no, yes, yes" and never flip back. This is the
+  one property binary search truly needs. Sorted is a special case of it.
+- **Boundary.** The spot where no becomes yes. Most problems here are secretly "find the boundary."
+- **Closed interval `[lo, hi]`.** Both markers are live candidates. Loop while `lo <= hi`.
+- **Half-open interval `[lo, hi)`.** `hi` is one past the last candidate. Loop while `lo < hi`.
+  The lesson's `first_true` template uses this.
+- **Off-by-one.** Picture a fence between positions. Is `mid` on your side of the fence or the
+  other? Being wrong about that skips the answer or loops forever.
+
+  ```
+  positions:   0   1   2   3   4   5
+  answers:     N   N   N | Y   Y   Y
+                         ^ the fence sits between 2 and 3; the answer is 3
+  ```
+
+  If `mid` says yes, it might be the first yes, so keep it: `hi = mid`. If `mid` says no, it
+  can never be the answer, so step past it: `lo = mid + 1`.
+- **Binary search on the answer.** The thing you halve is a range of possible answers, like
+  truck capacities from 10 to 500, not an array.
+- **Feasible.** The test for one candidate answer. `feasible(k)` means "does k work?"
+- **Rotated array.** A sorted list cut and the pieces swapped, like `[4, 5, 6, 1, 2, 3]`.
+  One half around the middle is always still sorted.
+- **Peak.** An item bigger than both neighbours. "Am I already going downhill?" is monotonic.
+- **bisect.** Python's built-in binary search module. `bisect_right` finds the first position
+  greater than the target.
+
+### Why the fast way is fast
+
+| Items | Look at each one | Halve each time |
+|-------|------------------|-----------------|
+| 10 | 10 | 4 |
+| 1,000 | 1,000 | 10 |
+| 100,000 | 100,000 | 17 |
+
+Doubling the input adds one more look. That is O(log n). For "search on the answer," each test
+costs a pass over the data, so the total is about n times log of the answer range. For 100,000
+items and a range up to a billion, that is around 3,000,000 steps. Trying every possible answer
+would be 100,000 times a billion, which never finishes.
+
+The trade-off: you must have the "no, no, yes, yes" shape. Unsorted data has no fence, and
+binary search will confidently return nonsense. Sorting first costs O(n log n), which only pays
+off if you will search many times.
+
+### Try it in your head
+
+1. Secret number between 1 and 1,000. Worst case, how many guesses with halving?
+
+<details><summary>Answer</summary>
+Ten. 2 to the power 10 is 1,024, which covers 1,000. Guessing one by one could take 1,000.
+</details>
+
+2. Koko eats bananas at some speed and must finish within 8 hours. Speed 3 works. Does speed 5
+   work? Does speed 2? Do you know either for sure?
+
+<details><summary>Answer</summary>
+Speed 5 works for sure; eating faster never makes it harder. Speed 2 is unknown. That
+one-directional certainty is the monotonic shape. You want the smallest speed that works, the
+first yes.
+</details>
+
+3. `[1, 3, 5, 7]`, predicate "value at least 5." Write the row of N and Y and mark the fence.
+
+<details><summary>Answer</summary>
+N N Y Y. The fence sits between position 1 and position 2. The answer is position 2, value 5.
+</details>
+
+### Common confusions, cleared
+
+- **"Isn't binary search only for sorted arrays?"** The "no, no, yes, yes" shape is the
+  requirement, not the array. Truck sizes, eating speeds, and opening hours all have it without
+  being an array of anything.
+- **"Why does `lo = mid` loop forever sometimes?"** When `lo` and `hi` are one apart, `mid`
+  rounds down to `lo`. Setting `lo = mid` moves nothing. Use `lo = mid + 1` after proving `mid`
+  is a no.
+- **"Should I use `<` or `<=` in the loop?"** Pick one style and stay in it. Closed: `lo <= hi`
+  with `hi = mid - 1`. Half-open: `lo < hi` with `hi = mid`. Mixing them is the entire source
+  of off-by-one bugs.
+- **"What is the answer when the loop ends without finding anything?"** In the fence-finding
+  template, `lo` is the boundary. If there is no yes at all, `lo` lands one past the end, a
+  useful "not found" signal.
+
+### What to do next
+
+Open Part 2 below and read Part 2 §2, the fully worked `binary_search`, and trace its test with your
+own table like the one above. Then read "The one template" at the top of Part 2 §3 until the fence
+picture and `first_true` feel like the same thing. Then open `exercises.py` and do
+`binary_search` and `search_insert_position` with a 30-minute timer. When they pass,
+`min_eating_speed` is where "search on the answer" stops being a phrase and becomes something
+you have done.
+
+## Part 2 · The reference
+
+*The worked anchor problem, the templates to memorize, recognition cues, and pitfalls.
+This is the part you come back to.*
+
+### 0. Why this matters, and how it works in one picture
 
 **Where it lives in the real world.** `git bisect` finds the one commit that broke the build
 out of a thousand by testing ten of them. Every database index is a B-tree, and each step from
@@ -45,7 +197,7 @@ that flips from no to yes exactly once.
 **You will know you have it when** a problem says "minimum k such that ..." and you write the
 `feasible(k)` function before you write any loop.
 
-## 1. The core idea
+### 1. The core idea
 
 If you can ask one question and eliminate half of what remains, you need only log₂(n)
 questions. For a million items that is 20 questions instead of a million.
@@ -68,7 +220,7 @@ O(n) time                            O(log n) time
 The recognition cue: **sorted input, or a yes/no question whose answer is monotonic in
 some parameter.** "Monotonic" means: once it flips from no to yes, it never flips back.
 
-## 2. Anchor problem: Binary Search, fully worked
+### 2. Anchor problem: Binary Search, fully worked
 
 **Problem.** Given a sorted array of distinct integers `nums` and a `target`, return the
 index of `target`, or `-1` if it is absent. O(log n).
@@ -114,9 +266,9 @@ element tells me which half it must be in. I keep a closed interval of live indi
 `lo` or `hi` past the middle each step, and stop when the interval is empty. Log n steps,
 constant space."
 
-## 3. Patterns and templates in this chapter
+### 3. Patterns and templates in this chapter
 
-### The one template: first index where the predicate is True
+#### The one template: first index where the predicate is True
 
 Every binary search in this chapter is this one search in disguise. Imagine a boolean array
 that is all `False` then all `True`, like `FFFFTTT`. Find the first `T`.
@@ -155,7 +307,7 @@ Examples of the predicate, with the answer it gives:
 Memorize this template and derive everything else. When a problem says "sorted" or
 "monotonic," your first job is to write down the predicate, not the loop.
 
-### Closed vs. half-open: pick one and know it
+#### Closed vs. half-open: pick one and know it
 
 The anchor used a closed interval `[lo, hi]` with `while lo <= hi`. The template uses a
 half-open `[lo, hi)` with `while lo < hi`. Both are correct. Mixing them is the entire source
@@ -169,7 +321,7 @@ half-open [lo, hi): while lo <  hi;  lo = mid + 1;  hi = mid;      answer is lo 
 Use closed when you return as soon as you find an exact match. Use half-open when you are
 looking for a boundary.
 
-### Binary search on the answer
+#### Binary search on the answer
 
 When the question is "what is the minimum k such that something is possible," and being
 possible at `k` implies being possible at every larger `k`, then `feasible(k)` is a
@@ -193,7 +345,7 @@ this.
 
 Complexity is O(n log(range)) where `range` is `hi - lo`. Say that, not "O(n log n)."
 
-### Rotated arrays: find which half is sorted
+#### Rotated arrays: find which half is sorted
 
 In `[4, 5, 6, 7, 0, 1, 2]` at least one half around `mid` is properly sorted. Check whether
 the target falls inside the sorted half; if so, go there; otherwise, go to the other half.
@@ -207,13 +359,13 @@ else:                                  # right half is sorted
     else:                              hi = mid - 1
 ```
 
-### Two sorted arrays: partition, do not merge
+#### Two sorted arrays: partition, do not merge
 
 For the median of two sorted arrays in O(log(min(m, n))), binary search over how many
 elements you take from the shorter array to be in the left half. The partition is correct
 when every element on the left is ≤ every element on the right. Four numbers to compare.
 
-## 4. Recognition cues
+### 4. Recognition cues
 
 | You see | Think |
 |---------|-------|
@@ -227,7 +379,7 @@ when every element on the left is ≤ every element on the right. Four numbers t
 | "timestamps", "versions", "as of time t" | `bisect_right` on the per-key sorted list |
 | "two sorted arrays, log time" | partition the shorter array |
 
-## 5. Pitfalls
+### 5. Pitfalls
 
 - **`while lo < hi` with `hi = mid - 1`**, or `while lo <= hi` with `hi = mid`. You either skip
   the answer or loop forever. Pick closed or half-open and stay there.
@@ -246,7 +398,7 @@ when every element on the left is ≤ every element on the right. Four numbers t
 - **Integer overflow on `(lo + hi) // 2`.** Not a Python issue, but mention `lo + (hi - lo) // 2`
   if the interviewer writes Java or C++.
 
-## 6. Exercises
+### 6. Exercises
 
 | # | Function | Difficulty | Asked at | One hint |
 |---|---------|-----------|----------|----------|
