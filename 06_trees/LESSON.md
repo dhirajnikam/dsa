@@ -1,5 +1,7 @@
 # 06 · Trees
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A tree is the first data structure that is defined in terms of itself: a node, a left tree,
 > a right tree. So the algorithms are defined in terms of themselves too. Trust the recursive
 > call to be correct on the smaller tree, and most tree problems become three lines.

@@ -1,5 +1,7 @@
 # 03 · Stack & Queue
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A stack remembers what you have not finished yet. Every time a problem says "the most
 > recent unmatched thing," "the nearest one to the left," or "undo the last step," a stack is
 > already the answer. You just have to notice.

@@ -1,5 +1,7 @@
 # 14 · Behavioral
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Amazon does not hire the best coder in the loop. It hires the person every interviewer can
 > write a paragraph of evidence about. Your job in this chapter is to make that paragraph
 > easy to write.

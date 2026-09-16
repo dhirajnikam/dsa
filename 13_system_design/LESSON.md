@@ -1,5 +1,7 @@
 # 13 · System Design
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A system design interview is not a test of whether you know Kafka. It is a test of whether
 > you can turn "build Twitter" into a set of numbers, a handful of boxes, and a defended
 > choice between two reasonable options. The candidate who says "it depends, and here is what

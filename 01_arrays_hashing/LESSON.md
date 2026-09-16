@@ -1,5 +1,7 @@
 # 01 · Arrays & Hashing
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > The hash map is the single most valuable tool in interviews. It turns "have I seen this
 > before?" from a scan into a lookup. Most O(n²) → O(n) improvements in this chapter are
 > exactly that trade: memory for time.

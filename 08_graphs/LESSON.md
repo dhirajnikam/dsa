@@ -1,5 +1,7 @@
 # 08 · Graphs
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A graph is just "things and the connections between them." Cities and roads, courses and
 > prerequisites, cells and their neighbors. Almost every graph interview question is one of
 > five algorithms wearing a costume. Learn the five, and learn to see through the costume.

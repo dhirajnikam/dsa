@@ -1,5 +1,7 @@
 # 10 · Dynamic Programming
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Dynamic programming is not a new kind of thinking. It is recursion plus a notebook. You write
 > the honest brute-force recursion, notice you keep answering the same question, and start
 > writing the answers down. Everything else in this chapter is bookkeeping.

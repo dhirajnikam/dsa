@@ -1,5 +1,7 @@
 # 12 · Tries, Union-Find & Bits
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Three small tools, each with one job. A trie answers "what starts with this?" A union-find
 > answers "are these two in the same group?" Bit tricks answer "can I do this in O(1) with no
 > extra memory?" None of them is deep. All of them show up, and an interviewer can tell in ten

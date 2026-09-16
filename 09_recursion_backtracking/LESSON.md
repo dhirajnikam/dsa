@@ -1,5 +1,7 @@
 # 09 · Recursion & Backtracking
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Backtracking is brute force with manners. You still try everything, but you build each
 > candidate one decision at a time, and the moment a partial candidate cannot possibly work,
 > you undo the last decision and try the next. One template generates every subset,

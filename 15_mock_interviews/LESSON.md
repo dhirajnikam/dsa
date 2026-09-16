@@ -1,5 +1,7 @@
 # 15 · Mock Interviews & the Plan
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Nobody plays their first real match at the tournament. Every problem in this repo was
 > practice; this chapter is the scrimmage. You will be uncomfortable, timed, and talking to
 > a wall. That discomfort is the point. The room feels easy after this.

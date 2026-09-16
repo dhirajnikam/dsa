@@ -78,15 +78,23 @@ quitting.
 
 ## How one study session works
 
-Every chapter has three files:
+Every chapter has four files, and they are meant to be read in this order:
 
-- `LESSON.md` teaches the pattern. Read it once slowly with a pen. Trace every example by hand.
+- `THEORY.md` explains the idea from zero, in plain language. A story you already understand,
+  then the same story with numbers, a glossary of every jargon word, three "try it in your
+  head" questions with hidden answers, and the confusions everyone has, cleared. Read this
+  first if the chapter title means nothing to you yet. Skip it if it already does.
+- `LESSON.md` is the reference: the worked anchor problem, the code templates, recognition cues,
+  pitfalls. Read it once slowly with a pen. You will come back to it for years.
 - `exercises.py` has 8 to 21 problems as empty functions with tests. Run it: `python exercises.py`.
 - `solutions.py` has reference answers. It is locked by honor, not by code.
 
+Two speeds on purpose. The theory file is the friend explaining it over coffee. The lesson is
+the textbook page you photograph. Beginners need both; the friend first.
+
 The loop, every day:
 
-1. **Read** one lesson section or re-read the template you keep forgetting.
+1. **Read** the theory file if the topic is new, otherwise one lesson section or the template you keep forgetting.
 2. **Pick one problem.** Read it aloud. Write down two examples and one edge case before coding.
 3. **Set a timer for 30 minutes.** Talk out loud as if someone is listening. Yes, alone, out loud.
 4. **Run the tests.** `python exercises.py` prints PASS, FAIL, or TODO per problem.

@@ -1,5 +1,7 @@
 # 04 · Linked Lists
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A linked list is the simplest structure that can hurt you. There is no index, only a chain
 > of `next` pointers, and the moment you overwrite one before saving where it pointed, a piece
 > of the list is gone forever. This chapter is about the discipline that prevents that.

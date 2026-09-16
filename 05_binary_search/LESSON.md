@@ -1,5 +1,7 @@
 # 05 · Binary Search
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Binary search is not "find a number in a sorted list." It is "find the boundary where a
 > yes/no question flips." Once you see it that way, half the problems in this chapter stop
 > being about sorted arrays at all, and you stop writing off-by-one bugs.

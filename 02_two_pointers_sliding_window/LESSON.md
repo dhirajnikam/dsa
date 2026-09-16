@@ -1,5 +1,7 @@
 # 02 · Two Pointers & Sliding Window
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > Two indices moving through one array can replace a nested loop. The trick is always the
 > same: prove that one move can never lose the answer, and then make that move. Every
 > problem in this chapter is that proof in a different costume.

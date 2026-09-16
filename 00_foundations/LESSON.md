@@ -1,5 +1,7 @@
 # 00 · Foundations
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > "If you can't solve a problem, then there is an easier problem you can solve: find it." — George Pólya
 
 This chapter gives you three things you will use in every single interview: fluent Python,

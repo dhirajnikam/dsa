@@ -1,5 +1,7 @@
 # 11 · Greedy & Intervals
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A greedy algorithm makes the choice that looks best right now and never looks back. That is
 > reckless in general and exactly right in a handful of situations. The skill is not writing
 > the loop; it is knowing, and being able to say, why the loop is safe.

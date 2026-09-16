@@ -1,5 +1,7 @@
 # 07 · Heaps
 
+*New to this topic? Read `THEORY.md` in this folder first. It explains the idea from zero.*
+
 > A heap answers one question fast: "what is the smallest thing I have right now?" It does not
 > sort. It does not search. It gives you the minimum in O(1) and lets you insert or remove in
 > O(log n). When a problem repeatedly asks for the current smallest, largest, earliest, or
