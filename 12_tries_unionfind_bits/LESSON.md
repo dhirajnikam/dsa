@@ -10,6 +10,44 @@ counting) and at Amazon in search-related teams. Union-find appears whenever a g
 is really about connectivity (accounts merge, islands, provinces). Bit manipulation is a
 short-problem favorite at both, often as a warm-up or a "do it without extra space" follow-up.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Type "how to" into Google and the suggestions that
+appear before you finish are a trie walk: every keystroke moves one node deeper, and that
+node's children are the completions. Amazon's search-as-you-type and the routing table in
+every internet router are the same structure. Union-find is how a network monitor knows
+whether two machines are still connected as links fail, how Amazon merges duplicate accounts
+that share an email, and the engine inside Kruskal's minimum spanning tree. Bits are the
+permission flags on every file, the feature flags in every large codebase, and the
+compression in every image you load.
+
+**The analogy.** A trie is a paper dictionary where words sharing a prefix share pages:
+"app," "apple," and "apt" start on the same page, and turning to "ap" reaches all of them at
+once. Union-find is friend groups at a party. When two people shake hands their groups merge,
+and each group remembers one representative, so "same group?" is answered by asking each
+person who their representative is. Bits are a row of light switches: each is on or off, and
+an integer is the pattern of the whole row read at a glance.
+
+**How it works, in plain words.** A trie node is a dictionary of children plus a flag saying
+"a word ends here." Insert walks down, creating nodes as needed; `search` and `starts_with` do
+the same walk and differ only in whether they demand the flag at the bottom. Union-find keeps
+an array where each item points to a parent; follow the pointers to the representative, and
+merging two groups is one pointer assignment. Path compression points every node you touch
+straight at the root, so later lookups are nearly instant. Bit operations act on all the
+switches at once: AND to test, OR to set, XOR to flip.
+
+**What learning this will feel like.** This chapter looks like three unrelated topics stapled
+together, and the bit tricks feel like party tricks. Both feelings are accurate and neither
+matters. The aha is realizing that each of the three is one short template you memorize once:
+the `Trie` class in section 2, the `UnionFind` class in section 3, and the bit table in
+section 1. The one idea to hold in your head is that XOR cancels pairs: XOR a list where
+everything appears twice except one, and the pairs vanish, leaving the answer. The memorable
+trap is `search` returning `True` for `"app"` after inserting only `"apple"`, because you
+skipped the end-of-word flag. Everyone does it once.
+
+**You will know you have it when** "starts with" makes you draw a tree, "are these connected"
+makes you type `parent = list(range(n))`, and "appears exactly once" makes you reach for XOR.
+
 ## 1. The core idea
 
 **Trie.** A hash set tells you whether a whole word exists. It cannot tell you whether any word

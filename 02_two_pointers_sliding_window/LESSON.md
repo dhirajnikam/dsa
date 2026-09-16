@@ -8,6 +8,41 @@
 minimum window). Google uses Trapping Rain Water and Sliding Window Maximum as second-half
 follow-ups to warm-up questions.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Amazon Kinesis and every stream-processing system compute
+"events in the last five minutes" with a sliding window: new events enter on the right, old ones
+expire on the left, and nobody recounts the whole stream. A rate limiter that allows 100 requests
+per minute is a window over timestamps. Log analysis tools that find "the busiest ten-second span"
+are Sliding Window Maximum with a different label. And when a database merges two sorted runs
+during a sort or a join, it walks two pointers down two lists and always takes the smaller head.
+The pattern is small. It is everywhere.
+
+**The analogy.** Two people walk toward each other down a hallway, each checking doors. Neither
+ever checks a door the other has already passed, and they stop when they meet. That is the
+opposite-ends flavor. The sliding window is a caterpillar: the front inches forward, and the back
+only catches up when the body gets too long. Neither end ever moves backward. Hold on to that
+image, because it is the whole reason the method is fast.
+
+**How it works, in plain words.** A nested loop checks every pair, and most pairs are hopeless.
+Two pointers use structure, usually sorted order or the fact that a window only changes at its
+ends, to throw away whole families of pairs in one move. If the sum is too small, the left number
+can never work with anything to its right, so cross it off and never look back. Each pointer
+moves in one direction only, so the total number of moves is at most twice the length of the
+input. That is why a `while` inside a `for` here is O(n), not O(n²).
+
+**What learning this will feel like.** The code is short. The doubt is not. You will write
+`l += 1` and think "but what if the answer was back there?" That doubt is the actual content of
+this chapter, and it is healthy. The aha comes when you can finish the sentence "moving this
+pointer is safe because..." out loud, first for Container With Most Water and then for Three Sum,
+and realise the sentence *is* the solution. Expect one bug to bite: shrinking a window with `if`
+instead of `while`, so one removal leaves the window still invalid. It fails on Longest Substring
+Without Repeating Characters in a way you will remember, and then never repeat.
+
+**You will know you have it when** you see "longest substring such that" and your first thought
+is not a loop but the question "what makes a window invalid, and does shrinking from the left
+always fix it?"
+
 ## 1. The core idea
 
 A nested loop tries every pair `(i, j)`. That is O(n²) pairs. Two pointers walks through the

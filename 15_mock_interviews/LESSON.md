@@ -8,6 +8,42 @@
 timeline on every problem you solve. Come back for the mock sets from week 4 onward, one
 per weekend. Sections 6 to 9 are for the last two weeks before your interviews.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** The single biggest reason prepared candidates fail is
+the gap between solving a problem at your desk and solving the same problem while a stranger
+watches and a clock runs. Every interviewer has seen it: a candidate who clearly knows the
+material freezes, codes before thinking, or goes silent for three minutes. That stress is
+measuring something real. Senior engineers explain their thinking under pressure in design
+reviews and incident calls every week. Performance under observation is a skill, and like a
+musician's recital, it is trained separately from the material itself.
+
+**The analogy.** A pilot's simulator hours, or a sports team's scrimmage. The pilot already
+knows how to fly. The simulator exists so the emergency procedure costs no thought when the
+real alarm sounds, because attention is the scarcest thing in a cockpit. The scrimmage exists
+because a team that has only run drills has never made a decision with someone in its way.
+Every problem in the previous fourteen chapters was a drill. This chapter is the scrimmage,
+with the timer, the talking, and the being watched all switched on at once.
+
+**How it works, in plain words.** The interview asks you to do four things at once: solve the
+problem, talk while you do it, watch the clock, and be observed. Each one costs working
+memory, and you have a fixed amount. Mocks rehearse the three non-problem skills until they
+run on autopilot. The script in section 2 means you never have to invent a sentence. The
+timeline in section 1 means you never have to decide which phase you are in. After enough
+repetitions, talking and timing cost nothing, and your whole attention returns to the actual
+problem, the only place it was ever useful.
+
+**What learning this will feel like.** Mocks feel embarrassing, so people avoid them, and then
+meet the embarrassment for the first time in the real room. Recording yourself is worse: you
+will hear every "um, so, basically" and every long silence, and you will want to stop the
+playback. Do not. That cringe is the accurate signal that the recording shows you what the
+interviewer sees, and it is the exact thing you can fix. The aha arrives early. The second
+mock is already easier than the first, because the novelty of being watched has worn off. And the first time you get stuck and a scripted sentence comes out
+instead of silence, the "what do I say now" freeze is gone. It does not come back.
+
+**You will know you have it when** a timer starting and a camera pointing at you changes
+nothing about how you solve the problem.
+
 ## 1. The 45-minute coding interview, minute by minute
 
 Both companies give you one problem (sometimes a warm-up plus a main problem) in 45 minutes.

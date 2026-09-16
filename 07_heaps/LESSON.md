@@ -9,6 +9,41 @@
 constantly. Google likes the two-heap median and scheduling problems where a heap holds
 "what is available right now."
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** A hospital emergency room does not treat patients in
+arrival order. It treats the most urgent one next, and a new arrival only needs ranking, not a
+re-sort of the whole waiting room. Your operating system's CPU scheduler does the same with
+processes. Dijkstra's algorithm inside Google Maps keeps a heap of "closest unexplored
+intersection" and pops it millions of times per route. Amazon's "top sellers" list is a heap of
+size k over a firehose of sales events. Monitoring dashboards that show a live median response
+time use the two-heap trick from exercise 7, `MedianFinder`.
+
+**The analogy.** A tournament bracket. The champion is at the top, and to know who it is you
+look at exactly one spot. Suppose the champion retires. You do not replay the tournament. You
+re-run only the matches along one path from the bottom to the top, about log n of them, and a
+new champion appears. A new player climbs one path upward, beating whoever they are better
+than, until they stop. Everyone else's position is untouched.
+
+**How it works, in plain words.** A heap is an array arranged so that every parent is smaller
+than its two children. Nothing else is promised: the second smallest could be at index 1 or
+index 2. Because the rule holds at every level, the smallest element is always at the front. To
+insert, append to the end and swap upward while smaller than the parent. To remove the minimum,
+move the last element to the front and swap downward. Each swap moves one level, and n items
+make about log n levels, so both operations cost log n. Python ships this as `heapq`.
+
+**What learning this will feel like.** The first instinct is to keep everything sorted, because
+sorted feels safe. Then you meet the anchor, `kth_largest`, and see that sorting costs n log n
+while a heap of size k costs n log k, which for the top ten of a million is enormous. The aha:
+you only ever need the top, so only the top needs to be right. Expect the confusion everyone
+shares: for the k largest you keep a *min*-heap, because what you evict is the smallest
+survivor. And expect the bug everyone writes: `heapq` is min-only, so a max-heap means pushing
+`-x` and negating again on the way out. Forget the second negation once and you will never
+forget it again.
+
+**You will know you have it when** the words "k most" or "repeatedly take the smallest" make
+you type `import heapq` before you have read the rest of the problem.
+
 ## 1. The core idea
 
 A binary heap is an array that pretends to be a tree: the children of index `i` live at

@@ -8,6 +8,40 @@
 staples. Google likes the monotonic stack family (Daily Temperatures, Largest Rectangle) as
 the harder second problem in a round.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Your browser's back button is a stack of pages. Undo in every
+editor is a stack of edits. The call stack that runs your Python code is a stack of unfinished
+functions, which is why runaway recursion is called a stack overflow. Compilers check that every
+bracket in your program is matched with the same stack you will write in this chapter. Queues are
+the other half: Amazon SQS holds orders in arrival order so the warehouse processes them fairly,
+and every print spooler and message broker is a queue. Stock analytics that ask "how many days
+until a higher price" run this chapter's monotonic stack in production.
+
+**The analogy.** A stack is a pile of plates. You add to the top and take from the top, so the last
+plate in is the first plate out. A queue is the line at a counter: join at the back, get served at
+the front. Both are just lists with the rule "only touch one end." The rule is the power. Because
+you cannot reach into the middle, the top of a stack always means something precise: the most
+recent thing that is still waiting.
+
+**How it works, in plain words.** When you meet something you cannot resolve yet, push it and move
+on. When the thing that resolves it arrives, pop. An opening bracket waits for its closer. A cold
+day waits for the next warmer day. An operand waits for its operator. The stack holds exactly the
+items still waiting, most recent on top, so "the nearest unmatched thing to the left" is always one
+`[-1]` away. A monotonic stack adds one twist: a new arrival may resolve many waiting items at
+once, so you pop in a loop until the top is no longer beaten.
+
+**What learning this will feel like.** Valid Parentheses will click quickly. Then Daily
+Temperatures will feel like magic, and "pop while the top is smaller" will look like something you
+could not have invented. That feeling is normal and temporary. Ask one question of each popped
+element: "could this ever be the answer for anything later?" When the answer is "no, the new
+element beats it and arrived sooner," the loop stops being magic and becomes obvious. The trap that
+bites nearly everyone is storing values instead of indices, then discovering you cannot compute
+"how many days" from a temperature alone. Fix it once and your hand will type the index forever.
+
+**You will know you have it when** the phrase "nearest greater to the left" or "most recent
+unmatched" makes you reach for `st = []` before you have considered a second loop.
+
 ## 1. The core idea
 
 A stack is a list you only touch at one end: `append` to push, `pop` to pop, `[-1]` to peek.

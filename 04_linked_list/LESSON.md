@@ -8,6 +8,40 @@
 are warm-ups everywhere. LRU Cache is one of the most asked Amazon problems, period. Google
 uses Reverse in k-Groups and Copy List with Random Pointer to test pointer care under pressure.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** The LRU cache you will build in this chapter sits inside
+every CDN edge server and inside Redis, deciding which item to evict when memory is full. Operating
+systems keep runnable processes in linked lists so a scheduler can move one to the front in
+constant time. Your music app's next and previous buttons walk a doubly linked playlist. Git
+history is a linked list: each commit holds a pointer to its parent, and a branch is just a name
+pointing at one node. Nobody uses them to store a million numbers. Everybody uses them where a
+middle insert or delete must be instant.
+
+**The analogy.** A treasure hunt. Each clue tells you only where the next clue is. There is no map;
+to reach clue seven you read clues one through six. Tear up a clue before reading it and every clue
+after it is lost forever. That is exactly what happens when you overwrite a `next` pointer before
+saving where it pointed. The rest of the list still exists. You simply have no way to get there.
+
+**How it works, in plain words.** A node is a value plus an arrow to the next node. The list is one
+arrow to the first node. Insert and delete are constant time once you are standing next to the
+right node, because you only redraw two arrows. Finding that node costs a walk. Every problem in
+this chapter is about redrawing arrows in the right order, and the order never changes: save the
+arrow you are about to overwrite, overwrite it, then move forward using the copy.
+
+**What learning this will feel like.** Reverse Linked List has four lines of body, and you will get
+them in the wrong order at least once. The list will vanish or loop forever, with no error message
+to help. That silence is the chapter's real difficulty, and it is normal. The cure is not
+cleverness. Draw boxes and arrows on paper, and redraw after each pointer change. That is not a
+crutch. It is the skill, and interviewers trust candidates who draw. The aha arrives when the
+three-pointer dance stops being memorised steps and becomes "save, rewire, advance," a rhythm your
+hands know. Expect LRU Cache to be a wall the first time: it is two structures working together,
+and forgetting to delete the dict key on eviction is the bug that teaches you why the key lives on
+the node.
+
+**You will know you have it when** you write `nxt = cur.next` before you have decided what
+`cur.next` will become, and you reach for a dummy head the moment the real head might be deleted.
+
 ## 1. The core idea
 
 A node holds a value and a pointer to the next node. The list is just a pointer to the first

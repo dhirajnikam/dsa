@@ -6,6 +6,38 @@ This chapter gives you three things you will use in every single interview: flue
 an honest sense of Big-O, and a protocol for attacking any problem. None of it is glamorous.
 All of it is graded.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Every service you have used today was built by someone
+who could look at a loop and say "that will not survive a million users." Google returns a
+search across billions of pages in about 200 milliseconds because someone counted the steps.
+Amazon's cart survives Prime Day because someone knew a dictionary lookup does not slow down
+when the dictionary grows. Big-O is not exam trivia. It is the instinct that separates an
+engineer from someone who types code.
+
+**The analogy.** Think of your working memory as a kitchen counter with room for about four
+items. In an interview, the problem itself takes two of those slots. If Python syntax and
+"how does a for loop over a dict work again" take the other two, there is no room left to
+think. This chapter moves Python and Big-O off the counter and into your hands, the way a
+chef never thinks about how to hold a knife.
+
+**How it works, in plain words.** Big-O asks one question: if I double the input, what happens
+to the work? Stays the same: O(1). Doubles: O(n). Quadruples: O(n²). Goes up by one step:
+O(log n). That is the whole idea. Everything else is practice recognizing which one you are
+looking at. Recursion is the other half: a function that solves a problem by solving a
+smaller copy of itself, and *trusts* that the smaller copy is correct. That trust feels wrong
+the first ten times. It becomes the most powerful tool you own by the twentieth.
+
+**What learning this will feel like.** You will be tempted to skip this chapter because it
+looks easy. Resist. The trap is the "I already know this" feeling, which is recognition, not
+recall. Recognition is knowing a face. Recall is producing the name. Interviews test recall.
+Do the eight exercises with the lesson closed. If `fast_pow` or `flatten` makes you
+uncomfortable, good: that discomfort is your brain building the recursion muscle, and it
+should feel like lifting something slightly too heavy.
+
+**You will know you have it when** you can read a nested loop and say its complexity before
+you finish reading it, and when you write a recursive function without tracing it in your head.
+
 ## 1. The protocol: how to attack any problem
 
 Interviewers do not grade the answer alone. They grade the *process*. Use the same six steps every

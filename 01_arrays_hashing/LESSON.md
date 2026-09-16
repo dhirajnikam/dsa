@@ -7,6 +7,39 @@
 **Interview frequency:** highest of any category. Amazon phone screens open with these.
 Google uses them as warm-ups before a harder follow-up.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** A hash map is the most used data structure on Earth.
+Google's search index is, at its heart, a giant map from word to the list of pages containing
+it. Amazon looks up your cart by your user ID in a hash-backed store. Every cache, every
+session table, every "have I seen this request before" check is a hash map. When you use a
+dictionary in this chapter, you are using the same idea that runs the internet, at a smaller
+scale.
+
+**The analogy.** A coat check. You hand over your coat and get ticket 47. Later you say "47"
+and get your coat back instantly. Nobody searches the rack. The ticket number *is* the
+location. A hash function does the same for any key: it turns `"banana"` into a slot number,
+and the value sits in that slot. That is why lookup is O(1): you compute where to look
+instead of searching.
+
+**How it works, in plain words.** The array underneath has, say, 1000 slots. `hash("banana")`
+gives a big integer; take it modulo 1000 and you have a slot. Two keys sometimes land in the
+same slot (a collision), so each slot holds a short list and Python checks that list. As the
+map fills up, Python doubles the array and rehashes, keeping the lists short. Average cost:
+constant. That is the entire magic trick, and now you can explain it if an interviewer asks
+"how does a dict actually work?"
+
+**What learning this will feel like.** The first time you turn a nested loop into a single
+pass with a dictionary, it will feel like cheating. It is not. That feeling is your brain
+noticing that you traded memory for time, and it is exactly the feeling you are trying to
+make automatic. Expect one specific frustration: recording a value *before* checking for its
+partner, which makes Two Sum use the same index twice. Everyone does it once. After that
+you will never do it again, because the bug is memorable, and memorable bugs are how patterns
+stick.
+
+**You will know you have it when** the phrase "is X in this collection?" inside a loop makes
+your hand reach for a set before your brain finishes the sentence.
+
 ## 1. The core idea
 
 An array gives you O(1) access *by position*. A hash map (Python `dict`) gives you O(1) access

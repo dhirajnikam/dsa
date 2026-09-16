@@ -8,6 +8,41 @@
 looks nothing like binary search until you notice the monotonicity. Amazon asks the rotated
 array and 2D matrix versions as phone screens.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** `git bisect` finds the one commit that broke the build
+out of a thousand by testing ten of them. Every database index is a B-tree, and each step from
+root to leaf is a binary search, which is why a lookup in a billion rows touches a handful of
+pages. Amazon's logistics must answer "what is the smallest truck capacity that still ships
+everything by Friday?" That is exercise 9 here, `ship_within_days`, at scale. Autocomplete
+finds where your prefix would sit in a sorted word list with `bisect`, then reads forward.
+
+**The analogy.** Guessing a number between 1 and 100 when the other person only says "higher"
+or "lower." Nobody guesses 1, then 2, then 3. You guess 50, then 25 or 75, and you are done in
+seven guesses. Finding a word in a paper dictionary is the same move: open near the middle,
+look at one word, throw away half the book. You never read the discarded pages. You have run
+this algorithm since childhood.
+
+**How it works, in plain words.** Keep two markers, the lowest and highest positions that could
+still hold the answer. Look at the middle. Ask one yes/no question about it. The answer tells
+you which side to keep; move one marker past the middle and the range halves. Repeat until the
+range is empty. A million items takes twenty questions. The trick of this chapter: the thing
+you halve does not have to be an array. It can be a range of candidate answers, like Koko's
+eating speed. "Can she finish at speed 7?" If yes, every faster speed also works, so the
+answers form a run of no's followed by a run of yes's, and you want the first yes.
+
+**What learning this will feel like.** Most people arrive already disliking binary search,
+because it is the algorithm where `<` versus `<=` decides whether you loop forever. Expect to
+write one infinite loop and one search that skips the answer. That is not carelessness: closed
+and half-open intervals have different rules, and mixing them is the bug. Section 3 gives you
+one template, `first_true`, and one rule for staying inside it. The aha comes when
+`min_eating_speed` and `find_min_rotated`, which look nothing alike, turn out to be the same
+eight lines with a different predicate. It is not about sorted arrays. It is about any question
+that flips from no to yes exactly once.
+
+**You will know you have it when** a problem says "minimum k such that ..." and you write the
+`feasible(k)` function before you write any loop.
+
 ## 1. The core idea
 
 If you can ask one question and eliminate half of what remains, you need only log₂(n)

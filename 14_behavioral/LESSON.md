@@ -8,6 +8,45 @@
 coding and design rounds. Google asks one dedicated round called Googleyness & Leadership.
 Nothing else in this course has a higher failure rate per minute of preparation skipped.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Amazon's Leadership Principles are not interview
+decoration. They are how promotions and performance reviews are actually run inside the
+company. A promotion packet is evidence written under headings like Ownership and Dive Deep,
+argued over by a committee the way the debrief will argue over you. The
+behavioral interview is a preview of your review. Google's Googleyness round exists for a
+blunter reason: a brilliant engineer who cannot collaborate costs a team more than they add.
+Companies bother because the coding rounds measure what you can do alone, and nobody there
+works alone.
+
+**The analogy.** A job reference that you deliver yourself. A weak reference says "she is very
+proactive." A strong one says "when the payment service was paging every night, she found the
+config change nobody had noticed and the pages dropped from seven a week to one." The second
+is a lawyer presenting evidence, not offering an opinion. Your job in this chapter is to be
+that lawyer for your own case: specific systems, specific numbers, and the interviewer
+supplies the adjective.
+
+**How it works, in plain words.** The interviewer has been assigned two or three principles and
+needs to write a paragraph of specific evidence about you under each one. If that paragraph is
+easy to write, you pass. If they are left with "seemed capable but was vague," you fail,
+whatever the coding round showed. STAR exists to make the paragraph easy to write: Situation and
+Task so they can picture it, Action as three to five "I" decisions they can quote, Result as
+a number they can copy down. The story bank in section 4 makes sure that
+material exists for every principle before you walk in.
+
+**What learning this will feel like.** Engineers resist this chapter more than any other.
+Telling stories about yourself feels like bragging, or worse, like lying, and the round gets
+discounted as "soft." That reaction is why the failure rate is so high: the people who
+feel it skip the preparation. Two things dissolve it. The story bank turns this into
+preparation rather than performance: you are recalling eight things that actually happened,
+written down in advance, not improvising a sales pitch. And specific numbers make
+modesty unnecessary. "I brought p99 from 800 back to 400 milliseconds" is not a boast. It is a
+fact, and facts do not need a humble voice. The aha is hearing yourself on a recording and
+realizing you sound like a colleague describing work, not a candidate selling.
+
+**You will know you have it when** an interviewer names any principle and a specific story,
+with its number, is in your mouth within five seconds.
+
 ## 1. Why this decides Amazon loops
 
 An Amazon onsite is four to five interviewers plus a **Bar Raiser**: a trained interviewer

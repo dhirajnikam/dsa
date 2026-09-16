@@ -8,6 +8,40 @@
 a level-order variant. Google uses them to test whether you can reason about recursion
 without tracing every call.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** The file system on your laptop is a tree: folders inside
+folders, files at the leaves. Every web page is parsed into a tree, the DOM, and the browser
+draws it by walking that tree. Org charts are trees. Decision trees in machine-learning models
+ask one question per node. Amazon's product catalog is a tree of categories, and "Electronics >
+Headphones > Wireless" is a path from the root. `max_depth` here is the same code that measures
+how deep a folder hierarchy goes.
+
+**The analogy.** You are a manager asked "how many people report to you, all the way down?" You
+do not walk the building. You ask your two direct reports the same question, add their numbers,
+add one for yourself, and report back. Each of them does the same. Someone with no reports
+answers zero. Nobody in that chain sees the whole company, and the answer is still correct.
+That is recursion on a tree: delegate to two smaller trees, trust what comes back, combine.
+
+**How it works, in plain words.** A binary tree is either empty or a node with a left tree and
+a right tree. So every tree function has two parts: say what the answer is for the empty tree,
+then assume the answers for both subtrees are already in hand and combine them with the node's
+value. Depth is one plus the deeper side, with the empty tree at zero; the anchor shows it in
+three lines. When a problem needs the tree row by row instead, you switch to a queue and
+process one level at a time, the other half of this chapter.
+
+**What learning this will feel like.** Recursion on trees feels like it cannot possibly work.
+You will want to trace every call, and on a tree of seven nodes the trace has fifteen calls and
+you will lose your place around the ninth. That urge is normal. It is your brain refusing to
+trust a function that is not finished yet. The fix is a habit, not a talent: write the empty
+case, write the one-node case, check them by hand, then stop tracing. The aha usually lands on
+`same_tree` or `diameter`, when the recursive call becomes a promise you can rely on. The trap
+to remember: `is_valid_bst` by comparing a node with its children. It passes small examples and
+fails when a grandchild is out of range. Pass bounds down instead.
+
+**You will know you have it when** you write a tree function in three lines, run it once, and
+feel no need to trace it.
+
 ## 1. The core idea
 
 Every binary tree is either empty (`None`) or a root with two smaller binary trees hanging

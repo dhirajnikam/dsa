@@ -51,6 +51,31 @@ The chapter weeks add up to about 16 at 1.5 to 2 hours a day. Chapter 15 compres
 12-week calendar by pairing the half-week chapters and running 14 alongside everything else. If you
 have even less time, do chapters 00 to 10, then 14 and 15. Never skip 14 for Amazon.
 
+## How your brain learns this, and how to use that
+
+Most people fail interview prep not because the material is hard but because they study the
+way school taught them: read, nod, move on. Here is what actually works, and why.
+
+- **Every lesson starts with "why."** Each chapter opens with where the idea lives in real
+  Google and Amazon systems, an everyday analogy, and how it works in plain words. Your brain
+  files new ideas next to things it already knows. Give it the hook first and the details stick.
+- **Recall beats recognition.** Reading a solution and thinking "yes, obvious" is recognition.
+  Producing it with the book closed is recall. Interviews test recall. So does this course:
+  the exercises have no solutions in view, and the checker tells you honestly where you stand.
+- **Struggle is the point.** Thirty minutes of being stuck is not wasted time. It is the moment
+  your brain is building the connection. A solution read after struggle sticks for months. The
+  same solution read before struggle is gone by Thursday. This is why the honor rule exists.
+- **Spacing beats cramming.** Redoing a problem after three days, then seven, moves it from
+  short-term to long-term memory. `redo.txt` is that system with zero ceremony.
+- **Out loud is not optional.** Explaining forces you to find the gaps in your own understanding.
+  It also happens to be a graded axis in the room. Two birds.
+- **Small wins, daily.** One problem solved cold is a real win. Chase the streak of daily
+  sessions, not the count of problems. Motivation follows progress, not the other way around.
+
+Each lesson also tells you what learning that chapter will *feel* like, because knowing that
+"this is the part where everyone feels lost" is the difference between pushing through and
+quitting.
+
 ## How one study session works
 
 Every chapter has three files:

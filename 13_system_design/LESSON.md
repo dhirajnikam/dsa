@@ -11,6 +11,41 @@ system design at all. If you are a new grad, read sections 1, 3, and 5, skim the
 spend the time on chapters 14 and 15. If you are L4+ or SDE2+, this round can fail your loop
 by itself. Give it the full week.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** This round is the closest thing in the loop to the actual
+day job of a senior engineer at Amazon or Google. They are asked "the order history page is
+slow, what do we do?" and expected to produce numbers, boxes, and a defended choice by Friday. Every outage postmortem is a system
+design lesson: a cache that was the whole design, not an optimization, until the cache node
+died. Companies bother because the coding rounds cannot see whether you can hold an entire
+system in your head, and that is what senior engineers are paid for.
+
+**The analogy.** Designing a restaurant kitchen. For ten diners, one cook, one stove, and a
+fridge under the counter work fine. For ten thousand diners a night the recipes are identical
+but everything else changes: a walk-in freezer, prep stations running in parallel, a pass
+where plates queue up, a second kitchen across town so the far tables are not served cold.
+Nothing about the food changed. The plumbing did. System design is the plumbing question,
+and a good kitchen designer asks "how many covers a night?" before drawing a single wall.
+
+**How it works, in plain words.** There are no right answers. There are trade-offs stated out
+loud. "Fan-out on write makes reads fast and celebrity posts expensive; fan-out on read is the
+reverse; production systems do both." The interviewer is not checking whether you know Kafka. They are checking whether you ask about
+scale before you draw boxes, whether a number ever appears on the whiteboard, and whether you
+say "alternatively" at least once. Section 2 fixes the order of the 45 minutes so that "what
+comes next" never costs you attention.
+
+**What learning this will feel like.** The first time you face a blank whiteboard and "design
+Twitter," your mind will go equally blank. That is not a knowledge gap. It is the fear of not
+knowing "the" answer to a question that has none, and every candidate feels it. The aha comes
+in two parts. First, the protocol gives you the opening ten minutes for free: the same
+clarifying questions every time, and by the time the scope is on the board you are already
+talking. Second, estimation turns vague dread into arithmetic. "100 million links a month" is
+frightening; "40 writes a second, fits on one Postgres" is a decision. Once a number has made
+a choice for you, the round stops being a performance and becomes a conversation.
+
+**You will know you have it when** someone says "design X" and your first words are a question
+about scale, not the name of a component.
+
 ## 1. What the round is and how it is graded
 
 You get one vague prompt ("design a URL shortener", "design the Amazon order history page")

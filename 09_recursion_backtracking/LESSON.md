@@ -10,6 +10,43 @@ and common Google warm-ups. Word Search, N-Queens, and Sudoku are the "show me y
 control recursion" problems. Backtracking is also the first half of dynamic programming, so
 everything here pays off again in chapter 10.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Every sudoku solver fills the grid by trying a value,
+moving on, and undoing it when it hits a contradiction. Chess engines explore a tree of moves
+the same way, abandoning branches that cannot win. Regex engines backtrack when a match fails
+partway, and compilers do it while parsing ambiguous grammar. Amazon's constraint-based
+scheduling of shifts and deliveries
+searches for an assignment that breaks no rule. Test-case generators and configuration search
+enumerate options the same way. Whenever the question is "find every arrangement" or "find
+any arrangement that obeys these rules," this is the engine underneath.
+
+**The analogy.** A wardrobe with three drawers: shirts, trousers, shoes. To see every outfit,
+pick a shirt, then trousers, then shoes, and write the outfit down. Put the shoes back and
+try the next pair. When you run out of shoes, put the trousers back and try the next
+trousers. You never lay every outfit on the bed at once. You build one at a time, and
+putting an item back is what lets the next choice start clean. That is `path.pop()`.
+
+**How it works, in plain words.** Draw a tree. The root is "nothing decided yet." Each branch
+is one decision: take this element or skip it, put this digit in this cell, add an open or a
+close paren. A leaf is a complete candidate. The recursion walks the tree: make a choice,
+recurse to make the next one, and when that call returns, undo the choice and try the next
+branch. The `path` list is the road from the root to where you stand. Pruning means noticing
+a branch cannot reach a valid leaf and never walking down it. That is the whole difference
+between backtracking and blind enumeration.
+
+**What learning this will feel like.** Two things will bother you. First: "how does
+`path.pop()` undo the choice when the recursive call already used it?" The list is shared,
+and every call below you appends and pops in matched pairs, so when control comes back,
+`path` is exactly as you left it. Trace Subsets on `[1, 2, 3]` once with a pen and the
+mystery ends. Second, exponential blow-up: your instinct says O(2ⁿ) must be wrong. Look at
+the constraints. When a problem says `n ≤ 20`, the interviewer is telling you
+the output itself is exponential and this is the intended approach. The bug you will write
+once is appending `path` instead of `path[:]` and getting a list of identical empty lists.
+
+**You will know you have it when** you read "return all combinations" and your hand writes
+choose, explore, un-choose before your brain finishes the sentence.
+
 ## 1. The core idea
 
 Every backtracking problem is a walk through a **decision tree**. At each level you make one

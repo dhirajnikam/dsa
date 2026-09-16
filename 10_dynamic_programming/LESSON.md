@@ -9,6 +9,43 @@ after a warm-up, usually a 1-D or two-sequence variant. Amazon leans on the easi
 (climbing stairs, house robber, coin change, LCS). Both love to hear you say "memoize" before
 you say "table."
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** When your phone autocorrects "teh" to "the," it computes
+the edit distance between what you typed and each candidate word. When `git diff` or
+`git merge` shows what changed, it runs longest common subsequence over the two files. Word
+processors justify text by choosing line breaks that minimize raggedness. Bioinformatics
+aligns DNA sequences with the same two-string table as edit distance. Amazon's inventory and
+pricing systems optimize over budgets and time steps the way Coin Change optimizes over
+amounts, and route planning with a fuel budget is knapsack with a map on top.
+
+**The analogy.** A notebook. You are asked a hard question, and to answer it you need the
+answers to two slightly easier ones. Each needs two more, and soon you are asked the same
+small question for the fifth time. So you start writing answers in a notebook and check it
+before doing any work. That is memoization. The staircase is the notebook made visible: to
+know the ways to reach step 5, you only need steps 4 and 3, already written down.
+
+**How it works, in plain words.** Write the honest recursive brute force. It is exponential
+because it re-solves the same subproblems. Ask one question: what identifies a subproblem?
+For Climbing Stairs it is just `n`. For two strings it is a pair of indices. That identifier
+is your state, and the number of distinct states is your running time once you remember
+answers. Add `@lru_cache` and you are done; that is dynamic programming. The bottom-up table
+is the same recursion written as a loop from the base cases upward, and compressing it to
+two variables is tidying. Neither is required to be correct.
+
+**What learning this will feel like.** This is the chapter people fear most, and the fear
+comes from one habit: jumping straight to the table. A table is a compressed recursion. If
+you have not seen the recursion, the table is a picture you cannot read. So write the
+recursion, draw the tree for a small input, and circle the repeated nodes. The aha is that
+memoized recursion *is* dynamic programming; everything after stage 3 is optional. The second
+aha is that the sentence "dp[i] means ..." is 80% of the work. Finish that sentence and the
+transition usually writes itself. The bug you will write once is the wrong loop direction in
+knapsack, so each coin gets used many times instead of once.
+
+**You will know you have it when** "number of ways" or "minimum cost" makes you reach for a
+recursive function with a cache before you think about a table, and you can say what `dp[i]`
+means in one sentence.
+
 ## 1. The core idea
 
 Every DP problem is a recursion with **overlapping subproblems**: the same smaller question

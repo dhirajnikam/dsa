@@ -8,6 +8,42 @@
 merge intervals, scheduling). Google likes the proof: "why does taking the earliest end
 work?" Expect a greedy problem to be short on code and long on justification.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Google Calendar's "find a time" button is an interval
+problem: overlay everyone's busy blocks, merge them, and the gaps are the free slots. Booking
+a room is `min_meeting_rooms` with real furniture. Amazon schedules warehouse shifts and hands
+delivery windows to drivers with greedy passes over sorted time blocks. Your operating system
+picks the next job to run the same way. Every zip file you have ever opened was built by
+Huffman coding, a greedy algorithm that always merges the two rarest symbols first. Greedy is
+what production systems use when they need a good answer now and can prove it is the best one.
+
+**The analogy.** A receptionist seating guests at a single table. Each guest has an arrival
+and a departure time. To host the most guests in one evening, she seats whoever leaves
+earliest, then whoever leaves earliest among those arriving after that, and so on. She never
+reconsiders. If some longer-staying guest would have been "better," she can swap that guest
+out for the early leaver and lose nothing, because the early leaver frees the chair sooner.
+That swap is the entire theory of this chapter.
+
+**How it works, in plain words.** Sort the intervals so that time flows left to right. Then
+walk once, carrying one piece of state: the last interval you kept. Each new interval either
+conflicts with it or does not, and you decide on the spot. Merging sorts by start, because the
+only thing that can overlap you is the one you just kept. Choosing the most non-overlapping
+sorts by end, because the one finishing first leaves the most room. Counting overlap turns
+each interval into a +1 and a -1 event and runs a counter. Three tools, one sort, one pass.
+
+**What learning this will feel like.** Greedy will feel like guessing. You will write a loop
+that passes the examples and have no idea whether it is correct, and that uncertainty is
+uncomfortable in a way DP never is. This is normal: the code is trivial and the reasoning is
+the whole exercise. The aha arrives when you can say the exchange sentence out loud: "if the
+optimal solution made a different choice here, I could swap in mine and be no worse." Once
+that sentence is in your mouth, greedy stops being a gamble and becomes a proof. Expect one
+memorable bug: merging `[1,10]` and `[2,3]` into `[1,3]` because you forgot the `max`. The
+trace in section 2 catches it. Next time you will catch it yourself.
+
+**You will know you have it when** the word "intervals" makes you sort before you think, and
+your first question is "by start or by end?"
+
 ## 1. The core idea
 
 Greedy means: at each step, take the locally optimal choice, and that choice is **provably

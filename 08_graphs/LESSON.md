@@ -8,6 +8,43 @@
 loops and is often the "hard" round. Amazon asks the grid problems (islands, rotting oranges)
 and course scheduling constantly. This is the longest chapter for a reason.
 
+## 0. Why this matters, and how it works in one picture
+
+**Where it lives in the real world.** Google Maps finds your fastest route by running
+Dijkstra over a graph of intersections and roads. PageRank, the idea that built Google,
+treats the web as a graph of pages and links. Amazon routes packages through a graph of
+warehouses and roads, and its warehouse robots path-find on a grid graph. When you run
+`pip install` or `npm install`, the tool topologically sorts a dependency graph so nothing is
+built before what it needs. Friend suggestions and "people also bought" are walks through a
+graph of people and products.
+
+**The analogy.** A city map. Intersections are nodes, roads are edges, and every algorithm
+here is a way of exploring the map without going in circles. BFS is the ripple from a stone
+dropped in water: it reaches everything one block away, then two, then three, so the first
+time it touches a place is the shortest way there. DFS is walking a maze with one hand on the
+wall: follow a corridor to its end, back up to the last fork, take the next turn. Dijkstra is
+BFS where some roads are slower, so you always step onto the closest place not yet reached.
+
+**How it works, in plain words.** Every algorithm here does two things: look at a node's
+neighbors, and remember where you have been. The visited set is the memory. Without it you
+loop forever; with it, every node and edge is touched once, which is why the complexity is
+almost always O(V + E). What differs is the container that decides which node comes next. A
+queue gives BFS. A stack, or recursion, gives DFS. A min-heap keyed by distance gives
+Dijkstra. Kahn's topological sort is BFS where a node enters the queue only when all its
+prerequisites are done.
+
+**What learning this will feel like.** Halfway through this chapter, BFS, DFS, topological
+sort, Union-Find, Dijkstra, and Bellman-Ford will feel like six unrelated things to memorize.
+That feeling is normal, and it is wrong. Keep going until the aha arrives: they are one loop
+with a different container, and "hidden graph" problems like Word Ladder become easy once you
+ask "what are my nodes, what are my edges." The bug everyone writes once is marking a node
+visited when it leaves the queue instead of when it enters. It still works on small inputs,
+then quietly goes O(V²) on a dense one. Mark on enqueue.
+
+**You will know you have it when** "minimum number of steps" makes you reach for a deque
+before you finish reading, and a grid of cells looks like nodes with four neighbors rather
+than a matrix.
+
 ## 1. The core idea
 
 Everything in this chapter is "visit every node reachable from here, without visiting one
