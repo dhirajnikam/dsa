@@ -167,7 +167,7 @@ names spread evenly.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the 45-minute protocol, then Part 2 §3, the building blocks. Next to
+Scroll down to Part 2 and read §2, the 45-minute protocol, then Part 2 §3, the building blocks. Next to
 each block, write the lemonade move in the margin. Then a 20-minute first task: take "design a
 URL shortener," set a timer for 20 minutes, and do only minutes 0 to 10 of the protocol on
 paper, out loud: the clarifying questions and the estimate. Compare against Part 2 §2.2. If your

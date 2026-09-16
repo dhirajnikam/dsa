@@ -161,7 +161,7 @@ because 0 also passes and is not a power of two.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the `Trie` walkthrough, then draw the c-a-t / c-a-r picture
+Scroll down to Part 2 and read §2, the `Trie` walkthrough, then draw the c-a-t / c-a-r picture
 yourself with "card" added. Then read the `UnionFind` class in Part 2 §3 and trace the five-person
 party on paper. Then do `Trie` and `single_number` in `exercises.py`: the first is the anchor,
 the second is the XOR trick in one line. Follow with `UnionFind` and `count_bits_in_int`. Save

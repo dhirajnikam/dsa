@@ -163,7 +163,7 @@ the lists are.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the fully worked `kth_largest`, and check its trace against your
+Scroll down to Part 2 and read §2, the fully worked `kth_largest`, and check its trace against your
 VIP-room answer above. Then read the first two templates in Part 2 §3, "Min-heap of size k" and
 "Negate for a max-heap." Then open `exercises.py` and do `KthLargest` and `last_stone_weight`
 with a 30-minute timer; the first is the VIP room as a class, the second is the scoreboard

@@ -164,7 +164,7 @@ Deliver Results story for SDE2 and above, where they expect a service or a cross
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §3, "STAR done right," including the strong and weak versions of
+Scroll down to Part 2 and read §3, "STAR done right," including the strong and weak versions of
 the same story. Then a 20-minute first task: pick one true thing from the last two years
 where something went wrong and you did something about it. Write it in four sentences labeled
 S, T, A, R, with a number in R and at least three "I" verbs in A. Read it aloud with a timer.

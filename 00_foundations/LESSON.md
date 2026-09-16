@@ -157,7 +157,7 @@ when one loop is *inside* another.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the Python page, with a terminal open. Type each line. Then read
+Scroll down to Part 2 and read §2, the Python page, with a terminal open. Type each line. Then read
 Part 2 §3 on Big-O and check that the table there now looks obvious. Then do `word_frequencies` and
 `merge_sorted` in `exercises.py`. Save `fast_pow` and `flatten` for a second sitting: they are
 recursion, and recursion is better learned after a night's sleep on the staircase picture.

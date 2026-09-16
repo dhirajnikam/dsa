@@ -150,7 +150,7 @@ N N Y Y. The fence sits between position 1 and position 2. The answer is positio
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the fully worked `binary_search`, and trace its test with your
+Scroll down to Part 2 and read §2, the fully worked `binary_search`, and trace its test with your
 own table like the one above. Then read "The one template" at the top of Part 2 §3 until the fence
 picture and `first_true` feel like the same thing. Then open `exercises.py` and do
 `binary_search` and `search_insert_position` with a 30-minute timer. When they pass,

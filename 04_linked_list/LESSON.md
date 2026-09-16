@@ -173,7 +173,7 @@ point from, and you need a separate `head = head.next` case. With a dummy in fro
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2 (Reverse Linked List, fully worked) with paper in hand, redrawing
+Scroll down to Part 2 and read §2 (Reverse Linked List, fully worked) with paper in hand, redrawing
 the boxes after every line. Then open `exercises.py` and do `reverse_list` and `middle_node`
 with a 30-minute timer each. When both pass, do `merge_two_sorted` to meet the dummy head,
 then read Part 2 §3 for the patterns you will reuse on everything else.

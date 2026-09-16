@@ -159,7 +159,7 @@ the 7 inward can only make the container narrower with the same cap, so the 1 is
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §1 (the core idea) and Part 2 §2 (Valid Palindrome, fully worked). The
+Scroll down to Part 2 and read §1 (the core idea) and Part 2 §2 (Valid Palindrome, fully worked). The
 "why is the skip safe" sentence there is the cinema row. Then open `exercises.py` and do
 `two_sum_sorted` and `longest_substring_no_repeat` with a 30-minute timer each. When both
 pass, do `remove_duplicates_sorted` to meet the read/write flavor, then read Part 2 §3 for the rest.

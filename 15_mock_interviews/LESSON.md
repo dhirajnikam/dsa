@@ -165,7 +165,7 @@ including "does this look right?" and answering as the interviewer would. Watch 
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §1, the 45-minute table, and Part 2 §2, the out-loud script. Then a
+Scroll down to Part 2 and read §1, the 45-minute table, and Part 2 §2, the out-loud script. Then a
 20-minute first task: set a 20-minute timer, start your phone recording, and solve `two_sum`
 from chapter 01 out loud using the script's sentences, including "does this look right to
 you?" answered by yourself. Watch the recording at 1.5× speed and count silences longer than

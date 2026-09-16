@@ -191,7 +191,7 @@ sequences: 3.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §1, especially the four-question table, then Part 2 §2, Climbing Stairs in
+Scroll down to Part 2 and read §1, especially the four-question table, then Part 2 §2, Climbing Stairs in
 five stages. Stages 1 to 3 are the tree with sticky notes; stage 4 is the row of boxes. Then
 open `exercises.py` and do `climbing_stairs` and `house_robber` with a timer. Before writing
 either, say out loud what dp[i] means. When they pass, read the knapsack templates in Part 2 §3 and

@@ -170,7 +170,7 @@ popped. Every entry looks like `[]`. The copy freezes a snapshot.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, Subsets worked three ways, with the tree above next to you. Way
+Scroll down to Part 2 and read §2, Subsets worked three ways, with the tree above next to you. Way
 3 is the template you will reuse everywhere. Then open `exercises.py` and do `subsets` and
 `permutations` with a timer. When they pass, read the universal template at the top of Part 2 §3 and
 notice both exercises were that template with different blanks.

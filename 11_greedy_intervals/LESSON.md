@@ -150,7 +150,7 @@ That is Chapter 10's territory.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the merge trace, which is the calendar story with the `max` bug
+Scroll down to Part 2 and read §2, the merge trace, which is the calendar story with the `max` bug
 caught in the act. Then read the toolkit table in Part 2 §1 until "merging, choosing, counting" maps
 to "start, end, sweep" without thinking. Then do `merge_intervals` and `can_attend_meetings`
 in `exercises.py`. When those pass, `non_overlapping_intervals` is the receptionist and

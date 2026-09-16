@@ -171,7 +171,7 @@ Keep the last value of each row.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2, the fully worked `max_depth`, and redo the table above with the
+Scroll down to Part 2 and read §2, the fully worked `max_depth`, and redo the table above with the
 lesson's example until the flow of answers upward feels natural. Then read the "Recursive DFS
 skeleton" at the top of Part 2 §3. Then open `exercises.py` and do `max_depth` and `same_tree` with a
 30-minute timer. When they pass, do `level_order` so you have written both a DFS and a BFS

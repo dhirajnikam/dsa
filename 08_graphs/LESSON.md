@@ -182,7 +182,7 @@ Start at 5. Each handshake between different groups merges two: 5 → 4 → 3 �
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §1, the core idea, then Part 2 §2, Number of Islands, which is the chalk
+Scroll down to Part 2 and read §1, the core idea, then Part 2 §2, Number of Islands, which is the chalk
 story on a grid. Then open `exercises.py` and do `num_islands` and `count_components` with a
 timer. When they pass, read the BFS and Kahn's templates in Part 2 §3 and try `can_finish_courses`,
 the getting-dressed story in code.

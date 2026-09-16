@@ -122,7 +122,7 @@ Total up to position 2 (7) minus total up to position 0 (2) = 5. Check: 4 + 1 = 
 
 ### What to do next
 
-Open Part 2 below, read Part 2 §2 (Two Sum, fully worked) and notice it is the party story in code.
+Scroll down to Part 2 and read §2 (Two Sum, fully worked) and notice it is the party story in code.
 Then open `exercises.py` and do `contains_duplicate` and `two_sum` with a 30-minute timer.
 When they pass, come back and read Part 2 §3 of the lesson: every pattern there is a different thing
 to write on the notepad.

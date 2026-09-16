@@ -160,7 +160,7 @@ pops, and each pancake was flipped once.
 
 ### What to do next
 
-Open Part 2 below and read Part 2 §2 (Valid Parentheses, fully worked); it is the doors story in
+Scroll down to Part 2 and read §2 (Valid Parentheses, fully worked); it is the doors story in
 code. Then open `exercises.py` and do `valid_parentheses` and `daily_temperatures` with a
 30-minute timer each. When both pass, do `MyQueue` to feel the pancake flip, then read Part 2 §3
 for the other costumes the stack wears.
