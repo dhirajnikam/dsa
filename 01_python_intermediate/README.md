@@ -1,48 +1,51 @@
-# Phase 01: Python Intermediate
+# Objects, errors, and lazy sequences
 
-**Goal:** write Python the Python way: classes for state, comprehensions for building lists, generators for lazy data, exceptions for errors.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-A class bundles data and the functions that work on it. A comprehension builds a list, dict, or set in one line.
-A generator hands out values one at a time instead of building a big list. An exception says "something went wrong" without a magic return value.
+**Before this lesson:** Python functions, lists, loops, and dictionaries (chapter 00).
 
-## Cheat sheet
-```python
-[x * x for x in nums if x % 2 == 0]   # list comprehension: for ... if ... collect
-{w: len(w) for w in words}            # dict comprehension
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
 
-class Account:
-    def __init__(self, balance=0):    # runs on Account()
-        self.balance = balance        # self = this object
-    def __repr__(self):               # what print() shows
-        return f"Account({self.balance})"
+## The theory
 
-def countdown(n):                     # generator: pauses at each yield
-    while n > 0:
-        yield n
-        n -= 1
+A **class** defines a kind of object. Each instance has its own state; methods operate on that state through `self`. `__init__` initializes an instance. Use a class when several operations share changing data, not just to wrap every function.
 
-try:
-    x = int(s)
-except ValueError:                    # catch the narrowest error you can
-    x = 0
+A **dataclass** generates routine methods for data records. `frozen=True` prevents field reassignment, but does not make nested mutable objects immutable. Independent list fields need a factory rather than a shared list.
 
-def f(*args, **kwargs): ...           # args = tuple, kwargs = dict
-first, *rest = [1, 2, 3]              # first=1, rest=[2, 3]
+A comprehension expresses “visit, optionally filter, collect.” Write an ordinary loop first if the compact form hides the idea. An **iterable** can provide an iterator; an **iterator** remembers its position. `iter()` requests it and `next()` advances it. Exhaustion raises `StopIteration`.
+
+A **generator** is an iterator made by a function containing `yield`. It pauses rather than completing; its local state survives until the next request. This can save memory, but consuming it twice does not restart it.
+
+An **exception** signals that an operation could not complete. Catch the specific error you can handle; unexpected errors should remain visible. `*args` collects positional inputs into a tuple; `**kwargs` collects named inputs into a dictionary. Unpacking performs the reverse operation.
+
+## Walk through a small example
+
+Imagine a stream yielding temperatures 18, 21, 19. The first request receives 18; the second receives 21. The stream remembers that 19 is next. Turning the remainder into a list gives [19]; doing so again gives []. By contrast, iterating over the original list again can start from its beginning.
+
+## Watch for
+
+Sharing class-level mutable state accidentally; swallowing every exception; expecting an exhausted generator to restart; assuming frozen means deeply immutable.
+
+## Your next small step
+
+Open [comprehensions](problems/01_comprehensions.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 01/01
 ```
 
-## Common mistakes
-- Forgetting `self.` inside a method: `count += 1` makes a new local variable.
-- A generator can be used once. `list(g)` a second time gives `[]`.
-- `except:` with no type hides bugs. Name the exception.
-- `@dataclass` with a list default needs `field(default_factory=list)`.
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Problems
-- `01_comprehensions.py` — rewrite loops as comprehensions
-- `02_classes_bank_account.py` — class with state and a custom error
-- `03_dataclass_point.py` — frozen dataclass, sort and dedupe
-- `04_generators_fib.py` — infinite Fibonacci generator, lazy helpers
-- `05_exceptions_safe_parse.py` — parse safely, collect failures
-- `06_args_kwargs.py` — variadic functions and unpacking
-- `07_iter_protocol_range_clone.py` — make your own `range` with dunders
-- `08_mini_project_inventory.py` — combine classes, errors, sorting
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
+
+- [Comprehensions](problems/01_comprehensions.py)
+- [Bank account class](problems/02_classes_bank_account.py)
+- [Point dataclass](problems/03_dataclass_point.py)
+- [Lazy sequences with generators](problems/04_generators_fib.py)
+- [Exceptions as control flow done right](problems/05_exceptions_safe_parse.py)
+- [Variadic arguments and unpacking](problems/06_args_kwargs.py)
+- [Reimplement range](problems/07_iter_protocol_range_clone.py)
+- [Inventory manager (mini project)](problems/08_mini_project_inventory.py)
+
+</details>

@@ -36,26 +36,26 @@ def set_zeroes(matrix: list[list[int]]) -> None:
 if __name__ == "__main__":
     m = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
     set_zeroes(m)
-    assert m == [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
+    assert m == [[1, 0, 1], [0, 0, 0], [1, 0, 1]], 'Check: m == [[1, 0, 1], [0, 0, 0], [1, 0, 1]]'
     m = [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]]
     set_zeroes(m)
-    assert m == [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]
+    assert m == [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]], 'Check: m == [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]'
     m = [[1]]
     set_zeroes(m)
-    assert m == [[1]]
+    assert m == [[1]], 'Check: m == [[1]]'
     m = [[0]]
     set_zeroes(m)
-    assert m == [[0]]
+    assert m == [[0]], 'Check: m == [[0]]'
     m = [[1, 2, 3]]
     set_zeroes(m)
-    assert m == [[1, 2, 3]]
+    assert m == [[1, 2, 3]], 'Check: m == [[1, 2, 3]]'
     m = [[1, 0, 3]]
     set_zeroes(m)
-    assert m == [[0, 0, 0]]
+    assert m == [[0, 0, 0]], 'Check: m == [[0, 0, 0]]'
     m = [[1, 2], [3, 4], [5, 0]]
     set_zeroes(m)
-    assert m == [[1, 0], [3, 0], [0, 0]]
+    assert m == [[1, 0], [3, 0], [0, 0]], 'Check: m == [[1, 0], [3, 0], [0, 0]]'
     m = [[0, 1], [1, 1]]
     set_zeroes(m)
-    assert m == [[0, 0], [0, 1]]
+    assert m == [[0, 0], [0, 1]], 'Check: m == [[0, 0], [0, 1]]'
     print("ok")

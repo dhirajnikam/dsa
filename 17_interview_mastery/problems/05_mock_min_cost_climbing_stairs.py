@@ -30,12 +30,12 @@ def min_cost_climbing_stairs(cost: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert min_cost_climbing_stairs([10, 15, 20]) == 15
-    assert min_cost_climbing_stairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]) == 6
-    assert min_cost_climbing_stairs([0, 0]) == 0
-    assert min_cost_climbing_stairs([5, 7]) == 5
-    assert min_cost_climbing_stairs([7, 5]) == 5
-    assert min_cost_climbing_stairs([1, 2, 3]) == 2
-    assert min_cost_climbing_stairs([9, 1, 9, 1, 9]) == 2
-    assert min_cost_climbing_stairs([999] * 1000) == 999 * 500
+    assert min_cost_climbing_stairs([10, 15, 20]) == 15, 'Check: min_cost_climbing_stairs([10, 15, 20]) == 15'
+    assert min_cost_climbing_stairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]) == 6, 'Check: min_cost_climbing_stairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]) == 6'
+    assert min_cost_climbing_stairs([0, 0]) == 0, 'Check: min_cost_climbing_stairs([0, 0]) == 0'
+    assert min_cost_climbing_stairs([5, 7]) == 5, 'Check: min_cost_climbing_stairs([5, 7]) == 5'
+    assert min_cost_climbing_stairs([7, 5]) == 5, 'Check: min_cost_climbing_stairs([7, 5]) == 5'
+    assert min_cost_climbing_stairs([1, 2, 3]) == 2, 'Check: min_cost_climbing_stairs([1, 2, 3]) == 2'
+    assert min_cost_climbing_stairs([9, 1, 9, 1, 9]) == 2, 'Check: min_cost_climbing_stairs([9, 1, 9, 1, 9]) == 2'
+    assert min_cost_climbing_stairs([999] * 1000) == 999 * 500, 'Check: min_cost_climbing_stairs([999] * 1000) == 999 * 500'
     print("ok")

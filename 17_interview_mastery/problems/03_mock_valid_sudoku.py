@@ -43,26 +43,26 @@ if __name__ == "__main__":
         "...419..5",
         "....8..79",
     ])
-    assert is_valid_sudoku(valid) is True
+    assert is_valid_sudoku(valid) is True, 'Check: is_valid_sudoku(valid) is True'
 
     col0_dup = grid(["83..7....", "6..195...", ".98....6.", "8...6...3", "4..8.3..1", "7...2...6", ".6....28.", "...419..5", "....8..79"])
-    assert is_valid_sudoku(col0_dup) is False          # 8 appears twice in column 0
+    assert is_valid_sudoku(col0_dup) is False, 'Check: is_valid_sudoku(col0_dup) is False'          # 8 appears twice in column 0
 
     empty = grid(["........."] * 9)
-    assert is_valid_sudoku(empty) is True
+    assert is_valid_sudoku(empty) is True, 'Check: is_valid_sudoku(empty) is True'
 
     col_dup = grid(["1........", "1........", ".........", ".........", ".........", ".........", ".........", ".........", "........."])
-    assert is_valid_sudoku(col_dup) is False
+    assert is_valid_sudoku(col_dup) is False, 'Check: is_valid_sudoku(col_dup) is False'
 
     box_dup = grid(["1........", ".1.......", ".........", ".........", ".........", ".........", ".........", ".........", "........."])
-    assert is_valid_sudoku(box_dup) is False           # same 3x3 box, different row and column
+    assert is_valid_sudoku(box_dup) is False, 'Check: is_valid_sudoku(box_dup) is False'           # same 3x3 box, different row and column
 
     box_ok = grid(["1........", "...1.....", ".........", ".........", ".........", ".........", ".........", ".........", "........."])
-    assert is_valid_sudoku(box_ok) is True             # different row, column and box
+    assert is_valid_sudoku(box_ok) is True, 'Check: is_valid_sudoku(box_ok) is True'             # different row, column and box
 
     row_dup = grid(["1.......1", ".........", ".........", ".........", ".........", ".........", ".........", ".........", "........."])
-    assert is_valid_sudoku(row_dup) is False
+    assert is_valid_sudoku(row_dup) is False, 'Check: is_valid_sudoku(row_dup) is False'
 
     corner = grid(["........."] * 8 + ["........9"])
-    assert is_valid_sudoku(corner) is True
+    assert is_valid_sudoku(corner) is True, 'Check: is_valid_sudoku(corner) is True'
     print("ok")

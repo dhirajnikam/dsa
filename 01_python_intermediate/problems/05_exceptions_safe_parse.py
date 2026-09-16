@@ -47,28 +47,28 @@ def first_failure(funcs: list) -> int:
 
 
 if __name__ == "__main__":
-    assert safe_int("42") == 42 and safe_int(" 42 ") == 42
-    assert safe_int("4.2") is None and safe_int("x", 0) == 0 and safe_int(None, -1) == -1
-    assert parse_ints(["1", "x", "3", ""]) == ([1, 3], [1, 3])
-    assert parse_ints([]) == ([], [])
-    assert checked_sqrt(9) == 3.0
+    assert safe_int("42") == 42 and safe_int(" 42 ") == 42, 'Check: safe_int("42") == 42 and safe_int(" 42 ") == 42'
+    assert safe_int("4.2") is None and safe_int("x", 0) == 0 and safe_int(None, -1) == -1, 'Check: safe_int("4.2") is None and safe_int("x", 0) == 0 and safe_int(None, -1) == -1'
+    assert parse_ints(["1", "x", "3", ""]) == ([1, 3], [1, 3]), 'Check: parse_ints(["1", "x", "3", ""]) == ([1, 3], [1, 3])'
+    assert parse_ints([]) == ([], []), 'Check: parse_ints([]) == ([], [])'
+    assert checked_sqrt(9) == 3.0, 'Check: checked_sqrt(9) == 3.0'
     try:
         checked_sqrt(-4)
-        assert False
+        assert False, 'Check: False'
     except NegativeError as e:
-        assert e.value == -4 and isinstance(e, ValueError)
+        assert e.value == -4 and isinstance(e, ValueError), 'Check: e.value == -4 and isinstance(e, ValueError)'
     log = []
-    assert divide_all([(6, 3), (1, 0), (5, 2)], log) == [2.0, None, 2.5]
-    assert log == ["done"]
+    assert divide_all([(6, 3), (1, 0), (5, 2)], log) == [2.0, None, 2.5], 'Check: divide_all([(6, 3), (1, 0), (5, 2)], log) == [2.0, None, 2.5]'
+    assert log == ["done"], 'Check: log == ["done"]'
     try:
         divide_all([(1, "a")], log)
-        assert False
+        assert False, 'Check: False'
     except TypeError:
         pass
-    assert log == ["done", "done"]
+    assert log == ["done", "done"], 'Check: log == ["done", "done"]'
     calls = []
     fs = [lambda: calls.append(0), lambda: 1 / 0, lambda: calls.append(2)]
-    assert first_failure(fs) == 1 and calls == [0]
-    assert first_failure([lambda: 1]) == -1
-    assert first_failure([]) == -1
+    assert first_failure(fs) == 1 and calls == [0], 'Check: first_failure(fs) == 1 and calls == [0]'
+    assert first_failure([lambda: 1]) == -1, 'Check: first_failure([lambda: 1]) == -1'
+    assert first_failure([]) == -1, 'Check: first_failure([]) == -1'
     print("ok")

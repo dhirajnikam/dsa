@@ -24,11 +24,11 @@ def count_bits(n: int) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert count_bits(0) == [0]
-    assert count_bits(1) == [0, 1]
-    assert count_bits(2) == [0, 1, 1]
-    assert count_bits(5) == [0, 1, 1, 2, 1, 2]
-    assert count_bits(8) == [0, 1, 1, 2, 1, 2, 2, 3, 1]
-    assert count_bits(15)[15] == 4
-    assert count_bits(1000) == [bin(i).count("1") for i in range(1001)]
+    assert count_bits(0) == [0], 'Check: count_bits(0) == [0]'
+    assert count_bits(1) == [0, 1], 'Check: count_bits(1) == [0, 1]'
+    assert count_bits(2) == [0, 1, 1], 'Check: count_bits(2) == [0, 1, 1]'
+    assert count_bits(5) == [0, 1, 1, 2, 1, 2], 'Check: count_bits(5) == [0, 1, 1, 2, 1, 2]'
+    assert count_bits(8) == [0, 1, 1, 2, 1, 2, 2, 3, 1], 'Check: count_bits(8) == [0, 1, 1, 2, 1, 2, 2, 3, 1]'
+    assert count_bits(15)[15] == 4, 'Check: count_bits(15)[15] == 4'
+    assert count_bits(1000) == [bin(i).count("1") for i in range(1001)], 'Check: count_bits(1000) == [bin(i).count("1") for i in range(1001)]'
     print("ok")

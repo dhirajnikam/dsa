@@ -33,14 +33,17 @@ def is_valid(s: str) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_valid("()[]{}") is True
-    assert is_valid("(]") is False
-    assert is_valid("([)]") is False
-    assert is_valid("{[]}") is True
-    assert is_valid("") is True
-    assert is_valid("(") is False
-    assert is_valid(")") is False
-    assert is_valid("((()))") is True
-    assert is_valid("(()") is False
-    assert is_valid("]]") is False
+    assert is_valid("()[]{}") is True, 'Check: is_valid("()[]{}") is True'
+    assert is_valid("(]") is False, 'Check: is_valid("(]") is False'
+    assert is_valid("([)]") is False, 'Check: is_valid("([)]") is False'
+    assert is_valid("{[]}") is True, 'Check: is_valid("{[]}") is True'
+    assert is_valid("") is True, 'Check: is_valid("") is True'
+    assert is_valid("(") is False, 'Check: is_valid("(") is False'
+    assert is_valid(")") is False, 'Check: is_valid(")") is False'
+    assert is_valid("((()))") is True, 'Check: is_valid("((()))") is True'
+    assert is_valid("(()") is False, 'Check: is_valid("(()") is False'
+    assert is_valid("]]") is False, 'Check: is_valid("]]") is False'
+    # Boundary and misconception checks: predict each result before running.
+    assert is_valid(")(") is False, 'Check: is_valid(")(") is False'
+    assert is_valid("{[()]}()") is True, 'Check: is_valid("{[()]}()") is True'
     print("ok")

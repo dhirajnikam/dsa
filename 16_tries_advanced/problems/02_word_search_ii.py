@@ -30,11 +30,11 @@ def find_words(board: list[list[str]], words: list[str]) -> list[str]:
 
 if __name__ == "__main__":
     board = [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]]
-    assert sorted(find_words(board, ["oath", "pea", "eat", "rain"])) == ["eat", "oath"]
-    assert find_words([["a", "b"], ["c", "d"]], ["abcb"]) == []
-    assert sorted(find_words([["a"]], ["a", "aa"])) == ["a"]
-    assert sorted(find_words([["a", "a"]], ["aa", "aaa"])) == ["aa"]
-    assert sorted(find_words([["a", "b"], ["c", "d"]], ["ab", "cd", "ac", "bd", "abd", "abcd"])) == ["ab", "abd", "ac", "bd", "cd"]
-    assert find_words([["x"]], []) == []
-    assert sorted(find_words([["o", "a"], ["h", "t"]], ["oath", "oath"])) == ["oath"]
+    assert sorted(find_words(board, ["oath", "pea", "eat", "rain"])) == ["eat", "oath"], 'Check: sorted(find_words(board, ["oath", "pea", "eat", "rain"])) == ["eat", "oath"]'
+    assert find_words([["a", "b"], ["c", "d"]], ["abcb"]) == [], 'Check: find_words([["a", "b"], ["c", "d"]], ["abcb"]) == []'
+    assert sorted(find_words([["a"]], ["a", "aa"])) == ["a"], 'Check: sorted(find_words([["a"]], ["a", "aa"])) == ["a"]'
+    assert sorted(find_words([["a", "a"]], ["aa", "aaa"])) == ["aa"], 'Check: sorted(find_words([["a", "a"]], ["aa", "aaa"])) == ["aa"]'
+    assert sorted(find_words([["a", "b"], ["c", "d"]], ["ab", "cd", "ac", "bd", "abd", "abcd"])) == ["ab", "abd", "ac", "bd", "cd"], 'Check: sorted(find_words([["a", "b"], ["c", "d"]], ["ab", "cd", "ac", "bd", "abd", "abcd"])) == ["ab", "abd", "ac", "bd", "cd"]'
+    assert find_words([["x"]], []) == [], 'Check: find_words([["x"]], []) == []'
+    assert sorted(find_words([["o", "a"], ["h", "t"]], ["oath", "oath"])) == ["oath"], 'Check: sorted(find_words([["o", "a"], ["h", "t"]], ["oath", "oath"])) == ["oath"]'
     print("ok")

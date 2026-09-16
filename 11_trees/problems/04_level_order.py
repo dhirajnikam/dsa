@@ -65,11 +65,13 @@ def level_order(root: TreeNode | None) -> list[list[int]]:
 
 
 if __name__ == "__main__":
-    assert level_order(build([3, 9, 20, None, None, 15, 7])) == [[3], [9, 20], [15, 7]]
-    assert level_order(build([1])) == [[1]]
-    assert level_order(None) == []
-    assert level_order(build([1, 2, None, 3])) == [[1], [2], [3]]
-    assert level_order(build([1, None, 2, None, 3])) == [[1], [2], [3]]
-    assert level_order(build([1, 2, 3, 4, 5, 6, 7])) == [[1], [2, 3], [4, 5, 6, 7]]
-    assert level_order(build([1, 2, 3, None, 4, None, 5])) == [[1], [2, 3], [4, 5]]
+    assert level_order(build([3, 9, 20, None, None, 15, 7])) == [[3], [9, 20], [15, 7]], 'Check: level_order(build([3, 9, 20, None, None, 15, 7])) == [[3], [9, 20], [15, 7]]'
+    assert level_order(build([1])) == [[1]], 'Check: level_order(build([1])) == [[1]]'
+    assert level_order(None) == [], 'Check: level_order(None) == []'
+    assert level_order(build([1, 2, None, 3])) == [[1], [2], [3]], 'Check: level_order(build([1, 2, None, 3])) == [[1], [2], [3]]'
+    assert level_order(build([1, None, 2, None, 3])) == [[1], [2], [3]], 'Check: level_order(build([1, None, 2, None, 3])) == [[1], [2], [3]]'
+    assert level_order(build([1, 2, 3, 4, 5, 6, 7])) == [[1], [2, 3], [4, 5, 6, 7]], 'Check: level_order(build([1, 2, 3, 4, 5, 6, 7])) == [[1], [2, 3], [4, 5, 6, 7]]'
+    assert level_order(build([1, 2, 3, None, 4, None, 5])) == [[1], [2, 3], [4, 5]], 'Check: level_order(build([1, 2, 3, None, 4, None, 5])) == [[1], [2, 3], [4, 5]]'
+    # Boundary and misconception checks: predict each result before running.
+    assert level_order(build([0, 0, 0])) == [[0], [0, 0]], 'Check: level_order(build([0, 0, 0])) == [[0], [0, 0]]'
     print("ok")

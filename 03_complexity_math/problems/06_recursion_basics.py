@@ -63,18 +63,18 @@ def depth_of_nested(lst) -> int:
 if __name__ == "__main__":
     import math
 
-    assert factorial(0) == 1 and factorial(1) == 1 and factorial(5) == 120 and factorial(20) == math.factorial(20)
-    assert sum_digits(0) == 0 and sum_digits(1234) == 10 and sum_digits(10**18) == 1
-    assert reverse_string("") == "" and reverse_string("a") == "a" and reverse_string("abc") == "cba"
-    assert reverse_string("hello world") == "dlrow olleh"
-    assert is_palindrome("") and is_palindrome("a") and is_palindrome("abba") and is_palindrome("racecar")
-    assert not is_palindrome("ab") and not is_palindrome("abca")
-    assert power_set_size(0) == 1 and power_set_size(3) == 8 and power_set_size(20) == 2**20
-    assert sum_list([]) == 0 and sum_list([5]) == 5 and sum_list([1, 2, 3]) == 6
-    assert sum_list(list(range(5000))) == sum(range(5000))
-    assert count_down(0) == [] and count_down(1) == [1] and count_down(4) == [4, 3, 2, 1]
-    assert depth_of_nested(5) == 0 and depth_of_nested([]) == 1 and depth_of_nested([1, 2]) == 1
-    assert depth_of_nested([1, [2, [3]]]) == 3 and depth_of_nested([[[]], []]) == 3
+    assert factorial(0) == 1 and factorial(1) == 1 and factorial(5) == 120 and factorial(20) == math.factorial(20), 'Check: factorial(0) == 1 and factorial(1) == 1 and factorial(5) == 120 and factorial(20) == math.factorial(20)'
+    assert sum_digits(0) == 0 and sum_digits(1234) == 10 and sum_digits(10**18) == 1, 'Check: sum_digits(0) == 0 and sum_digits(1234) == 10 and sum_digits(10**18) == 1'
+    assert reverse_string("") == "" and reverse_string("a") == "a" and reverse_string("abc") == "cba", 'Check: reverse_string("") == "" and reverse_string("a") == "a" and reverse_string("abc") == "cba"'
+    assert reverse_string("hello world") == "dlrow olleh", 'Check: reverse_string("hello world") == "dlrow olleh"'
+    assert is_palindrome("") and is_palindrome("a") and is_palindrome("abba") and is_palindrome("racecar"), 'Check: is_palindrome("") and is_palindrome("a") and is_palindrome("abba") and is_palindrome("racecar")'
+    assert not is_palindrome("ab") and not is_palindrome("abca"), 'Check: not is_palindrome("ab") and not is_palindrome("abca")'
+    assert power_set_size(0) == 1 and power_set_size(3) == 8 and power_set_size(20) == 2**20, 'Check: power_set_size(0) == 1 and power_set_size(3) == 8 and power_set_size(20) == 2**20'
+    assert sum_list([]) == 0 and sum_list([5]) == 5 and sum_list([1, 2, 3]) == 6, 'Check: sum_list([]) == 0 and sum_list([5]) == 5 and sum_list([1, 2, 3]) == 6'
+    assert sum_list(list(range(5000))) == sum(range(5000)), 'Check: sum_list(list(range(5000))) == sum(range(5000))'
+    assert count_down(0) == [] and count_down(1) == [1] and count_down(4) == [4, 3, 2, 1], 'Check: count_down(0) == [] and count_down(1) == [1] and count_down(4) == [4, 3, 2, 1]'
+    assert depth_of_nested(5) == 0 and depth_of_nested([]) == 1 and depth_of_nested([1, 2]) == 1, 'Check: depth_of_nested(5) == 0 and depth_of_nested([]) == 1 and depth_of_nested([1, 2]) == 1'
+    assert depth_of_nested([1, [2, [3]]]) == 3 and depth_of_nested([[[]], []]) == 3, 'Check: depth_of_nested([1, [2, [3]]]) == 3 and depth_of_nested([[[]], []]) == 3'
 
     # recursion check: a recursive factorial(50) reaches at least 50 frames deep
     max_depth = [0]

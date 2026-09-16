@@ -37,11 +37,11 @@ def letter_combinations(digits: str) -> list[str]:
 
 
 if __name__ == "__main__":
-    assert sorted(letter_combinations("23")) == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
-    assert letter_combinations("") == []
-    assert sorted(letter_combinations("2")) == ["a", "b", "c"]
-    assert sorted(letter_combinations("7")) == ["p", "q", "r", "s"]
+    assert sorted(letter_combinations("23")) == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"], 'Check: sorted(letter_combinations("23")) == ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]'
+    assert letter_combinations("") == [], 'Check: letter_combinations("") == []'
+    assert sorted(letter_combinations("2")) == ["a", "b", "c"], 'Check: sorted(letter_combinations("2")) == ["a", "b", "c"]'
+    assert sorted(letter_combinations("7")) == ["p", "q", "r", "s"], 'Check: sorted(letter_combinations("7")) == ["p", "q", "r", "s"]'
     out = letter_combinations("79")
-    assert len(out) == 16 and len(set(out)) == 16 and all(len(s) == 2 for s in out)
-    assert len(letter_combinations("2345")) == 81
+    assert len(out) == 16 and len(set(out)) == 16 and all(len(s) == 2 for s in out), 'Check: len(out) == 16 and len(set(out)) == 16 and all(len(s) == 2 for s in out)'
+    assert len(letter_combinations("2345")) == 81, 'Check: len(letter_combinations("2345")) == 81'
     print("ok")

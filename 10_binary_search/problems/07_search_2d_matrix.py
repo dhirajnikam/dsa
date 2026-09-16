@@ -35,13 +35,13 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
 
 if __name__ == "__main__":
     m = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]]
-    assert search_matrix(m, 3) is True
-    assert search_matrix(m, 13) is False
-    assert search_matrix(m, 1) is True and search_matrix(m, 60) is True
-    assert search_matrix(m, 0) is False and search_matrix(m, 61) is False
-    assert search_matrix([[1]], 1) is True
-    assert search_matrix([[1]], 2) is False
-    assert search_matrix([[1], [3], [5]], 3) is True      # single column
-    assert search_matrix([[1, 3, 5]], 4) is False          # single row
-    assert search_matrix([[]], 1) is False                 # empty row
+    assert search_matrix(m, 3) is True, 'Check: search_matrix(m, 3) is True'
+    assert search_matrix(m, 13) is False, 'Check: search_matrix(m, 13) is False'
+    assert search_matrix(m, 1) is True and search_matrix(m, 60) is True, 'Check: search_matrix(m, 1) is True and search_matrix(m, 60) is True'
+    assert search_matrix(m, 0) is False and search_matrix(m, 61) is False, 'Check: search_matrix(m, 0) is False and search_matrix(m, 61) is False'
+    assert search_matrix([[1]], 1) is True, 'Check: search_matrix([[1]], 1) is True'
+    assert search_matrix([[1]], 2) is False, 'Check: search_matrix([[1]], 2) is False'
+    assert search_matrix([[1], [3], [5]], 3) is True, 'Check: search_matrix([[1], [3], [5]], 3) is True'      # single column
+    assert search_matrix([[1, 3, 5]], 4) is False, 'Check: search_matrix([[1, 3, 5]], 4) is False'          # single row
+    assert search_matrix([[]], 1) is False, 'Check: search_matrix([[]], 1) is False'                 # empty row
     print("ok")

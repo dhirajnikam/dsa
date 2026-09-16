@@ -52,33 +52,33 @@ class MinStack:
 if __name__ == "__main__":
     ms = MinStack()
     ms.push(-2); ms.push(0); ms.push(-3)
-    assert ms.get_min() == -3
+    assert ms.get_min() == -3, 'Check: ms.get_min() == -3'
     ms.pop()
-    assert ms.top() == 0
-    assert ms.get_min() == -2
+    assert ms.top() == 0, 'Check: ms.top() == 0'
+    assert ms.get_min() == -2, 'Check: ms.get_min() == -2'
     ms = MinStack()
     ms.push(5)
-    assert ms.top() == 5 and ms.get_min() == 5
+    assert ms.top() == 5 and ms.get_min() == 5, 'Check: ms.top() == 5 and ms.get_min() == 5'
     ms.push(5); ms.push(5)
     ms.pop()
-    assert ms.get_min() == 5
+    assert ms.get_min() == 5, 'Check: ms.get_min() == 5'
     ms = MinStack()
     for v in [3, 1, 4, 1, 5]:
         ms.push(v)
-    assert ms.get_min() == 1
+    assert ms.get_min() == 1, 'Check: ms.get_min() == 1'
     ms.pop(); ms.pop()
-    assert ms.get_min() == 1
+    assert ms.get_min() == 1, 'Check: ms.get_min() == 1'
     ms.pop()
-    assert ms.get_min() == 1
+    assert ms.get_min() == 1, 'Check: ms.get_min() == 1'
     ms.pop()
-    assert ms.get_min() == 3 and ms.top() == 3
+    assert ms.get_min() == 3 and ms.top() == 3, 'Check: ms.get_min() == 3 and ms.top() == 3'
     ms = MinStack()
     ms.push(2); ms.push(0); ms.push(3); ms.push(0)
-    assert ms.get_min() == 0
+    assert ms.get_min() == 0, 'Check: ms.get_min() == 0'
     ms.pop()
-    assert ms.get_min() == 0
+    assert ms.get_min() == 0, 'Check: ms.get_min() == 0'
     ms.pop()
-    assert ms.get_min() == 0
+    assert ms.get_min() == 0, 'Check: ms.get_min() == 0'
     ms.pop()
-    assert ms.get_min() == 2
+    assert ms.get_min() == 2, 'Check: ms.get_min() == 2'
     print("ok")

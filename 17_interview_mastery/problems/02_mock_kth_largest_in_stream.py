@@ -36,24 +36,24 @@ class KthLargest:
 
 if __name__ == "__main__":
     s = KthLargest(3, [4, 5, 8, 2])
-    assert s.add(3) == 4
-    assert s.add(5) == 5
-    assert s.add(10) == 5
-    assert s.add(9) == 8
-    assert s.add(4) == 8
+    assert s.add(3) == 4, 'Check: s.add(3) == 4'
+    assert s.add(5) == 5, 'Check: s.add(5) == 5'
+    assert s.add(10) == 5, 'Check: s.add(10) == 5'
+    assert s.add(9) == 8, 'Check: s.add(9) == 8'
+    assert s.add(4) == 8, 'Check: s.add(4) == 8'
 
     e = KthLargest(1, [])
-    assert e.add(-3) == -3
-    assert e.add(-2) == -2
-    assert e.add(-4) == -2
+    assert e.add(-3) == -3, 'Check: e.add(-3) == -3'
+    assert e.add(-2) == -2, 'Check: e.add(-2) == -2'
+    assert e.add(-4) == -2, 'Check: e.add(-4) == -2'
 
     d = KthLargest(2, [0])
-    assert d.add(-1) == -1
-    assert d.add(1) == 0
-    assert d.add(-2) == 0
-    assert d.add(-4) == 0
-    assert d.add(3) == 1
+    assert d.add(-1) == -1, 'Check: d.add(-1) == -1'
+    assert d.add(1) == 0, 'Check: d.add(1) == 0'
+    assert d.add(-2) == 0, 'Check: d.add(-2) == 0'
+    assert d.add(-4) == 0, 'Check: d.add(-4) == 0'
+    assert d.add(3) == 1, 'Check: d.add(3) == 1'
 
     dup = KthLargest(2, [4, 4, 3])
-    assert dup.add(1) == 4
+    assert dup.add(1) == 4, 'Check: dup.add(1) == 4'
     print("ok")

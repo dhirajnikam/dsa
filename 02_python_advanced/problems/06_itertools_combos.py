@@ -46,15 +46,15 @@ def distinct_permutations(s: str) -> list[str]:
 
 
 if __name__ == "__main__":
-    assert pairs_with_sum([1, 2, 3, 4, 3], 6) == 2
-    assert pairs_with_sum([3, 3, 3], 6) == 3 and pairs_with_sum([], 1) == 0
+    assert pairs_with_sum([1, 2, 3, 4, 3], 6) == 2, 'Check: pairs_with_sum([1, 2, 3, 4, 3], 6) == 2'
+    assert pairs_with_sum([3, 3, 3], 6) == 3 and pairs_with_sum([], 1) == 0, 'Check: pairs_with_sum([3, 3, 3], 6) == 3 and pairs_with_sum([], 1) == 0'
     d = dice_sum_counts(2, 6)
-    assert d[2] == 1 and d[7] == 6 and d[12] == 1 and sum(d.values()) == 36
-    assert dice_sum_counts(1, 4) == {1: 1, 2: 1, 3: 1, 4: 1}
-    assert prefix_maxes([1, 3, 2, 5, 4]) == [1, 3, 3, 5, 5] and prefix_maxes([]) == []
-    assert run_length_encode("aaabcc") == [("a", 3), ("b", 1), ("c", 2)]
-    assert run_length_encode("") == [] and run_length_encode("abab") == [("a", 1), ("b", 1), ("a", 1), ("b", 1)]
-    assert flatten_all([[1, 2], [], [3]]) == [1, 2, 3] and flatten_all([]) == []
-    assert distinct_permutations("aab") == ["aab", "aba", "baa"]
-    assert distinct_permutations("") == [""] and len(distinct_permutations("abcd")) == 24
+    assert d[2] == 1 and d[7] == 6 and d[12] == 1 and sum(d.values()) == 36, 'Check: d[2] == 1 and d[7] == 6 and d[12] == 1 and sum(d.values()) == 36'
+    assert dice_sum_counts(1, 4) == {1: 1, 2: 1, 3: 1, 4: 1}, 'Check: dice_sum_counts(1, 4) == {1: 1, 2: 1, 3: 1, 4: 1}'
+    assert prefix_maxes([1, 3, 2, 5, 4]) == [1, 3, 3, 5, 5] and prefix_maxes([]) == [], 'Check: prefix_maxes([1, 3, 2, 5, 4]) == [1, 3, 3, 5, 5] and prefix_maxes([]) == []'
+    assert run_length_encode("aaabcc") == [("a", 3), ("b", 1), ("c", 2)], 'Check: run_length_encode("aaabcc") == [("a", 3), ("b", 1), ("c", 2)]'
+    assert run_length_encode("") == [] and run_length_encode("abab") == [("a", 1), ("b", 1), ("a", 1), ("b", 1)], 'Check: run_length_encode("") == [] and run_length_encode("abab") == [("a", 1), ("b", 1), ("a", 1), ("b", 1)]'
+    assert flatten_all([[1, 2], [], [3]]) == [1, 2, 3] and flatten_all([]) == [], 'Check: flatten_all([[1, 2], [], [3]]) == [1, 2, 3] and flatten_all([]) == []'
+    assert distinct_permutations("aab") == ["aab", "aba", "baa"], 'Check: distinct_permutations("aab") == ["aab", "aba", "baa"]'
+    assert distinct_permutations("") == [""] and len(distinct_permutations("abcd")) == 24, 'Check: distinct_permutations("") == [""] and len(distinct_permutations("abcd")) == 24'
     print("ok")

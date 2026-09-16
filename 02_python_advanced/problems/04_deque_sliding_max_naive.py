@@ -45,19 +45,19 @@ def hot_potato(names: list[str], num: int) -> str:
 
 
 if __name__ == "__main__":
-    assert sliding_window_max_naive([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7]
-    assert sliding_window_max_naive([1], 1) == [1]
-    assert sliding_window_max_naive([1, 2], 3) == [] and sliding_window_max_naive([1], 0) == []
-    assert sliding_window_max_naive([4, 3, 2, 1], 2) == [4, 3, 2]
-    assert rotate([1, 2, 3, 4, 5], 2) == [4, 5, 1, 2, 3]
-    assert rotate([1, 2, 3], 4) == [3, 1, 2] and rotate([1, 2, 3], -1) == [2, 3, 1]
-    assert rotate([], 3) == []
-    assert tail(range(10), 3) == [7, 8, 9]
-    assert tail((x * x for x in range(10**6)), 2) == [(10**6 - 2) ** 2, (10**6 - 1) ** 2]
-    assert tail([1, 2], 5) == [1, 2] and tail([1, 2], 0) == []
-    assert is_palindrome_deque("A man, a plan, a canal: Panama")
-    assert not is_palindrome_deque("race a car") and is_palindrome_deque("") and is_palindrome_deque("x")
-    assert hot_potato(["a", "b", "c", "d"], 2) == "a"
-    assert hot_potato(["solo"], 7) == "solo"
-    assert hot_potato(["a", "b", "c", "d", "e", "f"], 7) == "c"
+    assert sliding_window_max_naive([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7], 'Check: sliding_window_max_naive([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7]'
+    assert sliding_window_max_naive([1], 1) == [1], 'Check: sliding_window_max_naive([1], 1) == [1]'
+    assert sliding_window_max_naive([1, 2], 3) == [] and sliding_window_max_naive([1], 0) == [], 'Check: sliding_window_max_naive([1, 2], 3) == [] and sliding_window_max_naive([1], 0) == []'
+    assert sliding_window_max_naive([4, 3, 2, 1], 2) == [4, 3, 2], 'Check: sliding_window_max_naive([4, 3, 2, 1], 2) == [4, 3, 2]'
+    assert rotate([1, 2, 3, 4, 5], 2) == [4, 5, 1, 2, 3], 'Check: rotate([1, 2, 3, 4, 5], 2) == [4, 5, 1, 2, 3]'
+    assert rotate([1, 2, 3], 4) == [3, 1, 2] and rotate([1, 2, 3], -1) == [2, 3, 1], 'Check: rotate([1, 2, 3], 4) == [3, 1, 2] and rotate([1, 2, 3], -1) == [2, 3, 1]'
+    assert rotate([], 3) == [], 'Check: rotate([], 3) == []'
+    assert tail(range(10), 3) == [7, 8, 9], 'Check: tail(range(10), 3) == [7, 8, 9]'
+    assert tail((x * x for x in range(10**6)), 2) == [(10**6 - 2) ** 2, (10**6 - 1) ** 2], 'Check: tail((x * x for x in range(10**6)), 2) == [(10**6 - 2) ** 2, (10**6 - 1) ** 2]'
+    assert tail([1, 2], 5) == [1, 2] and tail([1, 2], 0) == [], 'Check: tail([1, 2], 5) == [1, 2] and tail([1, 2], 0) == []'
+    assert is_palindrome_deque("A man, a plan, a canal: Panama"), 'Check: is_palindrome_deque("A man, a plan, a canal: Panama")'
+    assert not is_palindrome_deque("race a car") and is_palindrome_deque("") and is_palindrome_deque("x"), 'Check: not is_palindrome_deque("race a car") and is_palindrome_deque("") and is_palindrome_deque("x")'
+    assert hot_potato(["a", "b", "c", "d"], 2) == "a", 'Check: hot_potato(["a", "b", "c", "d"], 2) == "a"'
+    assert hot_potato(["solo"], 7) == "solo", 'Check: hot_potato(["solo"], 7) == "solo"'
+    assert hot_potato(["a", "b", "c", "d", "e", "f"], 7) == "c", 'Check: hot_potato(["a", "b", "c", "d", "e", "f"], 7) == "c"'
     print("ok")

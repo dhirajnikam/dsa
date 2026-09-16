@@ -75,14 +75,14 @@ def _find(root: TreeNode | None, val: int) -> TreeNode | None:
 if __name__ == "__main__":
     t = build([3, 5, 1, 6, 2, 0, 8, None, None, 7, 4])
     lca = lambda a, b: lowest_common_ancestor(t, _find(t, a), _find(t, b)).val
-    assert lca(5, 1) == 3
-    assert lca(5, 4) == 5
-    assert lca(6, 4) == 5
-    assert lca(7, 4) == 2
-    assert lca(0, 8) == 1
-    assert lca(6, 8) == 3
+    assert lca(5, 1) == 3, 'Check: lca(5, 1) == 3'
+    assert lca(5, 4) == 5, 'Check: lca(5, 4) == 5'
+    assert lca(6, 4) == 5, 'Check: lca(6, 4) == 5'
+    assert lca(7, 4) == 2, 'Check: lca(7, 4) == 2'
+    assert lca(0, 8) == 1, 'Check: lca(0, 8) == 1'
+    assert lca(6, 8) == 3, 'Check: lca(6, 8) == 3'
     t2 = build([1, 2])
-    assert lowest_common_ancestor(t2, _find(t2, 1), _find(t2, 2)).val == 1
+    assert lowest_common_ancestor(t2, _find(t2, 1), _find(t2, 2)).val == 1, 'Check: lowest_common_ancestor(t2, _find(t2, 1), _find(t2, 2)).val == 1'
     t3 = build([1, None, 2, None, 3, None, 4])
-    assert lowest_common_ancestor(t3, _find(t3, 4), _find(t3, 2)).val == 2
+    assert lowest_common_ancestor(t3, _find(t3, 4), _find(t3, 2)).val == 2, 'Check: lowest_common_ancestor(t3, _find(t3, 4), _find(t3, 2)).val == 2'
     print("ok")

@@ -45,23 +45,23 @@ class MedianFinder:
 if __name__ == "__main__":
     mf = MedianFinder()
     mf.add_num(1)
-    assert mf.find_median() == 1.0
+    assert mf.find_median() == 1.0, 'Check: mf.find_median() == 1.0'
     mf.add_num(2)
-    assert mf.find_median() == 1.5
+    assert mf.find_median() == 1.5, 'Check: mf.find_median() == 1.5'
     mf.add_num(3)
-    assert mf.find_median() == 2.0
+    assert mf.find_median() == 2.0, 'Check: mf.find_median() == 2.0'
     mf = MedianFinder()
     for x in [5, -1, 3, 3, 10]:
         mf.add_num(x)
-    assert mf.find_median() == 3.0
+    assert mf.find_median() == 3.0, 'Check: mf.find_median() == 3.0'
     mf.add_num(100)
-    assert mf.find_median() == 4.0
+    assert mf.find_median() == 4.0, 'Check: mf.find_median() == 4.0'
     mf = MedianFinder()
     for x in range(10, 0, -1):
         mf.add_num(x)
-    assert mf.find_median() == 5.5
+    assert mf.find_median() == 5.5, 'Check: mf.find_median() == 5.5'
     mf = MedianFinder()
     for x in [2, 2, 2]:
         mf.add_num(x)
-    assert mf.find_median() == 2.0
+    assert mf.find_median() == 2.0, 'Check: mf.find_median() == 2.0'
     print("ok")

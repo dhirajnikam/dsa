@@ -30,13 +30,13 @@ def can_partition(nums: list[int]) -> bool:
 
 
 if __name__ == "__main__":
-    assert can_partition([1, 5, 11, 5]) is True
-    assert can_partition([1, 2, 3, 5]) is False
-    assert can_partition([1]) is False
-    assert can_partition([2, 2]) is True
-    assert can_partition([1, 1, 1, 1]) is True
-    assert can_partition([3, 3, 3, 4, 5]) is True
-    assert can_partition([1, 2, 5]) is False
-    assert can_partition([100] * 200) is True
-    assert can_partition([100] * 199) is False
+    assert can_partition([1, 5, 11, 5]) is True, 'Check: can_partition([1, 5, 11, 5]) is True'
+    assert can_partition([1, 2, 3, 5]) is False, 'Check: can_partition([1, 2, 3, 5]) is False'
+    assert can_partition([1]) is False, 'Check: can_partition([1]) is False'
+    assert can_partition([2, 2]) is True, 'Check: can_partition([2, 2]) is True'
+    assert can_partition([1, 1, 1, 1]) is True, 'Check: can_partition([1, 1, 1, 1]) is True'
+    assert can_partition([3, 3, 3, 4, 5]) is True, 'Check: can_partition([3, 3, 3, 4, 5]) is True'
+    assert can_partition([1, 2, 5]) is False, 'Check: can_partition([1, 2, 5]) is False'
+    assert can_partition([100] * 200) is True, 'Check: can_partition([100] * 200) is True'
+    assert can_partition([100] * 199) is False, 'Check: can_partition([100] * 199) is False'
     print("ok")

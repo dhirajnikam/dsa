@@ -36,12 +36,12 @@ def search_range(nums: list[int], target: int) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert search_range([5, 7, 7, 8, 8, 10], 8) == [3, 4]
-    assert search_range([5, 7, 7, 8, 8, 10], 6) == [-1, -1]
-    assert search_range([], 0) == [-1, -1]
-    assert search_range([1], 1) == [0, 0]
-    assert search_range([2, 2, 2, 2], 2) == [0, 3]
-    assert search_range([1, 2, 3], 3) == [2, 2]
-    assert search_range([1, 2, 3], 0) == [-1, -1]
-    assert search_range([1, 2, 3], 4) == [-1, -1]
+    assert search_range([5, 7, 7, 8, 8, 10], 8) == [3, 4], 'Check: search_range([5, 7, 7, 8, 8, 10], 8) == [3, 4]'
+    assert search_range([5, 7, 7, 8, 8, 10], 6) == [-1, -1], 'Check: search_range([5, 7, 7, 8, 8, 10], 6) == [-1, -1]'
+    assert search_range([], 0) == [-1, -1], 'Check: search_range([], 0) == [-1, -1]'
+    assert search_range([1], 1) == [0, 0], 'Check: search_range([1], 1) == [0, 0]'
+    assert search_range([2, 2, 2, 2], 2) == [0, 3], 'Check: search_range([2, 2, 2, 2], 2) == [0, 3]'
+    assert search_range([1, 2, 3], 3) == [2, 2], 'Check: search_range([1, 2, 3], 3) == [2, 2]'
+    assert search_range([1, 2, 3], 0) == [-1, -1], 'Check: search_range([1, 2, 3], 0) == [-1, -1]'
+    assert search_range([1, 2, 3], 4) == [-1, -1], 'Check: search_range([1, 2, 3], 4) == [-1, -1]'
     print("ok")

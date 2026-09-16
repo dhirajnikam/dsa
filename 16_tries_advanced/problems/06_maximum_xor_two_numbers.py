@@ -26,12 +26,12 @@ def find_maximum_xor(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert find_maximum_xor([3, 10, 5, 25, 2, 8]) == 28
-    assert find_maximum_xor([0]) == 0
-    assert find_maximum_xor([14, 70, 53, 83, 49, 91, 36, 80, 92, 51, 66, 70]) == 127
-    assert find_maximum_xor([1, 1]) == 0
-    assert find_maximum_xor([1, 2]) == 3
-    assert find_maximum_xor([2 ** 31 - 1, 0]) == 2 ** 31 - 1
-    assert find_maximum_xor([8, 10, 2]) == 10
-    assert find_maximum_xor([5, 5, 5]) == 0
+    assert find_maximum_xor([3, 10, 5, 25, 2, 8]) == 28, 'Check: find_maximum_xor([3, 10, 5, 25, 2, 8]) == 28'
+    assert find_maximum_xor([0]) == 0, 'Check: find_maximum_xor([0]) == 0'
+    assert find_maximum_xor([14, 70, 53, 83, 49, 91, 36, 80, 92, 51, 66, 70]) == 127, 'Check: find_maximum_xor([14, 70, 53, 83, 49, 91, 36, 80, 92, 51, 66, 70]) == 127'
+    assert find_maximum_xor([1, 1]) == 0, 'Check: find_maximum_xor([1, 1]) == 0'
+    assert find_maximum_xor([1, 2]) == 3, 'Check: find_maximum_xor([1, 2]) == 3'
+    assert find_maximum_xor([2 ** 31 - 1, 0]) == 2 ** 31 - 1, 'Check: find_maximum_xor([2 ** 31 - 1, 0]) == 2 ** 31 - 1'
+    assert find_maximum_xor([8, 10, 2]) == 10, 'Check: find_maximum_xor([8, 10, 2]) == 10'
+    assert find_maximum_xor([5, 5, 5]) == 0, 'Check: find_maximum_xor([5, 5, 5]) == 0'
     print("ok")

@@ -36,12 +36,12 @@ def least_interval(tasks: list[str], n: int) -> int:
 
 
 if __name__ == "__main__":
-    assert least_interval(["A", "A", "A", "B", "B", "B"], 2) == 8
-    assert least_interval(["A", "A", "A", "B", "B", "B"], 0) == 6
-    assert least_interval(list("AAAAAABCDEFG"), 2) == 16
-    assert least_interval(["A"], 5) == 1
-    assert least_interval(["A", "A"], 3) == 5
-    assert least_interval(list("ABCDE"), 4) == 5
-    assert least_interval(list("AAABBBCCC"), 2) == 9
-    assert least_interval(list("AAABBBCCCDDD"), 1) == 12
+    assert least_interval(["A", "A", "A", "B", "B", "B"], 2) == 8, 'Check: least_interval(["A", "A", "A", "B", "B", "B"], 2) == 8'
+    assert least_interval(["A", "A", "A", "B", "B", "B"], 0) == 6, 'Check: least_interval(["A", "A", "A", "B", "B", "B"], 0) == 6'
+    assert least_interval(list("AAAAAABCDEFG"), 2) == 16, 'Check: least_interval(list("AAAAAABCDEFG"), 2) == 16'
+    assert least_interval(["A"], 5) == 1, 'Check: least_interval(["A"], 5) == 1'
+    assert least_interval(["A", "A"], 3) == 5, 'Check: least_interval(["A", "A"], 3) == 5'
+    assert least_interval(list("ABCDE"), 4) == 5, 'Check: least_interval(list("ABCDE"), 4) == 5'
+    assert least_interval(list("AAABBBCCC"), 2) == 9, 'Check: least_interval(list("AAABBBCCC"), 2) == 9'
+    assert least_interval(list("AAABBBCCCDDD"), 1) == 12, 'Check: least_interval(list("AAABBBCCCDDD"), 1) == 12'
     print("ok")

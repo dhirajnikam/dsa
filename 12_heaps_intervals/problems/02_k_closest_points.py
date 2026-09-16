@@ -32,10 +32,10 @@ def k_closest(points: list[list[int]], k: int) -> list[list[int]]:
 
 if __name__ == "__main__":
     norm = lambda pts: sorted(map(tuple, pts))
-    assert norm(k_closest([[1, 3], [-2, 2]], 1)) == [(-2, 2)]
-    assert norm(k_closest([[3, 3], [5, -1], [-2, 4]], 2)) == [(-2, 4), (3, 3)]
-    assert norm(k_closest([[0, 0]], 1)) == [(0, 0)]
-    assert norm(k_closest([[1, 1], [2, 2], [3, 3]], 3)) == [(1, 1), (2, 2), (3, 3)]
-    assert norm(k_closest([[5, 5], [1, 0], [0, -1], [10, 10]], 2)) == [(0, -1), (1, 0)]
-    assert len(k_closest([[i, i] for i in range(50)], 7)) == 7
+    assert norm(k_closest([[1, 3], [-2, 2]], 1)) == [(-2, 2)], 'Check: norm(k_closest([[1, 3], [-2, 2]], 1)) == [(-2, 2)]'
+    assert norm(k_closest([[3, 3], [5, -1], [-2, 4]], 2)) == [(-2, 4), (3, 3)], 'Check: norm(k_closest([[3, 3], [5, -1], [-2, 4]], 2)) == [(-2, 4), (3, 3)]'
+    assert norm(k_closest([[0, 0]], 1)) == [(0, 0)], 'Check: norm(k_closest([[0, 0]], 1)) == [(0, 0)]'
+    assert norm(k_closest([[1, 1], [2, 2], [3, 3]], 3)) == [(1, 1), (2, 2), (3, 3)], 'Check: norm(k_closest([[1, 1], [2, 2], [3, 3]], 3)) == [(1, 1), (2, 2), (3, 3)]'
+    assert norm(k_closest([[5, 5], [1, 0], [0, -1], [10, 10]], 2)) == [(0, -1), (1, 0)], 'Check: norm(k_closest([[5, 5], [1, 0], [0, -1], [10, 10]], 2)) == [(0, -1), (1, 0)]'
+    assert len(k_closest([[i, i] for i in range(50)], 7)) == 7, 'Check: len(k_closest([[i, i] for i in range(50)], 7)) == 7'
     print("ok")

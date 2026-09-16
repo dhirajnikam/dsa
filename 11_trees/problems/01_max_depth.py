@@ -61,11 +61,13 @@ def max_depth(root: TreeNode | None) -> int:
 
 
 if __name__ == "__main__":
-    assert max_depth(build([3, 9, 20, None, None, 15, 7])) == 3
-    assert max_depth(build([1, None, 2])) == 2
-    assert max_depth(None) == 0
-    assert max_depth(build([1])) == 1
-    assert max_depth(build([1, 2, None, 3, None, 4])) == 4       # left-skewed
-    assert max_depth(build([1, None, 2, None, 3, None, 4])) == 4  # right-skewed
-    assert max_depth(build([1, 2, 3, 4, 5, 6, 7])) == 3            # perfect
+    assert max_depth(build([3, 9, 20, None, None, 15, 7])) == 3, 'Check: max_depth(build([3, 9, 20, None, None, 15, 7])) == 3'
+    assert max_depth(build([1, None, 2])) == 2, 'Check: max_depth(build([1, None, 2])) == 2'
+    assert max_depth(None) == 0, 'Check: max_depth(None) == 0'
+    assert max_depth(build([1])) == 1, 'Check: max_depth(build([1])) == 1'
+    assert max_depth(build([1, 2, None, 3, None, 4])) == 4, 'Check: max_depth(build([1, 2, None, 3, None, 4])) == 4'       # left-skewed
+    assert max_depth(build([1, None, 2, None, 3, None, 4])) == 4, 'Check: max_depth(build([1, None, 2, None, 3, None, 4])) == 4'  # right-skewed
+    assert max_depth(build([1, 2, 3, 4, 5, 6, 7])) == 3, 'Check: max_depth(build([1, 2, 3, 4, 5, 6, 7])) == 3'            # perfect
+    # Boundary and misconception checks: predict each result before running.
+    assert max_depth(build([0, 0, 0])) == 2, 'Check: max_depth(build([0, 0, 0])) == 2'
     print("ok")

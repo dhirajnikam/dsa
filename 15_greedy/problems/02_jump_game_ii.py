@@ -24,12 +24,12 @@ def jump(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert jump([2, 3, 1, 1, 4]) == 2
-    assert jump([2, 3, 0, 1, 4]) == 2
-    assert jump([0]) == 0
-    assert jump([1, 2]) == 1
-    assert jump([1, 1, 1, 1]) == 3
-    assert jump([5, 1, 1, 1, 1, 1]) == 1
-    assert jump([1, 2, 1, 1, 1]) == 3
-    assert jump([4, 1, 1, 3, 1, 1, 1]) == 2
+    assert jump([2, 3, 1, 1, 4]) == 2, 'Check: jump([2, 3, 1, 1, 4]) == 2'
+    assert jump([2, 3, 0, 1, 4]) == 2, 'Check: jump([2, 3, 0, 1, 4]) == 2'
+    assert jump([0]) == 0, 'Check: jump([0]) == 0'
+    assert jump([1, 2]) == 1, 'Check: jump([1, 2]) == 1'
+    assert jump([1, 1, 1, 1]) == 3, 'Check: jump([1, 1, 1, 1]) == 3'
+    assert jump([5, 1, 1, 1, 1, 1]) == 1, 'Check: jump([5, 1, 1, 1, 1, 1]) == 1'
+    assert jump([1, 2, 1, 1, 1]) == 3, 'Check: jump([1, 2, 1, 1, 1]) == 3'
+    assert jump([4, 1, 1, 3, 1, 1, 1]) == 2, 'Check: jump([4, 1, 1, 3, 1, 1, 1]) == 2'
     print("ok")

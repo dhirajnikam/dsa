@@ -49,23 +49,23 @@ def power_float(x: float, n: int) -> float:
 
 
 if __name__ == "__main__":
-    assert fast_power(2, 10) == 1024 and fast_power(5, 0) == 1 and fast_power(0, 5) == 0
-    assert fast_power(-2, 3) == -8 and fast_power(-2, 4) == 16
-    assert fast_power(3, 10**5) == 3 ** (10**5)
+    assert fast_power(2, 10) == 1024 and fast_power(5, 0) == 1 and fast_power(0, 5) == 0, 'Check: fast_power(2, 10) == 1024 and fast_power(5, 0) == 1 and fast_power(0, 5) == 0'
+    assert fast_power(-2, 3) == -8 and fast_power(-2, 4) == 16, 'Check: fast_power(-2, 3) == -8 and fast_power(-2, 4) == 16'
+    assert fast_power(3, 10**5) == 3 ** (10**5), 'Check: fast_power(3, 10**5) == 3 ** (10**5)'
     MOD = 10**9 + 7
-    assert pow_mod(2, 10, 1000) == 24 and pow_mod(2, 0, 7) == 1 and pow_mod(5, 3, 1) == 0
-    assert pow_mod(3, 10**18, MOD) == pow(3, 10**18, MOD)
-    assert pow_mod(123456789, 987654321, MOD) == pow(123456789, 987654321, MOD)
-    assert mod_inverse(3, 7) == 5 and mod_inverse(2, MOD) == (MOD + 1) // 2
+    assert pow_mod(2, 10, 1000) == 24 and pow_mod(2, 0, 7) == 1 and pow_mod(5, 3, 1) == 0, 'Check: pow_mod(2, 10, 1000) == 24 and pow_mod(2, 0, 7) == 1 and pow_mod(5, 3, 1) == 0'
+    assert pow_mod(3, 10**18, MOD) == pow(3, 10**18, MOD), 'Check: pow_mod(3, 10**18, MOD) == pow(3, 10**18, MOD)'
+    assert pow_mod(123456789, 987654321, MOD) == pow(123456789, 987654321, MOD), 'Check: pow_mod(123456789, 987654321, MOD) == pow(123456789, 987654321, MOD)'
+    assert mod_inverse(3, 7) == 5 and mod_inverse(2, MOD) == (MOD + 1) // 2, 'Check: mod_inverse(3, 7) == 5 and mod_inverse(2, MOD) == (MOD + 1) // 2'
     for a in range(1, 13):
         assert (a * mod_inverse(a, 13)) % 13 == 1, a
-    assert mod_divide(10, 5, 13) == 2 and mod_divide(1, 2, 7) == 4
-    assert mod_divide(6, 4, MOD) == (6 * pow(4, MOD - 2, MOD)) % MOD
-    assert last_k_digits(2, 10, 2) == "24" and last_k_digits(7, 0, 3) == "001"
-    assert last_k_digits(3, 1000, 5) == str(3 ** 1000)[-5:]
-    assert abs(power_float(2.0, 10) - 1024.0) < 1e-9
-    assert abs(power_float(2.0, -2) - 0.25) < 1e-9
-    assert abs(power_float(1.5, 0) - 1.0) < 1e-9
-    assert abs(power_float(0.5, 3) - 0.125) < 1e-9
-    assert abs(power_float(2.0, -31) - 2.0**-31) < 1e-15
+    assert mod_divide(10, 5, 13) == 2 and mod_divide(1, 2, 7) == 4, 'Check: mod_divide(10, 5, 13) == 2 and mod_divide(1, 2, 7) == 4'
+    assert mod_divide(6, 4, MOD) == (6 * pow(4, MOD - 2, MOD)) % MOD, 'Check: mod_divide(6, 4, MOD) == (6 * pow(4, MOD - 2, MOD)) % MOD'
+    assert last_k_digits(2, 10, 2) == "24" and last_k_digits(7, 0, 3) == "001", 'Check: last_k_digits(2, 10, 2) == "24" and last_k_digits(7, 0, 3) == "001"'
+    assert last_k_digits(3, 1000, 5) == str(3 ** 1000)[-5:], 'Check: last_k_digits(3, 1000, 5) == str(3 ** 1000)[-5:]'
+    assert abs(power_float(2.0, 10) - 1024.0) < 1e-9, 'Check: abs(power_float(2.0, 10) - 1024.0) < 1e-9'
+    assert abs(power_float(2.0, -2) - 0.25) < 1e-9, 'Check: abs(power_float(2.0, -2) - 0.25) < 1e-9'
+    assert abs(power_float(1.5, 0) - 1.0) < 1e-9, 'Check: abs(power_float(1.5, 0) - 1.0) < 1e-9'
+    assert abs(power_float(0.5, 3) - 0.125) < 1e-9, 'Check: abs(power_float(0.5, 3) - 0.125) < 1e-9'
+    assert abs(power_float(2.0, -31) - 2.0**-31) < 1e-15, 'Check: abs(power_float(2.0, -31) - 2.0**-31) < 1e-15'
     print("ok")

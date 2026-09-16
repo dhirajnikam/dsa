@@ -41,20 +41,20 @@ def memo_once(f):
 
 if __name__ == "__main__":
     c1, c2 = make_counter(), make_counter(10)
-    assert c1() == 1 and c1() == 2 and c2() == 11 and c1() == 3
+    assert c1() == 1 and c1() == 2 and c2() == 11 and c1() == 3, 'Check: c1() == 1 and c1() == 2 and c2() == 11 and c1() == 3'
     acc = make_accumulator()
-    assert acc(5) == 5 and acc(10) == 15 and acc(-15) == 0
+    assert acc(5) == 5 and acc(10) == 15 and acc(-15) == 0, 'Check: acc(5) == 5 and acc(10) == 15 and acc(-15) == 0'
     inc = lambda x: x + 1
     dbl = lambda x: x * 2
-    assert compose(inc, dbl)(5) == 11 and compose(dbl, inc)(5) == 12
-    assert compose()(7) == 7 and compose(inc)(7) == 8
-    assert compose(str, inc, dbl)(3) == "7"
+    assert compose(inc, dbl)(5) == 11 and compose(dbl, inc)(5) == 12, 'Check: compose(inc, dbl)(5) == 11 and compose(dbl, inc)(5) == 12'
+    assert compose()(7) == 7 and compose(inc)(7) == 8, 'Check: compose()(7) == 7 and compose(inc)(7) == 8'
+    assert compose(str, inc, dbl)(3) == "7", 'Check: compose(str, inc, dbl)(3) == "7"'
     ms = make_multipliers(4)
-    assert [m(10) for m in ms] == [0, 10, 20, 30]
-    assert make_multipliers(0) == []
+    assert [m(10) for m in ms] == [0, 10, 20, 30], 'Check: [m(10) for m in ms] == [0, 10, 20, 30]'
+    assert make_multipliers(0) == [], 'Check: make_multipliers(0) == []'
     calls = []
     lazy = memo_once(lambda: calls.append(1) or 42)
-    assert calls == []
-    assert lazy() == 42 and lazy() == 42 and lazy("ignored") == 42
-    assert calls == [1]
+    assert calls == [], 'Check: calls == []'
+    assert lazy() == 42 and lazy() == 42 and lazy("ignored") == 42, 'Check: lazy() == 42 and lazy() == 42 and lazy("ignored") == 42'
+    assert calls == [1], 'Check: calls == [1]'
     print("ok")

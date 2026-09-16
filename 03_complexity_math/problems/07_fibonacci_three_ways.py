@@ -47,16 +47,16 @@ def first_fib_with_digits(d: int) -> int:
 
 
 if __name__ == "__main__":
-    assert fib_naive(0) == (0, 1) and fib_naive(1) == (1, 1) and fib_naive(2) == (1, 3)
-    assert fib_naive(5) == (5, 15) and fib_naive(10) == (55, 177) and fib_naive(20) == (6765, 21891)
+    assert fib_naive(0) == (0, 1) and fib_naive(1) == (1, 1) and fib_naive(2) == (1, 3), 'Check: fib_naive(0) == (0, 1) and fib_naive(1) == (1, 1) and fib_naive(2) == (1, 3)'
+    assert fib_naive(5) == (5, 15) and fib_naive(10) == (55, 177) and fib_naive(20) == (6765, 21891), 'Check: fib_naive(5) == (5, 15) and fib_naive(10) == (55, 177) and fib_naive(20) == (6765, 21891)'
     for n in range(25):
         assert fib_naive(n)[1] == fib_calls_formula(n), n
-    assert fib_calls_formula(100) == 1146295688027634168201
-    assert [fib_memo(n) for n in range(10)] == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-    assert fib_memo(90) == 2880067194370816120
-    assert fib_memo(1000) == fib_iter(1000) and len(str(fib_memo(1000))) == 209
-    assert [fib_iter(n) for n in range(10)] == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-    assert fib_iter(90) == 2880067194370816120 and fib_iter(10**5) % (10**9 + 7) == 911435502
-    assert first_fib_with_digits(1) == 0 and first_fib_with_digits(2) == 7 and first_fib_with_digits(3) == 12
-    assert first_fib_with_digits(1000) == 4782
+    assert fib_calls_formula(100) == 1146295688027634168201, 'Check: fib_calls_formula(100) == 1146295688027634168201'
+    assert [fib_memo(n) for n in range(10)] == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34], 'Check: [fib_memo(n) for n in range(10)] == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]'
+    assert fib_memo(90) == 2880067194370816120, 'Check: fib_memo(90) == 2880067194370816120'
+    assert fib_memo(1000) == fib_iter(1000) and len(str(fib_memo(1000))) == 209, 'Check: fib_memo(1000) == fib_iter(1000) and len(str(fib_memo(1000))) == 209'
+    assert [fib_iter(n) for n in range(10)] == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34], 'Check: [fib_iter(n) for n in range(10)] == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]'
+    assert fib_iter(90) == 2880067194370816120 and fib_iter(10**5) % (10**9 + 7) == 911435502, 'Check: fib_iter(90) == 2880067194370816120 and fib_iter(10**5) % (10**9 + 7) == 911435502'
+    assert first_fib_with_digits(1) == 0 and first_fib_with_digits(2) == 7 and first_fib_with_digits(3) == 12, 'Check: first_fib_with_digits(1) == 0 and first_fib_with_digits(2) == 7 and first_fib_with_digits(3) == 12'
+    assert first_fib_with_digits(1000) == 4782, 'Check: first_fib_with_digits(1000) == 4782'
     print("ok")

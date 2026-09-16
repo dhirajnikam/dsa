@@ -51,22 +51,22 @@ class RandomizedSet:
 
 if __name__ == "__main__":
     rs = RandomizedSet()
-    assert rs.insert(1) is True
-    assert rs.remove(2) is False
-    assert rs.insert(2) is True
-    assert rs.get_random() in (1, 2)
-    assert rs.remove(1) is True
-    assert rs.insert(2) is False
-    assert rs.get_random() == 2
-    assert rs.remove(2) is True
-    assert rs.remove(2) is False
+    assert rs.insert(1) is True, 'Check: rs.insert(1) is True'
+    assert rs.remove(2) is False, 'Check: rs.remove(2) is False'
+    assert rs.insert(2) is True, 'Check: rs.insert(2) is True'
+    assert rs.get_random() in (1, 2), 'Check: rs.get_random() in (1, 2)'
+    assert rs.remove(1) is True, 'Check: rs.remove(1) is True'
+    assert rs.insert(2) is False, 'Check: rs.insert(2) is False'
+    assert rs.get_random() == 2, 'Check: rs.get_random() == 2'
+    assert rs.remove(2) is True, 'Check: rs.remove(2) is True'
+    assert rs.remove(2) is False, 'Check: rs.remove(2) is False'
     rs = RandomizedSet()
     for v in range(10):
-        assert rs.insert(v) is True
-    assert rs.remove(0) is True and rs.remove(9) is True and rs.remove(5) is True
+        assert rs.insert(v) is True, 'Check: rs.insert(v) is True'
+    assert rs.remove(0) is True and rs.remove(9) is True and rs.remove(5) is True, 'Check: rs.remove(0) is True and rs.remove(9) is True and rs.remove(5) is True'
     remaining = {1, 2, 3, 4, 6, 7, 8}
-    assert all(rs.get_random() in remaining for _ in range(50))
-    assert {rs.get_random() for _ in range(2000)} == remaining
-    assert rs.insert(0) is True and rs.remove(0) is True
-    assert rs.insert(-7) is True and rs.get_random() in remaining | {-7}
+    assert all(rs.get_random() in remaining for _ in range(50)), 'Check: all(rs.get_random() in remaining for _ in range(50))'
+    assert {rs.get_random() for _ in range(2000)} == remaining, 'Check: {rs.get_random() for _ in range(2000)} == remaining'
+    assert rs.insert(0) is True and rs.remove(0) is True, 'Check: rs.insert(0) is True and rs.remove(0) is True'
+    assert rs.insert(-7) is True and rs.get_random() in remaining | {-7}, 'Check: rs.insert(-7) is True and rs.get_random() in remaining | {-7}'
     print("ok")

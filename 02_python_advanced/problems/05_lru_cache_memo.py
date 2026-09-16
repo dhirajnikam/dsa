@@ -52,17 +52,17 @@ if __name__ == "__main__":
         calls.append(x)
         return x * x
 
-    assert square(4) == 16 and square(4) == 16 and square(5) == 25
-    assert calls == [4, 5] and square.cache == {(4,): 16, (5,): 25}
-    assert [climb_stairs(n) for n in range(6)] == [1, 1, 2, 3, 5, 8]
-    assert climb_stairs(500) == 225591516161936330872512695036072072046011324913758190588638866418474627738686883405015987052796968498626
-    assert grid_paths(3, 7) == 28 and grid_paths(1, 1) == 1 and grid_paths(1, 9) == 1
-    assert grid_paths(18, 18) == 2333606220
-    assert num_decodings("12") == 2 and num_decodings("226") == 3
-    assert num_decodings("06") == 0 and num_decodings("0") == 0 and num_decodings("") == 1
-    assert num_decodings("10") == 1 and num_decodings("27") == 1
-    assert num_decodings("1" * 60) == 2504730781961
-    assert count_partitions(5, 5) == 7 and count_partitions(5, 2) == 3
-    assert count_partitions(0, 3) == 1 and count_partitions(3, 0) == 0
-    assert count_partitions(100, 100) == 190569292
+    assert square(4) == 16 and square(4) == 16 and square(5) == 25, 'Check: square(4) == 16 and square(4) == 16 and square(5) == 25'
+    assert calls == [4, 5] and square.cache == {(4,): 16, (5,): 25}, 'Check: calls == [4, 5] and square.cache == {(4,): 16, (5,): 25}'
+    assert [climb_stairs(n) for n in range(6)] == [1, 1, 2, 3, 5, 8], 'Check: [climb_stairs(n) for n in range(6)] == [1, 1, 2, 3, 5, 8]'
+    assert climb_stairs(500) == 225591516161936330872512695036072072046011324913758190588638866418474627738686883405015987052796968498626, 'Check: climb_stairs(500) == 225591516161936330872512695036072072046011324913758190588638866418474627738686883405015987052796968498626'
+    assert grid_paths(3, 7) == 28 and grid_paths(1, 1) == 1 and grid_paths(1, 9) == 1, 'Check: grid_paths(3, 7) == 28 and grid_paths(1, 1) == 1 and grid_paths(1, 9) == 1'
+    assert grid_paths(18, 18) == 2333606220, 'Check: grid_paths(18, 18) == 2333606220'
+    assert num_decodings("12") == 2 and num_decodings("226") == 3, 'Check: num_decodings("12") == 2 and num_decodings("226") == 3'
+    assert num_decodings("06") == 0 and num_decodings("0") == 0 and num_decodings("") == 1, 'Check: num_decodings("06") == 0 and num_decodings("0") == 0 and num_decodings("") == 1'
+    assert num_decodings("10") == 1 and num_decodings("27") == 1, 'Check: num_decodings("10") == 1 and num_decodings("27") == 1'
+    assert num_decodings("1" * 60) == 2504730781961, 'Check: num_decodings("1" * 60) == 2504730781961'
+    assert count_partitions(5, 5) == 7 and count_partitions(5, 2) == 3, 'Check: count_partitions(5, 5) == 7 and count_partitions(5, 2) == 3'
+    assert count_partitions(0, 3) == 1 and count_partitions(3, 0) == 0, 'Check: count_partitions(0, 3) == 1 and count_partitions(3, 0) == 0'
+    assert count_partitions(100, 100) == 190569292, 'Check: count_partitions(100, 100) == 190569292'
     print("ok")

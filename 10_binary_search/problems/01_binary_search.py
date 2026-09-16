@@ -33,13 +33,17 @@ def search(nums: list[int], target: int) -> int:
 
 
 if __name__ == "__main__":
-    assert search([-1, 0, 3, 5, 9, 12], 9) == 4
-    assert search([-1, 0, 3, 5, 9, 12], 2) == -1
-    assert search([5], 5) == 0
-    assert search([5], -5) == -1
-    assert search([], 1) == -1
-    assert search([1, 3], 1) == 0 and search([1, 3], 3) == 1
-    assert search([-1, 0, 3, 5, 9, 12], -1) == 0
-    assert search([-1, 0, 3, 5, 9, 12], 12) == 5
-    assert search(list(range(0, 20000, 2)), 9998) == 4999
+    assert search([-1, 0, 3, 5, 9, 12], 9) == 4, 'Check: search([-1, 0, 3, 5, 9, 12], 9) == 4'
+    assert search([-1, 0, 3, 5, 9, 12], 2) == -1, 'Check: search([-1, 0, 3, 5, 9, 12], 2) == -1'
+    assert search([5], 5) == 0, 'Check: search([5], 5) == 0'
+    assert search([5], -5) == -1, 'Check: search([5], -5) == -1'
+    assert search([], 1) == -1, 'Check: search([], 1) == -1'
+    assert search([1, 3], 1) == 0 and search([1, 3], 3) == 1, 'Check: search([1, 3], 1) == 0 and search([1, 3], 3) == 1'
+    assert search([-1, 0, 3, 5, 9, 12], -1) == 0, 'Check: search([-1, 0, 3, 5, 9, 12], -1) == 0'
+    assert search([-1, 0, 3, 5, 9, 12], 12) == 5, 'Check: search([-1, 0, 3, 5, 9, 12], 12) == 5'
+    assert search(list(range(0, 20000, 2)), 9998) == 4999, 'Check: search(list(range(0, 20000, 2)), 9998) == 4999'
+    # Boundary and misconception checks: predict each result before running.
+    assert search([1, 3], 2) == -1, 'Check: search([1, 3], 2) == -1'
+    assert search([1, 3], 0) == -1, 'Check: search([1, 3], 0) == -1'
+    assert search([1, 3], 4) == -1, 'Check: search([1, 3], 4) == -1'
     print("ok")

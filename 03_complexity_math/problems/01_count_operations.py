@@ -93,15 +93,20 @@ if __name__ == "__main__":
             c += 1
         return c
 
-    assert nested_square(0) == 0 and nested_square(3) == 9 and nested_square(10**9) == 10**18
-    assert triangle(0) == 0 and triangle(1) == 0 and triangle(4) == 6 and triangle(10**9) == 499999999500000000
+    assert nested_square(0) == 0 and nested_square(3) == 9 and nested_square(10**9) == 10**18, 'Check: nested_square(0) == 0 and nested_square(3) == 9 and nested_square(10**9) == 10**18'
+    assert triangle(0) == 0 and triangle(1) == 0 and triangle(4) == 6 and triangle(10**9) == 499999999500000000, 'Check: triangle(0) == 0 and triangle(1) == 0 and triangle(4) == 6 and triangle(10**9) == 499999999500000000'
     for n in [1, 2, 3, 4, 7, 8, 9, 1000, 1023, 1024]:
         assert halving(n) == brute_halving(n), n
         assert doubling(n) == brute_doubling(n), n
         assert n_log_n(n) == n * brute_halving(n), n
-    assert halving(2**40) == 40 and doubling(2**40) == 40 and doubling(2**40 + 1) == 41
-    assert n_log_n(10**9) == 10**9 * 29
-    assert two_loops(3, 5) == 8 and two_loops(0, 0) == 0 and two_loops(10**9, 10**9) == 2 * 10**9
-    assert stepping(10, 3) == 4 and stepping(9, 3) == 3 and stepping(0, 5) == 0 and stepping(1, 100) == 1
-    assert stepping(10**9, 7) == len(range(0, 10**9, 7))
+    assert halving(2**40) == 40 and doubling(2**40) == 40 and doubling(2**40 + 1) == 41, 'Check: halving(2**40) == 40 and doubling(2**40) == 40 and doubling(2**40 + 1) == 41'
+    assert n_log_n(10**9) == 10**9 * 29, 'Check: n_log_n(10**9) == 10**9 * 29'
+    assert two_loops(3, 5) == 8 and two_loops(0, 0) == 0 and two_loops(10**9, 10**9) == 2 * 10**9, 'Check: two_loops(3, 5) == 8 and two_loops(0, 0) == 0 and two_loops(10**9, 10**9) == 2 * 10**9'
+    assert stepping(10, 3) == 4 and stepping(9, 3) == 3 and stepping(0, 5) == 0 and stepping(1, 100) == 1, 'Check: stepping(10, 3) == 4 and stepping(9, 3) == 3 and stepping(0, 5) == 0 and stepping(1, 100) == 1'
+    assert stepping(10**9, 7) == len(range(0, 10**9, 7)), 'Check: stepping(10**9, 7) == len(range(0, 10**9, 7))'
+    # Boundary and misconception checks: predict each result before running.
+    assert triangle(2) == 1, 'Check: triangle(2) == 1'
+    assert halving(15) == 3 and doubling(15) == 4, 'Check: halving(15) == 3 and doubling(15) == 4'
+    assert stepping(12, 4) == 3 and stepping(13, 4) == 4, 'Check: stepping(12, 4) == 3 and stepping(13, 4) == 4'
+    assert two_loops(0, 8) == 8, 'Check: two_loops(0, 8) == 8'
     print("ok")

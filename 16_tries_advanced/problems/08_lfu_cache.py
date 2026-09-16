@@ -47,32 +47,32 @@ if __name__ == "__main__":
     c = LFUCache(2)
     c.put(1, 1)
     c.put(2, 2)
-    assert c.get(1) == 1
+    assert c.get(1) == 1, 'Check: c.get(1) == 1'
     c.put(3, 3)
-    assert c.get(2) == -1
-    assert c.get(3) == 3
+    assert c.get(2) == -1, 'Check: c.get(2) == -1'
+    assert c.get(3) == 3, 'Check: c.get(3) == 3'
     c.put(4, 4)
-    assert c.get(1) == -1
-    assert c.get(3) == 3
-    assert c.get(4) == 4
+    assert c.get(1) == -1, 'Check: c.get(1) == -1'
+    assert c.get(3) == 3, 'Check: c.get(3) == 3'
+    assert c.get(4) == 4, 'Check: c.get(4) == 4'
 
     z = LFUCache(0)
     z.put(0, 0)
-    assert z.get(0) == -1
+    assert z.get(0) == -1, 'Check: z.get(0) == -1'
 
     u = LFUCache(2)
     u.put(1, 1)
     u.put(1, 10)          # update counts as a use; freq(1) = 2
     u.put(2, 2)
     u.put(3, 3)           # evicts 2 (freq 1)
-    assert u.get(1) == 10
-    assert u.get(2) == -1
-    assert u.get(3) == 3
+    assert u.get(1) == 10, 'Check: u.get(1) == 10'
+    assert u.get(2) == -1, 'Check: u.get(2) == -1'
+    assert u.get(3) == 3, 'Check: u.get(3) == 3'
 
     t = LFUCache(3)
     t.put(1, 1); t.put(2, 2); t.put(3, 3)
     t.get(1); t.get(2); t.get(3)      # all freq 2; recency order 1, 2, 3
     t.put(4, 4)                       # evicts 1
-    assert t.get(1) == -1
-    assert sorted(t.get(k) for k in (2, 3, 4)) == [2, 3, 4]
+    assert t.get(1) == -1, 'Check: t.get(1) == -1'
+    assert sorted(t.get(k) for k in (2, 3, 4)) == [2, 3, 4], 'Check: sorted(t.get(k) for k in (2, 3, 4)) == [2, 3, 4]'
     print("ok")

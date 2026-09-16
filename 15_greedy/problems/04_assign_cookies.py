@@ -25,12 +25,12 @@ def find_content_children(g: list[int], s: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert find_content_children([1, 2, 3], [1, 1]) == 1
-    assert find_content_children([1, 2], [1, 2, 3]) == 2
-    assert find_content_children([], [1, 2]) == 0
-    assert find_content_children([1, 2], []) == 0
-    assert find_content_children([10, 9, 8], [5, 6, 7]) == 0
-    assert find_content_children([1, 1, 1], [1]) == 1
-    assert find_content_children([3, 1, 2], [1, 3, 2]) == 3
-    assert find_content_children([2, 2, 2], [3, 3, 3, 3]) == 3
+    assert find_content_children([1, 2, 3], [1, 1]) == 1, 'Check: find_content_children([1, 2, 3], [1, 1]) == 1'
+    assert find_content_children([1, 2], [1, 2, 3]) == 2, 'Check: find_content_children([1, 2], [1, 2, 3]) == 2'
+    assert find_content_children([], [1, 2]) == 0, 'Check: find_content_children([], [1, 2]) == 0'
+    assert find_content_children([1, 2], []) == 0, 'Check: find_content_children([1, 2], []) == 0'
+    assert find_content_children([10, 9, 8], [5, 6, 7]) == 0, 'Check: find_content_children([10, 9, 8], [5, 6, 7]) == 0'
+    assert find_content_children([1, 1, 1], [1]) == 1, 'Check: find_content_children([1, 1, 1], [1]) == 1'
+    assert find_content_children([3, 1, 2], [1, 3, 2]) == 3, 'Check: find_content_children([3, 1, 2], [1, 3, 2]) == 3'
+    assert find_content_children([2, 2, 2], [3, 3, 3, 3]) == 3, 'Check: find_content_children([2, 2, 2], [3, 3, 3, 3]) == 3'
     print("ok")

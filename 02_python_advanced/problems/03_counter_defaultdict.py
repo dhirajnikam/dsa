@@ -42,18 +42,18 @@ def group_by_length(words: list[str]) -> dict[int, list[str]]:
 
 
 if __name__ == "__main__":
-    assert top_k_words(["i", "love", "leetcode", "i", "love", "coding"], 2) == ["i", "love"]
-    assert top_k_words(["b", "a", "c"], 2) == ["a", "b"]
-    assert top_k_words([], 3) == []
+    assert top_k_words(["i", "love", "leetcode", "i", "love", "coding"], 2) == ["i", "love"], 'Check: top_k_words(["i", "love", "leetcode", "i", "love", "coding"], 2) == ["i", "love"]'
+    assert top_k_words(["b", "a", "c"], 2) == ["a", "b"], 'Check: top_k_words(["b", "a", "c"], 2) == ["a", "b"]'
+    assert top_k_words([], 3) == [], 'Check: top_k_words([], 3) == []'
     assert group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]) == [
-        ["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
-    assert group_anagrams([""]) == [[""]] and group_anagrams([]) == []
-    assert missing_letters("aab", "ab") == Counter({"a": 1})
-    assert missing_letters("abc", "cba") == Counter()
-    assert missing_letters("zz", "") == Counter({"z": 2})
-    assert first_unique_char("leetcode") == 0
-    assert first_unique_char("loveleetcode") == 2
-    assert first_unique_char("aabb") == -1 and first_unique_char("") == -1
-    assert group_by_length(["a", "bb", "c", "dd", "a"]) == {1: ["a", "c"], 2: ["bb", "dd"]}
-    assert group_by_length([]) == {}
+        ["eat", "tea", "ate"], ["tan", "nat"], ["bat"]], 'Check: group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]) == [ ["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]'
+    assert group_anagrams([""]) == [[""]] and group_anagrams([]) == [], 'Check: group_anagrams([""]) == [[""]] and group_anagrams([]) == []'
+    assert missing_letters("aab", "ab") == Counter({"a": 1}), 'Check: missing_letters("aab", "ab") == Counter({"a": 1})'
+    assert missing_letters("abc", "cba") == Counter(), 'Check: missing_letters("abc", "cba") == Counter()'
+    assert missing_letters("zz", "") == Counter({"z": 2}), 'Check: missing_letters("zz", "") == Counter({"z": 2})'
+    assert first_unique_char("leetcode") == 0, 'Check: first_unique_char("leetcode") == 0'
+    assert first_unique_char("loveleetcode") == 2, 'Check: first_unique_char("loveleetcode") == 2'
+    assert first_unique_char("aabb") == -1 and first_unique_char("") == -1, 'Check: first_unique_char("aabb") == -1 and first_unique_char("") == -1'
+    assert group_by_length(["a", "bb", "c", "dd", "a"]) == {1: ["a", "c"], 2: ["bb", "dd"]}, 'Check: group_by_length(["a", "bb", "c", "dd", "a"]) == {1: ["a", "c"], 2: ["bb", "dd"]}'
+    assert group_by_length([]) == {}, 'Check: group_by_length([]) == {}'
     print("ok")

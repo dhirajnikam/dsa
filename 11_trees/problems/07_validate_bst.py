@@ -62,14 +62,14 @@ def is_valid_bst(root: TreeNode | None) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_valid_bst(build([2, 1, 3])) is True
-    assert is_valid_bst(build([5, 1, 4, None, None, 3, 6])) is False
-    assert is_valid_bst(build([1])) is True
-    assert is_valid_bst(None) is True
-    assert is_valid_bst(build([5, 4, 6, None, None, 3, 7])) is False   # deep violation
-    assert is_valid_bst(build([2, 2, 2])) is False                       # duplicates not allowed
-    assert is_valid_bst(build([1, None, 2, None, 3])) is True            # right-skewed increasing
-    assert is_valid_bst(build([3, 2, None, 1])) is True                  # left-skewed decreasing
-    assert is_valid_bst(build([2147483647])) is True
-    assert is_valid_bst(build([-2147483648, None, 2147483647])) is True
+    assert is_valid_bst(build([2, 1, 3])) is True, 'Check: is_valid_bst(build([2, 1, 3])) is True'
+    assert is_valid_bst(build([5, 1, 4, None, None, 3, 6])) is False, 'Check: is_valid_bst(build([5, 1, 4, None, None, 3, 6])) is False'
+    assert is_valid_bst(build([1])) is True, 'Check: is_valid_bst(build([1])) is True'
+    assert is_valid_bst(None) is True, 'Check: is_valid_bst(None) is True'
+    assert is_valid_bst(build([5, 4, 6, None, None, 3, 7])) is False, 'Check: is_valid_bst(build([5, 4, 6, None, None, 3, 7])) is False'   # deep violation
+    assert is_valid_bst(build([2, 2, 2])) is False, 'Check: is_valid_bst(build([2, 2, 2])) is False'                       # duplicates not allowed
+    assert is_valid_bst(build([1, None, 2, None, 3])) is True, 'Check: is_valid_bst(build([1, None, 2, None, 3])) is True'            # right-skewed increasing
+    assert is_valid_bst(build([3, 2, None, 1])) is True, 'Check: is_valid_bst(build([3, 2, None, 1])) is True'                  # left-skewed decreasing
+    assert is_valid_bst(build([2147483647])) is True, 'Check: is_valid_bst(build([2147483647])) is True'
+    assert is_valid_bst(build([-2147483648, None, 2147483647])) is True, 'Check: is_valid_bst(build([-2147483648, None, 2147483647])) is True'
     print("ok")

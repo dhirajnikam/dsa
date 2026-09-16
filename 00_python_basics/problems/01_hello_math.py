@@ -45,12 +45,18 @@ def celsius_to_f(c):
 
 
 if __name__ == "__main__":
-    assert average(2, 3) == 2.5
-    assert average(10, 10) == 10.0
-    assert digits_sum(1234) == 10
-    assert digits_sum(0) == 0
-    assert digits_sum(9999) == 36
-    assert is_leap(2000) and is_leap(2024) and not is_leap(1900) and not is_leap(2023)
-    assert celsius_to_f(100) == 212.0
-    assert celsius_to_f(37) == 98.6
+    assert average(2, 3) == 2.5, 'Check: average(2, 3) == 2.5'
+    assert average(10, 10) == 10.0, 'Check: average(10, 10) == 10.0'
+    assert digits_sum(1234) == 10, 'Check: digits_sum(1234) == 10'
+    assert digits_sum(0) == 0, 'Check: digits_sum(0) == 0'
+    assert digits_sum(9999) == 36, 'Check: digits_sum(9999) == 36'
+    assert is_leap(2000) and is_leap(2024) and not is_leap(1900) and not is_leap(2023), 'Check: is_leap(2000) and is_leap(2024) and not is_leap(1900) and not is_leap(2023)'
+    assert celsius_to_f(100) == 212.0, 'Check: celsius_to_f(100) == 212.0'
+    assert celsius_to_f(37) == 98.6, 'Check: celsius_to_f(37) == 98.6'
+    # Boundary and misconception checks: predict each result before running.
+    assert average(-6, 2) == -2.0, 'Check: average(-6, 2) == -2.0'
+    assert isinstance(average(2, 2), float), 'Check: isinstance(average(2, 2), float)'
+    assert digits_sum(10020) == 3, 'Check: digits_sum(10020) == 3'
+    assert not is_leap(2100) and is_leap(2400), 'Check: not is_leap(2100) and is_leap(2400)'
+    assert celsius_to_f(-40) == -40.0, 'Check: celsius_to_f(-40) == -40.0'
     print("ok")

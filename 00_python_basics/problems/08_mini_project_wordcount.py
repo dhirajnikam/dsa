@@ -27,9 +27,9 @@ def word_report(text: str, top: int = 3) -> dict:
 
 if __name__ == "__main__":
     r = word_report("The cat. The dog! the END", top=2)
-    assert r == {"words": 6, "unique": 4, "top": [("the", 3), ("cat", 1)], "longest": "the"}
+    assert r == {"words": 6, "unique": 4, "top": [("the", 3), ("cat", 1)], "longest": "the"}, 'Check: r == {"words": 6, "unique": 4, "top": [("the", 3), ("cat", 1)], "longest": "the"}'
     r = word_report("", top=3)
-    assert r == {"words": 0, "unique": 0, "top": [], "longest": ""}
+    assert r == {"words": 0, "unique": 0, "top": [], "longest": ""}, 'Check: r == {"words": 0, "unique": 0, "top": [], "longest": ""}'
     r = word_report("a bb ccc bb", top=5)
-    assert r["top"] == [("bb", 2), ("a", 1), ("ccc", 1)] and r["longest"] == "ccc"
+    assert r["top"] == [("bb", 2), ("a", 1), ("ccc", 1)] and r["longest"] == "ccc", 'Check: r["top"] == [("bb", 2), ("a", 1), ("ccc", 1)] and r["longest"] == "ccc"'
     print("ok")

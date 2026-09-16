@@ -44,22 +44,22 @@ def describe(name: str, *, age: int, city: str = "?") -> str:
 
 
 if __name__ == "__main__":
-    assert total() == 0 and total(1) == 1 and total(1, 2, 3) == 6
-    assert total(*range(5)) == 10
-    assert build_query() == ""
-    assert build_query(b=2, a=1) == "a=1&b=2"
-    assert call_with(total, (1, 2), {}) == 3
-    assert call_with(build_query, (), {"x": 1}) == "x=1"
+    assert total() == 0 and total(1) == 1 and total(1, 2, 3) == 6, 'Check: total() == 0 and total(1) == 1 and total(1, 2, 3) == 6'
+    assert total(*range(5)) == 10, 'Check: total(*range(5)) == 10'
+    assert build_query() == "", 'Check: build_query() == ""'
+    assert build_query(b=2, a=1) == "a=1&b=2", 'Check: build_query(b=2, a=1) == "a=1&b=2"'
+    assert call_with(total, (1, 2), {}) == 3, 'Check: call_with(total, (1, 2), {}) == 3'
+    assert call_with(build_query, (), {"x": 1}) == "x=1", 'Check: call_with(build_query, (), {"x": 1}) == "x=1"'
     d1, d2 = {"a": 1, "b": 2}, {"b": 3}
-    assert merge_dicts(d1, d2) == {"a": 1, "b": 3} and d1 == {"a": 1, "b": 2}
-    assert merge_dicts() == {}
-    assert first_last_middle([1, 2, 3, 4]) == (1, 4, [2, 3])
-    assert first_last_middle([1, 2]) == (1, 2, [])
-    assert describe("a", age=30) == "a (30) from ?"
-    assert describe("a", age=30, city="Pune") == "a (30) from Pune"
+    assert merge_dicts(d1, d2) == {"a": 1, "b": 3} and d1 == {"a": 1, "b": 2}, 'Check: merge_dicts(d1, d2) == {"a": 1, "b": 3} and d1 == {"a": 1, "b": 2}'
+    assert merge_dicts() == {}, 'Check: merge_dicts() == {}'
+    assert first_last_middle([1, 2, 3, 4]) == (1, 4, [2, 3]), 'Check: first_last_middle([1, 2, 3, 4]) == (1, 4, [2, 3])'
+    assert first_last_middle([1, 2]) == (1, 2, []), 'Check: first_last_middle([1, 2]) == (1, 2, [])'
+    assert describe("a", age=30) == "a (30) from ?", 'Check: describe("a", age=30) == "a (30) from ?"'
+    assert describe("a", age=30, city="Pune") == "a (30) from Pune", 'Check: describe("a", age=30, city="Pune") == "a (30) from Pune"'
     try:
         describe("a", 30)
-        assert False
+        assert False, 'Check: False'
     except TypeError:
         pass
     print("ok")

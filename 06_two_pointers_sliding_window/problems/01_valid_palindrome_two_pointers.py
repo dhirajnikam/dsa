@@ -32,13 +32,16 @@ def is_palindrome(s: str) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_palindrome("A man, a plan, a canal: Panama") is True
-    assert is_palindrome("race a car") is False
-    assert is_palindrome(" ") is True
-    assert is_palindrome("") is True
-    assert is_palindrome("a") is True
-    assert is_palindrome("0P") is False
-    assert is_palindrome("ab@ba") is True
-    assert is_palindrome("aa") is True
-    assert is_palindrome(".,") is True
+    assert is_palindrome("A man, a plan, a canal: Panama") is True, 'Check: is_palindrome("A man, a plan, a canal: Panama") is True'
+    assert is_palindrome("race a car") is False, 'Check: is_palindrome("race a car") is False'
+    assert is_palindrome(" ") is True, 'Check: is_palindrome(" ") is True'
+    assert is_palindrome("") is True, 'Check: is_palindrome("") is True'
+    assert is_palindrome("a") is True, 'Check: is_palindrome("a") is True'
+    assert is_palindrome("0P") is False, 'Check: is_palindrome("0P") is False'
+    assert is_palindrome("ab@ba") is True, 'Check: is_palindrome("ab@ba") is True'
+    assert is_palindrome("aa") is True, 'Check: is_palindrome("aa") is True'
+    assert is_palindrome(".,") is True, 'Check: is_palindrome(".,") is True'
+    # Boundary and misconception checks: predict each result before running.
+    assert is_palindrome("1a2") is False, 'Check: is_palindrome("1a2") is False'
+    assert is_palindrome("1A!a1") is True, 'Check: is_palindrome("1A!a1") is True'
     print("ok")

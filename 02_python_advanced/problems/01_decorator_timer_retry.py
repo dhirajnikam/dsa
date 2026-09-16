@@ -39,18 +39,18 @@ if __name__ == "__main__":
         """Add two numbers."""
         return a + b
 
-    assert add.calls == 0
-    assert add(1, 2) == 3 and add(3, 4) == 7
-    assert add.calls == 2
-    assert add.__name__ == "add" and add.__doc__ == "Add two numbers."
+    assert add.calls == 0, 'Check: add.calls == 0'
+    assert add(1, 2) == 3 and add(3, 4) == 7, 'Check: add(1, 2) == 3 and add(3, 4) == 7'
+    assert add.calls == 2, 'Check: add.calls == 2'
+    assert add.__name__ == "add" and add.__doc__ == "Add two numbers.", 'Check: add.__name__ == "add" and add.__doc__ == "Add two numbers."'
 
     @timed
     def slow(n):
         return sum(range(n))
 
-    assert slow(1000) == 499500
-    assert isinstance(slow.last_elapsed, float) and slow.last_elapsed >= 0
-    assert slow.__name__ == "slow"
+    assert slow(1000) == 499500, 'Check: slow(1000) == 499500'
+    assert isinstance(slow.last_elapsed, float) and slow.last_elapsed >= 0, 'Check: isinstance(slow.last_elapsed, float) and slow.last_elapsed >= 0'
+    assert slow.__name__ == "slow", 'Check: slow.__name__ == "slow"'
 
     state = {"fails": 2}
 
@@ -62,9 +62,9 @@ if __name__ == "__main__":
             raise ValueError("not yet")
         return "done"
 
-    assert flaky() == "done" and flaky.attempts == 3
-    assert flaky() == "done" and flaky.attempts == 1
-    assert flaky.__name__ == "flaky" and flaky.__doc__ == "Fails twice then works."
+    assert flaky() == "done" and flaky.attempts == 3, 'Check: flaky() == "done" and flaky.attempts == 3'
+    assert flaky() == "done" and flaky.attempts == 1, 'Check: flaky() == "done" and flaky.attempts == 1'
+    assert flaky.__name__ == "flaky" and flaky.__doc__ == "Fails twice then works.", 'Check: flaky.__name__ == "flaky" and flaky.__doc__ == "Fails twice then works."'
 
     @retry(2)
     def always_fails():
@@ -72,9 +72,9 @@ if __name__ == "__main__":
 
     try:
         always_fails()
-        assert False
+        assert False, 'Check: False'
     except KeyError:
-        assert always_fails.attempts == 2
+        assert always_fails.attempts == 2, 'Check: always_fails.attempts == 2'
 
     calls = []
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
     try:
         wrong_kind()
-        assert False
+        assert False, 'Check: False'
     except TypeError:
-        assert len(calls) == 1
+        assert len(calls) == 1, 'Check: len(calls) == 1'
     print("ok")

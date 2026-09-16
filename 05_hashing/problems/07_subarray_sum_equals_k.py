@@ -31,12 +31,12 @@ def subarray_sum(nums: list[int], k: int) -> int:
 
 
 if __name__ == "__main__":
-    assert subarray_sum([1, 1, 1], 2) == 2
-    assert subarray_sum([1, 2, 3], 3) == 2
-    assert subarray_sum([1], 1) == 1
-    assert subarray_sum([1], 0) == 0
-    assert subarray_sum([0, 0, 0], 0) == 6
-    assert subarray_sum([1, -1, 1, -1], 0) == 4
-    assert subarray_sum([-1, -1, 1], 0) == 1
-    assert subarray_sum([3, 4, 7, 2, -3, 1, 4, 2], 7) == 4
+    assert subarray_sum([1, 1, 1], 2) == 2, 'Check: subarray_sum([1, 1, 1], 2) == 2'
+    assert subarray_sum([1, 2, 3], 3) == 2, 'Check: subarray_sum([1, 2, 3], 3) == 2'
+    assert subarray_sum([1], 1) == 1, 'Check: subarray_sum([1], 1) == 1'
+    assert subarray_sum([1], 0) == 0, 'Check: subarray_sum([1], 0) == 0'
+    assert subarray_sum([0, 0, 0], 0) == 6, 'Check: subarray_sum([0, 0, 0], 0) == 6'
+    assert subarray_sum([1, -1, 1, -1], 0) == 4, 'Check: subarray_sum([1, -1, 1, -1], 0) == 4'
+    assert subarray_sum([-1, -1, 1], 0) == 1, 'Check: subarray_sum([-1, -1, 1], 0) == 1'
+    assert subarray_sum([3, 4, 7, 2, -3, 1, 4, 2], 7) == 4, 'Check: subarray_sum([3, 4, 7, 2, -3, 1, 4, 2], 7) == 4'
     print("ok")

@@ -33,9 +33,9 @@ def sort_by_parity(nums: list[int]) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert sort_by_length(["ccc", "a", "bb", "dd"]) == ["a", "bb", "dd", "ccc"]
-    assert sort_people([("bob", 25), ("amy", 30), ("cat", 25)]) == [("bob", 25), ("cat", 25), ("amy", 30)]
-    assert top_k_frequent_words(["a", "b", "a", "c", "b", "a"], 2) == ["a", "b"]
-    assert top_k_frequent_words(["x", "y"], 1) == ["x"]
-    assert sort_by_parity([3, 1, 2, 4]) == [2, 4, 3, 1]
+    assert sort_by_length(["ccc", "a", "bb", "dd"]) == ["a", "bb", "dd", "ccc"], 'Check: sort_by_length(["ccc", "a", "bb", "dd"]) == ["a", "bb", "dd", "ccc"]'
+    assert sort_people([("bob", 25), ("amy", 30), ("cat", 25)]) == [("bob", 25), ("cat", 25), ("amy", 30)], 'Check: sort_people([("bob", 25), ("amy", 30), ("cat", 25)]) == [("bob", 25), ("cat", 25), ("amy", 30)]'
+    assert top_k_frequent_words(["a", "b", "a", "c", "b", "a"], 2) == ["a", "b"], 'Check: top_k_frequent_words(["a", "b", "a", "c", "b", "a"], 2) == ["a", "b"]'
+    assert top_k_frequent_words(["x", "y"], 1) == ["x"], 'Check: top_k_frequent_words(["x", "y"], 1) == ["x"]'
+    assert sort_by_parity([3, 1, 2, 4]) == [2, 4, 3, 1], 'Check: sort_by_parity([3, 1, 2, 4]) == [2, 4, 3, 1]'
     print("ok")

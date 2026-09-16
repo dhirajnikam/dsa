@@ -48,16 +48,16 @@ def reduce_fraction(num: int, den: int) -> tuple[int, int]:
 
 if __name__ == "__main__":
     import math
-    assert gcd(12, 18) == 6 and gcd(18, 12) == 6 and gcd(7, 13) == 1
-    assert gcd(0, 5) == 5 and gcd(5, 0) == 5 and gcd(0, 0) == 0
-    assert gcd(2**60, 2**40 * 3) == 2**40
+    assert gcd(12, 18) == 6 and gcd(18, 12) == 6 and gcd(7, 13) == 1, 'Check: gcd(12, 18) == 6 and gcd(18, 12) == 6 and gcd(7, 13) == 1'
+    assert gcd(0, 5) == 5 and gcd(5, 0) == 5 and gcd(0, 0) == 0, 'Check: gcd(0, 5) == 5 and gcd(5, 0) == 5 and gcd(0, 0) == 0'
+    assert gcd(2**60, 2**40 * 3) == 2**40, 'Check: gcd(2**60, 2**40 * 3) == 2**40'
     for a in range(0, 30):
         for b in range(0, 30):
             assert gcd(a, b) == math.gcd(a, b), (a, b)
-    assert lcm(4, 6) == 12 and lcm(0, 9) == 0 and lcm(7, 1) == 7
-    assert gcd_list([12, 18, 24]) == 6 and gcd_list([5]) == 5 and gcd_list([0, 0, 7]) == 7
-    assert lcm_list([2, 3, 4]) == 12 and lcm_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == 2520
-    assert are_coprime(8, 9) and not are_coprime(8, 12) and are_coprime(1, 1)
-    assert reduce_fraction(6, 4) == (3, 2) and reduce_fraction(6, -4) == (-3, 2)
-    assert reduce_fraction(0, 5) == (0, 1) and reduce_fraction(-3, -9) == (1, 3) and reduce_fraction(5, 5) == (1, 1)
+    assert lcm(4, 6) == 12 and lcm(0, 9) == 0 and lcm(7, 1) == 7, 'Check: lcm(4, 6) == 12 and lcm(0, 9) == 0 and lcm(7, 1) == 7'
+    assert gcd_list([12, 18, 24]) == 6 and gcd_list([5]) == 5 and gcd_list([0, 0, 7]) == 7, 'Check: gcd_list([12, 18, 24]) == 6 and gcd_list([5]) == 5 and gcd_list([0, 0, 7]) == 7'
+    assert lcm_list([2, 3, 4]) == 12 and lcm_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == 2520, 'Check: lcm_list([2, 3, 4]) == 12 and lcm_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == 2520'
+    assert are_coprime(8, 9) and not are_coprime(8, 12) and are_coprime(1, 1), 'Check: are_coprime(8, 9) and not are_coprime(8, 12) and are_coprime(1, 1)'
+    assert reduce_fraction(6, 4) == (3, 2) and reduce_fraction(6, -4) == (-3, 2), 'Check: reduce_fraction(6, 4) == (3, 2) and reduce_fraction(6, -4) == (-3, 2)'
+    assert reduce_fraction(0, 5) == (0, 1) and reduce_fraction(-3, -9) == (1, 3) and reduce_fraction(5, 5) == (1, 1), 'Check: reduce_fraction(0, 5) == (0, 1) and reduce_fraction(-3, -9) == (1, 3) and reduce_fraction(5, 5) == (1, 1)'
     print("ok")

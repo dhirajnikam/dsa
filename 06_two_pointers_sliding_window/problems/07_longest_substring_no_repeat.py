@@ -30,13 +30,13 @@ def length_of_longest_substring(s: str) -> int:
 
 
 if __name__ == "__main__":
-    assert length_of_longest_substring("abcabcbb") == 3
-    assert length_of_longest_substring("bbbbb") == 1
-    assert length_of_longest_substring("pwwkew") == 3
-    assert length_of_longest_substring("") == 0
-    assert length_of_longest_substring(" ") == 1
-    assert length_of_longest_substring("au") == 2
-    assert length_of_longest_substring("abba") == 2
-    assert length_of_longest_substring("dvdf") == 3
-    assert length_of_longest_substring("tmmzuxt") == 5
+    assert length_of_longest_substring("abcabcbb") == 3, 'Check: length_of_longest_substring("abcabcbb") == 3'
+    assert length_of_longest_substring("bbbbb") == 1, 'Check: length_of_longest_substring("bbbbb") == 1'
+    assert length_of_longest_substring("pwwkew") == 3, 'Check: length_of_longest_substring("pwwkew") == 3'
+    assert length_of_longest_substring("") == 0, 'Check: length_of_longest_substring("") == 0'
+    assert length_of_longest_substring(" ") == 1, 'Check: length_of_longest_substring(" ") == 1'
+    assert length_of_longest_substring("au") == 2, 'Check: length_of_longest_substring("au") == 2'
+    assert length_of_longest_substring("abba") == 2, 'Check: length_of_longest_substring("abba") == 2'
+    assert length_of_longest_substring("dvdf") == 3, 'Check: length_of_longest_substring("dvdf") == 3'
+    assert length_of_longest_substring("tmmzuxt") == 5, 'Check: length_of_longest_substring("tmmzuxt") == 5'
     print("ok")

@@ -53,30 +53,30 @@ class BankAccount:
 if __name__ == "__main__":
     a = BankAccount("alice", 100)
     b = BankAccount("bob")
-    assert BankAccount.count == 2
-    assert a.deposit(50) == 150
-    assert a.withdraw(30) == 120
-    assert repr(a) == "BankAccount('alice', 120)"
-    assert repr(b) == "BankAccount('bob', 0)"
+    assert BankAccount.count == 2, 'Check: BankAccount.count == 2'
+    assert a.deposit(50) == 150, 'Check: a.deposit(50) == 150'
+    assert a.withdraw(30) == 120, 'Check: a.withdraw(30) == 120'
+    assert repr(a) == "BankAccount('alice', 120)", 'Check: repr(a) == "BankAccount(\'alice\', 120)"'
+    assert repr(b) == "BankAccount('bob', 0)", 'Check: repr(b) == "BankAccount(\'bob\', 0)"'
     try:
         a.withdraw(1000)
-        assert False
+        assert False, 'Check: False'
     except InsufficientFunds:
         pass
     try:
         a.deposit(-5)
-        assert False
+        assert False, 'Check: False'
     except ValueError:
         pass
     a.transfer(b, 20)
-    assert a.balance == 100 and b.balance == 20
+    assert a.balance == 100 and b.balance == 20, 'Check: a.balance == 100 and b.balance == 20'
     try:
         b.transfer(a, 999)
-        assert False
+        assert False, 'Check: False'
     except InsufficientFunds:
         pass
-    assert a.balance == 100 and b.balance == 20
-    assert BankAccount("x", 5) == BankAccount("x", 5)
-    assert BankAccount("x", 5) != BankAccount("y", 5)
-    assert BankAccount.count == 6
+    assert a.balance == 100 and b.balance == 20, 'Check: a.balance == 100 and b.balance == 20'
+    assert BankAccount("x", 5) == BankAccount("x", 5), 'Check: BankAccount("x", 5) == BankAccount("x", 5)'
+    assert BankAccount("x", 5) != BankAccount("y", 5), 'Check: BankAccount("x", 5) != BankAccount("y", 5)'
+    assert BankAccount.count == 6, 'Check: BankAccount.count == 6'
     print("ok")

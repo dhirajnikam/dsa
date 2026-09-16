@@ -32,13 +32,13 @@ def length_of_lis(nums: list[int]) -> int:
 
 
 if __name__ == "__main__":
-    assert length_of_lis([10, 9, 2, 5, 3, 7, 101, 18]) == 4
-    assert length_of_lis([0, 1, 0, 3, 2, 3]) == 4
-    assert length_of_lis([7, 7, 7, 7]) == 1
-    assert length_of_lis([1]) == 1
-    assert length_of_lis([5, 4, 3, 2, 1]) == 1
-    assert length_of_lis([1, 2, 3, 4, 5]) == 5
-    assert length_of_lis([4, 10, 4, 3, 8, 9]) == 3
-    assert length_of_lis([-1, 3, 4, 5, 2, 2, 2, 2]) == 4
-    assert length_of_lis(list(range(2000)) + list(range(2000))) == 2000
+    assert length_of_lis([10, 9, 2, 5, 3, 7, 101, 18]) == 4, 'Check: length_of_lis([10, 9, 2, 5, 3, 7, 101, 18]) == 4'
+    assert length_of_lis([0, 1, 0, 3, 2, 3]) == 4, 'Check: length_of_lis([0, 1, 0, 3, 2, 3]) == 4'
+    assert length_of_lis([7, 7, 7, 7]) == 1, 'Check: length_of_lis([7, 7, 7, 7]) == 1'
+    assert length_of_lis([1]) == 1, 'Check: length_of_lis([1]) == 1'
+    assert length_of_lis([5, 4, 3, 2, 1]) == 1, 'Check: length_of_lis([5, 4, 3, 2, 1]) == 1'
+    assert length_of_lis([1, 2, 3, 4, 5]) == 5, 'Check: length_of_lis([1, 2, 3, 4, 5]) == 5'
+    assert length_of_lis([4, 10, 4, 3, 8, 9]) == 3, 'Check: length_of_lis([4, 10, 4, 3, 8, 9]) == 3'
+    assert length_of_lis([-1, 3, 4, 5, 2, 2, 2, 2]) == 4, 'Check: length_of_lis([-1, 3, 4, 5, 2, 2, 2, 2]) == 4'
+    assert length_of_lis(list(range(2000)) + list(range(2000))) == 2000, 'Check: length_of_lis(list(range(2000)) + list(range(2000))) == 2000'
     print("ok")

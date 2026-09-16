@@ -32,11 +32,14 @@ def two_sum(nums: list[int], target: int) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert two_sum([2, 7, 11, 15], 9) == [0, 1]
-    assert two_sum([3, 2, 4], 6) == [1, 2]
-    assert two_sum([3, 3], 6) == [0, 1]
-    assert two_sum([-1, -2, -3, -4, -5], -8) == [2, 4]
-    assert two_sum([0, 4, 3, 0], 0) == [0, 3]
-    assert two_sum([1, 5], 6) == [0, 1]
-    assert two_sum([5, 75, 25], 100) == [1, 2]
+    assert two_sum([2, 7, 11, 15], 9) == [0, 1], 'Check: two_sum([2, 7, 11, 15], 9) == [0, 1]'
+    assert two_sum([3, 2, 4], 6) == [1, 2], 'Check: two_sum([3, 2, 4], 6) == [1, 2]'
+    assert two_sum([3, 3], 6) == [0, 1], 'Check: two_sum([3, 3], 6) == [0, 1]'
+    assert two_sum([-1, -2, -3, -4, -5], -8) == [2, 4], 'Check: two_sum([-1, -2, -3, -4, -5], -8) == [2, 4]'
+    assert two_sum([0, 4, 3, 0], 0) == [0, 3], 'Check: two_sum([0, 4, 3, 0], 0) == [0, 3]'
+    assert two_sum([1, 5], 6) == [0, 1], 'Check: two_sum([1, 5], 6) == [0, 1]'
+    assert two_sum([5, 75, 25], 100) == [1, 2], 'Check: two_sum([5, 75, 25], 100) == [1, 2]'
+    # Boundary and misconception checks: predict each result before running.
+    assert two_sum([4, 4], 8) == [0, 1], 'Check: two_sum([4, 4], 8) == [0, 1]'
+    assert two_sum([8, 1, 4, 3], 7) == [2, 3], 'Check: two_sum([8, 1, 4, 3], 7) == [2, 3]'
     print("ok")

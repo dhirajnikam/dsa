@@ -31,10 +31,10 @@ def find_redundant_connection(edges: list[list[int]]) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert find_redundant_connection([[1, 2], [1, 3], [2, 3]]) == [2, 3]
-    assert find_redundant_connection([[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]]) == [1, 4]
-    assert find_redundant_connection([[1, 2], [2, 3], [1, 3]]) == [1, 3]
-    assert find_redundant_connection([[3, 4], [1, 2], [2, 4], [3, 5], [2, 5]]) == [2, 5]
-    assert find_redundant_connection([[1, 4], [3, 4], [1, 3], [1, 2], [4, 5]]) == [1, 3]
-    assert find_redundant_connection([[2, 3], [3, 4], [4, 5], [5, 2], [1, 2]]) == [5, 2]
+    assert find_redundant_connection([[1, 2], [1, 3], [2, 3]]) == [2, 3], 'Check: find_redundant_connection([[1, 2], [1, 3], [2, 3]]) == [2, 3]'
+    assert find_redundant_connection([[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]]) == [1, 4], 'Check: find_redundant_connection([[1, 2], [2, 3], [3, 4], [1, 4], [1, 5]]) == [1, 4]'
+    assert find_redundant_connection([[1, 2], [2, 3], [1, 3]]) == [1, 3], 'Check: find_redundant_connection([[1, 2], [2, 3], [1, 3]]) == [1, 3]'
+    assert find_redundant_connection([[3, 4], [1, 2], [2, 4], [3, 5], [2, 5]]) == [2, 5], 'Check: find_redundant_connection([[3, 4], [1, 2], [2, 4], [3, 5], [2, 5]]) == [2, 5]'
+    assert find_redundant_connection([[1, 4], [3, 4], [1, 3], [1, 2], [4, 5]]) == [1, 3], 'Check: find_redundant_connection([[1, 4], [3, 4], [1, 3], [1, 2], [4, 5]]) == [1, 3]'
+    assert find_redundant_connection([[2, 3], [3, 4], [4, 5], [5, 2], [1, 2]]) == [5, 2], 'Check: find_redundant_connection([[2, 3], [3, 4], [4, 5], [5, 2], [1, 2]]) == [5, 2]'
     print("ok")

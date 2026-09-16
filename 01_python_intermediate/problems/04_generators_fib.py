@@ -42,20 +42,20 @@ def running_sum(it: Iterable[int]) -> Iterator[int]:
 
 if __name__ == "__main__":
     import types
-    assert isinstance(fib(), types.GeneratorType)
-    assert list(take(8, fib())) == [0, 1, 1, 2, 3, 5, 8, 13]
-    assert list(take(0, fib())) == []
-    assert list(take(5, [1, 2])) == [1, 2]
-    assert list(take(6, evens(fib()))) == [0, 2, 8, 34, 144, 610]
-    assert list(evens([])) == []
-    assert list(chunks([1, 2, 3, 4, 5], 2)) == [[1, 2], [3, 4], [5]]
-    assert list(chunks([1, 2, 3, 4], 2)) == [[1, 2], [3, 4]]
-    assert list(chunks([], 3)) == []
-    assert list(take(3, chunks(fib(), 3))) == [[0, 1, 1], [2, 3, 5], [8, 13, 21]]
-    assert list(running_sum([1, 2, 3])) == [1, 3, 6]
-    assert list(take(5, running_sum(fib()))) == [0, 1, 2, 4, 7]
+    assert isinstance(fib(), types.GeneratorType), 'Check: isinstance(fib(), types.GeneratorType)'
+    assert list(take(8, fib())) == [0, 1, 1, 2, 3, 5, 8, 13], 'Check: list(take(8, fib())) == [0, 1, 1, 2, 3, 5, 8, 13]'
+    assert list(take(0, fib())) == [], 'Check: list(take(0, fib())) == []'
+    assert list(take(5, [1, 2])) == [1, 2], 'Check: list(take(5, [1, 2])) == [1, 2]'
+    assert list(take(6, evens(fib()))) == [0, 2, 8, 34, 144, 610], 'Check: list(take(6, evens(fib()))) == [0, 2, 8, 34, 144, 610]'
+    assert list(evens([])) == [], 'Check: list(evens([])) == []'
+    assert list(chunks([1, 2, 3, 4, 5], 2)) == [[1, 2], [3, 4], [5]], 'Check: list(chunks([1, 2, 3, 4, 5], 2)) == [[1, 2], [3, 4], [5]]'
+    assert list(chunks([1, 2, 3, 4], 2)) == [[1, 2], [3, 4]], 'Check: list(chunks([1, 2, 3, 4], 2)) == [[1, 2], [3, 4]]'
+    assert list(chunks([], 3)) == [], 'Check: list(chunks([], 3)) == []'
+    assert list(take(3, chunks(fib(), 3))) == [[0, 1, 1], [2, 3, 5], [8, 13, 21]], 'Check: list(take(3, chunks(fib(), 3))) == [[0, 1, 1], [2, 3, 5], [8, 13, 21]]'
+    assert list(running_sum([1, 2, 3])) == [1, 3, 6], 'Check: list(running_sum([1, 2, 3])) == [1, 3, 6]'
+    assert list(take(5, running_sum(fib()))) == [0, 1, 2, 4, 7], 'Check: list(take(5, running_sum(fib()))) == [0, 1, 2, 4, 7]'
     g = fib()
     next(g)
     next(g)
-    assert next(g) == 1 and next(g) == 2
+    assert next(g) == 1 and next(g) == 2, 'Check: next(g) == 1 and next(g) == 2'
     print("ok")

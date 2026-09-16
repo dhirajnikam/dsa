@@ -39,12 +39,12 @@ def min_eating_speed(piles: list[int], h: int) -> int:
 
 
 if __name__ == "__main__":
-    assert min_eating_speed([3, 6, 7, 11], 8) == 4
-    assert min_eating_speed([30, 11, 23, 4, 20], 5) == 30
-    assert min_eating_speed([30, 11, 23, 4, 20], 6) == 23
-    assert min_eating_speed([1], 1) == 1
-    assert min_eating_speed([1000000000], 2) == 500000000
-    assert min_eating_speed([5, 5, 5], 3) == 5
-    assert min_eating_speed([5, 5, 5], 100) == 1
-    assert min_eating_speed([312884470], 968709470) == 1
+    assert min_eating_speed([3, 6, 7, 11], 8) == 4, 'Check: min_eating_speed([3, 6, 7, 11], 8) == 4'
+    assert min_eating_speed([30, 11, 23, 4, 20], 5) == 30, 'Check: min_eating_speed([30, 11, 23, 4, 20], 5) == 30'
+    assert min_eating_speed([30, 11, 23, 4, 20], 6) == 23, 'Check: min_eating_speed([30, 11, 23, 4, 20], 6) == 23'
+    assert min_eating_speed([1], 1) == 1, 'Check: min_eating_speed([1], 1) == 1'
+    assert min_eating_speed([1000000000], 2) == 500000000, 'Check: min_eating_speed([1000000000], 2) == 500000000'
+    assert min_eating_speed([5, 5, 5], 3) == 5, 'Check: min_eating_speed([5, 5, 5], 3) == 5'
+    assert min_eating_speed([5, 5, 5], 100) == 1, 'Check: min_eating_speed([5, 5, 5], 100) == 1'
+    assert min_eating_speed([312884470], 968709470) == 1, 'Check: min_eating_speed([312884470], 968709470) == 1'
     print("ok")

@@ -1,50 +1,48 @@
-# Phase 15: Greedy
+# Greedy: make a choice you can defend
 
-**Goal:** spot when the locally best choice is always safe, and say why in one sentence.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-Greedy builds the answer one choice at a time and never goes back.
-It works only when the best choice now never blocks a better answer later. Check with a tiny counterexample first.
-Most greedy problems are "sort by the right key, then one pass". If it breaks, use DP.
+**Before this lesson:** Sorting, array scans, and counterexamples.
 
-## Cheat sheet
-```python
-# sort then scan: keep the interval that ends earliest
-intervals.sort(key=lambda iv: iv[1])
-count, last_end = 0, float("-inf")
-for s, e in intervals:
-    if s >= last_end:          # does not overlap the last one kept
-        count, last_end = count + 1, e
-# reach / jump: track the farthest index you can get to
-farthest = 0
-for i, step in enumerate(nums):
-    if i > farthest: return False    # gap we can never cross
-    farthest = max(farthest, i + step)
-# two passes when a rule looks at both neighbours
-res = [1] * n
-for i in range(1, n):               # satisfy the left neighbour
-    if a[i] > a[i-1]: res[i] = res[i-1] + 1
-for i in range(n - 2, -1, -1):      # satisfy the right neighbour, keep the max
-    if a[i] > a[i+1]: res[i] = max(res[i], res[i+1] + 1)
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
+
+## The theory
+
+A **greedy algorithm** makes a local choice and commits to it. It is correct only if that choice can be part of an optimal result. A plausible rule is a hypothesis, not a proof.
+
+An **exchange argument** shows that an optimal arrangement can be changed to include your choice without becoming worse. A **stays-ahead argument** shows that after each step your partial result is at least as promising as an alternative. Write the quantity you preserve, such as the farthest reachable boundary.
+
+Sorting often exposes a useful order. Earliest finish, smallest requirement, and farthest reach suit different contracts. Local choices can fail when later consequences interact; DP keeps alternatives when a single commitment cannot be justified.
+
+Boundary cases are especially valuable: one item, impossible progress, equal endpoints, and large later obstacles. Include sorting in complexity. Some tasks promise reachability; do not silently assume that promise in another question.
+
+## Walk through a small example
+
+Consider coin values 1, 3, 4 and a target of 6. Choosing the largest affordable coin first gives 4+1+1, while 3+3 uses fewer coins. This counterexample disproves that greedy rule for arbitrary coin systems. A rule needs a reason that applies to the specific problem.
+
+## Watch for
+
+Assuming a locally good choice is globally best; transferring a greedy rule to a different contract; forgetting impossible inputs when they are allowed.
+
+## Your next small step
+
+Open [jump game](problems/01_jump_game.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 15/01
 ```
 
-## When you see... use...
-- "max number of non-overlapping intervals" -> sort by end, keep if it starts after last end
-- "can you reach the end / min jumps" -> track farthest reachable
-- "rule depends on both neighbours" -> two passes, left then right
-- "find a start index around a circle" -> running total, reset when it goes negative
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- Sorting by start instead of end for interval problems.
-- Mixing up `>=` and `>` at boundaries. Touching intervals may or may not overlap. Read the statement.
-- Using greedy when a small counterexample breaks it. Coin change with coins [1, 3, 4] is DP.
-- Skipping the feasibility check. Gas station needs total gas >= total cost.
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_jump_game.py` — track farthest reachable
-- `02_jump_game_ii.py` — count levels of reach
-- `03_gas_station.py` — running total, reset on negative
-- `04_assign_cookies.py` — sort both, two pointers
-- `05_partition_labels.py` — extend end to last occurrence
-- `06_candy.py` — two passes, left then right
-- `07_min_arrows_burst_balloons.py` — sort by end, count groups
+- [Jump Game](problems/01_jump_game.py)
+- [Jump Game II](problems/02_jump_game_ii.py)
+- [Gas Station](problems/03_gas_station.py)
+- [Assign Cookies](problems/04_assign_cookies.py)
+- [Partition Labels](problems/05_partition_labels.py)
+- [Candy](problems/06_candy.py)
+- [Minimum Number of Arrows to Burst Balloons](problems/07_min_arrows_burst_balloons.py)
+
+</details>

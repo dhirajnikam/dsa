@@ -45,30 +45,30 @@ class Range:
 
 
 if __name__ == "__main__":
-    assert list(Range(5)) == [0, 1, 2, 3, 4]
-    assert list(Range(2, 5)) == [2, 3, 4]
-    assert list(Range(10, 0, -3)) == [10, 7, 4, 1]
-    assert list(Range(5, 5)) == [] and len(Range(5, 2)) == 0
+    assert list(Range(5)) == [0, 1, 2, 3, 4], 'Check: list(Range(5)) == [0, 1, 2, 3, 4]'
+    assert list(Range(2, 5)) == [2, 3, 4], 'Check: list(Range(2, 5)) == [2, 3, 4]'
+    assert list(Range(10, 0, -3)) == [10, 7, 4, 1], 'Check: list(Range(10, 0, -3)) == [10, 7, 4, 1]'
+    assert list(Range(5, 5)) == [] and len(Range(5, 2)) == 0, 'Check: list(Range(5, 5)) == [] and len(Range(5, 2)) == 0'
     for args in [(5,), (2, 5), (10, 0, -3), (0, 10, 4), (7, -8, -5), (3, 3)]:
         assert len(Range(*args)) == len(range(*args)), args
         assert list(Range(*args)) == list(range(*args)), args
     r = Range(10, 0, -3)
-    assert list(r) == list(r)  # re-iterable
-    assert 7 in r and 8 not in r and 0 not in r and 10 in r
-    assert r[0] == 10 and r[3] == 1 and r[-1] == 1 and r[-4] == 10
+    assert list(r) == list(r), 'Check: list(r) == list(r)'  # re-iterable
+    assert 7 in r and 8 not in r and 0 not in r and 10 in r, 'Check: 7 in r and 8 not in r and 0 not in r and 10 in r'
+    assert r[0] == 10 and r[3] == 1 and r[-1] == 1 and r[-4] == 10, 'Check: r[0] == 10 and r[3] == 1 and r[-1] == 1 and r[-4] == 10'
     try:
         r[4]
-        assert False
+        assert False, 'Check: False'
     except IndexError:
         pass
     big = Range(0, 10**12, 7)
     last = range(0, 10**12, 7)[-1]
-    assert len(big) == len(range(0, 10**12, 7)) and last in big and last - 1 not in big
-    assert big[-1] == last and 10**12 not in big
+    assert len(big) == len(range(0, 10**12, 7)) and last in big and last - 1 not in big, 'Check: len(big) == len(range(0, 10**12, 7)) and last in big and last - 1 not in big'
+    assert big[-1] == last and 10**12 not in big, 'Check: big[-1] == last and 10**12 not in big'
     try:
         Range(0, 5, 0)
-        assert False
+        assert False, 'Check: False'
     except ValueError:
         pass
-    assert repr(Range(2, 5)) == "Range(2, 5, 1)"
+    assert repr(Range(2, 5)) == "Range(2, 5, 1)", 'Check: repr(Range(2, 5)) == "Range(2, 5, 1)"'
     print("ok")

@@ -36,15 +36,15 @@ def find_median_sorted_arrays(nums1: list[int], nums2: list[int]) -> float:
 
 
 if __name__ == "__main__":
-    assert find_median_sorted_arrays([1, 3], [2]) == 2.0
-    assert find_median_sorted_arrays([1, 2], [3, 4]) == 2.5
-    assert find_median_sorted_arrays([], [1]) == 1.0
-    assert find_median_sorted_arrays([2], []) == 2.0
-    assert find_median_sorted_arrays([], [1, 2, 3, 4]) == 2.5
-    assert find_median_sorted_arrays([1, 2, 3], [4, 5, 6]) == 3.5
-    assert find_median_sorted_arrays([4, 5, 6], [1, 2, 3]) == 3.5
-    assert find_median_sorted_arrays([1, 1, 1], [1, 1]) == 1.0
-    assert find_median_sorted_arrays([-5, 3, 6, 12, 15], [-12, -10, -6, -3, 4, 10]) == 3.0
+    assert find_median_sorted_arrays([1, 3], [2]) == 2.0, 'Check: find_median_sorted_arrays([1, 3], [2]) == 2.0'
+    assert find_median_sorted_arrays([1, 2], [3, 4]) == 2.5, 'Check: find_median_sorted_arrays([1, 2], [3, 4]) == 2.5'
+    assert find_median_sorted_arrays([], [1]) == 1.0, 'Check: find_median_sorted_arrays([], [1]) == 1.0'
+    assert find_median_sorted_arrays([2], []) == 2.0, 'Check: find_median_sorted_arrays([2], []) == 2.0'
+    assert find_median_sorted_arrays([], [1, 2, 3, 4]) == 2.5, 'Check: find_median_sorted_arrays([], [1, 2, 3, 4]) == 2.5'
+    assert find_median_sorted_arrays([1, 2, 3], [4, 5, 6]) == 3.5, 'Check: find_median_sorted_arrays([1, 2, 3], [4, 5, 6]) == 3.5'
+    assert find_median_sorted_arrays([4, 5, 6], [1, 2, 3]) == 3.5, 'Check: find_median_sorted_arrays([4, 5, 6], [1, 2, 3]) == 3.5'
+    assert find_median_sorted_arrays([1, 1, 1], [1, 1]) == 1.0, 'Check: find_median_sorted_arrays([1, 1, 1], [1, 1]) == 1.0'
+    assert find_median_sorted_arrays([-5, 3, 6, 12, 15], [-12, -10, -6, -3, 4, 10]) == 3.0, 'Check: find_median_sorted_arrays([-5, 3, 6, 12, 15], [-12, -10, -6, -3, 4, 10]) == 3.0'
     import random
     rng = random.Random(4)
     for _ in range(200):

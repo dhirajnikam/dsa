@@ -37,16 +37,16 @@ if __name__ == "__main__":
     d.add_word("bad")
     d.add_word("dad")
     d.add_word("mad")
-    assert d.search("pad") is False
-    assert d.search("bad") is True
-    assert d.search(".ad") is True
-    assert d.search("b..") is True
-    assert d.search("...") is True
-    assert d.search("..") is False
-    assert d.search("....") is False
-    assert d.search("b.d") is True
-    assert d.search("") is False
+    assert d.search("pad") is False, 'Check: d.search("pad") is False'
+    assert d.search("bad") is True, 'Check: d.search("bad") is True'
+    assert d.search(".ad") is True, 'Check: d.search(".ad") is True'
+    assert d.search("b..") is True, 'Check: d.search("b..") is True'
+    assert d.search("...") is True, 'Check: d.search("...") is True'
+    assert d.search("..") is False, 'Check: d.search("..") is False'
+    assert d.search("....") is False, 'Check: d.search("....") is False'
+    assert d.search("b.d") is True, 'Check: d.search("b.d") is True'
+    assert d.search("") is False, 'Check: d.search("") is False'
     d.add_word("a")
-    assert d.search(".") is True
-    assert d.search("a.") is False
+    assert d.search(".") is True, 'Check: d.search(".") is True'
+    assert d.search("a.") is False, 'Check: d.search("a.") is False'
     print("ok")

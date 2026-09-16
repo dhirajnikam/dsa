@@ -34,23 +34,23 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 if __name__ == "__main__":
     a = [1, 2, 3, 0, 0, 0]
     merge(a, 3, [2, 5, 6], 3)
-    assert a == [1, 2, 2, 3, 5, 6]
+    assert a == [1, 2, 2, 3, 5, 6], 'Check: a == [1, 2, 2, 3, 5, 6]'
     a = [1]
     merge(a, 1, [], 0)
-    assert a == [1]
+    assert a == [1], 'Check: a == [1]'
     a = [0]
     merge(a, 0, [1], 1)
-    assert a == [1]
+    assert a == [1], 'Check: a == [1]'
     a = [4, 5, 6, 0, 0, 0]
     merge(a, 3, [1, 2, 3], 3)
-    assert a == [1, 2, 3, 4, 5, 6]
+    assert a == [1, 2, 3, 4, 5, 6], 'Check: a == [1, 2, 3, 4, 5, 6]'
     a = [1, 2, 3, 0, 0, 0]
     merge(a, 3, [4, 5, 6], 3)
-    assert a == [1, 2, 3, 4, 5, 6]
+    assert a == [1, 2, 3, 4, 5, 6], 'Check: a == [1, 2, 3, 4, 5, 6]'
     a = [-3, 0, 0]
     merge(a, 1, [-5, -4], 2)
-    assert a == [-5, -4, -3]
+    assert a == [-5, -4, -3], 'Check: a == [-5, -4, -3]'
     a = [2, 2, 0, 0]
     merge(a, 2, [2, 2], 2)
-    assert a == [2, 2, 2, 2]
+    assert a == [2, 2, 2, 2], 'Check: a == [2, 2, 2, 2]'
     print("ok")

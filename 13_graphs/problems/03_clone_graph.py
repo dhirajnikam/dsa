@@ -62,9 +62,9 @@ if __name__ == "__main__":
     def check(adj):
         original = build(adj)
         copy = clone_graph(original)
-        assert serialize(copy) == {v: sorted(n) for v, n in adj.items()}
+        assert serialize(copy) == {v: sorted(n) for v, n in adj.items()}, 'Check: serialize(copy) == {v: sorted(n) for v, n in adj.items()}'
         if original is not None:
-            assert copy is not original
+            assert copy is not original, 'Check: copy is not original'
             # no shared nodes between original and copy
             stack, seen_copy = [copy], set()
             while stack:
@@ -80,7 +80,7 @@ if __name__ == "__main__":
                     continue
                 seen_orig.add(id(cur))
                 stack.extend(cur.neighbors)
-            assert not (seen_copy & seen_orig)
+            assert not (seen_copy & seen_orig), 'Check: not (seen_copy & seen_orig)'
 
     check({1: [2, 4], 2: [1, 3], 3: [2, 4], 4: [1, 3]})
     check({1: []})

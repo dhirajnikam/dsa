@@ -76,19 +76,19 @@ if __name__ == "__main__":
     c = LRUCache(2)
     c.put(1, 1)
     c.put(2, 2)
-    assert c.get(1) == 1
+    assert c.get(1) == 1, 'Check: c.get(1) == 1'
     c.put(3, 3)
-    assert c.get(2) == -1
+    assert c.get(2) == -1, 'Check: c.get(2) == -1'
     c.put(4, 4)
-    assert c.get(1) == -1
-    assert c.get(3) == 3
-    assert c.get(4) == 4
+    assert c.get(1) == -1, 'Check: c.get(1) == -1'
+    assert c.get(3) == 3, 'Check: c.get(3) == 3'
+    assert c.get(4) == 4, 'Check: c.get(4) == 4'
 
     c = LRUCache(1)
     c.put(2, 1)
-    assert c.get(2) == 1
+    assert c.get(2) == 1, 'Check: c.get(2) == 1'
     c.put(3, 2)
-    assert c.get(2) == -1 and c.get(3) == 2
+    assert c.get(2) == -1 and c.get(3) == 2, 'Check: c.get(2) == -1 and c.get(3) == 2'
 
     # update existing key refreshes recency and changes value
     c = LRUCache(2)
@@ -96,6 +96,6 @@ if __name__ == "__main__":
     c.put(2, 2)
     c.put(1, 10)
     c.put(3, 3)  # evicts 2, not 1
-    assert c.get(1) == 10 and c.get(2) == -1 and c.get(3) == 3
-    assert c.get(99) == -1
+    assert c.get(1) == 10 and c.get(2) == -1 and c.get(3) == 3, 'Check: c.get(1) == 10 and c.get(2) == -1 and c.get(3) == 3'
+    assert c.get(99) == -1, 'Check: c.get(99) == -1'
     print("ok")

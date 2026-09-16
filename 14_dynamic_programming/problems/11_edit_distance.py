@@ -29,13 +29,13 @@ def min_distance(word1: str, word2: str) -> int:
 
 
 if __name__ == "__main__":
-    assert min_distance("horse", "ros") == 3
-    assert min_distance("intention", "execution") == 5
-    assert min_distance("", "") == 0
-    assert min_distance("", "abc") == 3
-    assert min_distance("abc", "") == 3
-    assert min_distance("abc", "abc") == 0
-    assert min_distance("a", "b") == 1
-    assert min_distance("kitten", "sitting") == 3
-    assert min_distance("zoologicoarchaeologist", "zoogeologist") == 10
+    assert min_distance("horse", "ros") == 3, 'Check: min_distance("horse", "ros") == 3'
+    assert min_distance("intention", "execution") == 5, 'Check: min_distance("intention", "execution") == 5'
+    assert min_distance("", "") == 0, 'Check: min_distance("", "") == 0'
+    assert min_distance("", "abc") == 3, 'Check: min_distance("", "abc") == 3'
+    assert min_distance("abc", "") == 3, 'Check: min_distance("abc", "") == 3'
+    assert min_distance("abc", "abc") == 0, 'Check: min_distance("abc", "abc") == 0'
+    assert min_distance("a", "b") == 1, 'Check: min_distance("a", "b") == 1'
+    assert min_distance("kitten", "sitting") == 3, 'Check: min_distance("kitten", "sitting") == 3'
+    assert min_distance("zoologicoarchaeologist", "zoogeologist") == 10, 'Check: min_distance("zoologicoarchaeologist", "zoogeologist") == 10'
     print("ok")

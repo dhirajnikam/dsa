@@ -29,11 +29,11 @@ def max_area_of_island(grid: list[list[int]]) -> int:
 
 
 if __name__ == "__main__":
-    assert max_area_of_island([[0, 0, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1]]) == 3
-    assert max_area_of_island([[0, 0, 0]]) == 0
-    assert max_area_of_island([[1]]) == 1
-    assert max_area_of_island([[1, 1], [1, 1]]) == 4
-    assert max_area_of_island([[1, 0, 1], [0, 1, 0], [1, 0, 1]]) == 1
-    assert max_area_of_island([[0, 1, 1, 0, 0], [0, 1, 0, 0, 1], [0, 0, 0, 1, 1]]) == 3
-    assert max_area_of_island([[1] * 10 for _ in range(10)]) == 100
+    assert max_area_of_island([[0, 0, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1]]) == 3, 'Check: max_area_of_island([[0, 0, 1, 0], [1, 1, 0, 0], [0, 1, 0, 1]]) == 3'
+    assert max_area_of_island([[0, 0, 0]]) == 0, 'Check: max_area_of_island([[0, 0, 0]]) == 0'
+    assert max_area_of_island([[1]]) == 1, 'Check: max_area_of_island([[1]]) == 1'
+    assert max_area_of_island([[1, 1], [1, 1]]) == 4, 'Check: max_area_of_island([[1, 1], [1, 1]]) == 4'
+    assert max_area_of_island([[1, 0, 1], [0, 1, 0], [1, 0, 1]]) == 1, 'Check: max_area_of_island([[1, 0, 1], [0, 1, 0], [1, 0, 1]]) == 1'
+    assert max_area_of_island([[0, 1, 1, 0, 0], [0, 1, 0, 0, 1], [0, 0, 0, 1, 1]]) == 3, 'Check: max_area_of_island([[0, 1, 1, 0, 0], [0, 1, 0, 0, 1], [0, 0, 0, 1, 1]]) == 3'
+    assert max_area_of_island([[1] * 10 for _ in range(10)]) == 100, 'Check: max_area_of_island([[1] * 10 for _ in range(10)]) == 100'
     print("ok")

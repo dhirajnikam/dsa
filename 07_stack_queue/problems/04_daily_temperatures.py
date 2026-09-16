@@ -32,12 +32,12 @@ def daily_temperatures(temperatures: list[int]) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert daily_temperatures([73, 74, 75, 71, 69, 72, 76, 73]) == [1, 1, 4, 2, 1, 1, 0, 0]
-    assert daily_temperatures([30, 40, 50, 60]) == [1, 1, 1, 0]
-    assert daily_temperatures([30, 60, 90]) == [1, 1, 0]
-    assert daily_temperatures([50]) == [0]
-    assert daily_temperatures([50, 50, 50]) == [0, 0, 0]
-    assert daily_temperatures([90, 80, 70]) == [0, 0, 0]
-    assert daily_temperatures([70, 80, 60, 90]) == [1, 2, 1, 0]
-    assert daily_temperatures([55, 38, 53, 81, 61, 93, 97, 32, 43, 78]) == [3, 1, 1, 2, 1, 1, 0, 1, 1, 0]
+    assert daily_temperatures([73, 74, 75, 71, 69, 72, 76, 73]) == [1, 1, 4, 2, 1, 1, 0, 0], 'Check: daily_temperatures([73, 74, 75, 71, 69, 72, 76, 73]) == [1, 1, 4, 2, 1, 1, 0, 0]'
+    assert daily_temperatures([30, 40, 50, 60]) == [1, 1, 1, 0], 'Check: daily_temperatures([30, 40, 50, 60]) == [1, 1, 1, 0]'
+    assert daily_temperatures([30, 60, 90]) == [1, 1, 0], 'Check: daily_temperatures([30, 60, 90]) == [1, 1, 0]'
+    assert daily_temperatures([50]) == [0], 'Check: daily_temperatures([50]) == [0]'
+    assert daily_temperatures([50, 50, 50]) == [0, 0, 0], 'Check: daily_temperatures([50, 50, 50]) == [0, 0, 0]'
+    assert daily_temperatures([90, 80, 70]) == [0, 0, 0], 'Check: daily_temperatures([90, 80, 70]) == [0, 0, 0]'
+    assert daily_temperatures([70, 80, 60, 90]) == [1, 2, 1, 0], 'Check: daily_temperatures([70, 80, 60, 90]) == [1, 2, 1, 0]'
+    assert daily_temperatures([55, 38, 53, 81, 61, 93, 97, 32, 43, 78]) == [3, 1, 1, 2, 1, 1, 0, 1, 1, 0], 'Check: daily_temperatures([55, 38, 53, 81, 61, 93, 97, 32, 43, 78]) == [3, 1, 1, 2, 1, 1, 0, 1, 1, 0]'
     print("ok")

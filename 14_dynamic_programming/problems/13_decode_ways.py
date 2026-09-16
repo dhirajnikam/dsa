@@ -31,15 +31,15 @@ def num_decodings(s: str) -> int:
 
 
 if __name__ == "__main__":
-    assert num_decodings("12") == 2
-    assert num_decodings("226") == 3
-    assert num_decodings("06") == 0
-    assert num_decodings("0") == 0
-    assert num_decodings("1") == 1
-    assert num_decodings("10") == 1
-    assert num_decodings("27") == 1
-    assert num_decodings("100") == 0
-    assert num_decodings("2101") == 1
-    assert num_decodings("111111") == 13
-    assert num_decodings("1" * 100) == 573147844013817084101
+    assert num_decodings("12") == 2, 'Check: num_decodings("12") == 2'
+    assert num_decodings("226") == 3, 'Check: num_decodings("226") == 3'
+    assert num_decodings("06") == 0, 'Check: num_decodings("06") == 0'
+    assert num_decodings("0") == 0, 'Check: num_decodings("0") == 0'
+    assert num_decodings("1") == 1, 'Check: num_decodings("1") == 1'
+    assert num_decodings("10") == 1, 'Check: num_decodings("10") == 1'
+    assert num_decodings("27") == 1, 'Check: num_decodings("27") == 1'
+    assert num_decodings("100") == 0, 'Check: num_decodings("100") == 0'
+    assert num_decodings("2101") == 1, 'Check: num_decodings("2101") == 1'
+    assert num_decodings("111111") == 13, 'Check: num_decodings("111111") == 13'
+    assert num_decodings("1" * 100) == 573147844013817084101, 'Check: num_decodings("1" * 100) == 573147844013817084101'
     print("ok")

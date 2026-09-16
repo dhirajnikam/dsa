@@ -1,50 +1,51 @@
-# Phase 04: Arrays & Strings
+# Arrays and strings: keep just enough state
 
-**Goal:** edit arrays in place, precompute prefix sums so range queries are O(1), and walk 2D grids without off-by-one errors.
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-"In place" means reuse the input array instead of making a new one. A read pointer scans, a write pointer marks where to store.
-A prefix sum array stores running totals, so any range sum is one subtraction. Kadane's trick: the best subarray ending here is "just this number" or "extend the previous best".
+**Before this lesson:** Chapter 00 lists and chapter 03 operation counting.
 
-## Cheat sheet
-```python
-w = 0                                   # read/write pointers
-for r in range(len(a)):
-    if keep(a[r]):
-        a[w] = a[r]; w += 1             # a[:w] is the answer
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
 
-from itertools import accumulate
-prefix = [0] + list(accumulate(nums))   # prefix[i] = sum(nums[:i])
-range_sum = prefix[r + 1] - prefix[l]   # sum of nums[l..r]
+## The theory
 
-cur = best = nums[0]                    # Kadane
-for x in nums[1:]:
-    cur = max(x, cur + x)
-    best = max(best, cur)
+An **array/list** stores an ordered sequence addressable by index. Python lists offer constant-time indexing but inserting in the middle shifts elements. **Contiguous** means neighboring positions; a subsequence may skip positions.
 
-t = [list(row) for row in zip(*m)]      # transpose a grid
+Instead of rereading earlier items, maintain a small summary. A running minimum summarizes the cheapest value so far. A **prefix sum** stores totals before each position. Removing the earlier total from a later total isolates a range. Use an initial zero so ranges starting at index zero follow the same rule.
+
+For a best contiguous segment, consider whether an earlier partial segment helps or harms a new segment. All-negative input is a real case: an empty result is allowed only if the question says so. Prefix and suffix summaries can also capture contributions before and after an item without using that item itself.
+
+**In place** means changing the input rather than returning a replacement. A read index visits candidates; a write index marks where a kept item belongs. A matrix is a list of rows: distinguish row count from column count. Spiral traversal tracks boundaries, and every boundary can become empty. Rotation and zeroing have explicit mutation requirements.
+
+## Walk through a small example
+
+Daily distances [4, 7, 2] give totals-before-position [0, 4, 11, 13]. The distance for days at indices 1 through 2 is 13 − 4 = 9. Trace why the right boundary uses the total after the last included item. Precomputation takes O(n) time and space; each range query then takes O(1).
+
+## Watch for
+
+Off-by-one range endpoints; initializing an all-negative maximum to zero; modifying a matrix marker before recording what it meant; returning a copy for an in-place task.
+
+## Your next small step
+
+Open [best time buy sell stock](problems/01_best_time_buy_sell_stock.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 04/01
 ```
 
-## When you see... use...
-- "sum over a range, many queries" -> prefix sums
-- "maximum contiguous subarray" -> Kadane
-- "O(1) extra space", "in place" -> read/write pointers or swaps
-- "rotate / spiral a matrix" -> transpose + reverse, shrinking boundaries
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- Prefix sums have `n + 1` entries. Range `[l, r]` is `prefix[r + 1] - prefix[l]`.
-- Kadane with all negatives: start `best` at `nums[0]`, not `0`.
-- `[[0] * cols] * rows` shares one row. Use a comprehension.
-- Returning a new list when asked for "in place". The tests check the original.
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_best_time_buy_sell_stock.py` — track the running minimum
-- `02_max_subarray_kadane.py` — Kadane, handle all-negative
-- `03_product_except_self.py` — prefix and suffix products
-- `04_prefix_sum_range_queries.py` — class with O(1) range sums
-- `05_rotate_matrix.py` — transpose, then reverse rows
-- `06_spiral_matrix.py` — shrink four boundaries
-- `07_merge_sorted_arrays_in_place.py` — merge from the back
-- `08_set_matrix_zeroes.py` — first row/column as flags
-- `09_longest_common_prefix.py` — vertical scan with zip
-- `10_string_compression.py` — read/write pointers, run lengths
+- [Best Time to Buy and Sell Stock](problems/01_best_time_buy_sell_stock.py)
+- [Maximum Subarray](problems/02_max_subarray_kadane.py)
+- [Product of Array Except Self](problems/03_product_except_self.py)
+- [Range Sum Query - Immutable](problems/04_prefix_sum_range_queries.py)
+- [Rotate Image](problems/05_rotate_matrix.py)
+- [Spiral Matrix](problems/06_spiral_matrix.py)
+- [Merge Sorted Array](problems/07_merge_sorted_arrays_in_place.py)
+- [Set Matrix Zeroes](problems/08_set_matrix_zeroes.py)
+- [Longest Common Prefix](problems/09_longest_common_prefix.py)
+- [String Compression](problems/10_string_compression.py)
+
+</details>

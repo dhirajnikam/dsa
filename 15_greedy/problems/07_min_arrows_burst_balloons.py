@@ -26,12 +26,12 @@ def find_min_arrow_shots(points: list[list[int]]) -> int:
 
 
 if __name__ == "__main__":
-    assert find_min_arrow_shots([[10, 16], [2, 8], [1, 6], [7, 12]]) == 2
-    assert find_min_arrow_shots([[1, 2], [3, 4], [5, 6], [7, 8]]) == 4
-    assert find_min_arrow_shots([[1, 2], [2, 3], [3, 4], [4, 5]]) == 2
-    assert find_min_arrow_shots([[1, 2]]) == 1
-    assert find_min_arrow_shots([]) == 0
-    assert find_min_arrow_shots([[1, 10], [2, 3], [4, 5]]) == 2
-    assert find_min_arrow_shots([[-2147483648, 2147483647], [0, 0]]) == 1
-    assert find_min_arrow_shots([[3, 3], [3, 3], [3, 3]]) == 1
+    assert find_min_arrow_shots([[10, 16], [2, 8], [1, 6], [7, 12]]) == 2, 'Check: find_min_arrow_shots([[10, 16], [2, 8], [1, 6], [7, 12]]) == 2'
+    assert find_min_arrow_shots([[1, 2], [3, 4], [5, 6], [7, 8]]) == 4, 'Check: find_min_arrow_shots([[1, 2], [3, 4], [5, 6], [7, 8]]) == 4'
+    assert find_min_arrow_shots([[1, 2], [2, 3], [3, 4], [4, 5]]) == 2, 'Check: find_min_arrow_shots([[1, 2], [2, 3], [3, 4], [4, 5]]) == 2'
+    assert find_min_arrow_shots([[1, 2]]) == 1, 'Check: find_min_arrow_shots([[1, 2]]) == 1'
+    assert find_min_arrow_shots([]) == 0, 'Check: find_min_arrow_shots([]) == 0'
+    assert find_min_arrow_shots([[1, 10], [2, 3], [4, 5]]) == 2, 'Check: find_min_arrow_shots([[1, 10], [2, 3], [4, 5]]) == 2'
+    assert find_min_arrow_shots([[-2147483648, 2147483647], [0, 0]]) == 1, 'Check: find_min_arrow_shots([[-2147483648, 2147483647], [0, 0]]) == 1'
+    assert find_min_arrow_shots([[3, 3], [3, 3], [3, 3]]) == 1, 'Check: find_min_arrow_shots([[3, 3], [3, 3], [3, 3]]) == 1'
     print("ok")

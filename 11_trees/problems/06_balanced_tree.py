@@ -65,12 +65,12 @@ def is_balanced(root: TreeNode | None) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_balanced(build([3, 9, 20, None, None, 15, 7])) is True
-    assert is_balanced(build([1, 2, 2, 3, 3, None, None, 4, 4])) is False
-    assert is_balanced(None) is True
-    assert is_balanced(build([1])) is True
-    assert is_balanced(build([1, 2])) is True
-    assert is_balanced(build([1, 2, None, 3])) is False                 # skewed depth 3
-    assert is_balanced(build([1, 2, 3, 4, None, None, None, 5])) is False
-    assert is_balanced(build([1, 2, 3, 4, 5, 6, 7])) is True
+    assert is_balanced(build([3, 9, 20, None, None, 15, 7])) is True, 'Check: is_balanced(build([3, 9, 20, None, None, 15, 7])) is True'
+    assert is_balanced(build([1, 2, 2, 3, 3, None, None, 4, 4])) is False, 'Check: is_balanced(build([1, 2, 2, 3, 3, None, None, 4, 4])) is False'
+    assert is_balanced(None) is True, 'Check: is_balanced(None) is True'
+    assert is_balanced(build([1])) is True, 'Check: is_balanced(build([1])) is True'
+    assert is_balanced(build([1, 2])) is True, 'Check: is_balanced(build([1, 2])) is True'
+    assert is_balanced(build([1, 2, None, 3])) is False, 'Check: is_balanced(build([1, 2, None, 3])) is False'                 # skewed depth 3
+    assert is_balanced(build([1, 2, 3, 4, None, None, None, 5])) is False, 'Check: is_balanced(build([1, 2, 3, 4, None, None, None, 5])) is False'
+    assert is_balanced(build([1, 2, 3, 4, 5, 6, 7])) is True, 'Check: is_balanced(build([1, 2, 3, 4, 5, 6, 7])) is True'
     print("ok")

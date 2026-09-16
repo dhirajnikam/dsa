@@ -24,11 +24,11 @@ def partition_labels(s: str) -> list[int]:
 
 
 if __name__ == "__main__":
-    assert partition_labels("ababcbacadefegdehijhklij") == [9, 7, 8]
-    assert partition_labels("eccbbbbdec") == [10]
-    assert partition_labels("a") == [1]
-    assert partition_labels("abc") == [1, 1, 1]
-    assert partition_labels("abca") == [4]
-    assert partition_labels("aabb") == [2, 2]
-    assert partition_labels("caedbdedda") == [1, 9]
+    assert partition_labels("ababcbacadefegdehijhklij") == [9, 7, 8], 'Check: partition_labels("ababcbacadefegdehijhklij") == [9, 7, 8]'
+    assert partition_labels("eccbbbbdec") == [10], 'Check: partition_labels("eccbbbbdec") == [10]'
+    assert partition_labels("a") == [1], 'Check: partition_labels("a") == [1]'
+    assert partition_labels("abc") == [1, 1, 1], 'Check: partition_labels("abc") == [1, 1, 1]'
+    assert partition_labels("abca") == [4], 'Check: partition_labels("abca") == [4]'
+    assert partition_labels("aabb") == [2, 2], 'Check: partition_labels("aabb") == [2, 2]'
+    assert partition_labels("caedbdedda") == [1, 9], 'Check: partition_labels("caedbdedda") == [1, 9]'
     print("ok")

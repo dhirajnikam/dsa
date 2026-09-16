@@ -39,12 +39,12 @@ def exist(board: list[list[str]], word: str) -> bool:
 
 if __name__ == "__main__":
     b = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
-    assert exist(b, "ABCCED") is True
-    assert exist(b, "SEE") is True
-    assert exist(b, "ABCB") is False
-    assert exist([["a"]], "a") is True
-    assert exist([["a"]], "b") is False
-    assert exist([["a", "a"]], "aaa") is False   # cannot reuse a cell
-    assert exist([["C", "A", "A"], ["A", "A", "A"], ["B", "C", "D"]], "AAB") is True
-    assert b == [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]  # board restored
+    assert exist(b, "ABCCED") is True, 'Check: exist(b, "ABCCED") is True'
+    assert exist(b, "SEE") is True, 'Check: exist(b, "SEE") is True'
+    assert exist(b, "ABCB") is False, 'Check: exist(b, "ABCB") is False'
+    assert exist([["a"]], "a") is True, 'Check: exist([["a"]], "a") is True'
+    assert exist([["a"]], "b") is False, 'Check: exist([["a"]], "b") is False'
+    assert exist([["a", "a"]], "aaa") is False, 'Check: exist([["a", "a"]], "aaa") is False'   # cannot reuse a cell
+    assert exist([["C", "A", "A"], ["A", "A", "A"], ["B", "C", "D"]], "AAB") is True, 'Check: exist([["C", "A", "A"], ["A", "A", "A"], ["B", "C", "D"]], "AAB") is True'
+    assert b == [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], 'Check: b == [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]'  # board restored
     print("ok")

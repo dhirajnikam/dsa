@@ -65,12 +65,12 @@ def is_same_tree(p: TreeNode | None, q: TreeNode | None) -> bool:
 
 
 if __name__ == "__main__":
-    assert is_same_tree(build([1, 2, 3]), build([1, 2, 3])) is True
-    assert is_same_tree(build([1, 2]), build([1, None, 2])) is False
-    assert is_same_tree(build([1, 2, 1]), build([1, 1, 2])) is False
-    assert is_same_tree(None, None) is True
-    assert is_same_tree(build([1]), None) is False
-    assert is_same_tree(None, build([1])) is False
-    assert is_same_tree(build([1, 2, 3, 4]), build([1, 2, 3])) is False
-    assert is_same_tree(build([1, 2, 3, None, 4]), build([1, 2, 3, None, 4])) is True
+    assert is_same_tree(build([1, 2, 3]), build([1, 2, 3])) is True, 'Check: is_same_tree(build([1, 2, 3]), build([1, 2, 3])) is True'
+    assert is_same_tree(build([1, 2]), build([1, None, 2])) is False, 'Check: is_same_tree(build([1, 2]), build([1, None, 2])) is False'
+    assert is_same_tree(build([1, 2, 1]), build([1, 1, 2])) is False, 'Check: is_same_tree(build([1, 2, 1]), build([1, 1, 2])) is False'
+    assert is_same_tree(None, None) is True, 'Check: is_same_tree(None, None) is True'
+    assert is_same_tree(build([1]), None) is False, 'Check: is_same_tree(build([1]), None) is False'
+    assert is_same_tree(None, build([1])) is False, 'Check: is_same_tree(None, build([1])) is False'
+    assert is_same_tree(build([1, 2, 3, 4]), build([1, 2, 3])) is False, 'Check: is_same_tree(build([1, 2, 3, 4]), build([1, 2, 3])) is False'
+    assert is_same_tree(build([1, 2, 3, None, 4]), build([1, 2, 3, None, 4])) is True, 'Check: is_same_tree(build([1, 2, 3, None, 4]), build([1, 2, 3, None, 4])) is True'
     print("ok")

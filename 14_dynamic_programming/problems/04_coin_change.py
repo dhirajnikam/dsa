@@ -32,12 +32,12 @@ def coin_change(coins: list[int], amount: int) -> int:
 
 
 if __name__ == "__main__":
-    assert coin_change([1, 2, 5], 11) == 3
-    assert coin_change([2], 3) == -1
-    assert coin_change([1], 0) == 0
-    assert coin_change([1, 3, 4], 6) == 2
-    assert coin_change([2, 5, 10, 1], 27) == 4
-    assert coin_change([186, 419, 83, 408], 6249) == 20
-    assert coin_change([5], 5) == 1
-    assert coin_change([3, 7], 1) == -1
+    assert coin_change([1, 2, 5], 11) == 3, 'Check: coin_change([1, 2, 5], 11) == 3'
+    assert coin_change([2], 3) == -1, 'Check: coin_change([2], 3) == -1'
+    assert coin_change([1], 0) == 0, 'Check: coin_change([1], 0) == 0'
+    assert coin_change([1, 3, 4], 6) == 2, 'Check: coin_change([1, 3, 4], 6) == 2'
+    assert coin_change([2, 5, 10, 1], 27) == 4, 'Check: coin_change([2, 5, 10, 1], 27) == 4'
+    assert coin_change([186, 419, 83, 408], 6249) == 20, 'Check: coin_change([186, 419, 83, 408], 6249) == 20'
+    assert coin_change([5], 5) == 1, 'Check: coin_change([5], 5) == 1'
+    assert coin_change([3, 7], 1) == -1, 'Check: coin_change([3, 7], 1) == -1'
     print("ok")

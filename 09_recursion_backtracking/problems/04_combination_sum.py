@@ -43,10 +43,10 @@ def _norm(res):
 
 
 if __name__ == "__main__":
-    assert _norm(combination_sum([2, 3, 6, 7], 7)) == [[2, 2, 3], [7]]
-    assert _norm(combination_sum([2, 3, 5], 8)) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
-    assert combination_sum([2], 1) == []
-    assert _norm(combination_sum([1], 2)) == [[1, 1]]
-    assert _norm(combination_sum([7, 3, 2], 7)) == [[2, 2, 3], [7]]
-    assert len(combination_sum([2, 3, 5, 7], 20)) == 18
+    assert _norm(combination_sum([2, 3, 6, 7], 7)) == [[2, 2, 3], [7]], 'Check: _norm(combination_sum([2, 3, 6, 7], 7)) == [[2, 2, 3], [7]]'
+    assert _norm(combination_sum([2, 3, 5], 8)) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]], 'Check: _norm(combination_sum([2, 3, 5], 8)) == [[2, 2, 2, 2], [2, 3, 3], [3, 5]]'
+    assert combination_sum([2], 1) == [], 'Check: combination_sum([2], 1) == []'
+    assert _norm(combination_sum([1], 2)) == [[1, 1]], 'Check: _norm(combination_sum([1], 2)) == [[1, 1]]'
+    assert _norm(combination_sum([7, 3, 2], 7)) == [[2, 2, 3], [7]], 'Check: _norm(combination_sum([7, 3, 2], 7)) == [[2, 2, 3], [7]]'
+    assert len(combination_sum([2, 3, 5, 7], 20)) == 18, 'Check: len(combination_sum([2, 3, 5, 7], 20)) == 18'
     print("ok")

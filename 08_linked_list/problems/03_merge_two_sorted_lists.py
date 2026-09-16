@@ -59,11 +59,11 @@ def merge_two_lists(list1: ListNode | None, list2: ListNode | None) -> ListNode 
 
 
 if __name__ == "__main__":
-    assert to_list(merge_two_lists(from_list([1, 2, 4]), from_list([1, 3, 4]))) == [1, 1, 2, 3, 4, 4]
-    assert merge_two_lists(None, None) is None
-    assert to_list(merge_two_lists(None, from_list([0]))) == [0]
-    assert to_list(merge_two_lists(from_list([5]), None)) == [5]
-    assert to_list(merge_two_lists(from_list([1, 2, 3]), from_list([4, 5]))) == [1, 2, 3, 4, 5]
-    assert to_list(merge_two_lists(from_list([4, 5]), from_list([1, 2, 3]))) == [1, 2, 3, 4, 5]
-    assert to_list(merge_two_lists(from_list([-3, 0]), from_list([-5, 7]))) == [-5, -3, 0, 7]
+    assert to_list(merge_two_lists(from_list([1, 2, 4]), from_list([1, 3, 4]))) == [1, 1, 2, 3, 4, 4], 'Check: to_list(merge_two_lists(from_list([1, 2, 4]), from_list([1, 3, 4]))) == [1, 1, 2, 3, 4, 4]'
+    assert merge_two_lists(None, None) is None, 'Check: merge_two_lists(None, None) is None'
+    assert to_list(merge_two_lists(None, from_list([0]))) == [0], 'Check: to_list(merge_two_lists(None, from_list([0]))) == [0]'
+    assert to_list(merge_two_lists(from_list([5]), None)) == [5], 'Check: to_list(merge_two_lists(from_list([5]), None)) == [5]'
+    assert to_list(merge_two_lists(from_list([1, 2, 3]), from_list([4, 5]))) == [1, 2, 3, 4, 5], 'Check: to_list(merge_two_lists(from_list([1, 2, 3]), from_list([4, 5]))) == [1, 2, 3, 4, 5]'
+    assert to_list(merge_two_lists(from_list([4, 5]), from_list([1, 2, 3]))) == [1, 2, 3, 4, 5], 'Check: to_list(merge_two_lists(from_list([4, 5]), from_list([1, 2, 3]))) == [1, 2, 3, 4, 5]'
+    assert to_list(merge_two_lists(from_list([-3, 0]), from_list([-5, 7]))) == [-5, -3, 0, 7], 'Check: to_list(merge_two_lists(from_list([-3, 0]), from_list([-5, 7]))) == [-5, -3, 0, 7]'
     print("ok")

@@ -1,49 +1,50 @@
-# Phase 05: Hashing
+# Hashing: remember what you have seen
 
-**Goal:** reach for a dict or set whenever a problem asks "have I seen this?" or "how many of each?".
+[Start here](../README.md) · [Learning path](../ROADMAP.md) · [Checkpoint](CHECKPOINT.md)
 
-## Key idea
-A dict maps a key to a value. A set only remembers which keys exist.
-Both answer "is this here?" in O(1), so one pass over the data replaces a nested loop.
-Keys must be unchangeable: use a tuple or string, never a list.
+**Before this lesson:** Chapter 00 dictionaries/sets; prefix sums from chapter 04 for the later subarray question.
 
-## Cheat sheet
-```python
-from collections import Counter, defaultdict
-seen = {}                              # "have I seen the partner?"
-for i, x in enumerate(nums):
-    if target - x in seen: return [seen[target - x], i]
-    seen[x] = i                        # check first, then insert
-counts = Counter(s)                    # how many of each; missing key reads as 0
-Counter(s) == Counter(t)               # same letters, same amounts
-groups = defaultdict(list)             # group by a shared key
-groups["".join(sorted(w))].append(w)   # anagrams share a sorted key
-prefix = defaultdict(int); prefix[0] = 1   # count subarrays with sum k
-cur = ans = 0
-for x in nums:
-    cur += x; ans += prefix[cur - k]; prefix[cur] += 1
+**Today:** understand one idea, trace one example, then attempt one function. Reading the entire exercise list is optional.
+
+## The theory
+
+A **hash table** maps a hashable key to a stored location. A dictionary stores associated values; a set stores membership. Average lookup, insertion, and deletion are O(1), while worst-case collisions can be slower. Extra memory buys less repeated searching.
+
+Decide what your key represents before coding. It might be a value already visited, a character frequency, or a normalized description of a group. Equal group descriptions must produce equal keys. A tuple of counts or a sorted representation can be hashable; a mutable list cannot be a dictionary key.
+
+When solving a pair problem, the current item may need information from earlier items. The order of checking and recording matters because a single item may not be reused. For frequency problems, membership alone is insufficient: counts distinguish one occurrence from several.
+
+A **prefix sum plus frequency map** can count earlier boundaries that would form a target sum, including when numbers are negative. Bidirectional mappings matter when a relation must be one-to-one. A randomized collection can combine list indexing with a map of positions, but deletion must keep both structures consistent.
+
+## Walk through a small example
+
+Scan badge IDs ["A", "C", "A"]. Before the first A the seen set is empty. After it, {A}; after C, {A, C}. At the last A, membership tells you it appeared earlier. This teaches the meaning of “seen” without writing the exercise implementation.
+
+## Watch for
+
+Using a set when frequency matters; mutating the mapping before asking about earlier items; assuming a dictionary can use a list as a key.
+
+## Your next small step
+
+Open [contains duplicate](problems/02_contains_duplicate.py). Read its input/output contract before the hints. Write your own trace, then implement one function.
+
+```bash
+python learn.py check 05/02
 ```
 
-## When you see... use...
-- "two numbers that add up to X" -> dict of seen values
-- "count / most frequent / anagram" -> Counter
-- "group items that are the same in some way" -> defaultdict(list) with a shared key
-- "subarray with sum k" (negatives allowed) -> prefix sum + dict
-- "O(1) insert, delete, and random pick" -> list + dict, swap with last to delete
+Run commands from the repository root. After the code passes, cover it and explain the idea; a green test alone does not prove understanding. Try the [checkpoint](CHECKPOINT.md) before moving on.
 
-## Common mistakes
-- Reading `d[key]` on a defaultdict creates the key. Use `key in d` to just check.
-- Using a list as a dict key. Convert to a tuple first.
-- Two Sum: inserting before checking makes `[3, 3]` pair with itself.
-- Forgetting `prefix[0] = 1`, which drops subarrays that start at index 0.
+<details>
+<summary>Browse all exercises in this chapter when you need more practice</summary>
 
-## Problems
-- `01_two_sum.py` — dict of seen values, one pass
-- `02_contains_duplicate.py` — set membership
-- `03_valid_anagram.py` — compare two Counters
-- `04_group_anagrams.py` — group by sorted-letters key
-- `05_top_k_frequent.py` — Counter, then pick the biggest counts
-- `06_longest_consecutive_sequence.py` — set, only count up from a chain start
-- `07_subarray_sum_equals_k.py` — prefix sum + dict
-- `08_isomorphic_strings.py` — two dicts, one per direction
-- `09_insert_delete_getrandom_o1.py` — list + dict, swap with last
+- [Two Sum](problems/01_two_sum.py)
+- [Contains Duplicate](problems/02_contains_duplicate.py)
+- [Valid Anagram](problems/03_valid_anagram.py)
+- [Group Anagrams](problems/04_group_anagrams.py)
+- [Top K Frequent Elements](problems/05_top_k_frequent.py)
+- [Longest Consecutive Sequence](problems/06_longest_consecutive_sequence.py)
+- [Subarray Sum Equals K](problems/07_subarray_sum_equals_k.py)
+- [Isomorphic Strings](problems/08_isomorphic_strings.py)
+- [Insert Delete GetRandom O(1)](problems/09_insert_delete_getrandom_o1.py)
+
+</details>

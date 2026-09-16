@@ -38,21 +38,21 @@ class NumArray:
 
 if __name__ == "__main__":
     a = NumArray([1, 3, 5])
-    assert a.sum_range(0, 2) == 9
+    assert a.sum_range(0, 2) == 9, 'Check: a.sum_range(0, 2) == 9'
     a.update(1, 2)
-    assert a.sum_range(0, 2) == 8
-    assert a.sum_range(1, 1) == 2
-    assert a.sum_range(2, 2) == 5
+    assert a.sum_range(0, 2) == 8, 'Check: a.sum_range(0, 2) == 8'
+    assert a.sum_range(1, 1) == 2, 'Check: a.sum_range(1, 1) == 2'
+    assert a.sum_range(2, 2) == 5, 'Check: a.sum_range(2, 2) == 5'
     b = NumArray([7])
-    assert b.sum_range(0, 0) == 7
+    assert b.sum_range(0, 0) == 7, 'Check: b.sum_range(0, 0) == 7'
     b.update(0, -3)
-    assert b.sum_range(0, 0) == -3
+    assert b.sum_range(0, 0) == -3, 'Check: b.sum_range(0, 0) == -3'
     c = NumArray([0, 0, 0, 0, 0, 0, 0, 0])
     c.update(7, 10)
     c.update(0, 1)
-    assert c.sum_range(0, 7) == 11
-    assert c.sum_range(1, 6) == 0
-    assert c.sum_range(7, 7) == 10
+    assert c.sum_range(0, 7) == 11, 'Check: c.sum_range(0, 7) == 11'
+    assert c.sum_range(1, 6) == 0, 'Check: c.sum_range(1, 6) == 0'
+    assert c.sum_range(7, 7) == 10, 'Check: c.sum_range(7, 7) == 10'
     c.update(7, 4)
-    assert c.sum_range(3, 7) == 4
+    assert c.sum_range(3, 7) == 4, 'Check: c.sum_range(3, 7) == 4'
     print("ok")

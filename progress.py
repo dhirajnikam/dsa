@@ -1,26 +1,39 @@
-"""Score yourself 0..100. Runs every problems/*.py and counts the ones that print ok.
+"""Show one next step; opt into a chapter or full check with 05 or --all."""
+import argparse
+from learn import ROOT, exercises, read_state, record_pass, run_check, save_state, show_task
 
-    python progress.py        # all phases
-    python progress.py 05     # one phase (prefix match on folder name)
-"""
-import pathlib
-import subprocess
-import sys
 
-ROOT = pathlib.Path(__file__).parent
-prefix = sys.argv[1] if len(sys.argv) > 1 else ""
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('chapter', nargs='?', help='chapter number, for example 05')
+    parser.add_argument('--all', action='store_true', help='run every exercise; may take several minutes')
+    args = parser.parse_args()
+    if args.chapter and (len(args.chapter) != 2 or not args.chapter.isdigit()):
+        parser.error('Use a two-digit chapter such as 05.')
+    try:
+        state = read_state()
+        if not args.chapter and not args.all:
+            show_task(state)
+            print(f'\n{len(state)} exercises have passed checks. This is practice history, not a readiness score.')
+            return 0
+        paths = [p for p in exercises() if not args.chapter or p.parent.parent.name.startswith(args.chapter + '_')]
+        if not paths:
+            parser.error('No such chapter. Choose 00 through 17.')
+        passed = 0
+        for p in paths:
+            ok, message = run_check(p)
+            key = p.relative_to(ROOT).as_posix()
+            print(f'{"PASS" if ok else "PRACTISE"} {key}: {message}', flush=True)
+            if ok:
+                record_pass(state, key)
+                passed += 1
+        save_state(state)
+        print(f'\n{passed}/{len(paths)} files passed. Choose one next step, not all unfinished files.')
+        return 0 if passed == len(paths) else 1
+    except (ValueError, OSError) as error:
+        print(error)
+        return 2
 
-total = passed = 0
-for phase in sorted(p for p in ROOT.iterdir() if p.is_dir() and p.name.startswith(prefix) and p.name[:2].isdigit()):
-    files = sorted((phase / "problems").glob("*.py"))
-    ok = 0
-    for f in files:
-        r = subprocess.run([sys.executable, f], capture_output=True, text=True, timeout=30)
-        ok += r.returncode == 0 and r.stdout.strip().endswith("ok")
-    total += len(files)
-    passed += ok
-    bar = "#" * ok + "." * (len(files) - ok)
-    print(f"{phase.name:<35} {ok:>3}/{len(files):<3} {bar}")
 
-score = round(100 * passed / total) if total else 0
-print(f"\nSCORE: {score}/100  ({passed}/{total} problems solved)")
+if __name__ == '__main__':
+    raise SystemExit(main())

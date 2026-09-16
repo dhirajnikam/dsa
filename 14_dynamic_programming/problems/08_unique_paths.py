@@ -28,12 +28,12 @@ def unique_paths(m: int, n: int) -> int:
 
 
 if __name__ == "__main__":
-    assert unique_paths(3, 7) == 28
-    assert unique_paths(3, 2) == 3
-    assert unique_paths(1, 1) == 1
-    assert unique_paths(1, 10) == 1
-    assert unique_paths(10, 1) == 1
-    assert unique_paths(2, 2) == 2
-    assert unique_paths(10, 10) == 48620
-    assert unique_paths(23, 12) == 193536720
+    assert unique_paths(3, 7) == 28, 'Check: unique_paths(3, 7) == 28'
+    assert unique_paths(3, 2) == 3, 'Check: unique_paths(3, 2) == 3'
+    assert unique_paths(1, 1) == 1, 'Check: unique_paths(1, 1) == 1'
+    assert unique_paths(1, 10) == 1, 'Check: unique_paths(1, 10) == 1'
+    assert unique_paths(10, 1) == 1, 'Check: unique_paths(10, 1) == 1'
+    assert unique_paths(2, 2) == 2, 'Check: unique_paths(2, 2) == 2'
+    assert unique_paths(10, 10) == 48620, 'Check: unique_paths(10, 10) == 48620'
+    assert unique_paths(23, 12) == 193536720, 'Check: unique_paths(23, 12) == 193536720'
     print("ok")
