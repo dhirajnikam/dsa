@@ -56,9 +56,9 @@ have even less time, do chapters 00 to 10, then 14 and 15. Never skip 14 for Ama
 Most people fail interview prep not because the material is hard but because they study the
 way school taught them: read, nod, move on. Here is what actually works, and why.
 
-- **Every lesson starts with "why."** Each chapter opens with where the idea lives in real
-  Google and Amazon systems, an everyday analogy, and how it works in plain words. Your brain
-  files new ideas next to things it already knows. Give it the hook first and the details stick.
+- **Every lesson starts with a story.** Your brain files new ideas next to things it already
+  knows. A party with a notepad is a hash map. Ripples in a pond are breadth-first search. Give
+  it the picture first and the code sticks.
 - **Recall beats recognition.** Reading a solution and thinking "yes, obvious" is recognition.
   Producing it with the book closed is recall. Interviews test recall. So does this course:
   the exercises have no solutions in view, and the checker tells you honestly where you stand.
@@ -72,25 +72,20 @@ way school taught them: read, nod, move on. Here is what actually works, and why
 - **Small wins, daily.** One problem solved cold is a real win. Chase the streak of daily
   sessions, not the count of problems. Motivation follows progress, not the other way around.
 
-Each lesson also tells you what learning that chapter will *feel* like, because knowing that
-"this is the part where everyone feels lost" is the difference between pushing through and
-quitting.
-
 ## How one study session works
 
 Every chapter has three files:
 
-- `LESSON.md` has two parts. **Part 1 · From zero** explains the idea in plain language: a story
-  you already understand, the same story with small numbers, a glossary of every jargon word,
-  "try it in your head" questions with hidden answers, and the confusions everyone has, cleared.
-  **Part 2 · The reference** is the worked anchor problem, the code templates, recognition cues,
-  and pitfalls. Read Part 1 once. Read Part 2 for years.
+- `LESSON.md` is short on purpose, about a 10-minute read. One story that is secretly the
+  algorithm, the same story with small numbers, one fully worked problem, the code templates to
+  memorize, a "when you see X, think Y" table, the words you will hear, and the mistakes everyone
+  makes once. Read it once slowly. Come back to the templates table whenever you forget.
 - `exercises.py` has 8 to 21 problems as empty functions with tests. Run it: `python exercises.py`.
 - `solutions.py` has reference answers. It is locked by honor, not by code.
 
 The loop, every day:
 
-1. **Read** Part 1 of the lesson if the topic is new, otherwise one Part 2 section or the template you keep forgetting.
+1. **Read** the lesson if the topic is new, otherwise just the template you keep forgetting.
 2. **Pick one problem.** Read it aloud. Write down two examples and one edge case before coding.
 3. **Set a timer for 30 minutes.** Talk out loud as if someone is listening. Yes, alone, out loud.
 4. **Run the tests.** `python exercises.py` prints PASS, FAIL, or TODO per problem.
